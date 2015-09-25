@@ -5,6 +5,9 @@ class TextureManager
 {
 public:
 	TextureManager();
+
+	void loadTextures();
+
 	~TextureManager();
 };
 

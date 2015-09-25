@@ -9,3 +9,8 @@ TextureManager::TextureManager()
 TextureManager::~TextureManager()
 {
 }
+
+void TextureManager::loadTextures()
+{
+
+}
