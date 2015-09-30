@@ -1,4 +1,6 @@
+#include <iostream>
 #include "TextureManager.h"
+
 
 
 TextureManager::TextureManager()

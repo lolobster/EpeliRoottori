@@ -15,8 +15,12 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform.hpp>
 
+// SOIL
+#include <SOIL/SOIL.h>
+
 // Ikkunan koko
 const GLuint WIDTH = 1200, HEIGHT = 800;
+
 
 int main(void)
 {
