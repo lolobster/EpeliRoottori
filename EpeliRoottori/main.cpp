@@ -37,7 +37,9 @@ int main(void)
 	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "EPELIROOTTORI", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
 
-	// :DDDDDDDDDDD
-	// haistappa eemeli :DDD
-	// pasha :DDDDDDDDDDDDD
+	while (!glfwWindowShouldClose(window))
+	{
+		glfwSwapBuffers(window);
+		glfwPollEvents();
+	}
 }
