@@ -1,12 +1,10 @@
 #include "Color.h"
 
+
 Color::Color()
 {
-	// Defaults to white
-	r = 255;
-	b = 255;
-	g = 255;
-	a = 255;
+	// defaulted to white
+	r = b = g = a = 255;
 }
 
 Color::Color(float red, float blue, float green, float alpha)
@@ -24,7 +22,7 @@ Color::~Color()
 
 bool Color::operator==(const Color &color) const
 {
-	return r == color.r && b == color.b && g == color.g  && a == color.a;
+	return r == color.r && b == color.b && g == color.g &&  a == color.a;
 }
 
 bool Color::operator!=(const Color &color) const
@@ -47,7 +45,7 @@ Color Color::operator/(float divider) const
 	return Color(r / divider, b / divider, g / divider, a / divider);
 }
 
-Color Color::operator*(float scale) const
+Color Color::operator*(float scaleFactor) const
 {
-	return Color(r * scale, b * scale, g * scale, a * scale);
+	return Color(r * scaleFactor, b * scaleFactor, g * scaleFactor, a * scaleFactor);
 }

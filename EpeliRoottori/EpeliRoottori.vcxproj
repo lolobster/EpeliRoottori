@@ -71,6 +71,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AnimationManager.cpp" />
+    <ClCompile Include="Color.cpp" />
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MathClass.cpp" />
@@ -81,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationManager.h" />
+    <ClInclude Include="Color.h" />
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="MathClass.h" />
     <ClInclude Include="Renderer.h" />

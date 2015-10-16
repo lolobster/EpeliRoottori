@@ -13,7 +13,7 @@ public:
 	Color operator-(const Color &c) const;
 	Color operator+(const Color &c) const;
 	Color operator/(float divider) const;
-	Color operator*(float scale) const;
+	Color operator*(float scaleFactor) const;
 
 	float r, b, g, a;
 };
