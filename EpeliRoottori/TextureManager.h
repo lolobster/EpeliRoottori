@@ -15,13 +15,16 @@ public:
 
 	void loadTextures(const char *filename);
 	void setTexture();
-	// void deleteTexture();	// tarvihteeko jos destruktorissa
-								// voi vapauttaa textuurit?
+	// void deleteTexture();	// tarvihteeko jos destruktorissa voi vapauttaa textuurit?
+	void texGLInit();
 
 	~TextureManager();
 private:
 	const char *filename;
-
+	std::vector<unsigned char> png;
+	std::vector<unsigned char> texture;
+	unsigned width, height;
+	GLuint textureID;
 };
 
 #endif
