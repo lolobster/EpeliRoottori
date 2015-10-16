@@ -90,6 +90,10 @@
     <ClInclude Include="TextManager.h" />
     <ClInclude Include="TextureManager.h" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\data\FragmentShader.glfs" />
+    <None Include="..\data\VertexShader.glvs" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
