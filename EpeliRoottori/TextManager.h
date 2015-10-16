@@ -7,13 +7,16 @@
 #include <fstream>
 #include <vector>
 
+#include <ft2build.h>
+#include FT_FREETYPE_H
+
 class TextManager
 {
 public:
 	TextManager();
 	~TextManager();
 
-	void LoadFont(std::string filepath);
+	void LoadFont(const char *filepath);
 	void SetCharacterSize(float size);
 	void SetColor(float red, float blue, float green, float alpha);
 	void SetText(std::string message);

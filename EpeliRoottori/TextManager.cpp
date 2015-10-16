@@ -11,20 +11,25 @@ TextManager::~TextManager()
 
 }
 
-void TextManager::LoadFont(std::string filepath)
+void TextManager::LoadFont(const char *filepath)
 {
-	std::ifstream file;
-	file.open(filepath);
-	if (file.is_open())
-	{
-		while (!file.eof())
-		{
+	FT_Library library;
+	FT_Face face;
+	FT_Error error;
 
-		}
-	}
-	else
+	error = FT_Init_FreeType(&library);
+	if (error)
 	{
-		std::cout << "The font file was not found." << std::endl;
+		std::cout << "An error occurred during library initialization." << std::endl;
+	}
+	error = FT_New_Face(library, filepath, 0, &face);
+	if (error == FT_Err_Unknown_File_Format)
+	{
+		std::cout << "The font file is unsupported." << std::endl;
+	}
+	else if (error)
+	{
+		std::cout << "The font file could not be read." << std::endl;
 	}
 }
 
