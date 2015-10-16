@@ -18,9 +18,6 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform.hpp>
 
-// SOIL
-#include <SOIL/SOIL.h>
-
 
 class Renderer
 {

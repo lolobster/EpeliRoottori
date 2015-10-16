@@ -5,8 +5,6 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
 
-// SOIL tekstuureita varten
-#include <SOIL\SOIL.h>
 
 class TextureManager
 {
