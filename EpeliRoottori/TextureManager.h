@@ -5,22 +5,23 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
 
+// lodePNG
+#include "lodepng.h"
 
 class TextureManager
 {
 public:
 	TextureManager();
 
-	void loadTextures(unsigned char *image, int *width, int *height);
+	void loadTextures(const char *filename);
 	void setTexture();
 	// void deleteTexture();	// tarvihteeko jos destruktorissa
 								// voi vapauttaa textuurit?
 
 	~TextureManager();
 private:
-	unsigned char *image;
-	int *width;
-	int *height;
+	const char *filename;
+
 };
 
 #endif
