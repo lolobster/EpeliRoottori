@@ -10,17 +10,19 @@ Renderer::~Renderer()
 {
 }
 
-bool Renderer::Init(GLFWwindow* win)
+bool Renderer::Init()
 {
+	glewInit();
 	//luodaan ohjelma
 	ProgramID = glCreateProgram();
 
 	//ladataan vertex Shader
-	VertexShader = LoadShaderFromFile("EpeliRoottori\vertexshader.glvs", GL_VERTEX_SHADER);
+	VertexShader = LoadShaderFromFile("../data/VertexShader.glvs", GL_VERTEX_SHADER);
 
 	//tarkastetaan errorit
 	if (VertexShader == NULL)
 	{
+		std::cout << "error while loading VertexShader" << VertexShader << "\n on line " <<__LINE__ <<std::endl;
 		glDeleteProgram(ProgramID);
 		ProgramID = 0;
 		return false;
@@ -30,11 +32,12 @@ bool Renderer::Init(GLFWwindow* win)
 	glAttachShader(ProgramID, VertexShader);
 
 	//ladataan Fragment Shader
-	FragmentShader = LoadShaderFromFile("EpeliRoottori\FragmentShader.glfs", GL_FRAGMENT_SHADER);
+	FragmentShader = LoadShaderFromFile("../data/FragmentShader.glfs", GL_FRAGMENT_SHADER);
 
 	//tarkastetaan errorit
 	if (FragmentShader == NULL)
 	{
+		std::cout << "error while loading VertexShader" << FragmentShader << "\n on line " << __LINE__ << std::endl;
 		glDeleteShader(VertexShader);
 		glDeleteProgram(ProgramID);
 		ProgramID = NULL;
@@ -68,9 +71,9 @@ bool Renderer::Init(GLFWwindow* win)
 	return true;
 }
 
-GLuint Renderer::LoadShaderFromFile(std::string filepath, GLenum ShaderType)
+GLuint Renderer::LoadShaderFromFile(const std::string filepath, GLenum ShaderType)
 {
-	GLuint ShaderID = 0;
+	GLuint ShaderID = NULL;
 	std::string ShaderString;
 	std::ifstream SourceFile(filepath.c_str());
 
@@ -101,13 +104,18 @@ GLuint Renderer::LoadShaderFromFile(std::string filepath, GLenum ShaderType)
 	{
 		std::cout << "Unable to compile shader \n" << ShaderID << "\n Source: \n" << ShaderSource << std::endl;
 		glDeleteShader(ShaderID);
-		ShaderID = 0;
+		ShaderID = NULL;
 	}
-	else
-	{
-		std::cout << "unable to open shader file" << filepath.c_str() << std::endl;
-	}
+	//else
+	//{
+	//	std::cout << "unable to open shader file" << filepath.c_str() << std::endl;
+	//}
 
 	return ShaderID;
 
+}
+
+void Renderer::OurShader()
+{
+	glUseProgram(this->ProgramID);
 }
