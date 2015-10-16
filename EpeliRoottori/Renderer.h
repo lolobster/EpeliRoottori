@@ -26,14 +26,15 @@ public:
 	~Renderer();
 
 	void draw();
-	void Init(GLFWwindow* win);
+	bool Init(GLFWwindow* win);
 	void Uninit(void);
 	void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
-	void LoadShaderFromFile(std::string filepath, GLenum ShaderType);
+	GLuint LoadShaderFromFile(std::string filepath, GLenum ShaderType);
+
 
 
 private:
-	GLuint Program;
+	GLuint ProgramID;
 	GLuint MatrixID;
 	GLuint VertexShader;
 	GLuint FragmentShader;
