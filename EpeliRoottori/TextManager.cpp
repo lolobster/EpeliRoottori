@@ -3,11 +3,7 @@
 
 TextManager::TextManager()
 {
-	// Defaults to an empty message with white color and charactersize of 12
 
-	text = "";
-	color.resize(4,255);
-	characterSize = 12.0f;
 }
 
 TextManager::~TextManager()
@@ -37,15 +33,12 @@ void TextManager::SetCharacterSize(float size)
 	characterSize = size;
 }
 
-void TextManager::SetColor(int red, int blue, int green, int opacity)
+void TextManager::SetColor(float red, float blue, float green, float alpha)
 {
-	// Varmaan kirjoittelen vielä värille oman luokan
-	// Sen avulla voi sitten muokata yhtä väriarvoa kerrallaan, yms.
-
-	color[0] = red;
-	color[1] = blue;
-	color[2] = green;
-	color[4] = opacity;
+	color.r = red;
+	color.b = blue;
+	color.g = green;
+	color.a = alpha;
 }
 
 void TextManager::SetText(std::string message)
@@ -58,7 +51,7 @@ float TextManager::GetCharacterSize()
 	return characterSize;
 }
 
-std::vector<int> TextManager::GetColor()
+Color TextManager::GetColor()
 {
 	return color;
 }

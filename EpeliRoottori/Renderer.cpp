@@ -10,59 +10,104 @@ Renderer::~Renderer()
 {
 }
 
-void Renderer::Init(GLFWwindow* win)
+bool Renderer::Init(GLFWwindow* win)
 {
-	Program = glCreateProgram();
+	//luodaan ohjelma
+	ProgramID = glCreateProgram();
 
-	//VertexShader = LoadShaderFromFile("")
+	//ladataan vertex Shader
+	VertexShader = LoadShaderFromFile("EpeliRoottori\vertexshader.glvs", GL_VERTEX_SHADER);
 
-	//glAttachShader(Program, Vertexshader); <--- tarvii vertexshaderin 
-	//glAttachShader(Program, Fragmentshader); <--- tarvii fragmentshadetrin
+	//tarkastetaan errorit
+	if (VertexShader == NULL)
+	{
+		glDeleteProgram(ProgramID);
+		ProgramID = 0;
+		return false;
+	}
 
-	//MatrixID = glGetUniformLocation(Program, "MVP"); //vähän kyssäri mitä tämän pitäisi tehdä
+	//Vertex shaderin kiinnitys ohjelmaan
+	glAttachShader(ProgramID, VertexShader);
 
+	//ladataan Fragment Shader
+	FragmentShader = LoadShaderFromFile("EpeliRoottori\FragmentShader.glfs", GL_FRAGMENT_SHADER);
 
+	//tarkastetaan errorit
+	if (FragmentShader == NULL)
+	{
+		glDeleteShader(VertexShader);
+		glDeleteProgram(ProgramID);
+		ProgramID = NULL;
+		return false;
+	}
 
+	//Fragment Shaderin kiinnitys ohjelmaan
+	glAttachShader(ProgramID, FragmentShader);
 
-	/*GLFWwindow* window = win;
-	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	//ohjelman linkkaus
+	glLinkProgram(ProgramID);
 
-	//load vertex shader
-	GLuint vertexShader = loadShaderFromFile();
+	//tarkastetaan errorit
+	GLint LinkSuccess = GL_TRUE;
+	glGetProgramiv(ProgramID, GL_LINK_STATUS, &LinkSuccess);
 
-	//GLuint programID = LoadShaderFromFile("VertexShader.vertexshader", "FragmentShader.fragmentshader");
-	GLuint MVP_MatrixID = glGetUniformLocation(programID, "MVP");
+	if (LinkSuccess != GL_TRUE)
+	{
+		std::cout << "error while linking program: " << ProgramID << std::endl;
+		glDeleteShader(VertexShader);
+		glDeleteShader(FragmentShader);
+		glDeleteProgram(ProgramID);
+		ProgramID = NULL;
+		return false;
+	}
 
-	glGenVertexArrays(1, &VertexArrayID);
+	//poistetaan turhat shader referenssit, GL säilyttää jos ovat ohjelman käytössä
+	glDeleteShader(VertexShader);
+	glDeleteShader(FragmentShader);
 
-	TextureID = glGetUniformLocation(programID, "myTextureSampler");
-	Texture = loadBMP_custom("./pointsprite.bmp");
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glDisable(GL_MULTISAMPLE);
-
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-	*/
+	return true;
 }
 
-void Renderer::LoadShaderFromFile(std::string filepath, GLenum ShaderType)
+GLuint Renderer::LoadShaderFromFile(std::string filepath, GLenum ShaderType)
 {
 	GLuint ShaderID = 0;
-	std::string shaderString;
-	std::ifstream sourceFile(filepath.c_str());
+	std::string ShaderString;
+	std::ifstream SourceFile(filepath.c_str());
 
-	if (sourceFile)
+	if (SourceFile)
 	{
-
+		ShaderString.assign((std::istreambuf_iterator< char >(SourceFile)), std::istreambuf_iterator<char>());
 	}
 	else
 	{
 		std::cout << "unable to open source file" << std::endl;
 	}
 
+	//shaderille ID
+	ShaderID = glCreateShader(ShaderType);
 
+	//shaderin source
+	const GLchar* ShaderSource = ShaderString.c_str();
+	glShaderSource(ShaderID, 1, (const GLchar**)&ShaderSource, NULL);
 
+	//shaderin compilaus
+	glCompileShader(ShaderID);
+
+	//tarkastusta virheiden varalta
+	GLint ShaderCompiled = GL_FALSE;
+	glGetShaderiv(ShaderID, GL_COMPILE_STATUS, &ShaderCompiled);
+
+	if (ShaderCompiled != GL_TRUE)
+	{
+		std::cout << "Unable to compile shader \n" << ShaderID << "\n Source: \n" << ShaderSource << std::endl;
+		glDeleteShader(ShaderID);
+		ShaderID = 0;
+	}
+	else
+	{
+		std::cout << "unable to open shader file" << filepath.c_str() << std::endl;
+	}
+
+	return ShaderID;
 
 }
