@@ -1,17 +1,8 @@
 #include <iostream>
 #include "TextureManager.h"
 #include "Renderer.h"
+#include "Shader.h"
 
-
-/*
-struct TextureCache
-{
-	std::string filename;
-
-	GLuint width;
-	GLuint height;
-};
-*/
 
 TextureManager::TextureManager()
 {
@@ -35,7 +26,7 @@ void TextureManager::loadTextures(const char* filename)
 
 	if (error) // lataus ei onnistu --> virheilmotus
 	{
-		std::cout << "ei vittu lataa " << error << ": " << lodepng_error_text(error) << std::endl;
+		std::cout << "PNG load failed " << error << ": " << lodepng_error_text(error) << std::endl;
 	}
 
 	// pixelit on vektorissa "texture"
