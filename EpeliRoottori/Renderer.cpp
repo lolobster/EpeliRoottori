@@ -16,54 +16,37 @@ bool Renderer::Init()
 	//luodaan ohjelma
 	ProgramID = glCreateProgram();
 
-	try
-	{
 		//ladataan vertex Shader
-		VertexShader = LoadShaderFromFile("../data/VertexShader.glvs", GL_VERTEX_SHADER);
+		VertexShaderID = LoadShaderFromFile("../../data/VertexShader.glvs", GL_VERTEX_SHADER);
 
 		//tarkastetaan errorit
-		if (VertexShader == NULL)
+		if (VertexShaderID == NULL)
 		{
-			std::cout << "error while loading VertexShader" << VertexShader << "\n on line " << __LINE__ << std::endl;
+			std::cout << "error while loading VertexShader" << VertexShaderID << "\n on line " << __LINE__ << std::endl;
 			glDeleteProgram(ProgramID);
 			ProgramID = 0;
 			return false;
 		}
-	}
-	catch (std::ifstream::failure e)
-	{
-		std::cout << "ERROR WHILE LOADING VERTEX_SHADER!" << std::endl;
-	}
 
 
 	//Vertex shaderin kiinnitys ohjelmaan
-	glAttachShader(ProgramID, VertexShader);
+	glAttachShader(ProgramID, VertexShaderID);
 
-
-	try
-	{
 		//ladataan Fragment Shader
-		FragmentShader = LoadShaderFromFile("../data/FragmentShader.glfs", GL_FRAGMENT_SHADER);
+		FragmentShaderID = LoadShaderFromFile("../data/FragmentShader.glfs", GL_FRAGMENT_SHADER);
 
 		//tarkastetaan errorit
-		if (FragmentShader == NULL)
+		if (FragmentShaderID == NULL)
 		{
-			std::cout << "error while loading VertexShader" << FragmentShader << "\n on line " << __LINE__ << std::endl;
-			glDeleteShader(VertexShader);
+			std::cout << "error while loading VertexShader" << FragmentShaderID << "\n on line " << __LINE__ << std::endl;
+			glDeleteShader(VertexShaderID);
 			glDeleteProgram(ProgramID);
 			ProgramID = NULL;
 			return false;
 		}
-	}
-
-	catch (std::ifstream::failure e)
-	{
-		std::cout << "ERROR WHILE LOADING FRAGMENT_SHADER!" << std::endl;
-	}
-
 
 	//Fragment Shaderin kiinnitys ohjelmaan
-	glAttachShader(ProgramID, FragmentShader);
+	glAttachShader(ProgramID, FragmentShaderID);
 
 	//ohjelman linkkaus
 	glLinkProgram(ProgramID);
@@ -75,16 +58,16 @@ bool Renderer::Init()
 	if (LinkSuccess != GL_TRUE)
 	{
 		std::cout << "error while linking program: " << ProgramID << std::endl;
-		glDeleteShader(VertexShader);
-		glDeleteShader(FragmentShader);
+		glDeleteShader(VertexShaderID);
+		glDeleteShader(FragmentShaderID);
 		glDeleteProgram(ProgramID);
 		ProgramID = NULL;
 		return false;
 	}
 
-	//poistetaan turhat shader referenssit, GL säilyttää jos ovat ohjelman käytössä
-	glDeleteShader(VertexShader);
-	glDeleteShader(FragmentShader);
+	//poistetaan turhat shader referenssit, GL säilyttää ne automaattisesti mikäli ne ovat ohjelman käytössä
+	glDeleteShader(VertexShaderID);
+	glDeleteShader(FragmentShaderID);
 
 	return true;
 }

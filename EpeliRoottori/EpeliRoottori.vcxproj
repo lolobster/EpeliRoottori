@@ -91,6 +91,7 @@
     <ClInclude Include="Shader.h" />
     <ClInclude Include="TextManager.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\data\FragmentShader.glfs" />

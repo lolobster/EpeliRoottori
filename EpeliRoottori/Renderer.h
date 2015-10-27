@@ -38,8 +38,8 @@ public:
 private:
 	GLuint ProgramID;
 	GLuint MatrixID;
-	GLuint VertexShader;
-	GLuint FragmentShader;
+	GLuint VertexShaderID;
+	GLuint FragmentShaderID;
 
 };
 

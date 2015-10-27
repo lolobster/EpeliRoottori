@@ -5,7 +5,6 @@
 
 layout(location = VERTEX_POSITION) in vec3 vertexPosition_modelspace;
 uniform mat4 MVP;
-out vec4 vertexColor;
 
 /* system outputs
 vec4 gl_Position;
@@ -16,6 +15,6 @@ float gl_ClipDistance[];
 
 
 void main() {
-  gl_Position =  MVP * vec4(vertexPosition_modelspace,1);
-  vertexColor = vec4(0.5f, 0.0f, 0.0f, 1.0f);
+  gl_Position =  MVP * vec4(vertexPosition_modelspace, 1);  
 }
+
