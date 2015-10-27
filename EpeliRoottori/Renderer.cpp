@@ -16,33 +16,51 @@ bool Renderer::Init()
 	//luodaan ohjelma
 	ProgramID = glCreateProgram();
 
-	//ladataan vertex Shader
-	VertexShader = LoadShaderFromFile("../data/VertexShader.glvs", GL_VERTEX_SHADER);
-
-	//tarkastetaan errorit
-	if (VertexShader == NULL)
+	try
 	{
-		std::cout << "error while loading VertexShader" << VertexShader << "\n on line " <<__LINE__ <<std::endl;
-		glDeleteProgram(ProgramID);
-		ProgramID = 0;
-		return false;
+		//ladataan vertex Shader
+		VertexShader = LoadShaderFromFile("../data/VertexShader.glvs", GL_VERTEX_SHADER);
+
+		//tarkastetaan errorit
+		if (VertexShader == NULL)
+		{
+			std::cout << "error while loading VertexShader" << VertexShader << "\n on line " << __LINE__ << std::endl;
+			glDeleteProgram(ProgramID);
+			ProgramID = 0;
+			return false;
+		}
 	}
+	catch (std::ifstream::failure e)
+	{
+		std::cout << "ERROR WHILE LOADING VERTEX_SHADER!" << std::endl;
+	}
+
 
 	//Vertex shaderin kiinnitys ohjelmaan
 	glAttachShader(ProgramID, VertexShader);
 
-	//ladataan Fragment Shader
-	FragmentShader = LoadShaderFromFile("../data/FragmentShader.glfs", GL_FRAGMENT_SHADER);
 
-	//tarkastetaan errorit
-	if (FragmentShader == NULL)
+	try
 	{
-		std::cout << "error while loading VertexShader" << FragmentShader << "\n on line " << __LINE__ << std::endl;
-		glDeleteShader(VertexShader);
-		glDeleteProgram(ProgramID);
-		ProgramID = NULL;
-		return false;
+		//ladataan Fragment Shader
+		FragmentShader = LoadShaderFromFile("../data/FragmentShader.glfs", GL_FRAGMENT_SHADER);
+
+		//tarkastetaan errorit
+		if (FragmentShader == NULL)
+		{
+			std::cout << "error while loading VertexShader" << FragmentShader << "\n on line " << __LINE__ << std::endl;
+			glDeleteShader(VertexShader);
+			glDeleteProgram(ProgramID);
+			ProgramID = NULL;
+			return false;
+		}
 	}
+
+	catch (std::ifstream::failure e)
+	{
+		std::cout << "ERROR WHILE LOADING FRAGMENT_SHADER!" << std::endl;
+	}
+
 
 	//Fragment Shaderin kiinnitys ohjelmaan
 	glAttachShader(ProgramID, FragmentShader);
