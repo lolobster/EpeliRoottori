@@ -31,8 +31,6 @@ int main(void)
 {	
 
 	glfwInit();				// Initialisoidaan GLFW
-	
-
 
 	// GLFW perusasetukset
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 2);			// asetetaan OpenGL-
@@ -45,48 +43,63 @@ int main(void)
 	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "EPELIROOTTORI", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
 
+	glfwSetKeyCallback(window, key_callback);
+
+	glewExperimental = GL_TRUE;
+
 	glewInit();				// Initialisoidaan GLEW
 
-	//testground
-	/*
-	glfwSetKeyCallback(window, key_callback);
+	glViewport(0, 0, WIDTH, HEIGHT);
+
+	//testground	
+
+	Renderer render;
+
+	render.Init();
 
 	GLfloat vertices[] =
 	{
 		// Positions			 // Colors
-		0.5f, -0.5f, 0.0f,		 1.0f, 0.0f, 0.0f,  // Bottom Right
-		-0.5f, -0.5f, 0.0f,		 0.0f, 1.0f, 0.0f,  // Bottom Left
-		0.0f, 0.5f, 0.0f,		 0.0f, 0.0f, 1.0f   // Top
+		0.5f, -0.5f, 0.0f,		1.0f, 0.0f, 0.0f,  // Bottom Right
+		-0.5f, -0.5f, 0.0f,		0.0f, 1.0f, 0.0f,  // Bottom Left
+		0.0f, 0.5f, 0.0f,		0.0f, 0.0f, 1.0f   // Top
 
 	};
 
-	GLuint idices[] = {
+	GLuint indices[] = {
 		0, 1, 3, // first triangle
 		1, 2, 3  // second triangle
-	};	
+	};
 
-	GLuint VBO, VAO, EBO;	
+	GLuint VBO, VAO, EBO;
 	glGenVertexArrays(1, &VAO);
 	glGenBuffers(1, &VBO);
+	glGenBuffers(1, &EBO);
 	glBindVertexArray(VAO);
 
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	
-	*/
-	Renderer render;
 
-	render.Init();
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	glBindVertexArray(0);
+	//glEnableVertexAttribArray(0);
+	//glBindBuffer(GL_ARRAY_BUFFER, 0);
+	//glBindVertexArray(0);
+	
+
 	//end of testground
 
 
 	while (!glfwWindowShouldClose(window))
 	{
-		glfwSwapBuffers(window);
 		glfwPollEvents();
-
+	
 		//while loop testground
-		/*
+		
 		//render
 		//clear color buffer
 		glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
@@ -96,20 +109,25 @@ int main(void)
 		//draw triangle
 		render.OurShader();
 		glBindVertexArray(VAO);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		//draw elements
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		//glDrawArrays(GL_TRIANGLES, 0, 3);
 		glBindVertexArray(0);
-		*/
+		
 		//end of while loop testground
 
+		glfwSwapBuffers(window);
+	
+	
 	}
 
 	//testground stuff
-	/*
-	glDeleteVertexArrays(1, &VAO);
-	glCreateBuffers(1, &VBO);
-	glfwTerminate();
+	
+	//glDeleteVertexArrays(1, &VAO);
+	//glCreateBuffers(1, &VBO);
+	//glfwTerminate();
 	return 0;
-	*/
+	
 	//end of testground stuff
 
 
@@ -119,7 +137,7 @@ int main(void)
 	
 }
 
-/*
+
 void key_callback(GLFWwindow* Window, int Key, int ScanCode, int Action, int Mode)
 {
 	if (Key == GLFW_KEY_ESCAPE && Action == GLFW_PRESS)
@@ -127,4 +145,3 @@ void key_callback(GLFWwindow* Window, int Key, int ScanCode, int Action, int Mod
 		glfwSetWindowShouldClose(Window, GL_TRUE);
 	}
 }
-*/
