@@ -1,20 +1,30 @@
 #version 330 core
 
 //Defined also in vertexshader.h
-#define VERTEX_POSITION 0
+//#define VERTEX_POSITION 0
 
+layout(location = 0) in vec3 position;
+out vec4 vertexColor;
+
+void main()
+{
+gl_Position = vec4(position, 1.0);
+vertexColor = vec4(0.5f, 0.0f, 0.0f, 1.0f);
+}
+
+/*
 layout(location = VERTEX_POSITION) in vec3 vertexPosition_modelspace;
 uniform mat4 MVP;
 
-/* system outputs
+ system outputs
 vec4 gl_Position;
 float gl_PointSize;
 float gl_ClipDistance[];
-*/
+
 
 
 
 void main() {
   gl_Position =  MVP * vec4(vertexPosition_modelspace, 1);  
 }
-
+*/

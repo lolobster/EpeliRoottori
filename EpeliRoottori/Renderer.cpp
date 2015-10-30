@@ -17,7 +17,7 @@ bool Renderer::Init()
 	ProgramID = glCreateProgram();
 
 		//ladataan vertex Shader
-		VertexShaderID = LoadShaderFromFile("../../data/VertexShader.glvs", GL_VERTEX_SHADER);
+		VertexShaderID = LoadShaderFromFile("../data/VertexShader.glvs", GL_VERTEX_SHADER);
 
 		//tarkastetaan errorit
 		if (VertexShaderID == NULL)
