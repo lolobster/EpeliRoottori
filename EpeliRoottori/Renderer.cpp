@@ -17,7 +17,7 @@ bool Renderer::Init()
 	ProgramID = glCreateProgram();
 
 		//ladataan vertex Shader
-		VertexShaderID = LoadShaderFromFile("../../data/VertexShader.glvs", GL_VERTEX_SHADER);
+		VertexShaderID = LoadShaderFromFile("../data/VertexShader.glvs", GL_VERTEX_SHADER);
 
 		//tarkastetaan errorit
 		if (VertexShaderID == NULL)
@@ -38,7 +38,7 @@ bool Renderer::Init()
 		//tarkastetaan errorit
 		if (FragmentShaderID == NULL)
 		{
-			std::cout << "error while loading VertexShader" << FragmentShaderID << "\n on line " << __LINE__ << std::endl;
+			std::cout << "error while loading FragmentShader" << FragmentShaderID << "\n on line " << __LINE__ << std::endl;
 			glDeleteShader(VertexShaderID);
 			glDeleteProgram(ProgramID);
 			ProgramID = NULL;
@@ -116,7 +116,18 @@ GLuint Renderer::LoadShaderFromFile(const std::string filepath, GLenum ShaderTyp
 
 }
 
-void Renderer::OurShader()
+void Renderer::Use()
 {
 	glUseProgram(this->ProgramID);
+	//return 
+}
+
+//GLuint Renderer::UseShader()
+//{
+//	glUseProgram(this->ProgramID);
+//}
+
+GLuint Renderer::GetShaderProgram()
+{
+	return ProgramID;
 }

@@ -1,29 +1,15 @@
 #version 330 core
-
-uniform sampler2D myTextureSampler; // Texture data
-/*system inputs
-in vec4 gl_FragCoord;
-in bool gl_FrontFacing;
-in vec2 gl_PointCoord;
-*/
-
-in vec4 vertexColor;
-out vec4 color; // Output data
-
 #define EPS 0.001
 
-/*
-void main(){
-  color.rgb = texture(myTextureSampler, vec2(gl_PointCoord.x, -gl_PointCoord.y)).rgb;
-  if(color.r>(1.0-EPS) && color.g<EPS && color.b<EPS) {
-    color.a=0.0;
-  } else {
-    color.a=1.0;
-  }
-}
-*/
+uniform sampler2D myTextureSampler; // Texture data
+
+out vec4 color; // Output data
+uniform vec4 ourColor;
+
+
+
 
 void main()
 {
-color = vertexColor;
+color = ourColor;
 }
