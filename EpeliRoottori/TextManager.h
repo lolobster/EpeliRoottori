@@ -26,6 +26,9 @@ public:
 
 private:
 	// Defaults to an empty message with white color and charactersize of 12
+	FT_Library library;
+	FT_Face face;
+	FT_Error error;
 	std::string text = "";
 	Color color;
 	float characterSize = 12.0f;
