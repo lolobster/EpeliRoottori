@@ -1,19 +1,40 @@
 #include "Camera.h"
 
 
-Camera::Camera(vec3 camPos, float camRotate, float camScale)
+Camera::Camera(float camRotate, float camScale)
 {
-	camPos.x = 100;
-	camPos.y = 100;
-	camPos.z = 0;
-
 	camRotate = 0;
 	camScale = 1;
+
+	//initialize();
 }
 
 
 Camera::~Camera()
 {
+}
+/*
+void Camera::initialize(void)
+{
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glTranslatef(camPos.x, camPos.y, camPos.z);
+	gluPerspective(70.0f, 800.0f / 600.0f, 1.0f, 10000.0f);
+	gluLookAt(0.0f, 6000.0f, 0.0f,
+		0.0f, 0.0f, -1.0f,
+		0.0f, 1.0f, 0.0f);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	glEnable(GL_DEPTH_TEST);
+	glDepthFunc(GL_LEQUAL);
+}
+
+mat4 Camera::getViewMatrix()
+{
+
+	gluLookAt(*camPos, *camPos + target, up);
+
+	return view;
 }
 
 void Camera::setPosition(vec3 newPos, vec3 camPos)
@@ -35,3 +56,4 @@ void Camera::setRotation(float camRotate)
 {
 
 }
+*/
