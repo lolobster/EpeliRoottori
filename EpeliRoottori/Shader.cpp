@@ -107,10 +107,6 @@ GLuint Shader::LoadShaderFromFile(const std::string filepath, GLenum ShaderType)
 		glDeleteShader(ShaderID);
 		ShaderID = NULL;
 	}
-	//else
-	//{
-	//	std::cout << "unable to open shader file" << filepath.c_str() << std::endl;
-	//}
 
 	return ShaderID;
 
@@ -119,13 +115,7 @@ GLuint Shader::LoadShaderFromFile(const std::string filepath, GLenum ShaderType)
 void Shader::Use()
 {
 	glUseProgram(this->ProgramID);
-	//return 
 }
-
-//GLuint Renderer::UseShader()
-//{
-//	glUseProgram(this->ProgramID);
-//}
 
 GLuint Shader::GetShaderProgram()
 {

@@ -7,7 +7,6 @@ MathClass::MathClass()
 {
 }
 
-
 MathClass::~MathClass()
 {
 }

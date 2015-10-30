@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EpeliRoottori", "EpeliRoottori\EpeliRoottori.vcxproj", "{08D2ADCE-5811-4B6E-98BB-AA95EC5C1C18}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo", "Demo\Demo.vcxproj", "{EB973FDB-3B46-4594-8EA5-1564A2A31A7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{08D2ADCE-5811-4B6E-98BB-AA95EC5C1C18}.Debug|Win32.Build.0 = Debug|Win32
 		{08D2ADCE-5811-4B6E-98BB-AA95EC5C1C18}.Release|Win32.ActiveCfg = Release|Win32
 		{08D2ADCE-5811-4B6E-98BB-AA95EC5C1C18}.Release|Win32.Build.0 = Release|Win32
+		{EB973FDB-3B46-4594-8EA5-1564A2A31A7F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EB973FDB-3B46-4594-8EA5-1564A2A31A7F}.Debug|Win32.Build.0 = Debug|Win32
+		{EB973FDB-3B46-4594-8EA5-1564A2A31A7F}.Release|Win32.ActiveCfg = Release|Win32
+		{EB973FDB-3B46-4594-8EA5-1564A2A31A7F}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

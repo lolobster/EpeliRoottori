@@ -25,15 +25,12 @@ public:
 	Shader();
 	~Shader();
 
-	void Draw();
-
-	//initialisoi renderöinnin, pistä ohjelman alkuun
+	//initialisoi shaderit, pistä ohjelman alkuun
 	bool Init();
 	void Uninit(void);
 	void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
 	GLuint LoadShaderFromFile(const std::string filepath, GLenum ShaderType);
 	void Use();
-	//GLuint UseShader();
 	GLuint GetShaderProgram();
 
 
