@@ -17,6 +17,7 @@
 
 //Meidän omat includet
 #include "Renderer.h"
+#include "Shader.h"
 
 // Ikkunan koko
 const GLuint WIDTH = 1200, HEIGHT = 800;
@@ -53,9 +54,11 @@ int main(void)
 
 	//testground	
 
-	Renderer render;
-
-	render.Init();
+	//Renderer render;
+	//render.Init();
+	Shader shader;
+	shader.Init();
+	
 
 	GLfloat vertices[] =
 	{
@@ -129,11 +132,17 @@ int main(void)
 
 
 		//draw triangle
-		render.OurShader();
+		GLfloat timeValue = glfwGetTime();
+		GLfloat greenValue = (sin(timeValue) / 2) + 0.5;
+		GLint vertexColorLocation = glGetUniformLocation(shader.GetShaderProgram(), "ourColor");
+		glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
+		shader.Use();
+		//render.OurShader();
+		//glUniform4f(vertexColorLocation, 0.0f, greenValue, 0.0f, 1.0f);
+
+
 		glBindVertexArray(VAO);
-		//draw elements
-		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		
 		glDrawArrays(GL_TRIANGLES, 0, 3);
 		glBindVertexArray(0);
 		

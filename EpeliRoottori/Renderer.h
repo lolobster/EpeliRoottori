@@ -32,7 +32,9 @@ public:
 	void Uninit(void);
 	void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
 	GLuint LoadShaderFromFile(const std::string filepath, GLenum ShaderType);
-	void OurShader();
+	void Use();
+	//GLuint UseShader();
+	GLuint GetShaderProgram();
 
 
 private:
