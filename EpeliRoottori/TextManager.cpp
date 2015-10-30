@@ -13,10 +13,6 @@ TextManager::~TextManager()
 
 void TextManager::LoadFont(const char *filepath)
 {
-	FT_Library library;
-	FT_Face face;
-	FT_Error error;
-
 	error = FT_Init_FreeType(&library);
 	if (error)
 	{
@@ -25,7 +21,7 @@ void TextManager::LoadFont(const char *filepath)
 	error = FT_New_Face(library, filepath, 0, &face);
 	if (error == FT_Err_Unknown_File_Format)
 	{
-		std::cout << "The font file is unsupported." << std::endl;
+		std::cout << "The font file is not supported." << std::endl;
 	}
 	else if (error)
 	{
@@ -35,6 +31,13 @@ void TextManager::LoadFont(const char *filepath)
 
 void TextManager::SetCharacterSize(float size)
 {
+	error = FT_Set_Pixel_Sizes
+		(
+		face,    
+		0,      
+		size	
+		);   
+
 	characterSize = size;
 }
 
@@ -48,6 +51,24 @@ void TextManager::SetColor(float red, float blue, float green, float alpha)
 
 void TextManager::SetText(std::string message)
 {
+	// Tällä välin myös renderöintiä sekoitettu mukaan
+	// Pitäisi periaatteessa ladata fonttitiedostosta stringin kirjaimen, piirtää sen ja jatkaa niin kauan kuin kirjaimia riittää stringissä
+	// Tekee niistä bitmapin ja se pitäisi saada piirrettyä
+	int penX = 0, penY = 0;
+	FT_GlyphSlot  slot = face->glyph;
+	FT_UInt glyphIndex;
+
+	for (int i = 0; i < message.size(); i++)
+	{
+		error = FT_Load_Char(face, message[i], FT_LOAD_RENDER);
+
+		glyphIndex = FT_Get_Char_Index(face, static_cast<int>(message[i]));
+
+		//my_draw_bitmap(&slot->bitmap, penX + slot->bitmap_left, penY - slot->bitmap_top);
+
+		penX += slot->advance.x >> 6;
+	}
+
 	text = message;
 }
 
