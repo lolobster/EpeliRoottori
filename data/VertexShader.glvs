@@ -8,11 +8,11 @@ layout(location = 1) in vec3 color;
 out vec3 vertexColor;
 //out vec2 Coord;
 
-uniform mat4 transform;
+uniform mat4 MVP;
 
 void main()
 {
-gl_Position = vec4(position, 1.0);
+gl_Position = MVP * vec4(position, 1.0);
 vertexColor = color;
 //Coord = vec2(Coord.x, 1.0 - Coord.y);
 }
