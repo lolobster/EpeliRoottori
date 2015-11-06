@@ -36,6 +36,9 @@ public:
 	//GLuint UseShader();
 	GLuint GetShaderProgram();
 
+	GLuint Square(float size, float scale);
+	GLuint Triangle(float size, float scale);
+
 
 private:
 	GLuint ProgramID;
