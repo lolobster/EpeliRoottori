@@ -18,7 +18,6 @@
 //Meidän omat includet
 #include "Renderer.h"
 #include "Shader.h"
-#include "TextManager.h"
 
 // Ikkunan koko
 const GLuint WIDTH = 1200, HEIGHT = 800;
@@ -222,93 +221,6 @@ int main(void)
 	return 0;
 	
 	//end of testground stuff
-}
-
-void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
-{
-	Shader shader;
-	shader.Init();
-
-	GLuint VertexArrayID;
-	glGenVertexArrays(1, &VertexArrayID);
-	glBindVertexArray(VertexArrayID);
-
-	static const GLfloat g_vertex_buffer_data[] =
-	{
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		0.0f, 1.0f, 0.0f,
-
-		1.0f, 1.0f, 0.0f,
-		-1.0f, 1.0f, 0.0f,
-		0.0f, -1.0f, 0.0f,
-	};
-
-	GLuint vertexbuffer;
-	glGenBuffers(1, &vertexbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
-
-	GLuint MatrixID = glGetUniformLocation(shader.GetShaderProgram(), "MVP");
-
-	glm::vec3 x_axis(1.0, 0.0, 0.0);
-	glm::vec3 y_axis(0.0, 1.0, 0.0);
-	glm::vec3 z_axis(0.0, 0.0, 1.0);
-	glm::vec3 cam_pos(0, 0, 0);
-	glm::vec3 cam_up = y_axis;
-	glm::vec3 cam_right = x_axis;
-	glm::vec3 cam_front = -z_axis;
-	glm::mat4 P = glm::lookAt(cam_pos, cam_pos + cam_front, cam_up);
-	glm::mat4 V = glm::ortho(-1.0f, 1.0f, -1.0f*height / width, 1.0f*height / width);
-	glm::mat4 M;
-	glm::mat4 MVP;
-	float distance = 0.0;
-	bool direction = false;
-
-	TextManager tex;
-	tex.LoadFont("..\\data\\Arctik5.ttf");
-	tex.SetCharacterSize(15);
-	tex.SetText("Haloo");
-
-	while (!glfwWindowShouldClose(Window))
-	{
-		glfwPollEvents();
-
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glClearColor(0.0f, 0.2f, 0.2f, 1.0f);
-
-		if (distance > 1.0)
-		{
-			direction = false;
-		}
-		else if (distance < -1.0)
-		{
-			direction = true;
-		}
-
-		if (direction == true)
-		{
-			M = glm::translate(glm::vec3(distance, 0.0, 0.0));
-			distance += 0.001;
-		}
-		else if (direction == false)
-		{
-			M = glm::translate(glm::vec3(distance, 0.0, 0.0));
-			distance -= 0.001;
-		}
-
-		MVP = P * V * M;
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-
-		glEnableVertexAttribArray(0);
-		glDrawArrays(GL_TRIANGLES, 0, 3 * 2);
-		glDisableVertexAttribArray(0);
-
-		shader.Use();	
-
-		glfwSwapBuffers(Window);
-	}
 }
 
 void key_callback(GLFWwindow* Window, int Key, int ScanCode, int Action, int Mode)
