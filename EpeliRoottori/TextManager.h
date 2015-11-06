@@ -21,7 +21,6 @@ public:
 	void SetColor(float red, float blue, float green, float alpha);
 	void SetText(std::string message);
 	float GetCharacterSize();
-	Color GetColor();
 	std::string GetText();
 
 private:
@@ -30,7 +29,6 @@ private:
 	FT_Face face;
 	FT_Error error;
 	std::string text = "";
-	Color color;
 	float characterSize = 12.0f;
 };
 

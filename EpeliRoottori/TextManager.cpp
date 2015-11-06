@@ -1,5 +1,8 @@
 #include "TextManager.h"
 
+// Pitäisi periaatteessa toimia jotenkin tällä välin
+// Saattaa olla, että käy kaikki stringin kirjaimet läpi mutta jättää vain viimeisen muistiin
+// Jatkan eteenpäin, kun tekstuurien lataus onnistuu
 
 TextManager::TextManager()
 {
@@ -41,19 +44,8 @@ void TextManager::SetCharacterSize(float size)
 	characterSize = size;
 }
 
-void TextManager::SetColor(float red, float blue, float green, float alpha)
-{
-	color.r = red;
-	color.b = blue;
-	color.g = green;
-	color.a = alpha;
-}
-
 void TextManager::SetText(std::string message)
 {
-	// Tällä välin myös renderöintiä sekoitettu mukaan
-	// Pitäisi periaatteessa ladata fonttitiedostosta stringin kirjaimen, piirtää sen ja jatkaa niin kauan kuin kirjaimia riittää stringissä
-	// Tekee niistä bitmapin ja se pitäisi saada piirrettyä
 	int penX = 0, penY = 0;
 	FT_GlyphSlot  slot = face->glyph;
 	FT_UInt glyphIndex;
@@ -64,22 +56,18 @@ void TextManager::SetText(std::string message)
 
 		glyphIndex = FT_Get_Char_Index(face, static_cast<int>(message[i]));
 
-		//my_draw_bitmap(&slot->bitmap, penX + slot->bitmap_left, penY - slot->bitmap_top);
+		FT_Bitmap *bmp;
+		bmp = &slot->bitmap, penX + slot->bitmap_left, penY - slot->bitmap_top;
 
 		penX += slot->advance.x >> 6;
 	}
-
+	
 	text = message;
 }
 
 float TextManager::GetCharacterSize()
 {
 	return characterSize;
-}
-
-Color TextManager::GetColor()
-{
-	return color;
 }
 
 std::string TextManager::GetText()

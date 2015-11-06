@@ -18,6 +18,7 @@
 //Meidän omat includet
 #include "Renderer.h"
 #include "Shader.h"
+#include "TextManager.h"
 
 // Ikkunan koko
 const GLuint WIDTH = 1200, HEIGHT = 800;
@@ -264,6 +265,11 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	glm::mat4 MVP;
 	float distance = 0.0;
 	bool direction = false;
+
+	TextManager tex;
+	tex.LoadFont("..\\data\\Arctik5.ttf");
+	tex.SetCharacterSize(15);
+	tex.SetText("Haloo");
 
 	while (!glfwWindowShouldClose(Window))
 	{
