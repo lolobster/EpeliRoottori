@@ -170,7 +170,7 @@ void TaskuTesti2(GLFWwindow* Window, const GLuint width, const GLuint height)
 {
 	//shader.Use();
 	// ---- Create transformation ---- //
-
+	/*
 	glm::mat4 view;
 	glm::mat4 projection;
 	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
@@ -212,6 +212,7 @@ void TaskuTesti2(GLFWwindow* Window, const GLuint width, const GLuint height)
 	//glBindVertexArray(0);
 	//
 	//end of while loop testground	
+	*/
 }
 
 void taskuTesti2()
