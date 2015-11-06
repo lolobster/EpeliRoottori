@@ -8,35 +8,44 @@
 #include <glm/gtx/transform.hpp>
 #include <GL\glew.h>
 
+// GLFW
+#include <GLFW/glfw3.h>
+
 using namespace glm;
 
 class Camera
 {
 public:
-	Camera(float camRotate, float camScale);
-	/*
+	Camera(GLfloat camRotate, GLfloat camScale);
+	
 	void initialize();
 	mat4 getViewMatrix();
 
 	void setPosition(vec3 newPos, vec3 camPos);
-	const vec3& getPosition();
+	
+	void setScale(GLfloat camScale);
+	GLfloat getScale()const{ return camRotate; }
 
-	void setScale(float camScale);
-	float getScale()const{ return camRotate; }
+	void setRotation(GLfloat camRotate);
+	GLfloat getRotation(){ return camRotate; }
+	
 
-	void setRotation(float camRotate);
-	float getRotation(){ return camRotate; }
-	*/
+
 	~Camera();
 
 private:
-	vec3 *camPos;
-	vec3 camTarget;
-	vec3 camUp;
+	vec3 camPos = vec3(0.0f, 0.0f, 3.0f);
+	vec3 camTarget = vec3(0.0f, 0.0f, 0.0f);
+	vec3 camDirection = normalize(camPos - camTarget);
+
+	vec3 up = vec3(0.0f, 1.0f, 0.0f);
+	vec3 camRight = normalize(cross(up, camDirection));
+	vec3 camUp = cross(camTarget, camRight);
+
 	mat4 view;
 
-	float camRotate;
-	float camScale;
+	GLfloat camRotate;
+	GLfloat camScale;
 	
 };
 

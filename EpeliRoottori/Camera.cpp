@@ -13,16 +13,19 @@ Camera::Camera(float camRotate, float camScale)
 Camera::~Camera()
 {
 }
-/*
+
 void Camera::initialize(void)
 {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glTranslatef(camPos.x, camPos.y, camPos.z);
-	gluPerspective(70.0f, 800.0f / 600.0f, 1.0f, 10000.0f);
-	gluLookAt(0.0f, 6000.0f, 0.0f,
-		0.0f, 0.0f, -1.0f,
-		0.0f, 1.0f, 0.0f);
+	perspective(70.0f, 800.0f / 600.0f, 1.0f, 10000.0f);
+
+	mat4 view;
+	view = lookAt(vec3(0.0f, 0.0f, 3.0f),		// reight vector
+		vec3(0.0f, 0.0f, 0.0f),		// up vector
+		vec3(0.0f, 1.0f, 0.0f));		// direction vector
+
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 	glEnable(GL_DEPTH_TEST);
@@ -31,8 +34,10 @@ void Camera::initialize(void)
 
 mat4 Camera::getViewMatrix()
 {
-
-	gluLookAt(*camPos, *camPos + target, up);
+	mat4 view;
+	view = lookAt(vec3(0.0f, 0.0f, 3.0f),		// reight vector
+				  vec3(0.0f, 0.0f, 0.0f),		// up vector
+				  vec3(0.0f, 1.0f, 0.0f));		// direction vector
 
 	return view;
 }
@@ -42,18 +47,19 @@ void Camera::setPosition(vec3 newPos, vec3 camPos)
 	camPos = newPos;
 }
 
-const vec3& Camera::getPosition()
-{
-	return *camPos;
-}
 
-void Camera::setScale(float camScale)
+
+void Camera::setScale(GLfloat camScale)
 {
 
 }
 
-void Camera::setRotation(float camRotate)
+void Camera::setRotation(GLfloat camRotate)
 {
+	GLfloat camX = sin(glfwGetTime()) * camRotate;
+	
+	view = lookAt(vec3(camX, 0.0f, 0.0f), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
 
+	mat4 projection;
+	projection = perspective(45.0f, (GLfloat)1200.0f / (GLfloat)800.0f, 0.1f, 100.0f);
 }
-*/
