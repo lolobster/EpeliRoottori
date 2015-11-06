@@ -4,7 +4,7 @@
 uniform sampler2D myTextureSampler; // Texture data
 
 in vec3 vertexColor;
-in vec2 Coord;
+in vec2 texCoord;
 
 out vec4 color; // Output data
 //uniform vec4 ourColor;
@@ -14,6 +14,6 @@ out vec4 color; // Output data
 
 void main()
 {
-//color = texture(myTextureSampler, Coord);
+color = texture(myTextureSampler, texCoord);
 color = vec4(vertexColor, 1.0f);
 }

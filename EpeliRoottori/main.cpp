@@ -19,6 +19,7 @@
 //Meidän omat includet
 #include "Renderer.h"
 #include "Shader.h"
+#include "TextManager.h"
 
 // Ikkunan koko
 const GLuint WIDTH = 1200, HEIGHT = 800;
@@ -81,26 +82,34 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	Shader shader;
 	shader.Init();
 
+	TextManager tex;
+	tex.LoadFont("..//data//Arctik5.ttf");
+	tex.SetText("Juhuu");
+
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
 
 	static const GLfloat g_vertex_buffer_data[] =
 	{
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		0.0f, 1.0f, 0.0f,
-
-		1.0f, 1.0f, 0.0f,
-		-1.0f, 1.0f, 0.0f,
-		0.0f, -1.0f, 0.0f,
+		//	// Positions			 // Colors			//Texture Coords
+		0.5f, -0.5f, 0.0f,		1.0f, 0.0f, 0.0f,	1.0f, 0.0f,	// Bottom Right
+		-0.5f, -0.5f, 0.0f,		0.0f, 1.0f, 0.0f,	1.0f, 0.0f,	// Bottom Left
+		 0.5f,  0.5f, 0.0f,		0.0f, 0.0f, 0.1f,	0.0f, 0.0f,	// Top Right
+		-0.5f,  0.5f, 0.0f,		0.3f, 0.3f, 0.3f,	0.0f, 1.0f	// Top Left
 	};
 
 	GLuint vertexbuffer;
+
 	glGenBuffers(1, &vertexbuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+	glEnableVertexAttribArray(2);
 
 	GLuint MatrixID = glGetUniformLocation(shader.GetShaderProgram(), "MVP");
 
@@ -148,9 +157,10 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		MVP = P * V * M;
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
-		glEnableVertexAttribArray(0);
-		glDrawArrays(GL_TRIANGLES, 0, 3 * 2);
-		glDisableVertexAttribArray(0);
+		glBindTexture(GL_TEXTURE_2D, tex.turnToBitmap());
+		glBindVertexArray(vertexbuffer);
+		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glBindVertexArray(0);
 
 		shader.Use();	
 
