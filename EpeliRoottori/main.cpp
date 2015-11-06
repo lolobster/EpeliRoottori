@@ -25,7 +25,6 @@ const GLuint WIDTH = 1200, HEIGHT = 800;
 //testground
 
 void key_callback(GLFWwindow* Window, int Key, int ScanCode, int Action, int Mode);
-void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height);
 
 //end of testground
 
@@ -59,8 +58,6 @@ int main(void)
 	//render.Init();
 	Shader shader;
 	shader.Init();
-	
-	LateTesti(window, WIDTH, HEIGHT);
 
 	//GLfloat vertices[] =
 	//{
