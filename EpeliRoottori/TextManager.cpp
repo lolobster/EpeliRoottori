@@ -46,22 +46,6 @@ void TextManager::SetCharacterSize(float size)
 
 void TextManager::SetText(std::string message)
 {
-	int penX = 0, penY = 0;
-	FT_GlyphSlot  slot = face->glyph;
-	FT_UInt glyphIndex;
-
-	for (int i = 0; i < message.size(); i++)
-	{
-		error = FT_Load_Char(face, message[i], FT_LOAD_RENDER);
-
-		glyphIndex = FT_Get_Char_Index(face, static_cast<int>(message[i]));
-
-		FT_Bitmap *bmp;
-		bmp = &slot->bitmap, penX + slot->bitmap_left, penY - slot->bitmap_top;
-
-		penX += slot->advance.x >> 6;
-	}
-	
 	text = message;
 }
 
@@ -73,4 +57,33 @@ float TextManager::GetCharacterSize()
 std::string TextManager::GetText()
 {
 	return text;
+}
+
+GLuint TextManager::turnToBitmap()
+{
+	int penX = 0, penY = 0;
+	FT_GlyphSlot  slot = face->glyph;
+	FT_UInt glyphIndex;
+
+	for (int i = 0; i < text.size(); i++)
+	{
+		error = FT_Load_Char(face, text[i], FT_LOAD_RENDER);
+
+		glyphIndex = FT_Get_Char_Index(face, static_cast<int>(text[i]));
+
+		FT_Bitmap bmp;
+		bmp = slot->bitmap, penX + slot->bitmap_left, penY - slot->bitmap_top;
+
+		penX += slot->advance.x >> 6;
+	}
+
+	GLuint textureID;
+	glGenTextures(1, &textureID);
+	glBindTexture(GL_TEXTURE_2D, textureID);
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, bmp.width, bmp.rows, 0, GL_RGBA, GL_UNSIGNED_BYTE, &bmp.buffer);
+
+	return textureID;
 }
