@@ -1,10 +1,9 @@
 #include "Camera.h"
 
 
-Camera::Camera(float camRotate, float camScale)
+Camera::Camera()
 {
-	camRotate = 0;
-	camScale = 1;
+
 
 	//initialize();
 }
@@ -35,7 +34,7 @@ void Camera::initialize(void)
 mat4 Camera::getViewMatrix()
 {
 	mat4 view;
-	view = lookAt(vec3(0.0f, 0.0f, 3.0f),		// reight vector
+	view = lookAt(vec3(0.0f, 0.0f, 3.0f),		// right vector
 				  vec3(0.0f, 0.0f, 0.0f),		// up vector
 				  vec3(0.0f, 1.0f, 0.0f));		// direction vector
 
@@ -56,7 +55,7 @@ void Camera::setScale(GLfloat camScale)
 
 void Camera::setRotation(GLfloat camRotate)
 {
-	GLfloat camX = sin(glfwGetTime()) * camRotate;
+	GLfloat camX = sin(glfwGetTime()) * radians(camRotate);
 	
 	view = lookAt(vec3(camX, 0.0f, 0.0f), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
 

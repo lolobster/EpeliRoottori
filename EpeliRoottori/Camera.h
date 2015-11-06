@@ -16,7 +16,7 @@ using namespace glm;
 class Camera
 {
 public:
-	Camera(GLfloat camRotate, GLfloat camScale);
+	Camera();
 	
 	void initialize();
 	mat4 getViewMatrix();
