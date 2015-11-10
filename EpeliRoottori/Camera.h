@@ -1,6 +1,5 @@
 #ifndef CAMERA_H
 #define CAMERA_H
-#define GLM_FORCE_RADIANS
 #define GLEW_STATIC
 
 // GLM transformaatioita varten
@@ -19,7 +18,7 @@ public:
 	Camera();
 	
 	void initialize();
-	mat4 getViewMatrix();
+	//mat4 getViewMatrix();
 
 	void setPosition(vec3 newPos, vec3 camPos);
 	
@@ -27,14 +26,14 @@ public:
 	GLfloat getScale()const{ return camRotate; }
 
 	void setRotation(GLfloat camRotate);
-	GLfloat getRotation(){ return camRotate; }
+	mat4 getRotation(){ return view; }
 	
 
 
 	~Camera();
 
 private:
-	vec3 camPos = vec3(0.0f, 0.0f, 3.0f);
+	vec3 camPos = vec3(0.0f, 0.0f, 0.0f);
 	vec3 camTarget = vec3(0.0f, 0.0f, 0.0f);
 	vec3 camDirection = normalize(camPos - camTarget);
 
@@ -42,7 +41,12 @@ private:
 	vec3 camRight = normalize(cross(up, camDirection));
 	vec3 camUp = cross(camTarget, camRight);
 
+	GLfloat camX;
+	GLfloat camY;
+	GLfloat camZ;
+
 	mat4 view;
+	mat4 projection;
 
 	GLfloat camRotate;
 	GLfloat camScale;

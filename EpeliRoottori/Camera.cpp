@@ -31,7 +31,7 @@ void Camera::initialize(void)
 	glDepthFunc(GL_LEQUAL);
 }
 
-mat4 Camera::getViewMatrix()
+/*mat4 Camera::getViewMatrix()
 {
 	mat4 view;
 	view = lookAt(vec3(0.0f, 0.0f, 3.0f),		// right vector
@@ -39,7 +39,7 @@ mat4 Camera::getViewMatrix()
 				  vec3(0.0f, 1.0f, 0.0f));		// direction vector
 
 	return view;
-}
+}*/
 
 void Camera::setPosition(vec3 newPos, vec3 camPos)
 {
@@ -55,10 +55,11 @@ void Camera::setScale(GLfloat camScale)
 
 void Camera::setRotation(GLfloat camRotate)
 {
-	GLfloat camX = sin(glfwGetTime()) * radians(camRotate);
+	camX = sin(glfwGetTime()) * camRotate;
+	camZ = sin(glfwGetTime()) * camRotate;
 	
-	view = lookAt(vec3(camX, 0.0f, 0.0f), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
+	view = lookAt(vec3(camX, 0.0f, camZ), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
 
-	mat4 projection;
+	
 	projection = perspective(45.0f, (GLfloat)1200.0f / (GLfloat)800.0f, 0.1f, 100.0f);
 }
