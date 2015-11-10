@@ -58,6 +58,8 @@ int main(void)
 
 	glViewport(0, 0, WIDTH, HEIGHT);
 
+	glEnable(GL_DEPTH_TEST);
+
 	//(Shader shader;
 	//shader.Init();
 	
@@ -358,6 +360,7 @@ void TaskuTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	glm::mat4 MVP;
 	float distance = 0.0;
 	bool direction = false;
+	float angle = 0.0f;
 
 
 	//-------------------------------------------------------//
@@ -367,60 +370,46 @@ void TaskuTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 			glfwPollEvents();
 
 			glClearColor(0.2f, 0.1f, 0.1f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);		
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);		
 
 			shader.Use();
 
-			glm::mat4 transform;
-			transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
-			transform = glm::rotate(transform, (GLfloat)glfwGetTime() * 50.0f, glm::vec3(0.0f, 0.0f, 1.0f));
+			if (distance > 0.5)
+			{
+				direction = false;
+			}
+			else if (distance < -0.5)
+			{
+				direction = true;
+			}
 
-			GLint transformLoc = glGetUniformLocation(shader.GetShaderProgram(), "transform");
-			glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+			if (direction == true)
+			{
+				M = glm::translate(glm::vec3(distance, 0.0, 0.0));
+				distance += 0.001;
+				M = glm::rotate(M, angle, glm::vec3(1.0, 0.0, 1.0));
+				angle += 0.005f;
+			}
+			else if (direction == false)
+			{
+				M = glm::translate(glm::vec3(distance, 0.0, 0.0));
+				distance -= 0.001;	
+				M = glm::rotate(M, angle, glm::vec3(1.0, 0.0, 1.0));
+				angle += 0.005f;
+			}
 
-			glm::rotate(M, 15.0f, glm::vec3(1.0f, 0.3f, 0.5f));
 
 
-			//--MVP--//
-	
+			
 			MVP = P * V * M;
 			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
-			//--MVP--//
-
-
-			// Draw container
-			//glBindVertexArray(VAO);
-			//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-			////glDrawArrays(GL_TRIANGLES, 0, 3);
-			//glBindVertexArray(0);
-
-			// Camera/View transformation
-			glm::mat4 view;
-			view = glm::lookAt(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 3.0f) + glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
-			// Projection 
-			glm::mat4 projection;
-			projection = glm::perspective(45.0f, (GLfloat)WIDTH / (GLfloat)HEIGHT, 0.1f, 100.0f);
-			// Get the uniform locations
-			GLint modelLoc = glGetUniformLocation(shader.GetShaderProgram(), "model");
-			GLint viewLoc = glGetUniformLocation(shader.GetShaderProgram(), "view");
-			GLint projLoc = glGetUniformLocation(shader.GetShaderProgram(), "projection");
-			// Pass the matrices to the shader
-			glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
-			glUniformMatrix4fv(projLoc, 1, GL_FALSE, glm::value_ptr(projection));
-
 			glBindVertexArray(VAO);
-			for (GLuint i = 0; i < 10; i++)
-			{
-				// Calculate the model matrix for each object and pass it to shader before drawing
-				glm::mat4 model;
-				model = glm::translate(model, cubesPos[i]);
-				GLfloat angle = 20.0f * i;
-				model = glm::rotate(model, angle, glm::vec3(1.0f, 0.3f, 0.5f));
-				glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+			
+			glDrawArrays(GL_TRIANGLES, 0, 36);
+			glBindVertexArray(0);
 
-				glDrawArrays(GL_TRIANGLES, 0, 36);
-			}
+			
 			glBindVertexArray(0);
 
 
