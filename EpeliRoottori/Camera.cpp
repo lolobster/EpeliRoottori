@@ -3,8 +3,12 @@
 
 Camera::Camera()
 {
+	M;
+	V;
+	P;
+	MVP;
 
-
+	camPos;
 	//initialize();
 }
 
@@ -15,35 +19,25 @@ Camera::~Camera()
 
 void Camera::initialize(void)
 {
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glTranslatef(camPos.x, camPos.y, camPos.z);
-	perspective(70.0f, 800.0f / 600.0f, 1.0f, 10000.0f);
+	vec3 x_axis(camX, 0.0, 0.0);
+	vec3 y_axis(0.0, camY, 0.0);
+	vec3 z_axis(0.0, 0.0, camZ);
+	
+	camPos = vec3(0.0f, 0.0f, 0.0f);
+	
+	camUp = y_axis;
+	camRight = x_axis;
+	vec3 camFront = -z_axis;
+	P = lookAt(camPos, camPos + camFront, camUp);
+	V = ortho(-1.0f, 1.0f, -1.0f * 800 / 1200, 1.0f * 800 / 1200);
+	M;
+	MVP;
 
-	mat4 view;
-	view = lookAt(vec3(0.0f, 0.0f, 3.0f),		// reight vector
-		vec3(0.0f, 0.0f, 0.0f),		// up vector
-		vec3(0.0f, 1.0f, 0.0f));		// direction vector
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	glEnable(GL_DEPTH_TEST);
-	glDepthFunc(GL_LEQUAL);
 }
 
-/*mat4 Camera::getViewMatrix()
+void Camera::setPosition(GLfloat distance)
 {
-	mat4 view;
-	view = lookAt(vec3(0.0f, 0.0f, 3.0f),		// right vector
-				  vec3(0.0f, 0.0f, 0.0f),		// up vector
-				  vec3(0.0f, 1.0f, 0.0f));		// direction vector
-
-	return view;
-}*/
-
-void Camera::setPosition(vec3 newPos, vec3 camPos)
-{
-	camPos = newPos;
+	M = glm::translate(vec3(distance, 0.0, 0.0));
 }
 
 
@@ -53,13 +47,16 @@ void Camera::setScale(GLfloat camScale)
 
 }
 
-void Camera::setRotation(GLfloat camRotate)
+void Camera::setRotation(GLfloat angle)
 {
+	/*
 	camX = sin(glfwGetTime()) * camRotate;
 	camZ = sin(glfwGetTime()) * camRotate;
 	
-	view = lookAt(vec3(camX, 0.0f, camZ), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
+	MVP = lookAt(vec3(camX, 0.0f, camZ), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
 
 	
-	projection = perspective(45.0f, (GLfloat)1200.0f / (GLfloat)800.0f, 0.1f, 100.0f);
+	V = perspective(45.0f, (GLfloat)1200.0f / (GLfloat)800.0f, 0.1f, 100.0f);
+	*/
+	M = glm::rotate(M, angle, glm::vec3(1.0, 0.0, 1.0));
 }

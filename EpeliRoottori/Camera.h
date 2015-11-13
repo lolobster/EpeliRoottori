@@ -18,35 +18,42 @@ public:
 	Camera();
 	
 	void initialize();
-	//mat4 getViewMatrix();
+	
+	mat4 getViewMatrix(){
+		MVP = M * V * P;
+		return MVP; };
 
-	void setPosition(vec3 newPos, vec3 camPos);
+	void setPosition(GLfloat distance);
 	
 	void setScale(GLfloat camScale);
-	GLfloat getScale()const{ return camRotate; }
+	//GLfloat getScale()const{ return camRotate; }
 
-	void setRotation(GLfloat camRotate);
-	mat4 getRotation(){ return view; }
+	void setRotation(GLfloat angle);
+	//mat4 getRotation(){ return MVP; }
+
+	
 	
 
 
 	~Camera();
 
 private:
-	vec3 camPos = vec3(0.0f, 0.0f, 0.0f);
+	vec3 camPos;
 	vec3 camTarget = vec3(0.0f, 0.0f, 0.0f);
 	vec3 camDirection = normalize(camPos - camTarget);
 
-	vec3 up = vec3(0.0f, 1.0f, 0.0f);
-	vec3 camRight = normalize(cross(up, camDirection));
-	vec3 camUp = cross(camTarget, camRight);
+	//vec3 up = vec3(0.0f, 1.0f, 0.0f);
+	vec3 camRight;
+	vec3 camUp;
 
-	GLfloat camX;
-	GLfloat camY;
-	GLfloat camZ;
+	GLfloat camX = 1.0f;
+	GLfloat camY = 1.0f;
+	GLfloat camZ = 1.0f;
 
-	mat4 view;
-	mat4 projection;
+	mat4 M; // translation
+	mat4 V; // projection
+	mat4 P; // target
+	mat4 MVP; // view
 
 	GLfloat camRotate;
 	GLfloat camScale;
