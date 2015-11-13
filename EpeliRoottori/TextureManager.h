@@ -16,7 +16,7 @@ public:
 	void loadTextures(const char *filename);
 	void setTexture();
 	// void deleteTexture();	// tarvihteeko jos destruktorissa voi vapauttaa textuurit?
-	void texGLInit();
+	GLuint texGLInit();
 
 	~TextureManager();
 private:

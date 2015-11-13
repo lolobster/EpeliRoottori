@@ -24,6 +24,7 @@
 #include "Shader.h"
 #include "TextManager.h"
 #include "Camera.h"
+#include "TextureManager.h"
 
 // Ikkunan koko
 const GLuint WIDTH = 1200, HEIGHT = 800;
@@ -64,7 +65,7 @@ int main(void)
 	//(Shader shader;
 	//shader.Init();
 	
-	//LateTesti(window, WIDTH, HEIGHT);
+	LateTesti(window, WIDTH, HEIGHT);
 	TaskuTesti(window, WIDTH, HEIGHT);
 
 	while (!glfwWindowShouldClose(window))
@@ -88,21 +89,56 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	Shader shader;
 	shader.Init();
 
-	TextManager tex;
-	tex.LoadFont("..//data//Arctik5.ttf");
-	tex.SetText("Juhuu");
+	TextureManager texMan;
+	texMan.loadTextures("..//data//Dickbutt2.png");
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
 	glBindVertexArray(VertexArrayID);
 
-	static const GLfloat g_vertex_buffer_data[] =
-	{
-		//	// Positions			 // Colors			//Texture Coords
-		0.5f, -0.5f, 0.0f,		1.0f, 0.0f, 0.0f,	1.0f, 0.0f,	// Bottom Right
-		-0.5f, -0.5f, 0.0f,		0.0f, 1.0f, 0.0f,	1.0f, 0.0f,	// Bottom Left
-		 0.5f,  0.5f, 0.0f,		0.0f, 0.0f, 0.1f,	0.0f, 0.0f,	// Top Right
-		-0.5f,  0.5f, 0.0f,		0.3f, 0.3f, 0.3f,	0.0f, 1.0f	// Top Left
+	GLfloat g_vertex_buffer_data[] = {
+		//Positions				//Colors			//Texture Coords
+		-0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
+		0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
+		0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
+		0.5f, 0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	1.0f, 1.0f,
+		-0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 0.0f,
+
+		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
+		0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,		1.0f, 1.0f,
+		0.5f, 0.5f, 0.5f, 0.3f, 0.3f, 0.3f,		1.0f, 1.0f,
+		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
+		-0.5f, -0.5f, 0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 0.0f,
+
+		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	1.0f, 0.0f,
+		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 1.0f,	0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 1.0f,
+		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
+		-0.5f, 0.5f, 0.5f, 0.3f, 0.3f, 0.3f,	1.0f, 0.0f,
+
+		0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,		1.0f, 0.0f,
+		0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 1.0f,
+		0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 1.0f,	0.0f, 1.0f,
+		0.5f, -0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 1.0f,
+		0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 0.3f, 0.3f, 0.3f,		1.0f, 0.0f,
+
+		-0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
+		0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 1.0f,
+		0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.1f,	1.0f, 0.0f,
+		0.5f, -0.5f, 0.5f, 0.3f, 0.3f, 0.3f,	1.0f, 0.0f,
+		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f, 
+		-0.5f, -0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 1.0f,
+
+		-0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
+		0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 1.0f,
+		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,		1.0f, 0.0f,
+		0.5f, 0.5f, 0.5f, 0.3f, 0.3f, 0.3f,		1.0f, 0.0f,
+		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f, 
+		-0.5f, 0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 1.0f
 	};
 
 	GLuint vertexbuffer;
@@ -117,21 +153,41 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(2);
 
+	GLuint elements[] = {
+		// first rectangle
+		0, 1, 2, // first triangle
+		3, 4, 5,  // second triangle
+		// second rectangle
+		6, 7, 8,  //first triangle
+		9, 10, 11,  //second triangle
+		// third rectangle
+		12, 13, 14,  //first triangle
+		15, 16, 17,  //second triangle
+		// fourth rectangle
+		18, 19, 20,  //first triangle
+		21, 22, 23,  //second triangle
+		// fifth rectangle
+		24, 25, 26,  //first triangle
+		27, 28, 29,  //second triangle
+		// sixth rectangle
+		30, 31, 32,  //first triangle
+		33, 34, 35,  //second triangle
+	};
+
+	GLuint textureTest;
+	glGenBuffers(1, &textureTest);
+
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, textureTest);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
+
 	GLuint MatrixID = glGetUniformLocation(shader.GetShaderProgram(), "MVP");
 
-	glm::vec3 x_axis(1.0, 0.0, 0.0);
-	glm::vec3 y_axis(0.0, 1.0, 0.0);
-	glm::vec3 z_axis(0.0, 0.0, 1.0);
-	glm::vec3 cam_pos(0, 0, 0);
-	glm::vec3 cam_up = y_axis;
-	glm::vec3 cam_right = x_axis;
-	glm::vec3 cam_front = -z_axis;
-	glm::mat4 P = glm::lookAt(cam_pos, cam_pos + cam_front, cam_up);
-	glm::mat4 V = glm::ortho(-1.0f, 1.0f, -1.0f*height / width, 1.0f*height / width);
-	glm::mat4 M;
-	glm::mat4 MVP;
-	float distance = 0.0;
+	Camera cam;
+
+	cam.initialize();
+	GLfloat distance = 0.0;
 	bool direction = false;
+	GLfloat angle = 0.0f;
 
 	while (!glfwWindowShouldClose(Window))
 	{
@@ -151,24 +207,33 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		if (direction == true)
 		{
-			M = glm::translate(glm::vec3(distance, 0.0, 0.0));
+			cam.setPosition(distance);
 			distance += 0.001;
+
+			cam.setRotation(angle);
+			angle += 0.005f;
 		}
 		else if (direction == false)
 		{
-			M = glm::translate(glm::vec3(distance, 0.0, 0.0));
+			cam.setPosition(distance);
 			distance -= 0.001;
+
+			cam.setRotation(angle);
+			angle += 0.005f;
 		}
 
-		MVP = P * V * M;
+		mat4 MVP = cam.getViewMatrix();
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
-		glBindTexture(GL_TEXTURE_2D, tex.turnToBitmap());
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, texMan.texGLInit());
+		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
 		glBindVertexArray(vertexbuffer);
-		glDrawArrays(GL_TRIANGLES, 0, 3);
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, textureTest);
+		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 
-		shader.Use();	
+		shader.Use();
 
 		glfwSwapBuffers(Window);
 	}

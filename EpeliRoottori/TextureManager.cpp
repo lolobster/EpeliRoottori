@@ -33,13 +33,14 @@ void TextureManager::loadTextures(const char* filename)
 	texGLInit();
 }
 
-void TextureManager::texGLInit()  // lataa pixelidatan openGL:‰‰n
+GLuint TextureManager::texGLInit()  // lataa pixelidatan openGL:‰‰n
 {
 	glGenTextures(1, &textureID);
 	glBindTexture(GL_TEXTURE_2D, textureID); //everything we're about to do is about this texture
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, &texture);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, &texture[0]);
+	return textureID;
 	//we COULD free the image vectors memory right about now. But we'll do it when there's a need to. At the beginning of the reloadtexture func, makes sure it happens when we need it to.
 }
