@@ -89,6 +89,11 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	Shader shader;
 	shader.Init();
 
+	TextManager tex;
+	tex.LoadFont("..//data//Arctik5.ttf");
+	tex.SetText("Testi");
+	tex.SetCharacterSize(500);
+
 	TextureManager texMan;
 	texMan.loadTextures("..//data//Dickbutt2.png");
 
@@ -226,6 +231,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
 		glActiveTexture(GL_TEXTURE0);
+		//glBindTexture(GL_TEXTURE_2D, tex.turnToBitmap()); // piirt‰‰ t‰ll‰ v‰lin sanan viimeisen kirjaimen kauniin punaisena mustalle taustalle
 		glBindTexture(GL_TEXTURE_2D, texMan.texGLInit());
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
 		glBindVertexArray(vertexbuffer);
