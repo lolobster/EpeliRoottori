@@ -39,12 +39,13 @@ public:
 
 private:
 	vec3 camPos;
-	vec3 camTarget = vec3(0.0f, 0.0f, 0.0f);
-	vec3 camDirection = normalize(camPos - camTarget);
+	//vec3 camTarget = vec3(0.0f, 0.0f, 0.0f);
+	//vec3 camDirection = normalize(camPos - camTarget);
 
 	//vec3 up = vec3(0.0f, 1.0f, 0.0f);
 	vec3 camRight;
 	vec3 camUp;
+	vec3 camFront;
 
 	GLfloat camX = 1.0f;
 	GLfloat camY = 1.0f;

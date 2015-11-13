@@ -30,8 +30,7 @@ void Camera::initialize(void)
 	vec3 camFront = -z_axis;
 	P = lookAt(camPos, camPos + camFront, camUp);
 	V = ortho(-1.0f, 1.0f, -1.0f * 800 / 1200, 1.0f * 800 / 1200);
-	M;
-	MVP;
+	//V = perspective(radians(90.0f), (GLfloat) 1200/(GLfloat) 800, 0.1f, 1000.0f);
 
 }
 
