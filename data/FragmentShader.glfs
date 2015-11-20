@@ -9,11 +9,7 @@ in vec2 texCoord;
 out vec4 color; // Output data
 //uniform vec4 ourColor;
 
-
-
-
 void main()
 {
-color = texture(myTextureSampler, texCoord);
-//color = vec4(vertexColor, 1.0f);
+color = texture(myTextureSampler, texCoord) + vec4(vertexColor, 1.0f);
 }
