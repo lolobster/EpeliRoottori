@@ -66,7 +66,7 @@ int main(void)
 	//shader.Init();
 	
 	LateTesti(window, WIDTH, HEIGHT);
-	TaskuTesti(window, WIDTH, HEIGHT);
+	//TaskuTesti(window, WIDTH, HEIGHT);
 
 	while (!glfwWindowShouldClose(window))
 	{
@@ -110,7 +110,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		-0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
 		-0.5f, -0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 0.0f,
 
-		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
+		/*-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
 		0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
 		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,		1.0f, 1.0f,
 		0.5f, 0.5f, 0.5f, 0.3f, 0.3f, 0.3f,		1.0f, 1.0f,
@@ -143,7 +143,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,		1.0f, 0.0f,
 		0.5f, 0.5f, 0.5f, 0.3f, 0.3f, 0.3f,		1.0f, 0.0f,
 		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f, 
-		-0.5f, 0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 1.0f
+		-0.5f, 0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 1.0f*/
 	};
 
 	GLuint vertexbuffer;
@@ -162,21 +162,21 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		// first rectangle
 		0, 1, 2, // first triangle
 		3, 4, 5,  // second triangle
-		// second rectangle
-		6, 7, 8,  //first triangle
-		9, 10, 11,  //second triangle
-		// third rectangle
-		12, 13, 14,  //first triangle
-		15, 16, 17,  //second triangle
-		// fourth rectangle
-		18, 19, 20,  //first triangle
-		21, 22, 23,  //second triangle
-		// fifth rectangle
-		24, 25, 26,  //first triangle
-		27, 28, 29,  //second triangle
-		// sixth rectangle
-		30, 31, 32,  //first triangle
-		33, 34, 35,  //second triangle
+		//// second rectangle
+		//6, 7, 8,  //first triangle
+		//9, 10, 11,  //second triangle
+		//// third rectangle
+		//12, 13, 14,  //first triangle
+		//15, 16, 17,  //second triangle
+		//// fourth rectangle
+		//18, 19, 20,  //first triangle
+		//21, 22, 23,  //second triangle
+		//// fifth rectangle
+		//24, 25, 26,  //first triangle
+		//27, 28, 29,  //second triangle
+		//// sixth rectangle
+		//30, 31, 32,  //first triangle
+		//33, 34, 35,  //second triangle
 	};
 
 	GLuint textureTest;
@@ -192,7 +192,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	cam.initialize();
 	GLfloat distance = 0.0;
 	bool direction = false;
-	GLfloat angle = 0.0f;
+	GLfloat angle = 0.1f;
+	GLfloat scale = -0.5f;
 
 	while (!glfwWindowShouldClose(Window))
 	{
@@ -200,7 +201,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearColor(0.0f, 0.2f, 0.2f, 1.0f);
-
+		
 		if (distance > 1.0)
 		{
 			direction = false;
@@ -212,22 +213,33 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		if (direction == true)
 		{
-			cam.setPosition(distance);
-			distance += 0.001;
+			cam.setScale(scale);
+			scale -= 0.004f;
 
 			cam.setRotation(angle);
-			angle += 0.005f;
+			angle += 0.05f;
+
+			cam.setPosition(distance);
+			distance += 0.03;
+
 		}
 		else if (direction == false)
 		{
-			cam.setPosition(distance);
-			distance -= 0.001;
+			cam.setScale(scale);
+			scale += 0.004f;
 
 			cam.setRotation(angle);
-			angle += 0.005f;
-		}
+			angle += 0.05f;
 
+			cam.setPosition(distance);
+			distance -= 0.03;
+
+
+
+		}
+		
 		mat4 MVP = cam.getViewMatrix();
+	
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
 		glActiveTexture(GL_TEXTURE0);

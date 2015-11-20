@@ -36,26 +36,17 @@ void Camera::initialize(void)
 
 void Camera::setPosition(GLfloat distance)
 {
-	M = glm::translate(vec3(distance, 0.0, 0.0));
+	M = translate(M, vec3(distance));
 }
 
 
 
 void Camera::setScale(GLfloat camScale)
 {
-
+	M = scale(mat4(1.0f), vec3(camScale));
 }
 
 void Camera::setRotation(GLfloat angle)
 {
-	/*
-	camX = sin(glfwGetTime()) * camRotate;
-	camZ = sin(glfwGetTime()) * camRotate;
-	
-	MVP = lookAt(vec3(camX, 0.0f, camZ), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
-
-	
-	V = perspective(45.0f, (GLfloat)1200.0f / (GLfloat)800.0f, 0.1f, 100.0f);
-	*/
-	M = glm::rotate(M, angle, glm::vec3(1.0, 0.0, 1.0));
+	M = rotate(M, angle, vec3(0.0f ,0.0f, angle));
 }

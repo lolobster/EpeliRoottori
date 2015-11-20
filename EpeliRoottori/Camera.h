@@ -5,6 +5,7 @@
 // GLM transformaatioita varten
 #include "glm\glm.hpp"
 #include <glm/gtx/transform.hpp>
+#include <glm/gtx/matrix_transform_2d.hpp>
 #include <GL\glew.h>
 
 // GLFW
