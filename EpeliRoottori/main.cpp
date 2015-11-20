@@ -48,6 +48,7 @@ int main(void)
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);				// ikkunan kokoa ei voi muuttaa
 
 
+
 	// luodaan ikkuna GLFWwindow
 	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "EPELIROOTTORI", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
@@ -65,6 +66,9 @@ int main(void)
 	//(Shader shader;
 	//shader.Init();
 	
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 	LateTesti(window, WIDTH, HEIGHT);
 	//TaskuTesti(window, WIDTH, HEIGHT);
 
@@ -195,8 +199,10 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	GLfloat angle = 0.1f;
 	GLfloat scale = -0.5f;
 
+
 	while (!glfwWindowShouldClose(Window))
 	{
+
 		glfwPollEvents();
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
