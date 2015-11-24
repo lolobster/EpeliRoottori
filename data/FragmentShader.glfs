@@ -1,15 +1,16 @@
 #version 330 core
 #define EPS 0.001
 
-uniform sampler2D myTextureSampler; // Texture data
-
 in vec3 vertexColor;
 in vec2 texCoord;
 
 out vec4 color; // Output data
 //uniform vec4 ourColor;
 
+uniform sampler2D myTextureSampler; // Texture data
+uniform sampler2D myTextureSampler2;
+
 void main()
 {
-color = texture(myTextureSampler, texCoord) + vec4(vertexColor, 1.0f); // T‰ll‰ v‰lin pit‰‰ poistaa + vec4(vertexColor, 1.0f), jos haluaa l‰pin‰kyv‰ksi
+color = mix(texture(myTextureSampler, texCoord), texture(myTextureSampler2, texCoord), 0.2)+ vec4(vertexColor, 1.0f); // T‰ll‰ v‰lin pit‰‰ poistaa + vec4(vertexColor, 1.0f), jos haluaa l‰pin‰kyv‰ksi
 }

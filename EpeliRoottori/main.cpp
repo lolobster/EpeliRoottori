@@ -99,7 +99,14 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	tex.SetCharacterSize(500);
 
 	TextureManager texMan;
-	texMan.loadTextures("..//data//Dickbutt2.png");
+	GLuint texture1 = 0;
+	GLuint texture2 = 0;
+
+	texMan.loadTextures("../data/Testi.png", texture1);
+	//texMan.texGLInit(texture1);
+
+	texMan.loadTextures("../data/Dickbutt.png", texture2);
+	//texMan.texGLInit(texture2);
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
@@ -107,12 +114,12 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 	GLfloat g_vertex_buffer_data[] = {
 		//Positions				//Colors			//Texture Coords
-		-0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
-		0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
-		0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
-		0.5f, 0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	1.0f, 1.0f,
-		-0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 0.0f,
+		-0.5f, -0.5f, -0.5f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
+		 0.5f, -0.5f, -0.5f,	0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
+		 0.5f,  0.5f, -0.5f,	0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
+		 0.5f,  0.5f, -0.5f,	0.3f, 0.3f, 0.3f,	1.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f,	1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f,	0.3f, 0.3f, 0.3f,	0.0f, 0.0f,
 
 		/*-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
 		0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
@@ -248,16 +255,23 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
+		shader.Use();  // aktivoidaan shader
+
 		glActiveTexture(GL_TEXTURE0);
+		//glBindTexture(GL_TEXTURE_2D, texture1);
 		//glBindTexture(GL_TEXTURE_2D, tex.turnToBitmap()); // piirt‰‰ t‰ll‰ v‰lin sanan viimeisen kirjaimen kauniin punaisena mustalle taustalle
-		glBindTexture(GL_TEXTURE_2D, texMan.texGLInit());
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
+
+		glActiveTexture(GL_TEXTURE1);
+		glBindTexture(GL_TEXTURE_2D, texture2);
+		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler2"), 1);
+
 		glBindVertexArray(vertexbuffer);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, textureTest);
-		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 
-		shader.Use();
+		
 
 		glfwSwapBuffers(Window);
 	}
