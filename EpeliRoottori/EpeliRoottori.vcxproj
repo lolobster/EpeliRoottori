@@ -76,6 +76,7 @@
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MathClass.cpp" />
+    <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="TextManager.cpp" />
@@ -87,6 +88,7 @@
     <ClInclude Include="Color.h" />
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="MathClass.h" />
+    <ClInclude Include="Polygon.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="TextManager.h" />

@@ -31,7 +31,15 @@ public:
 	void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
 	GLuint LoadShaderFromFile(const std::string filepath, GLenum ShaderType);
 	void Use();
+	Shader &setActive();
 	GLuint GetShaderProgram();	
+
+	//utility stuff
+	void setFloat(const GLchar *name, GLfloat value, GLboolean useShader = false);
+	void setInteger(const GLchar *name, GLfloat value, GLboolean usehader = false);
+	void setVec2f(const GLchar *name, GLfloat x, GLfloat y,GLboolean useShader = false);
+	void setVec2f(const GLchar *name, const glm::vec2 &value, GLboolean useShader = false);
+	void setVec3f(const GLchar *name, GLfloat x, GLfloat y);
 
 private:
 	GLuint ProgramID;

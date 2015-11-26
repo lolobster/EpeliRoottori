@@ -121,3 +121,23 @@ GLuint Shader::GetShaderProgram()
 {
 	return ProgramID;
 }
+
+Shader &Shader::setActive()
+{
+	glUseProgram(this->ProgramID);
+	return *this;
+}
+
+//void Shader::setFloat(const GLchar *name, GLfloat value, GLboolean useShader = false)
+//{
+//	if (useShader)
+//		this->Use();
+//	glUniform1f(glGetUniformLocation(this->ProgramID, name), value);
+//}
+//
+//void Shader::setInteger(const GLchar *name, GLfloat value, GLboolean useShader = false)
+//{
+//	if (useShader)
+//		this->Use();
+//	glUniform1i(glGetUniformLocation(this->ProgramID, name), value);
+//}
