@@ -7,10 +7,10 @@ TextManager::TextManager()
 
 TextManager::~TextManager()
 {
-	FT_Done_FreeType(library);
+	FT_Done_FreeType(library); // Vapauttaa tesktikirjaston
 }
 
-void TextManager::LoadFont(const char *filepath)
+void TextManager::LoadFont(const char *filepath) // Lataa fontin ja asettaa kirjasinkoon
 {
 	error = FT_Init_FreeType(&library);
 	if (error)
@@ -27,7 +27,7 @@ void TextManager::LoadFont(const char *filepath)
 		std::cout << "The font file could not be read." << std::endl;
 	}
 
-	error = FT_Set_Char_Size(face, 6400 * characterSize, 6400 * characterSize, 300, 300);
+	error = FT_Set_Char_Size(face, 64 * characterSize, 64 * characterSize, 300, 300);
 }
 
 void TextManager::SetCharacterSize(float size)
@@ -51,6 +51,11 @@ void TextManager::SetColor(glm::vec3 colors)
 	color = colors;
 }
 
+void TextManager::move(glm::vec2 movement)
+{
+	position += movement;
+}
+
 float TextManager::GetCharacterSize()
 {
 	return characterSize;
@@ -59,6 +64,16 @@ float TextManager::GetCharacterSize()
 std::string TextManager::GetText()
 {
 	return text;
+}
+
+glm::vec2 TextManager::GetPosition()
+{
+	return position;
+}
+
+glm::vec3 TextManager::GetColors()
+{
+	return color;
 }
 
 GLuint TextManager::turnToBitmap() // 
@@ -107,6 +122,7 @@ void TextManager::RenderText(Shader &s)
 		};
 
 		pen += size;
+		error = FT_Load_Char(face, text[i], FT_LOAD_RENDER);
 
 		GLuint textBuffer;
 
@@ -131,8 +147,6 @@ void TextManager::RenderText(Shader &s)
 
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, textElements);
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
-
-		error = FT_Load_Char(face, text[i], FT_LOAD_RENDER);
 
 		GLuint textID;
 

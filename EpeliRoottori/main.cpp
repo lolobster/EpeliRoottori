@@ -95,8 +95,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 	TextManager tex;
 	tex.LoadFont("..//data//Arctik5.ttf");
-	tex.SetText("Testi");
-	tex.SetCharacterSize(90);
+	tex.SetText("Test");
+	tex.SetCharacterSize(100);
 	tex.SetPosition(glm::vec2(-0.1, -0.1));
 	tex.SetColor(glm::vec3(1.0, 0.0, 0.0));
 
@@ -262,7 +262,6 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
 		
 		tex.RenderText(shader); // pist‰‰ kommentteihin niin ei mee muun tekstuurin p‰‰lle
-
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, texture2);
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler2"), 1);

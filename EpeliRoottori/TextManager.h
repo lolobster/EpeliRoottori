@@ -23,8 +23,11 @@ public:
 	void SetPosition(glm::vec2 pos);
 	void SetColor(glm::vec3 colors);
 	void SetText(std::string message);
+	void move(glm::vec2 movement);
 	GLuint turnToBitmap();
 	float GetCharacterSize();
+	glm::vec2 GetPosition();
+	glm::vec3 GetColors();
 	std::string GetText();
 	void RenderText(Shader &s);
 
