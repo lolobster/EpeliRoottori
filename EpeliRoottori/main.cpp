@@ -25,6 +25,7 @@
 #include "TextManager.h"
 #include "Camera.h"
 #include "TextureManager.h"
+#include "Polygon.h"
 
 // Ikkunan koko
 const GLuint WIDTH = 1200, HEIGHT = 800;
@@ -97,7 +98,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	tex.LoadFont("..//data//Arctik5.ttf");
 	tex.SetText("Test");
 	tex.SetCharacterSize(100);
-	tex.SetPosition(glm::vec2(-0.1, -0.1));
+	tex.SetPosition(glm::vec2(-0.9, -0.1));
 	tex.SetColor(glm::vec3(1.0, 0.0, 0.0));
 
 	TextureManager texMan;
@@ -261,7 +262,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		//glBindTexture(GL_TEXTURE_2D, texture1);
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
 		
-		tex.RenderText(shader); // pist‰‰ kommentteihin niin ei mee muun tekstuurin p‰‰lle
+		//tex.RenderText(shader); // pist‰‰ kommentteihin niin ei mee muun tekstuurin p‰‰lle
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, texture2);
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler2"), 1);
@@ -271,9 +272,14 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 
-		
 
+		//glfwSwapBuffers(Window);
+		Polygon p;
+		p.drawPolygon(20, 1, 0.8, 45, vec2(0, 0), vec3(1.0f, 0.0f, 0.0f));
+		p.drawPolygon(3, 1, 1.2, 0, vec2(0, 0), vec3(1.0f, 1.0f, 0.0f));
 		glfwSwapBuffers(Window);
+
+
 	}
 }
 

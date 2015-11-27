@@ -1,7 +1,7 @@
 #ifndef POLYGON_H
 #define POLYGON_H
 
-
+#define _USE_MATH_DEFINES
 #define GLM_FORCE_RADIANS
 #include <cstdio>
 #include <cstdlib>
@@ -21,6 +21,7 @@
 #include <glm/gtx/transform.hpp>
 #include <iostream>
 #include "Shader.h"
+#include <math.h>
 
 
 struct vertex{
@@ -36,13 +37,16 @@ public:
 	std::vector<GLuint> indices;
 	//std::vector<Texture> textures;
 
-
+	Polygon();
 	Polygon(int sides, float size);
 	Polygon(float vertices[], int elements[]);
 	~Polygon();
 
 	void drawSquare(glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color);
 	void update();
+	void drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color);
+	
+
 private:
 	GLuint vao;
 	GLuint vbo;

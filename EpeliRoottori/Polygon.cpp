@@ -25,6 +25,11 @@ Polygon::Polygon(float vertices[], int elements[])
 	glBindVertexArray(0);
 }
 
+Polygon::Polygon()
+{
+
+}
+
 Polygon::Polygon(int sides, float size)
 {
 
@@ -57,3 +62,37 @@ void Polygon::drawSquare(glm::vec2 position, glm::vec2 size, GLfloat rotate, glm
 
 }
 
+void Polygon::drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color)
+{
+
+	float theta = 2.0f * M_PI / float(sides);
+	float tangentialFactor = tanf(theta);
+	float radialFactor = cosf(theta);
+	float x = radius * scale;
+	float y = rotation;
+
+	//glClear(GL_COLOR_BUFFER_BIT);
+	//glColor3i(color.x, color.y, color.z);
+
+
+	glColor3f(color.x, color.y, color.z);
+	glBegin(GL_POLYGON);
+	for (int i = 0; i < sides; i++)
+	{
+		glVertex2f(x, y);
+
+		float ix = -y;
+		float iy = x;
+
+		x += ix * tangentialFactor;
+		y += iy * tangentialFactor;
+
+		x *= radialFactor;
+		y *= radialFactor;
+	}
+	glEnd();
+
+
+
+
+}

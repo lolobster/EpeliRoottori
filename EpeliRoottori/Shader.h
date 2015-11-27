@@ -17,6 +17,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 
 class Shader
@@ -39,7 +40,11 @@ public:
 	void setInteger(const GLchar *name, GLfloat value, GLboolean usehader = false);
 	void setVec2f(const GLchar *name, GLfloat x, GLfloat y,GLboolean useShader = false);
 	void setVec2f(const GLchar *name, const glm::vec2 &value, GLboolean useShader = false);
-	void setVec3f(const GLchar *name, GLfloat x, GLfloat y);
+	void setVec3f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z, GLboolean useShader = false);
+	void setVec3f(const GLchar *name, const glm::vec3 &value, GLboolean useShader = false);
+	void setVec4f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z, GLfloat w, GLboolean useShader = false);
+	void setVec4f(const GLchar *name, const glm::vec4 &value, GLboolean useShader = false);
+	void setMatrix4(const GLchar *name, const glm::mat4 &matrix, GLboolean useShader = false);
 
 private:
 	GLuint ProgramID;
