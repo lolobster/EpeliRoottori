@@ -96,7 +96,9 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	TextManager tex;
 	tex.LoadFont("..//data//Arctik5.ttf");
 	tex.SetText("Testi");
-	tex.SetCharacterSize(500);
+	tex.SetCharacterSize(90);
+	tex.SetPosition(glm::vec2(-0.1, -0.1));
+	tex.SetColor(glm::vec3(1.0, 0.0, 0.0));
 
 	TextureManager texMan;
 	GLuint texture1 = 0;
@@ -206,7 +208,6 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	GLfloat angle = 0.1f;
 	GLfloat scale = -0.5f;
 
-
 	while (!glfwWindowShouldClose(Window))
 	{
 
@@ -215,6 +216,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearColor(0.0f, 0.2f, 0.2f, 1.0f);
 		
+
 		if (distance > 1.0)
 		{
 			direction = false;
@@ -246,21 +248,20 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 			cam.setPosition(distance);
 			distance -= 0.03;
-
-
-
 		}
-		
+
 		mat4 MVP = cam.getViewMatrix();
 	
+
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
 		shader.Use();  // aktivoidaan shader
 
 		glActiveTexture(GL_TEXTURE0);
 		//glBindTexture(GL_TEXTURE_2D, texture1);
-		//glBindTexture(GL_TEXTURE_2D, tex.turnToBitmap()); // piirt‰‰ t‰ll‰ v‰lin sanan viimeisen kirjaimen kauniin punaisena mustalle taustalle
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
+		
+		tex.RenderText(shader); // pist‰‰ kommentteihin niin ei mee muun tekstuurin p‰‰lle
 
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, texture2);
