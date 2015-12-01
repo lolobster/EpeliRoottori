@@ -75,11 +75,19 @@ void Polygon::drawPolygon(int sides, float radius, float scale, GLfloat rotation
 	//glColor3i(color.x, color.y, color.z);
 
 
-	glColor3f(color.x, color.y, color.z);
+
+	
+
+	//glGenBuffers(1, &vbo);
+	//glBindBuffer(GL_ARRAY_BUFFER, vao);
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATUC_DRAW);
+
+	//glDisable(GL_TEXTURE_2D);
+
 	glBegin(GL_POLYGON);
 	for (int i = 0; i < sides; i++)
 	{
-		glVertex2f(x, y);
+		glVertex2f(x + position.x, y + position.y);
 
 		float ix = -y;
 		float iy = x;
@@ -89,6 +97,10 @@ void Polygon::drawPolygon(int sides, float radius, float scale, GLfloat rotation
 
 		x *= radialFactor;
 		y *= radialFactor;
+		
+	
+		glVertexAttrib3f(1, color.x, color.y, color.z);		
+		//glColor3f(color.x, color.y, color.z);
 	}
 	glEnd();
 
