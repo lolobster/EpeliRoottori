@@ -19,9 +19,13 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform.hpp>
+
+//omia
 #include <iostream>
-#include "Shader.h"
 #include <math.h>
+
+#include "Shader.h"
+#include "TextureManager.h"
 
 
 struct vertex{
@@ -42,10 +46,10 @@ public:
 	Polygon(float vertices[], int elements[]);
 	~Polygon();
 
-	void drawSquare(glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color);
+	void drawSquare(glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color, std::string textureName, Shader *shader);
 	void update();
+	void drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color, Shader *shader);
 	void drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color);
-	
 
 private:
 	GLuint vao;
@@ -55,7 +59,12 @@ private:
 	//int elements[];
 	float size;
 	int sides;
-	Shader shader;
+	//Shader shader;
+	GLfloat angle;
+	GLfloat angleIncrement;
+	GLfloat x, xCenter, yCenter, y;
+
+	int width, height;
 };
 
 #endif
