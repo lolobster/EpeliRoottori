@@ -18,29 +18,40 @@ public:
 	TextManager();
 	~TextManager();
 
-	void LoadFont(const char *filepath);
-	void SetCharacterSize(float size);
-	void SetPosition(glm::vec2 pos);
-	void SetColor(glm::vec3 colors);
-	void SetText(std::string message);
-	void move(glm::vec2 movement);
-	GLuint turnToBitmap();
-	float GetCharacterSize();
-	glm::vec2 GetPosition();
-	glm::vec3 GetColors();
-	std::string GetText();
 	void RenderText(Shader &s);
 
+	void LoadFont(const char *filepath);
+	void SetCharacterSize(float size);
+	void SetText(std::string message);
+	void SetColor(glm::vec3 colors);
+	void SetPosition(glm::vec2 pos);
+	void SetScale(glm::vec2 newScale);
+	void SetRotation(float rot);
+	void Move(glm::vec2 movement);
+	void Scale(glm::vec2 scaleFactor);
+	void Rotate(float rot);
+
+	float GetCharacterSize();
+	std::string GetText();
+	glm::vec3 GetColor();
+	glm::vec2 GetPosition();
+	glm::vec2 GetScale();
+	float GetRotation();
+
 private:
-	// Defaults to an empty message with white color and charactersize of 12
 	FT_Library library;
 	FT_Face face;
-	FT_Bitmap bmp;
 	FT_Error error;
-	std::string text = "";
+	std::vector<GLuint>idVector;
+	bool firstRender = true;
+
+	// Defaults to an empty message with white color and charactersize of 12
 	float characterSize = 12.0f;
-	glm::vec2 position = { 0.0, 0.0 };
+	std::string text = "";
 	glm::vec3 color = { 0.0, 0.0, 0.0 };
+	glm::vec2 position = { 0.0, 0.0 };
+	glm::vec2 scale = { 1.0, 1.0 };
+	float angle = 0;
 };
 
 #endif

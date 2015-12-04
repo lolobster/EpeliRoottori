@@ -94,22 +94,27 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	Shader shader;
 	shader.Init();
 
-	TextManager tex;
-	tex.LoadFont("..//data//Arctik5.ttf");
-	tex.SetText("Test");
-	tex.SetCharacterSize(100);
-	tex.SetPosition(glm::vec2(-0.9, -0.1));
-	tex.SetColor(glm::vec3(1.0, 0.0, 0.0));
+	TextManager *tex = new TextManager;
+	tex->LoadFont("..//data//Arctik5.ttf");
+	tex->SetText("qpfnsalk");
+	tex->SetCharacterSize(100);
+	tex->SetPosition(glm::vec2(0, 0));
+	tex->SetColor(glm::vec3(1.0, 0.0, 1.0));
+
+	TextManager *tex2 = new TextManager;
+	tex2->LoadFont("..//data//Arctik5.ttf");
+	tex2->SetText("Ei liiku");
+	tex2->SetCharacterSize(50);
+	tex2->SetPosition(glm::vec2(500.0, 500.0));
+	tex2->SetColor(glm::vec3(0.0, 1.0, 0.0));
 
 	TextureManager texMan;
 	GLuint texture1 = 0;
 	GLuint texture2 = 0;
 
 	texMan.loadTextures("../data/Testi.png", texture1);
-	//texMan.texGLInit(texture1);
 
 	texMan.loadTextures("../data/Dickbutt.png", texture2);
-	//texMan.texGLInit(texture2);
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
@@ -117,12 +122,12 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 	GLfloat g_vertex_buffer_data[] = {
 		//Positions				//Colors			//Texture Coords
-		-0.5f, -0.5f, -0.5f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
-		 0.5f, -0.5f, -0.5f,	0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
-		 0.5f,  0.5f, -0.5f,	0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
-		 0.5f,  0.5f, -0.5f,	0.3f, 0.3f, 0.3f,	1.0f, 1.0f,
-		-0.5f,  0.5f, -0.5f,	1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f,	0.3f, 0.3f, 0.3f,	0.0f, 0.0f,
+		 0.0f,  0.0f,  0.0f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
+		 200.0f, 0.0f, 0.0f,	0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
+		 200.0f,  200.0f,  0.0f,	0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
+		 200.0f,  200.0f,  0.0f,	0.3f, 0.3f, 0.3f,	1.0f, 1.0f,
+		0.0f,  200.0f,  0.0f,	1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
+		0.0f, 0.0f,  0.0f,	0.3f, 0.3f, 0.3f,	0.0f, 0.0f,
 
 		/*-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
 		0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
@@ -216,7 +221,25 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearColor(0.0f, 0.2f, 0.2f, 1.0f);
-		
+
+		if (tex->GetPosition().x < 0)
+		{
+			direction = false;
+		}
+		else if (tex->GetPosition().x > 1200)
+		{
+			direction = true;
+		}
+
+		if (direction)
+		{
+			tex->Move(glm::vec2(-10, 0));
+		}
+		else
+		{
+			tex->Move(glm::vec2(10, 0));
+		}
+
 
 		if (distance > 1.0)
 		{
@@ -250,7 +273,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 			cam.setPosition(distance);
 			distance -= 0.03;
 		}
-
+	
 		mat4 MVP = cam.getViewMatrix();
 	
 
@@ -259,12 +282,14 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		shader.Use();  // aktivoidaan shader
 
 		glActiveTexture(GL_TEXTURE0);
-		//glBindTexture(GL_TEXTURE_2D, texture1);
+		glBindTexture(GL_TEXTURE_2D, 1);
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
 		
-		//tex.RenderText(shader); // pistää kommentteihin niin ei mee muun tekstuurin päälle
-		glActiveTexture(GL_TEXTURE1);
-		glBindTexture(GL_TEXTURE_2D, texture2);
+		//tex->RenderText(shader);
+		//tex2->RenderText(shader);
+
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, 2);
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler2"), 1);
 
 		glBindVertexArray(vertexbuffer);
