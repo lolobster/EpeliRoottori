@@ -19,14 +19,13 @@ public:
 	GLuint texGLInit(GLuint textureID);
 
 	~TextureManager();
+
 private:
 	const char *filename;
 	std::vector<unsigned char> png;
 	std::vector<unsigned char> textures;
 	unsigned width, height;
 
-
-	bool tex_loaded = false;
 };
 
 #endif

@@ -29,7 +29,6 @@ void TextureManager::loadTextures(const char* filename, GLuint textureID)
 	// pixelit on vektorissa "texture"
 
 	texGLInit(textureID);
-
 	
 }
 
@@ -43,8 +42,8 @@ GLuint TextureManager::texGLInit(GLuint textureID)  // lataa pixelidatan openGL:
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, &textures[0]);
 	glGenerateMipmap(GL_TEXTURE_2D);
 
-	return textureID;
-
+	
+	textures.clear();
 	glBindTexture(GL_TEXTURE_2D, 0);
-	//we COULD free the image vectors memory right about now. But we'll do it when there's a need to. At the beginning of the reloadtexture func, makes sure it happens when we need it to.
+	return textureID;
 }
