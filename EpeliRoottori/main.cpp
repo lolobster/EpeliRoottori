@@ -302,11 +302,11 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		glDisable(GL_TEXTURE_2D);
 		//glfwSwapBuffers(Window);
 		Polygon p;
-		p.drawPolygon(6, 1, 0.8, 0, vec2(0.5, -1.5), vec3(0.0f, 0.0f, 0.0f));
-		p.drawPolygon(3, 1, 1.0, 0, vec2(-1.0, 1.0), vec3(1.0f, 0.0f, 0.0f));
-		p.drawPolygon(4, 1, 1.0, 0, vec2(-3.0, 1.0), vec3(1.0f, 1.0f, 0.0f));
-		p.drawPolygon(56, 1, 1.0, 0, vec2(-1.0, 3.0), vec3(0.0f, 0.0f, 1.0f));
-		p.drawPolygon(68, 1, 1.0, 0, vec2(-1.0, 1.0), vec3(1.0f, 0.0f, 0.0f));
+		p.drawPolygon(6, 1, 100, 0, vec2(0, 0), vec3(0.0f, 0.0f, 0.0f));
+		p.drawPolygon(3, 1, 100, 0, vec2(50, 50), vec3(1.0f, 0.0f, 0.0f));
+		p.drawPolygon(4, 1, 100, 0, vec2(100, 100), vec3(1.0f, 1.0f, 0.0f));
+		p.drawPolygon(56, 1, 100, 0, vec2(200, 200), vec3(0.0f, 0.0f, 1.0f));
+		p.drawPolygon(68, 1, 100, 0, vec2(400, 400), vec3(1.0f, 0.0f, 0.0f));
 		glfwSwapBuffers(Window);
 
 
