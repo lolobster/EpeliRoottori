@@ -112,9 +112,10 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	GLuint texture1 = 0;
 	GLuint texture2 = 0;
 
-	texMan.loadTextures("../data/Testi.png", texture1);
+	texMan.loadTextures("../data/Dickbutt.png", texture1);
+	texMan.loadTextures("../data/Testi.png", texture2);
 
-	texMan.loadTextures("../data/Dickbutt.png", texture2);
+
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
@@ -123,11 +124,11 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	GLfloat g_vertex_buffer_data[] = {
 		//Positions				//Colors			//Texture Coords
 		 0.0f,  0.0f,  0.0f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
-		 200.0f, 0.0f, 0.0f,	0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
-		 200.0f,  200.0f,  0.0f,	0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
-		 200.0f,  200.0f,  0.0f,	0.3f, 0.3f, 0.3f,	1.0f, 1.0f,
+	   200.0f,	0.0f, 0.0f,		0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
+	   200.0f,  200.0f,  0.0f,	0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
+	   200.0f,  200.0f,  0.0f,	0.3f, 0.3f, 0.3f,	1.0f, 1.0f,
 		0.0f,  200.0f,  0.0f,	1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
-		0.0f, 0.0f,  0.0f,	0.3f, 0.3f, 0.3f,	0.0f, 0.0f,
+		0.0f, 0.0f,  0.0f,		0.3f, 0.3f, 0.3f,	0.0f, 0.0f,
 
 		/*-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
 		0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
@@ -252,25 +253,25 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		if (direction == true)
 		{
-			cam.setScale(scale);
+			//cam.setScale(scale);
 			scale -= 0.004f;
 
-			cam.setRotation(angle);
+			//cam.setRotation(angle);
 			angle += 0.05f;
 
-			cam.setPosition(distance);
+			//cam.setPosition(distance);
 			distance += 0.03;
 
 		}
 		else if (direction == false)
 		{
-			cam.setScale(scale);
+		//	cam.setScale(scale);
 			scale += 0.004f;
 
-			cam.setRotation(angle);
+			//cam.setRotation(angle);
 			angle += 0.05f;
 
-			cam.setPosition(distance);
+			//cam.setPosition(distance);
 			distance -= 0.03;
 		}
 	
@@ -288,7 +289,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		//tex->RenderText(shader);
 		//tex2->RenderText(shader);
 
-		glActiveTexture(GL_TEXTURE0);
+		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, 2);
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler2"), 1);
 
@@ -299,14 +300,17 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		glm::vec2(2.0f, 2.0f);
 
-		glDisable(GL_TEXTURE_2D);
+		
 		//glfwSwapBuffers(Window);
 		Polygon p;
-		p.drawPolygon(6, 1, 100, 0, vec2(0, 0), vec3(0.0f, 0.0f, 0.0f));
-		p.drawPolygon(3, 1, 100, 0, vec2(50, 50), vec3(1.0f, 0.0f, 0.0f));
-		p.drawPolygon(4, 1, 100, 0, vec2(100, 100), vec3(1.0f, 1.0f, 0.0f));
-		p.drawPolygon(56, 1, 100, 0, vec2(200, 200), vec3(0.0f, 0.0f, 1.0f));
+		p.drawPolygon(6, 1, 100, 0, vec2(300, 700), vec3(0.0f, 0.0f, 0.0f));
+		p.drawPolygon(3, 1, 100, 0, vec2(500, 1000), vec3(1.0f, 0.0f, 0.0f));
+		p.drawPolygon(4, 1, 100, 0, vec2(700, 500), vec3(1.0f, 1.0f, 0.0f));
+		p.drawPolygon(56, 1, 100, 0, vec2(800, 250), vec3(0.0f, 0.0f, 1.0f));
 		p.drawPolygon(68, 1, 100, 0, vec2(400, 400), vec3(1.0f, 0.0f, 0.0f));
+		
+		glDisable(GL_TEXTURE_2D);
+
 		glfwSwapBuffers(Window);
 
 
