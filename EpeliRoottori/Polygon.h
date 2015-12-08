@@ -42,14 +42,15 @@ public:
 	//std::vector<Texture> textures;
 
 	Polygon();
-	Polygon(int sides, float size);
+	Polygon(int sides);
 	Polygon(float vertices[], int elements[]);
 	~Polygon();
 
 	void drawSquare(glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color, std::string textureName, Shader *shader);
 	void update();
 	void drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color, Shader *shader);
-	void drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color);
+	//void drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color);
+	void printData(int sides);
 
 private:
 	GLuint vao;
@@ -57,14 +58,17 @@ private:
 	GLuint ebo;
 	//int vertices[];
 	//int elements[];
-	float size;
-	int sides;
+	//float size;
+	//int sides;
 	//Shader shader;
 	GLfloat angle;
-	GLfloat angleIncrement;
+	//GLfloat angleIncrement;
 	GLfloat x, xCenter, yCenter, y;
 
+	int counter = 0;
 	int width, height;
+	GLfloat *data;
+	//GLfloat *indices;
 };
 
 #endif
