@@ -124,6 +124,11 @@ void TextManager::RenderText(Shader &s)
 			{
 				error = FT_Load_Char(face, text[i], FT_LOAD_RENDER);
 
+				if (i == 0)
+				{
+					levelingFix == slot->metrics.vertBearingY / 64; // Käytetään tekstin tasaamiseen
+				}
+
 				GLubyte* expanded_data = new GLubyte[2 * slot->bitmap.width * slot->bitmap.rows];
 				for (int j = 0; j < slot->bitmap.rows; j++)
 				{
@@ -139,39 +144,44 @@ void TextManager::RenderText(Shader &s)
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, slot->bitmap.width, slot->bitmap.rows, 0, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, expanded_data);
-				std::cout << slot->bitmap.width << ", " << slot->bitmap.rows << std::endl;
 				glActiveTexture(GL_TEXTURE0);
 				idVector.push_back(textID);
 				delete[] expanded_data;
 			}
 			firstRender = false;
+			glGenBuffers(1, &textBuffer);
+			glGenBuffers(1, &textElements);
 		}
 
-		float pen = 0;
+		float penX = 0, penY = 0;
 		FT_GlyphSlot slot = face->glyph;
 
 		for (int i = 0; i < text.size(); i++)
 		{
+
 			error = FT_Load_Char(face, text[i], FT_LOAD_RENDER);
+
+			if (slot->metrics.vertBearingY / 64 != levelingFix)
+			{
+				penY = slot->metrics.vertBearingY / 32;
+			}
+			else
+			{
+				penY = 0;
+			}
 
 			GLfloat textData[] = // Yksittäisen kirjaimen data
 			{
 				// Paikat																// Värit						// Tekstuurien koordinaatit
-				position.x + pen * scale.x, position.y, color.x, color.y, color.z, 0.0f, 0.0f,
-				position.x + (pen + slot->bitmap.width) * scale.x, position.y, color.x, color.y, color.z, 1.0f, 0.0f,
-				position.x + (pen + slot->bitmap.width) * scale.x, position.y + slot->bitmap.rows * scale.y, color.x, color.y, color.z, 1.0f, 1.0f,
-				position.x + pen * scale.x, position.y + slot->bitmap.rows * scale.y, color.x, color.y, color.z, 0.0f, 1.0f,
+				position.x + penX * scale.x, position.y + penY, color.x, color.y, color.z, 0.0f, 0.0f,
+				position.x + (penX + slot->bitmap.width) * scale.x, position.y + penY, color.x, color.y, color.z, 1.0f, 0.0f,
+				position.x + (penX + slot->bitmap.width) * scale.x, position.y + penY + slot->bitmap.rows * scale.y, color.x, color.y, color.z, 1.0f, 1.0f,
+				position.x + penX * scale.x, position.y + penY + slot->bitmap.rows * scale.y, color.x, color.y, color.z, 0.0f, 1.0f,
 			};
 
-			pen += slot->bitmap.width;
-			if (slot->bitmap.width == 0)
-			{
-				pen += characterSize;
-			}
+			penX += slot->advance.x >> 6;
+			penX += slot->advance.y >> 6;
 
-			GLuint textBuffer;
-
-			glGenBuffers(1, &textBuffer);
 			glBindBuffer(GL_ARRAY_BUFFER, textBuffer);
 			glBufferData(GL_ARRAY_BUFFER, sizeof(textData), textData, GL_STATIC_DRAW);
 			glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)0);
@@ -186,9 +196,6 @@ void TextManager::RenderText(Shader &s)
 				0, 1, 2,
 				0, 2, 3
 			};
-
-			GLuint textElements;
-			glGenBuffers(1, &textElements);
 
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, textElements);
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);

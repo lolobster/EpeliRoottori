@@ -44,14 +44,14 @@ private:
 	FT_Error error;
 	std::vector<GLuint>idVector;
 	bool firstRender = true;
+	GLuint textBuffer;
+	GLuint textElements;
 
 	// Defaults to an empty message with white color and charactersize of 12
-	float characterSize = 12.0f;
+	float characterSize = 12.0f, levelingFix, angle = 0;
 	std::string text = "";
 	glm::vec3 color = { 0.0, 0.0, 0.0 };
-	glm::vec2 position = { 0.0, 0.0 };
-	glm::vec2 scale = { 1.0, 1.0 };
-	float angle = 0;
+	glm::vec2 position = { 0.0, 0.0 }, scale = { 1.0, 1.0 };
 };
 
 #endif

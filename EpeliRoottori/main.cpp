@@ -95,8 +95,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	shader.Init();
 
 	TextManager *tex = new TextManager;
-	tex->LoadFont("..//data//Arctik5.ttf");
-	tex->SetText("qpfnsalk");
+	tex->LoadFont("..//data//arial.ttf");
+	tex->SetText("Teksti");
 	tex->SetCharacterSize(100);
 	tex->SetPosition(glm::vec2(0, 0));
 	tex->SetColor(glm::vec3(1.0, 0.0, 1.0));
@@ -286,8 +286,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		glBindTexture(GL_TEXTURE_2D, 1);
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
 		
-		//tex->RenderText(shader);
-		//tex2->RenderText(shader);
+		tex->RenderText(shader);
+		tex2->RenderText(shader);
 
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, 2);
