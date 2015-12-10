@@ -72,23 +72,23 @@
   <ItemGroup>
     <ClCompile Include="AnimationManager.cpp" />
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="Color.cpp" />
     <ClCompile Include="lodepng.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Polygon.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="TextManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationManager.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="Color.h" />
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="Polygon.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="TextManager.h" />
     <ClInclude Include="TextureManager.h" />
     <ClInclude Include="VertexShader.h" />

@@ -26,6 +26,7 @@
 #include "Camera.h"
 #include "TextureManager.h"
 #include "Polygon.h"
+#include "Sprite.h"
 
 // Ikkunan koko
 const GLuint WIDTH = 1200, HEIGHT = 800;
@@ -111,7 +112,13 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	texMan.loadTextures("../data/Dickbutt.png", texture1);
 	texMan.loadTextures("../data/Testi.png", texture2);
 
+	Sprite typhlosion;
+	typhlosion.SetTexture("../data/Typhlosion.png");
+	typhlosion.SetPosition(glm::vec2(25, 25));
 
+	Sprite dickbutt;
+	dickbutt.SetTexture("../data/Dickbutt.png");
+	dickbutt.SetColor(glm::vec3(0.0, 0.4, 0.1));
 
 	GLuint VertexArrayID;
 	glGenVertexArrays(1, &VertexArrayID);
@@ -119,12 +126,12 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 	GLfloat g_vertex_buffer_data[] = {
 		//Positions				//Colors			//Texture Coords
-		 0.0f,  0.0f,  0.0f,	1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
-	   200.0f,	0.0f, 0.0f,		0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
+		 0.0f,  0.0f,  0.0f,	0.0f, 0.0f, 1.0f,	0.0f, 0.0f,
+	   200.0f,	0.0f, 0.0f,		0.0f, 0.0f, 1.0f,	1.0f, 0.0f,
 	   200.0f,  200.0f,  0.0f,	0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
-	   200.0f,  200.0f,  0.0f,	0.3f, 0.3f, 0.3f,	1.0f, 1.0f,
-		0.0f,  200.0f,  0.0f,	1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
-		0.0f, 0.0f,  0.0f,		0.3f, 0.3f, 0.3f,	0.0f, 0.0f,
+	   200.0f,  200.0f,  0.0f,	0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
+		0.0f,  200.0f,  0.0f,	0.0f, 0.0f, 1.0f,	0.0f, 1.0f,
+		0.0f, 0.0f,  0.0f,		0.0f, 0.0f, 1.0f,	0.0f, 0.0f,
 
 		/*-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
 		0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
@@ -210,6 +217,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	bool direction = false;
 	GLfloat angle = 0.1f;
 	GLfloat scale = -0.5f;
+	glm::vec2 dir = { 1.0, 1.0 };
 
 	while (!glfwWindowShouldClose(Window))
 	{
@@ -218,6 +226,23 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearColor(0.0f, 0.2f, 0.2f, 1.0f);
+
+		if (typhlosion.GetPosition().x + typhlosion.GetBounds().x > width)
+		{
+			dir.x = -1.0;
+		}
+		if (typhlosion.GetPosition().x < 0)
+		{
+			dir.x = 1.0;
+		}
+		if (typhlosion.GetPosition().y + typhlosion.GetBounds().y > height)
+		{
+			dir.y = -1.0;
+		}
+		if (typhlosion.GetPosition().y < 0)
+		{
+			dir.y = 1.0;
+		}
 
 		if (tex->GetPosition().x < 0)
 		{
@@ -231,13 +256,16 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		if (direction)
 		{
 			tex->Move(glm::vec2(-10, 0));
+			tex->SetColor(glm::vec3(1.0, 0.0, 1.0));
 		}
 		else
 		{
 			tex->Move(glm::vec2(10, 0));
+			tex->SetColor(glm::vec3(0.0, 1.0, 1.0));
 		}
 
 
+		/*
 		if (distance > 1.0)
 		{
 			direction = false;
@@ -246,6 +274,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		{
 			direction = true;
 		}
+		*/
 
 		if (direction == true)
 		{
@@ -280,7 +309,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, 1);
-		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
+		//glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
 
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, 2);
@@ -288,13 +317,15 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		glBindVertexArray(vertexbuffer);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, textureTest);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 
 		tex->RenderText(shader);
 		tex2->RenderText(shader);
 
-		glm::vec2(2.0f, 2.0f);
+		dickbutt.draw(shader);
+		typhlosion.draw(shader);
+		typhlosion.Move(dir);
 
 		
 		//glfwSwapBuffers(Window);

@@ -46,40 +46,40 @@ void TextManager::SetText(std::string message)
 	text = message;
 }
 
-void TextManager::SetColor(glm::vec3 colors)
+void TextManager::SetColor(glm::vec3 c)
 {
-	color = colors;
+	color = c;
 }
 
-void TextManager::SetPosition(glm::vec2 pos)
+void TextManager::SetPosition(glm::vec2 p)
 {
-	position = pos;
+	position = p;
 }
 
-void TextManager::SetScale(glm::vec2 newScale)
+void TextManager::SetScale(glm::vec2 s)
 {
-	scale = newScale;
+	scale = s;
 }
 
-void TextManager::SetRotation(float rot)
+void TextManager::SetRotation(float a)
 {
-	angle = rot;
+	angle = a;
 }
 
-void TextManager::Move(glm::vec2 movement)
+void TextManager::Move(glm::vec2 m)
 {
-	position += movement;
+	position += m;
 }
 
-void TextManager::Scale(glm::vec2 scaleFactor)
+void TextManager::Scale(glm::vec2 s)
 {
-	scale *= scaleFactor;
+	scale *= s;
 }
 
 
-void TextManager::Rotate(float rot)
+void TextManager::Rotate(float a)
 {
-	angle += rot;
+	angle += a;
 }
 
 float TextManager::GetCharacterSize()
@@ -124,11 +124,6 @@ void TextManager::RenderText(Shader &s)
 			{
 				error = FT_Load_Char(face, text[i], FT_LOAD_RENDER);
 
-				if (i == 0)
-				{
-					levelingFix == slot->metrics.vertBearingY / 64; // Käytetään tekstin tasaamiseen
-				}
-
 				GLubyte* expanded_data = new GLubyte[2 * slot->bitmap.width * slot->bitmap.rows];
 				for (int j = 0; j < slot->bitmap.rows; j++)
 				{
@@ -161,14 +156,7 @@ void TextManager::RenderText(Shader &s)
 
 			error = FT_Load_Char(face, text[i], FT_LOAD_RENDER);
 
-			if (slot->metrics.vertBearingY / 64 != levelingFix)
-			{
-				penY = slot->metrics.vertBearingY / 32;
-			}
-			else
-			{
-				penY = 0;
-			}
+			penY = slot->metrics.vertBearingY / 32;
 
 			GLfloat textData[] = // Yksittäisen kirjaimen data
 			{
@@ -180,7 +168,6 @@ void TextManager::RenderText(Shader &s)
 			};
 
 			penX += slot->advance.x >> 6;
-			penX += slot->advance.y >> 6;
 
 			glBindBuffer(GL_ARRAY_BUFFER, textBuffer);
 			glBufferData(GL_ARRAY_BUFFER, sizeof(textData), textData, GL_STATIC_DRAW);
