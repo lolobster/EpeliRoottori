@@ -119,19 +119,30 @@ void TextManager::RenderText(Shader &s)
 		if (firstRender == true) // Tarkastaa tapahtuuko renderöinti ensimmäistä kertaa ja lataa kirjaintekstuurit, jos näin on
 		{
 			FT_GlyphSlot slot = face->glyph;
+			
 			for (int i = 0; i < text.size(); i++)
 			{
 				error = FT_Load_Char(face, text[i], FT_LOAD_RENDER);
 
+				GLubyte* expanded_data = new GLubyte[2 * slot->bitmap.width * slot->bitmap.rows];
+				for (int j = 0; j < slot->bitmap.rows; j++)
+				{
+					for (int k = 0; k < slot->bitmap.width; k++)
+					{
+						expanded_data[2 * (k + j * slot->bitmap.width)] = 255;
+						expanded_data[2 * (k + j * slot->bitmap.width) + 1] = (k >= slot->bitmap.width || j >= slot->bitmap.rows) ? 0 : slot->bitmap.buffer[k + slot->bitmap.width * j];
+					}
+				}
 				GLuint textID;
 				glGenTextures(1, &textID);
 				glBindTexture(GL_TEXTURE_2D, textID);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 				glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-				glTexImage2D(GL_TEXTURE_2D, 0, GL_LUMINANCE, slot->bitmap.width, slot->bitmap.rows, 0, GL_RED, GL_UNSIGNED_BYTE, slot->bitmap.buffer);
+				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, slot->bitmap.width, slot->bitmap.rows, 0, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, expanded_data);
 				std::cout << slot->bitmap.width << ", " << slot->bitmap.rows << std::endl;
 				glActiveTexture(GL_TEXTURE0);
 				idVector.push_back(textID);
+				delete[] expanded_data;
 			}
 			firstRender = false;
 		}
@@ -143,28 +154,13 @@ void TextManager::RenderText(Shader &s)
 		{
 			error = FT_Load_Char(face, text[i], FT_LOAD_RENDER);
 
-			/*
-			GLfloat textData[] = // Yksittäisen kirjaimen data
-			{
-				// Paikat																// Värit						// Tekstuurien koordinaatit
-				position.x + pen * scale.x, position.y,									color.x, color.y, color.z,		0.0f, 0.0f,
-				position.x + (pen + size) * scale.x, position.y,						color.x, color.y, color.z,		1.0f, 0.0f,
-				position.x + (pen + size) * scale.x, position.y + size * scale.y,		color.x, color.y, color.z,		1.0f, 1.0f,
-				position.x + (pen + size) * scale.x, position.y + size * scale.y,		color.x, color.y, color.z,		1.0f, 1.0f,
-				position.x + pen * scale.x, position.y + size * scale.y,				color.x, color.y, color.z,		0.0f, 1.0f,
-				position.x + pen * scale.x, position.y,									color.x, color.y, color.z,		0.0f, 0.0f,
-			};
-			*/
-
 			GLfloat textData[] = // Yksittäisen kirjaimen data
 			{
 				// Paikat																// Värit						// Tekstuurien koordinaatit
 				position.x + pen * scale.x, position.y, color.x, color.y, color.z, 0.0f, 0.0f,
 				position.x + (pen + slot->bitmap.width) * scale.x, position.y, color.x, color.y, color.z, 1.0f, 0.0f,
 				position.x + (pen + slot->bitmap.width) * scale.x, position.y + slot->bitmap.rows * scale.y, color.x, color.y, color.z, 1.0f, 1.0f,
-				position.x + (pen + slot->bitmap.width) * scale.x, position.y + slot->bitmap.rows * scale.y, color.x, color.y, color.z, 1.0f, 1.0f,
 				position.x + pen * scale.x, position.y + slot->bitmap.rows * scale.y, color.x, color.y, color.z, 0.0f, 1.0f,
-				position.x + pen * scale.x, position.y, color.x, color.y, color.z, 0.0f, 0.0f,
 			};
 
 			pen += slot->bitmap.width;
@@ -188,7 +184,7 @@ void TextManager::RenderText(Shader &s)
 			GLuint elements[] =
 			{
 				0, 1, 2,
-				3, 4, 5,
+				0, 2, 3
 			};
 
 			GLuint textElements;

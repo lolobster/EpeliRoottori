@@ -291,7 +291,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, 2);
-		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler2"), 1);
+		//glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler2"), 1); // Pistin kommentteihin, kun en halunnut hymiöitä tekstini päälle :)
 
 		glBindVertexArray(vertexbuffer);
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, textureTest);
@@ -302,13 +302,17 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		
 		//glfwSwapBuffers(Window);
+
+		/*
+
 		Polygon p;
 		p.drawPolygon(6, 1, 100, 0, vec2(300, 700), vec3(0.0f, 0.0f, 0.0f));
 		p.drawPolygon(3, 1, 100, 0, vec2(500, 1000), vec3(1.0f, 0.0f, 0.0f));
 		p.drawPolygon(4, 1, 100, 0, vec2(700, 500), vec3(1.0f, 1.0f, 0.0f));
 		p.drawPolygon(56, 1, 100, 0, vec2(800, 250), vec3(0.0f, 0.0f, 1.0f));
 		p.drawPolygon(68, 1, 100, 0, vec2(400, 400), vec3(1.0f, 0.0f, 0.0f));
-		
+				*/
+
 		glDisable(GL_TEXTURE_2D);
 
 		glfwSwapBuffers(Window);
