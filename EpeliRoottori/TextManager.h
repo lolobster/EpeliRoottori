@@ -17,8 +17,6 @@ public:
 	TextManager();
 	~TextManager();
 
-	void RenderText(Shader &s);
-
 	void LoadFont(const char *filepath);
 	void SetCharacterSize(float size);
 	void SetText(std::string message);
@@ -36,6 +34,8 @@ public:
 	glm::vec2 GetPosition();
 	glm::vec2 GetScale();
 	float GetRotation();
+	FT_Face GetFace();
+	FT_Error GetError();
 
 private:
 	FT_Library library;

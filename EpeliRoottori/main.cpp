@@ -35,6 +35,7 @@ const GLuint WIDTH = 1200, HEIGHT = 800;
 
 void key_callback(GLFWwindow* Window, int Key, int ScanCode, int Action, int Mode);
 void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height);
+void LateTesti2(GLFWwindow* Window, const GLuint width, const GLuint height);
 void TaskuTesti(GLFWwindow* Window, const GLuint width, const GLuint height);
 //end of testground
 
@@ -67,6 +68,7 @@ int main(void)
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+	//LateTesti2(window, WIDTH, HEIGHT);
 	LateTesti(window, WIDTH, HEIGHT);
 	//TaskuTesti(window, WIDTH, HEIGHT);
 
@@ -86,31 +88,57 @@ int main(void)
 	
 }
 
+void LateTesti2(GLFWwindow* Window, const GLuint width, const GLuint height)
+{
+	Renderer renderer;
+	Camera cam;
+	Shader shader;
+
+	Sprite typhlosion;
+	typhlosion.SetTexture("../data/Typhlosion.png");
+
+	cam.initialize();
+
+	GLuint MatrixID = glGetUniformLocation(shader.GetShaderProgram(), "MVP");
+
+
+	while (!glfwWindowShouldClose(Window))
+	{
+		glfwPollEvents();
+
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+		glClearColor(0.0f, 0.2f, 0.2f, 1.0f);
+
+		mat4 MVP = cam.getViewMatrix();
+		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+
+		renderer.draw(typhlosion);
+		typhlosion.Move(glm::vec2(-1.0, -1.0));
+
+		glfwSwapBuffers(Window);
+	}
+}
+
 void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 {
+	Renderer renderer;
+
 	Shader shader;
 	shader.Init();
 
-	TextManager *tex = new TextManager;
-	tex->LoadFont("..//data//arial.ttf");
-	tex->SetText("Teksti");
-	tex->SetCharacterSize(100);
-	tex->SetPosition(glm::vec2(0, 0));
-	tex->SetColor(glm::vec3(1.0, 0.0, 1.0));
+	TextManager tex;
+	tex.LoadFont("..//data//arial.ttf");
+	tex.SetText("Black and white");
+	tex.SetCharacterSize(30);
+	tex.SetPosition(glm::vec2(0, 0));
+	tex.SetColor(glm::vec3(0.0, 0.0, 0.0));
 
-	TextManager *tex2 = new TextManager;
-	tex2->LoadFont("..//data//Arctik5.ttf");
-	tex2->SetText("Ei liiku");
-	tex2->SetCharacterSize(50);
-	tex2->SetPosition(glm::vec2(500.0, 500.0));
-	tex2->SetColor(glm::vec3(0.0, 1.0, 0.0));
-
-	TextureManager texMan;
-	GLuint texture1 = 0;
-	GLuint texture2 = 0;
-
-	texMan.loadTextures("../data/Dickbutt.png", texture1);
-	texMan.loadTextures("../data/Testi.png", texture2);
+	TextManager tex2;
+	tex2.LoadFont("..//data//Arctik5.ttf");
+	tex2.SetText("Ei liiku");
+	tex2.SetCharacterSize(50);
+	tex2.SetPosition(glm::vec2(500.0, 500.0));
+	tex2.SetColor(glm::vec3(0.0, 1.0, 0.0));
 
 	Sprite typhlosion;
 	typhlosion.SetTexture("../data/Typhlosion.png");
@@ -119,94 +147,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	Sprite dickbutt;
 	dickbutt.SetTexture("../data/Dickbutt.png");
 	dickbutt.SetColor(glm::vec3(0.0, 0.4, 0.1));
-
-	GLuint VertexArrayID;
-	glGenVertexArrays(1, &VertexArrayID);
-	glBindVertexArray(VertexArrayID);
-
-	GLfloat g_vertex_buffer_data[] = {
-		//Positions				//Colors			//Texture Coords
-		 0.0f,  0.0f,  0.0f,	0.0f, 0.0f, 1.0f,	0.0f, 0.0f,
-	   200.0f,	0.0f, 0.0f,		0.0f, 0.0f, 1.0f,	1.0f, 0.0f,
-	   200.0f,  200.0f,  0.0f,	0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
-	   200.0f,  200.0f,  0.0f,	0.0f, 0.0f, 1.0f,	1.0f, 1.0f,
-		0.0f,  200.0f,  0.0f,	0.0f, 0.0f, 1.0f,	0.0f, 1.0f,
-		0.0f, 0.0f,  0.0f,		0.0f, 0.0f, 1.0f,	0.0f, 0.0f,
-
-		/*-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
-		0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,		1.0f, 1.0f,
-		0.5f, 0.5f, 0.5f, 0.3f, 0.3f, 0.3f,		1.0f, 1.0f,
-		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
-		-0.5f, -0.5f, 0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 0.0f,
-
-		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	1.0f, 0.0f,
-		-0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 1.0f,	0.0f, 1.0f,
-		-0.5f, -0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 1.0f,
-		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
-		-0.5f, 0.5f, 0.5f, 0.3f, 0.3f, 0.3f,	1.0f, 0.0f,
-
-		0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,		1.0f, 0.0f,
-		0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 1.0f,
-		0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 1.0f,	0.0f, 1.0f,
-		0.5f, -0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 1.0f,
-		0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 0.3f, 0.3f, 0.3f,		1.0f, 0.0f,
-
-		-0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
-		0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 1.0f,
-		0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 0.1f,	1.0f, 0.0f,
-		0.5f, -0.5f, 0.5f, 0.3f, 0.3f, 0.3f,	1.0f, 0.0f,
-		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f, 
-		-0.5f, -0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 1.0f,
-
-		-0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 1.0f,
-		0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,	1.0f, 1.0f,
-		0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,		1.0f, 0.0f,
-		0.5f, 0.5f, 0.5f, 0.3f, 0.3f, 0.3f,		1.0f, 0.0f,
-		-0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,	0.0f, 0.0f, 
-		-0.5f, 0.5f, -0.5f, 0.3f, 0.3f, 0.3f,	0.0f, 1.0f*/
-	};
-
-	GLuint vertexbuffer;
-
-	glGenBuffers(1, &vertexbuffer);
-	glBindBuffer(GL_ARRAY_BUFFER, vertexbuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(g_vertex_buffer_data), g_vertex_buffer_data, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(2);
-
-	GLuint elements[] = {
-		// first rectangle
-		0, 1, 2, // first triangle
-		3, 4, 5,  // second triangle
-		//// second rectangle
-		//6, 7, 8,  //first triangle
-		//9, 10, 11,  //second triangle
-		//// third rectangle
-		//12, 13, 14,  //first triangle
-		//15, 16, 17,  //second triangle
-		//// fourth rectangle
-		//18, 19, 20,  //first triangle
-		//21, 22, 23,  //second triangle
-		//// fifth rectangle
-		//24, 25, 26,  //first triangle
-		//27, 28, 29,  //second triangle
-		//// sixth rectangle
-		//30, 31, 32,  //first triangle
-		//33, 34, 35,  //second triangle
-	};
-
-	GLuint textureTest;
-	glGenBuffers(1, &textureTest);
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, textureTest);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
+	dickbutt.SetPosition(glm::vec2(width - dickbutt.GetBounds().x, height - dickbutt.GetBounds().y));
 
 	GLuint MatrixID = glGetUniformLocation(shader.GetShaderProgram(), "MVP");
 
@@ -217,7 +158,9 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	bool direction = false;
 	GLfloat angle = 0.1f;
 	GLfloat scale = -0.5f;
-	glm::vec2 dir = { 1.0, 1.0 };
+
+	glm::vec2 dir = { 2.0, 2.0 };
+	glm::vec3 color = glm::vec3(0.01, 0.01, 0.01);
 
 	while (!glfwWindowShouldClose(Window))
 	{
@@ -229,121 +172,54 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		if (typhlosion.GetPosition().x + typhlosion.GetBounds().x > width)
 		{
-			dir.x = -1.0;
+			dir.x = -2.0;
 		}
 		if (typhlosion.GetPosition().x < 0)
 		{
-			dir.x = 1.0;
+			dir.x = 2.0;
 		}
 		if (typhlosion.GetPosition().y + typhlosion.GetBounds().y > height)
 		{
-			dir.y = -1.0;
+			dir.y = -2.0;
 		}
 		if (typhlosion.GetPosition().y < 0)
 		{
-			dir.y = 1.0;
-		}
-
-		if (tex->GetPosition().x < 0)
-		{
-			direction = false;
-		}
-		else if (tex->GetPosition().x > 1200)
-		{
-			direction = true;
-		}
-
-		if (direction)
-		{
-			tex->Move(glm::vec2(-10, 0));
-			tex->SetColor(glm::vec3(1.0, 0.0, 1.0));
-		}
-		else
-		{
-			tex->Move(glm::vec2(10, 0));
-			tex->SetColor(glm::vec3(0.0, 1.0, 1.0));
-		}
-
-
-		/*
-		if (distance > 1.0)
-		{
-			direction = false;
-		}
-		else if (distance < -1.0)
-		{
-			direction = true;
-		}
-		*/
-
-		if (direction == true)
-		{
-			//cam.setScale(scale);
-			scale -= 0.004f;
-
-			//cam.setRotation(angle);
-			angle += 0.05f;
-
-			//cam.setPosition(distance);
-			distance += 0.03;
-
-		}
-		else if (direction == false)
-		{
-		//	cam.setScale(scale);
-			scale += 0.004f;
-
-			//cam.setRotation(angle);
-			angle += 0.05f;
-
-			//cam.setPosition(distance);
-			distance -= 0.03;
+			dir.y = 2.0;
 		}
 	
 		mat4 MVP = cam.getViewMatrix();
-	
-
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+	
+		typhlosion.Move(dir);
+
+		tex.SetColor(glm::vec3(tex.GetColor() + color));
+		if (tex.GetColor().x > 1.0)
+		{
+			color = glm::vec3(-0.01, -0.01, -0.01);
+		}
+		if (tex.GetColor().x < 0.0)
+		{
+			color = glm::vec3(0.01, 0.01, 0.01);
+		}
 
 		shader.Use();  // aktivoidaan shader
 
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, 1);
-		//glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
-
-		glActiveTexture(GL_TEXTURE1);
-		glBindTexture(GL_TEXTURE_2D, 2);
-		//glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler2"), 1); // Pistin kommentteihin, kun en halunnut hymiöitä tekstini päälle :)
-
-		glBindVertexArray(vertexbuffer);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, textureTest);
-		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		glBindVertexArray(0);
-
-		tex->RenderText(shader);
-		tex2->RenderText(shader);
-
-		dickbutt.draw(shader);
-		typhlosion.draw(shader);
-		typhlosion.Move(dir);
-
-		
-		//glfwSwapBuffers(Window);
+		renderer.draw(tex);
+		renderer.draw(dickbutt);
+		renderer.draw(typhlosion);
+		renderer.draw(tex2);
 
 		/*
-
 		Polygon p;
 		p.drawPolygon(6, 1, 100, 0, vec2(300, 700), vec3(0.0f, 0.0f, 0.0f));
 		p.drawPolygon(3, 1, 100, 0, vec2(500, 1000), vec3(1.0f, 0.0f, 0.0f));
 		p.drawPolygon(4, 1, 100, 0, vec2(700, 500), vec3(1.0f, 1.0f, 0.0f));
 		p.drawPolygon(56, 1, 100, 0, vec2(800, 250), vec3(0.0f, 0.0f, 1.0f));
 		p.drawPolygon(68, 1, 100, 0, vec2(400, 400), vec3(1.0f, 0.0f, 0.0f));
-				*/
+		*/
 
 		glDisable(GL_TEXTURE_2D);
-
 		glfwSwapBuffers(Window);
-
 
 	}
 }

@@ -24,8 +24,7 @@ public:
 	glm::vec2 GetScale();
 	float GetRotation();
 	glm::vec2 GetBounds();
-
-	void draw(Shader &s);
+	GLuint GetTexture();
 
 private:
 	TextureManager tex;

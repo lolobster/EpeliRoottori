@@ -77,38 +77,7 @@ glm::vec2 Sprite::GetBounds()
 	return glm::vec2(tex.getWidth(), tex.getHeight());
 }
 
-void Sprite::draw(Shader &s)
+GLuint Sprite::GetTexture()
 {
-	GLfloat spriteData[] =
-	{
-		// Paikat																// Värit						// Tekstuurien koordinaatit
-		position.x, position.y, color.x, color.y, color.z, 0.0f, 0.0f,
-		position.x + tex.getWidth() * scale.x, position.y, color.x, color.y, color.z, 1.0f, 0.0f,
-		position.x + tex.getWidth() * scale.x, position.y + tex.getHeight() * scale.y, color.x, color.y, color.z, 1.0f, 1.0f,
-		position.x, position.y + tex.getHeight() * scale.y, color.x, color.y, color.z, 0.0f, 1.0f,
-	};
-
-	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(spriteData), spriteData, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)0);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(5 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(2);
-
-	GLuint elements[] =
-	{
-		0, 1, 2,
-		0, 2, 3
-	};
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
-
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, tex.getID());
-
-	s.Use();
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+	return tex.getID();
 }

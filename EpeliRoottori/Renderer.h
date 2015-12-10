@@ -18,34 +18,23 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtx/transform.hpp>
 
+#include "Shader.h"
+#include "TextManager.h"
+#include "Sprite.h"
+
 
 class Renderer
 {
 public:
 	Renderer();
 	~Renderer();
-
-	void Draw();
-
-	//initialisoi renderöinnin, pistä ohjelman alkuun
-	bool Init();
-	void Uninit(void);
-	void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
-	GLuint LoadShaderFromFile(const std::string filepath, GLenum ShaderType);
-	void Use();
-	//GLuint UseShader();
-	GLuint GetShaderProgram();
-
-	GLuint Square(float size, float scale);
-	GLuint Triangle(float size, float scale);
-
+	void draw(Sprite sprite);
+	void draw(TextManager text);
 
 private:
-	GLuint ProgramID;
-	GLuint MatrixID;
-	GLuint VertexShaderID;
-	GLuint FragmentShaderID;
-
+	Shader shader;
+	GLuint spriteBuffer, spriteElements, textID;;
+	bool firstRender = true;
 };
 
 #endif
