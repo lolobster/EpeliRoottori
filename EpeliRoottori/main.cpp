@@ -48,8 +48,6 @@ int main(void)
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_ANY_PROFILE);	// määritellään OpenGL profiili käytettäväksi
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);				// ikkunan kokoa ei voi muuttaa
 
-
-
 	// luodaan ikkuna GLFWwindow
 	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "EPELIROOTTORI", nullptr, nullptr);
 	glfwMakeContextCurrent(window);
@@ -61,8 +59,6 @@ int main(void)
 	glewInit();				// Initialisoidaan GLEW
 
 	glViewport(0, 0, WIDTH, HEIGHT);
-
-	glEnable(GL_DEPTH_TEST);
 
 	//(Shader shader;
 	//shader.Init();
@@ -285,9 +281,6 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, 1);
 		glUniform1i(glGetUniformLocation(shader.GetShaderProgram(), "myTextureSampler"), 0);
-		
-		tex->RenderText(shader);
-		tex2->RenderText(shader);
 
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_2D, 2);
@@ -297,6 +290,9 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, textureTest);
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
+
+		tex->RenderText(shader);
+		tex2->RenderText(shader);
 
 		glm::vec2(2.0f, 2.0f);
 
