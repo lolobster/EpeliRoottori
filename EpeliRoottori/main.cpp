@@ -118,6 +118,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	glm::vec2 dir = { 2.0, 2.0 };
 	glm::vec3 color = glm::vec3(0.01, 0.01, 0.01);
 
+	Polygon polygon(6, 200, 1, 0, 350, 350, 1.0f, 0.4f, 0.3f);
+
 	while (!glfwWindowShouldClose(Window))
 	{
 		glfwPollEvents();
@@ -158,9 +160,10 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		renderer.draw(dickbutt);
 		renderer.draw(typhlosion);
 		renderer.draw(tex2);
-
+		renderer.draw(polygon);
+	
 		/*
-		Polygon p;
+		
 		p.drawPolygon(6, 1, 100, 0, vec2(300, 700), vec3(0.0f, 0.0f, 0.0f));
 		p.drawPolygon(3, 1, 100, 0, vec2(500, 1000), vec3(1.0f, 0.0f, 0.0f));
 		p.drawPolygon(4, 1, 100, 0, vec2(700, 500), vec3(1.0f, 1.0f, 0.0f));

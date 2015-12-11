@@ -11,9 +11,6 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 	 x = 0;
 	 y = 0;
 	 size = sides;
-	 //purkkaa
-	 uintSize = sides;
-
 	 theta = 2.0f * M_PI / int(sides);
 	 counter = 0;
 
@@ -465,11 +462,4 @@ GLfloat* Polygon::getData()
 int Polygon::getSize()
 {
 	return size;
-}
-
-
-//pure jenkki
-GLuint Polygon::getGLuintSize()
-{
-	return uintSize;
 }

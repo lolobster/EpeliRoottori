@@ -78,7 +78,6 @@ private:
 	GLfloat *data;
 	GLuint *indices;
 
-	GLuint uintSize;
 	int size;
 	int counter;
 };
