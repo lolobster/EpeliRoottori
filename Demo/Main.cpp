@@ -5,6 +5,7 @@
 #include "EpeliRoottori/Shader.h"
 #include "EpeliRoottori/TextManager.h"
 #include "EpeliRoottori/TextureManager.h"
+#include "EpeliRoottori\Sprite.h"
 
 
 
