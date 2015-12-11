@@ -169,7 +169,12 @@ void Renderer::draw(TextManager text)
 			delete[] expanded_data;
 
 
-			penY = slot->metrics.vertBearingY / 32;
+			penY = slot->metrics.vertBearingY / 32 - text.GetCharacterSize();
+
+			if (slot->metrics.height / 64 - slot->metrics.horiBearingY / 64 > 0)
+			{
+				penY += slot->metrics.height / 64 - slot->metrics.horiBearingY / 64;
+			}
 
 			GLfloat textData[] = // Yksittäisen kirjaimen data
 			{
@@ -179,6 +184,8 @@ void Renderer::draw(TextManager text)
 				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y,	text.GetColor().x, text.GetColor().y, text.GetColor().z,	1.0f, 1.0f,
 				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y,							text.GetColor().x, text.GetColor().y, text.GetColor().z,	0.0f, 1.0f,
 			};
+
+
 
 			penX += slot->advance.x >> 6;
 

@@ -37,12 +37,10 @@ void Camera::initialize(void)
 
 }
 
-void Camera::setPosition(GLfloat distance)
+void Camera::setPosition(glm::vec2 distance)
 {
-	M = glm::translate(M, glm::vec3(distance));
+	M = glm::translate(M, glm::vec3(distance.x, -distance.y, 0.0));
 }
-
-
 
 void Camera::setScale(GLfloat camScale)
 {

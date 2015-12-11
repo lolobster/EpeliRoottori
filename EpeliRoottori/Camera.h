@@ -22,7 +22,7 @@ public:
 		MVP = M * V * P;
 		return MVP; };
 
-	void setPosition(GLfloat distance);
+	void setPosition(glm::vec2 distance);
 	
 	void setScale(GLfloat camScale);
 	//GLfloat getScale()const{ return camRotate; }
