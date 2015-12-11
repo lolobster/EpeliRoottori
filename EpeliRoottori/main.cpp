@@ -102,8 +102,9 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	tex2.LoadFont("..//data//arial.ttf");
 	tex2.SetText("0");
 	tex2.SetCharacterSize(30);
-	tex2.SetPosition(glm::vec2(width - 140, 0));
+	tex2.SetPosition(glm::vec2(width - tex2.GetGlobalBounds().x, 0));
 	tex2.SetColor(glm::vec3(1.0, 0.6, 0.0));
+
 
 	TextManager tex3;
 	tex3.LoadFont("..//data//Arctik5.ttf");
@@ -145,6 +146,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 			dir.x = -2.0;
 			score2++;
 			tex2.SetText(std::to_string(score2));
+			tex2.SetPosition(glm::vec2(width - tex2.GetGlobalBounds().x, 0));
 		}
 		if (typhlosion.GetPosition().x < 0)
 		{

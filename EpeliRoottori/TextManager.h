@@ -36,6 +36,8 @@ public:
 	float GetRotation();
 	FT_Face GetFace();
 	FT_Error GetError();
+	glm::vec2 GetBounds();
+	glm::vec2 GetGlobalBounds();
 
 private:
 	FT_Library library;

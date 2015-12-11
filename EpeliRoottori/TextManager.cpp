@@ -119,3 +119,33 @@ FT_Error TextManager::GetError()
 {
 	return error;
 }
+
+glm::vec2 TextManager::GetBounds()
+{
+	float penX = 0, penY = 0;
+	if (error == false)
+	{
+		FT_GlyphSlot slot = face->glyph;
+		for (int i = 0; i < text.size(); i++)
+		{
+			FT_Load_Char(face, text[i], FT_LOAD_RENDER);
+			penX += slot->advance.x >> 6;
+		}
+	}
+	return glm::vec2(penX, penY);
+}
+
+glm::vec2 TextManager::GetGlobalBounds()
+{
+	float penX = 0, penY = 0;
+	if (error == false)
+	{
+		FT_GlyphSlot slot = face->glyph;
+		for (int i = 0; i < text.size(); i++)
+		{
+			FT_Load_Char(face, text[i], FT_LOAD_RENDER);
+			penX += slot->advance.x >> 6;
+		}
+	}
+	return glm::vec2(penX * scale.x, penY * scale.y);
+}
