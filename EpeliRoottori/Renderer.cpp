@@ -19,9 +19,9 @@ void Renderer::draw(Sprite sprite)
 	{
 		// Paikat																// Värit						// Tekstuurien koordinaatit
 		sprite.GetPosition().x, sprite.GetPosition().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 0.0f,
-		sprite.GetPosition().x + sprite.GetBounds().x * sprite.GetScale().x, sprite.GetPosition().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 0.0f,
-		sprite.GetPosition().x + sprite.GetBounds().x * sprite.GetScale().x, sprite.GetPosition().y + sprite.GetBounds().y * sprite.GetScale().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 1.0f,
-		sprite.GetPosition().x, sprite.GetPosition().y + sprite.GetBounds().y * sprite.GetScale().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 1.0f,
+		sprite.GetPosition().x + sprite.GetGlobalBounds().x, sprite.GetPosition().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 0.0f,
+		sprite.GetPosition().x + sprite.GetGlobalBounds().x, sprite.GetPosition().y + sprite.GetGlobalBounds().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 1.0f,
+		sprite.GetPosition().x, sprite.GetPosition().y + sprite.GetGlobalBounds().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 1.0f,
 	};
 
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);

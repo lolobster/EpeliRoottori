@@ -143,6 +143,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	Sprite typhlosion;
 	typhlosion.SetTexture("../data/Typhlosion.png");
 	typhlosion.SetPosition(glm::vec2(25, 25));
+	typhlosion.SetScale(glm::vec2(2.0, 2.0));
 
 	Sprite dickbutt;
 	dickbutt.SetTexture("../data/Dickbutt.png");
@@ -154,10 +155,6 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	Camera cam;
 
 	cam.initialize();
-	GLfloat distance = 0.0;
-	bool direction = false;
-	GLfloat angle = 0.1f;
-	GLfloat scale = -0.5f;
 
 	glm::vec2 dir = { 2.0, 2.0 };
 	glm::vec3 color = glm::vec3(0.01, 0.01, 0.01);
@@ -170,7 +167,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		glClearColor(0.0f, 0.2f, 0.2f, 1.0f);
 
-		if (typhlosion.GetPosition().x + typhlosion.GetBounds().x > width)
+		if (typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x > width)
 		{
 			dir.x = -2.0;
 		}
@@ -178,7 +175,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		{
 			dir.x = 2.0;
 		}
-		if (typhlosion.GetPosition().y + typhlosion.GetBounds().y > height)
+		if (typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y > height)
 		{
 			dir.y = -2.0;
 		}

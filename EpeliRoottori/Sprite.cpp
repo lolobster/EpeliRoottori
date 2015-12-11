@@ -77,6 +77,11 @@ glm::vec2 Sprite::GetBounds()
 	return glm::vec2(tex.getWidth(), tex.getHeight());
 }
 
+glm::vec2 Sprite::GetGlobalBounds()
+{
+	return glm::vec2(tex.getWidth() * scale.x, tex.getHeight() * scale.y);
+}
+
 GLuint Sprite::GetTexture()
 {
 	return tex.getID();

@@ -24,6 +24,7 @@ public:
 	glm::vec2 GetScale();
 	float GetRotation();
 	glm::vec2 GetBounds();
+	glm::vec2 GetGlobalBounds();
 	GLuint GetTexture();
 
 private:
