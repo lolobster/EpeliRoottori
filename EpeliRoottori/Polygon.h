@@ -37,38 +37,50 @@ struct vertex{
 class Polygon
 {
 public:
-	std::vector<vertex> vertices;
-	std::vector<GLuint> indices;
+	//std::vector<vertex> vertices;
+	//std::vector<GLuint> indices;
 	//std::vector<Texture> textures;
 
-	Polygon();
-	Polygon(int sides);
-	Polygon(float vertices[], int elements[]);
+	
+	//Polygon(int sides);
+	Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat x, GLfloat y, GLfloat cx, GLfloat cy, GLfloat cz);
 	~Polygon();
 
 	void drawSquare(glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color, std::string textureName, Shader *shader);
 	void update();
 	void drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color, Shader *shader);
+	void drawPolygon(Shader *shader);
 	//void drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color);
-	void printData(int sides);
+	void printData();
+
+	GLfloat getX();
+	GLfloat getY();
+	GLfloat getTextCoordX();
+	GLfloat getTextCoordY();
+	GLfloat getColorX();
+	GLfloat getColorY();
+	GLfloat getColorZ();
+
+
+
+	GLfloat* getData();
+	GLuint* getIndices();
+	int getSize();
+	GLuint getGLuintSize();
 
 private:
-	GLuint vao;
-	GLuint vbo;
-	GLuint ebo;
-	//int vertices[];
-	//int elements[];
-	//float size;
-	//int sides;
-	//Shader shader;
-	GLfloat angle;
-	//GLfloat angleIncrement;
-	GLfloat x, xCenter, yCenter, y;
+	GLuint vao, vbo, ebo;
+	
+	GLfloat x, y, theta, angle,
+		textCoordX, textCoordY,
+		colorX, colorY, colorZ;
 
-	int counter = 0;
-	int width, height;
 	GLfloat *data;
-	//GLfloat *indices;
+	GLuint *indices;
+
+	GLuint uintSize;
+	int size;
+	int counter;
 };
 
 #endif

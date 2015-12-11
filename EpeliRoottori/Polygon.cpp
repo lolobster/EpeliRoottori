@@ -1,28 +1,81 @@
 #include "Polygon.h"
 #include <array>
 
-Polygon::Polygon(int sides)
-{
-	 data = new GLfloat[8 * sides];
-	// indices = new GLfloat[sides];
-}
+Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat posX, GLfloat posY, GLfloat cx, GLfloat cy, GLfloat cz) //glm::vec2 position, glm::vec3 color)
+{	
+	 data = new GLfloat[7 * sides];
+	 indices = new GLuint[sides];
 
-Polygon::Polygon()
-{
-	
-}
+	 textCoordX = 0;
+	 textCoordY = 0;
+	 x = 0;
+	 y = 0;
+	 size = sides;
+	 //purkkaa
+	 uintSize = sides;
 
-Polygon::Polygon(float vertices[], int elements[])
-{
+	 theta = 2.0f * M_PI / int(sides);
+	 counter = 0;
+
+	 for (int i = 0; i < sides * 3; i++)
+	 {
+
+	 }
+
+	 for (int i = 0; i < sides; i++)
+	 { 
+		 indices[i] = i;
+		 angle = i * sides;
+		 x = posX + (radius * sin(angle)) * scale;
+		 y = posY + (radius * cos(angle)) * scale;
+
+		 if (counter == 0)
+		 {
+			 textCoordX = 0;
+			 textCoordY = 0;
+		 }
+		 else if (counter == 1)
+		 {
+			 textCoordX = 0;
+			 textCoordY = 1;
+		 }
+		 else if (counter == 2)
+		 {
+			 textCoordX = 1;
+			 textCoordY = 1;
+		 }
+		 else if (counter == 3)
+		 {
+			 textCoordX = 1;
+			 textCoordY = 0;
+		 }
+		 else
+		 {
+			 counter = 0;
+		 }
+
+		 data[i * 7]	 = x;
+		 data[i * 7 + 1] = y;
+		 //data[i * 8 + 2] = 0;//position Z
+		 data[i * 7 + 2] = cx;
+		 data[i * 7 + 3] = cy;
+		 data[i * 7 + 4] = cz;
+		 data[i * 7 + 5] = textCoordX;
+		 data[i * 7 + 6] = textCoordY;		 
+
+		 counter++;
+		 if (counter > 3)
+		 {
+			 counter = 0;
+		 }		 
+	 }
+	 //printData();
 
 }
 
 Polygon::~Polygon()
 {
-	glDeleteVertexArrays(1, &vao);
-	glDeleteBuffers(1, &vbo);
-	glDeleteBuffers(1, &ebo);
-	delete[] data;
+	//delete[] data;
 	//delete[] indices;
 }
 
@@ -40,6 +93,7 @@ void Polygon::drawSquare(glm::vec2 position, glm::vec2 size, GLfloat rotate, glm
 	model = glm::translate(model, glm::vec3(0.5f* size.x, 0.5f * size.y, 0.0f));
 	model = glm::rotate(model, rotate, glm::vec3(0.0f, 0.0f, 1.0f));
 	model = glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f));
+
 
 	model = glm::scale(model, glm::vec3(size, 1.0f));
 */
@@ -226,9 +280,35 @@ void Polygon::drawPolygon(int sides, float radius, float scale, GLfloat rotation
 }
 */
 
-void Polygon::drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color, Shader *shader)
+void Polygon::drawPolygon(Shader *shader)
 {
-	//Shader s;
+
+	GLuint MatrixID = glGetUniformLocation(shader->GetShaderProgram(), "MVP");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	//GLuint tex = 0;
 	//glGenTextures(1, &tex);
 	//glBindTexture(GL_TEXTURE_2D, tex);
@@ -239,62 +319,8 @@ void Polygon::drawPolygon(int sides, float radius, float scale, GLfloat rotation
 	//texManager.loadTextures("../data/Dickbutt.png", tex);
 
 	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
 	
-	GLfloat textCoordX = 0;
-	GLfloat textCoordY = 0;
-	GLfloat x = 0;
-	GLfloat y = 0;	
-	GLfloat theta = 2.0f * M_PI / int(sides);
-
-	for (int i = 0; i < sides; i++)
-	{
-
-		angle = i * sides;
-		x =  position.x + (radius * sin(angle)) * scale;
-		y = position.y + (radius * cos(angle)) * scale;
-
-		if (counter == 0)
-		{
-			textCoordX = 0;
-			textCoordY = 0;
-		}
-		else if (counter == 1)
-		{
-			textCoordX = 0;
-			textCoordY = 1;
-		}
-		else if (counter == 2)
-		{
-			textCoordX = 1;
-			textCoordY = 1;
-		}
-		else if (counter == 3)
-		{
-			textCoordX = 1;
-			textCoordY = 0;
-		}
-		else
-		{
-			counter = 0;
-
-		}
-
-		data[i * 8] = x;
-		data[i * 8 + 1] = y;
-		data[i * 8 + 2] = 0;//position Z
-		data[i * 8 + 3] = color.x;
-		data[i * 8 + 4] = color.y;
-		data[i * 8 + 5] = color.z;
-		data[i * 8 + 6] = textCoordX;
-		data[i * 8 + 7] = textCoordY;
-
-		counter++;
-		if (counter > 3)
-		{
-			counter = 0;
-		}
-		
-	}
 
 
 	//for (int iz = 0; iz < sides; iz++)
@@ -377,13 +403,73 @@ void Polygon::drawPolygon(int sides, float radius, float scale, GLfloat rotation
 }
 
 
-void Polygon::printData(int sides)
+void Polygon::printData()
 {
 	std::cout << "------start------" << std::endl;
-	for (int i = 0; i < 8 * sides; i++)
+	for (int i = 0; i < 8 * (sizeof((data)) / sizeof((data[0]))); i++)
 	{
 		std::cout << data[i] << std::endl;
 	}
+
+	std::cout << "--------indices--------" << std::endl;
+
+	for (int i = 0; i < size * (sizeof((data)) / sizeof((data[0]))); i++)
+	{
+		std::cout << indices[i] << std::endl;
+	}
 	std::cout << "-------end------" << std::endl;
 
+}
+
+GLfloat Polygon::getX()
+{
+	return x;
+}
+GLfloat Polygon::getY()
+{
+	return y;
+}
+
+GLfloat Polygon::getTextCoordX()
+{
+	return textCoordX;
+}
+GLfloat Polygon::getTextCoordY()
+{
+	return textCoordY;
+}
+
+GLfloat Polygon::getColorX()
+{
+	return colorX;
+}
+GLfloat Polygon::getColorY()
+{
+	return colorY;
+}
+GLfloat Polygon::getColorZ()
+{
+	return colorZ;
+}
+
+GLuint* Polygon::getIndices()
+{
+	return indices;
+}
+
+GLfloat* Polygon::getData()
+{
+	return data;
+}
+
+int Polygon::getSize()
+{
+	return size;
+}
+
+
+//pure jenkki
+GLuint Polygon::getGLuintSize()
+{
+	return uintSize;
 }

@@ -22,6 +22,7 @@
 #include "Shader.h"
 #include "TextManager.h"
 #include "Sprite.h"
+#include "Polygon.h"
 
 
 class Renderer
@@ -31,14 +32,16 @@ public:
 	~Renderer();
 	void draw(Sprite sprite);
 	void draw(TextManager text);
+	void draw(Polygon polygon);
 
 	Camera *cam;
 
 private:
 	GLuint matrixID;
 	Shader shader;
-	GLuint spriteBuffer, spriteElements, textID;;
+	GLuint spriteBuffer, spriteElements, textID, polygonBuffer, polygonElements;
 	bool firstRender = true;
+	int timer = 0;
 };
 
 #endif
