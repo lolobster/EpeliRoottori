@@ -1,11 +1,16 @@
 #include "Renderer.h"
 
-Renderer::Renderer()
+Renderer::Renderer(glm::vec2 s)
 {
+	cam = new Camera{ s };
+
 	shader.Init();
 	glGenBuffers(1, &spriteBuffer);
 	glGenBuffers(1, &spriteElements);
 	glGenTextures(1, &textID);
+
+	matrixID = glGetUniformLocation(shader.GetShaderProgram(), "MVP");
+	cam->initialize();
 }
 
 
@@ -47,6 +52,9 @@ void Renderer::draw(Sprite sprite)
 
 	shader.Use();
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+	glm::mat4 MVP = cam->getViewMatrix();
+	glUniformMatrix4fv(matrixID, 1, GL_FALSE, &MVP[0][0]);
 }
 
 void Renderer::draw(TextManager text)
@@ -116,4 +124,7 @@ void Renderer::draw(TextManager text)
 			glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		}
 	}
+
+	glm::mat4 MVP = cam->getViewMatrix();
+	glUniformMatrix4fv(matrixID, 1, GL_FALSE, &MVP[0][0]);
 }

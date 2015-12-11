@@ -68,7 +68,6 @@ int main(void)
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-	//LateTesti2(window, WIDTH, HEIGHT);
 	LateTesti(window, WIDTH, HEIGHT);
 	//TaskuTesti(window, WIDTH, HEIGHT);
 
@@ -88,43 +87,9 @@ int main(void)
 	
 }
 
-void LateTesti2(GLFWwindow* Window, const GLuint width, const GLuint height)
-{
-	Renderer renderer;
-	Camera cam;
-	Shader shader;
-
-	Sprite typhlosion;
-	typhlosion.SetTexture("../data/Typhlosion.png");
-
-	cam.initialize();
-
-	GLuint MatrixID = glGetUniformLocation(shader.GetShaderProgram(), "MVP");
-
-
-	while (!glfwWindowShouldClose(Window))
-	{
-		glfwPollEvents();
-
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-		glClearColor(0.0f, 0.2f, 0.2f, 1.0f);
-
-		mat4 MVP = cam.getViewMatrix();
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-
-		renderer.draw(typhlosion);
-		typhlosion.Move(glm::vec2(-1.0, -1.0));
-
-		glfwSwapBuffers(Window);
-	}
-}
-
 void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 {
-	Renderer renderer;
-
-	Shader shader;
-	shader.Init();
+	Renderer renderer = {glm::vec2(width, height)};
 
 	TextManager tex;
 	tex.LoadFont("..//data//arial.ttf");
@@ -150,18 +115,11 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	dickbutt.SetColor(glm::vec3(0.0, 0.4, 0.1));
 	dickbutt.SetPosition(glm::vec2(width - dickbutt.GetBounds().x, height - dickbutt.GetBounds().y));
 
-	GLuint MatrixID = glGetUniformLocation(shader.GetShaderProgram(), "MVP");
-
-	Camera cam;
-
-	cam.initialize();
-
 	glm::vec2 dir = { 2.0, 2.0 };
 	glm::vec3 color = glm::vec3(0.01, 0.01, 0.01);
 
 	while (!glfwWindowShouldClose(Window))
 	{
-
 		glfwPollEvents();
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -184,9 +142,6 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 			dir.y = 2.0;
 		}
 	
-		mat4 MVP = cam.getViewMatrix();
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
-	
 		typhlosion.Move(dir);
 
 		tex.SetColor(glm::vec3(tex.GetColor() + color));
@@ -198,8 +153,6 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		{
 			color = glm::vec3(0.01, 0.01, 0.01);
 		}
-
-		shader.Use();  // aktivoidaan shader
 
 		renderer.draw(tex);
 		renderer.draw(dickbutt);
@@ -395,9 +348,9 @@ void TaskuTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 	GLuint MatrixID = glGetUniformLocation(shader.GetShaderProgram(), "MVP");
 	
-	Camera cam;
+	//Camera cam;
 
-	cam.initialize();
+	//cam.initialize();
 
 	GLfloat distance = 0.0;
 	bool direction = false;
@@ -425,26 +378,26 @@ void TaskuTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 			if (direction == true)
 			{
-				cam.setPosition(distance);
+				//cam.setPosition(distance);
 				distance += 0.001;
 
-				cam.setRotation(angle);
+				//cam.setRotation(angle);
 				angle += 0.005f;
 			}
 			else if (direction == false)
 			{
-				cam.setPosition(distance);
+				//cam.setPosition(distance);
 				distance -= 0.001;	
 
-				cam.setRotation(angle);
+				//cam.setRotation(angle);
 				angle += 0.005f;
 			}
 
 
-			mat4 MVP = cam.getViewMatrix();
+			//mat4 MVP = cam.getViewMatrix();
 			
-			MVP;
-			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
+			//MVP;
+			//glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &MVP[0][0]);
 
 			glBindVertexArray(VAO);
 			

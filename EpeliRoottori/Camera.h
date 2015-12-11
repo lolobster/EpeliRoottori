@@ -11,16 +11,14 @@
 // GLFW
 #include <GLFW/glfw3.h>
 
-using namespace glm;
-
 class Camera
 {
 public:
-	Camera();
+	Camera(glm::vec2 s);
 	
 	void initialize();
 	
-	mat4 getViewMatrix(){
+	glm::mat4 getViewMatrix(){
 		MVP = M * V * P;
 		return MVP; };
 
@@ -39,27 +37,28 @@ public:
 	~Camera();
 
 private:
-	vec3 camPos;
+	glm::vec3 camPos;
 	//vec3 camTarget = vec3(0.0f, 0.0f, 0.0f);
 	//vec3 camDirection = normalize(camPos - camTarget);
 
 	//vec3 up = vec3(0.0f, 1.0f, 0.0f);
-	vec3 camRight;
-	vec3 camUp;
-	vec3 camFront;
+	glm::vec3 camRight;
+	glm::vec3 camUp;
+	glm::vec3 camFront;
 
 	GLfloat camX = 1.0f;
 	GLfloat camY = 1.0f;
 	GLfloat camZ = 1.0f;
 
-	mat4 M; // translation
-	mat4 V; // projection
-	mat4 P; // target
-	mat4 MVP; // view
+	glm::mat4 M; // translation
+	glm::mat4 V; // projection
+	glm::mat4 P; // target
+	glm::mat4 MVP; // view
 
 	GLfloat camRotate;
 	GLfloat camScale;
 	
+	glm::vec2 size;
 };
 
 #endif
