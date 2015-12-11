@@ -93,30 +93,43 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 	TextManager tex;
 	tex.LoadFont("..//data//arial.ttf");
-	tex.SetText("jBlack and white");
+	tex.SetText("0");
 	tex.SetCharacterSize(30);
-	tex.SetPosition(glm::vec2(0, 0));
-	tex.SetColor(glm::vec3(0.0, 0.0, 0.0));
+	tex.SetPosition(glm::vec2(10, 0));
+	tex.SetColor(glm::vec3(0.0, 0.4, 0.1));
 
 	TextManager tex2;
-	tex2.LoadFont("..//data//Arctik5.ttf");
-	tex2.SetText("Ei liiku");
-	tex2.SetCharacterSize(50);
-	tex2.SetPosition(glm::vec2(500.0, 500.0));
-	tex2.SetColor(glm::vec3(0.0, 1.0, 0.0));
+	tex2.LoadFont("..//data//arial.ttf");
+	tex2.SetText("0");
+	tex2.SetCharacterSize(30);
+	tex2.SetPosition(glm::vec2(width - 140, 0));
+	tex2.SetColor(glm::vec3(1.0, 0.6, 0.0));
+
+	TextManager tex3;
+	tex3.LoadFont("..//data//Arctik5.ttf");
+	tex3.SetText("Pong");
+	tex3.SetCharacterSize(30);
+	tex3.SetPosition(glm::vec2(width / 2.5, 0));
+	tex3.SetColor(glm::vec3(0.0, 0.0, 0.0));
 
 	Sprite typhlosion;
 	typhlosion.SetTexture("../data/Typhlosion.png");
-	typhlosion.SetPosition(glm::vec2(25, 25));
-	typhlosion.SetScale(glm::vec2(2.0, 2.0));
+	typhlosion.SetPosition(glm::vec2((width - typhlosion.GetBounds().x) / 2, (height - typhlosion.GetBounds().y) / 2));
+	typhlosion.SetScale(glm::vec2(0.5, 0.5));
 
 	Sprite dickbutt;
 	dickbutt.SetTexture("../data/Dickbutt.png");
 	dickbutt.SetColor(glm::vec3(0.0, 0.4, 0.1));
-	dickbutt.SetPosition(glm::vec2(width - dickbutt.GetBounds().x, height - dickbutt.GetBounds().y));
+	dickbutt.SetPosition(glm::vec2(0, (height - dickbutt.GetBounds().y) / 2));
 
-	glm::vec2 dir = { 2.0, 2.0 };
-	glm::vec3 color = glm::vec3(0.01, 0.01, 0.01);
+	Sprite dickbutt2;
+	dickbutt2.SetTexture("../data/Dickbutt.png");
+	dickbutt2.SetColor(glm::vec3(1.0, 0.6, 0.0));
+	dickbutt2.SetPosition(glm::vec2(width - dickbutt.GetBounds().x, (height - dickbutt.GetBounds().y) / 2));
+
+	glm::vec2 dir = { 2.0, 2.0 }, dir2 = { 0.0, 1.0 }, dir3 = { 0.0, -1.0 };
+	int score1 = 0, score2 = 0;
+	glm::vec3 color = { 0.01, 0.01, 0.01 };
 
 	Polygon polygon(6, 200, 1, 0, 350, 350, 1.0f, 0.4f, 0.3f);
 
@@ -130,10 +143,14 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		if (typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x > width)
 		{
 			dir.x = -2.0;
+			score2++;
+			tex2.SetText(std::to_string(score2));
 		}
 		if (typhlosion.GetPosition().x < 0)
 		{
 			dir.x = 2.0;
+			score1++;
+			tex.SetText(std::to_string(score1));
 		}
 		if (typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y > height)
 		{
@@ -143,24 +160,58 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		{
 			dir.y = 2.0;
 		}
-	
-		typhlosion.Move(dir);
 
-		tex.SetColor(glm::vec3(tex.GetColor() + color));
-		if (tex.GetColor().x > 1.0)
+		if (dickbutt.GetPosition().x + dickbutt.GetGlobalBounds().x > typhlosion.GetPosition().x && dickbutt.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt.GetPosition().y + dickbutt.GetGlobalBounds().y > typhlosion.GetPosition().y)
 		{
-			color = glm::vec3(-0.01, -0.01, -0.01);
+			dir.x = 2.0;
 		}
-		if (tex.GetColor().x < 0.0)
+		if (dickbutt2.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && dickbutt2.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt2.GetPosition().y + dickbutt2.GetGlobalBounds().y > typhlosion.GetPosition().y)
+		{
+			dir.x = -2.0;
+		}
+
+		if (dickbutt.GetPosition().y < 0)
+		{
+			dir2 = { 0.0, 1.0 };
+		}
+		if (dickbutt.GetPosition().y + dickbutt.GetGlobalBounds().y > height)
+		{
+			dir2 = { 0.0, -1.0 };
+		}
+
+		if (dickbutt2.GetPosition().y < 0)
+		{
+			dir3 = { 0.0, 1.0 };
+		}
+		if (dickbutt2.GetPosition().y + dickbutt2.GetGlobalBounds().y > height)
+		{
+			dir3 = { 0.0, -1.0 };
+		}
+
+		if (tex3.GetColor().x < 0)
 		{
 			color = glm::vec3(0.01, 0.01, 0.01);
 		}
+		if (tex3.GetColor().x > 1)
+		{
+			color = glm::vec3(-0.01, -0.01, -0.01);
+		}
 
-		renderer.draw(tex);
-		renderer.draw(dickbutt);
+		tex3.SetColor(tex3.GetColor() + color);
+
+		typhlosion.Move(dir);
+		dickbutt.Move(dir2);
+		dickbutt2.Move(dir3);
+
+
 		renderer.draw(typhlosion);
+		renderer.draw(dickbutt);
+		renderer.draw(dickbutt2);
+		renderer.draw(tex);
 		renderer.draw(tex2);
-		renderer.draw(polygon);
+		renderer.draw(tex3);
+
+		//renderer.draw(polygon);
 	
 		/*
 		
