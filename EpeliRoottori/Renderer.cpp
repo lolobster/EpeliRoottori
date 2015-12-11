@@ -22,11 +22,11 @@ void Renderer::draw(Sprite sprite)
 {
 	GLfloat spriteData[] =
 	{
-		// Paikat																// Värit						// Tekstuurien koordinaatit
-		sprite.GetPosition().x, sprite.GetPosition().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 0.0f,
-		sprite.GetPosition().x + sprite.GetGlobalBounds().x, sprite.GetPosition().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 0.0f,
-		sprite.GetPosition().x + sprite.GetGlobalBounds().x, sprite.GetPosition().y + sprite.GetGlobalBounds().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 1.0f,
-		sprite.GetPosition().x, sprite.GetPosition().y + sprite.GetGlobalBounds().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 1.0f,
+		// Paikat																									// Värit															// Tekstuurien koordinaatit
+		sprite.GetPosition().x, sprite.GetPosition().y,																sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z,		0.0f, 0.0f,
+		sprite.GetPosition().x + sprite.GetGlobalBounds().x, sprite.GetPosition().y,								sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z,		1.0f, 0.0f,
+		sprite.GetPosition().x + sprite.GetGlobalBounds().x, sprite.GetPosition().y + sprite.GetGlobalBounds().y,	sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z,		1.0f, 1.0f,
+		sprite.GetPosition().x, sprite.GetPosition().y + sprite.GetGlobalBounds().y,								sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z,		0.0f, 1.0f,
 	};
 
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
@@ -79,6 +79,8 @@ void Renderer::draw(TextManager text)
 			}
 
 			glBindTexture(GL_TEXTURE_2D, textID);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, slot->bitmap.width, slot->bitmap.rows, 0, GL_LUMINANCE_ALPHA, GL_UNSIGNED_BYTE, expanded_data);
@@ -90,11 +92,11 @@ void Renderer::draw(TextManager text)
 
 			GLfloat textData[] = // Yksittäisen kirjaimen data
 			{
-				// Paikat																// Värit						// Tekstuurien koordinaatit
-				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY, text.GetColor().x, text.GetColor().y, text.GetColor().z, 0.0f, 0.0f,
-				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY, text.GetColor().x, text.GetColor().y, text.GetColor().z, 1.0f, 0.0f,
-				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y, text.GetColor().x, text.GetColor().y, text.GetColor().z, 1.0f, 1.0f,
-				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y, text.GetColor().x, text.GetColor().y, text.GetColor().z, 0.0f, 1.0f,
+				// Paikat																																		// Värit													// Tekstuurien koordinaatit
+				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY,																	text.GetColor().x, text.GetColor().y, text.GetColor().z,	0.0f, 0.0f,
+				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY,											text.GetColor().x, text.GetColor().y, text.GetColor().z,	1.0f, 0.0f,
+				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y,	text.GetColor().x, text.GetColor().y, text.GetColor().z,	1.0f, 1.0f,
+				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y,							text.GetColor().x, text.GetColor().y, text.GetColor().z,	0.0f, 1.0f,
 			};
 
 			penX += slot->advance.x >> 6;

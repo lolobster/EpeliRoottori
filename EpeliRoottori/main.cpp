@@ -93,7 +93,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 	TextManager tex;
 	tex.LoadFont("..//data//arial.ttf");
-	tex.SetText("Black and white");
+	tex.SetText("jBlack and white");
 	tex.SetCharacterSize(30);
 	tex.SetPosition(glm::vec2(0, 0));
 	tex.SetColor(glm::vec3(0.0, 0.0, 0.0));
