@@ -29,9 +29,8 @@ public:
 
 	void setRotation(GLfloat angle);
 	//mat4 getRotation(){ return MVP; }
-
 	
-	
+	void SetSize(glm::vec2 s);
 
 
 	~Camera();

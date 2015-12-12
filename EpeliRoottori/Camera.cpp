@@ -51,3 +51,9 @@ void Camera::setRotation(GLfloat angle)
 {
 	M = glm::rotate(M, angle, glm::vec3(0.0f, 0.0f, angle));
 }
+
+void Camera::SetSize(glm::vec2 s)
+{
+	size = s;
+	V = glm::ortho(0.f, size.x, size.y, 0.f);
+}
