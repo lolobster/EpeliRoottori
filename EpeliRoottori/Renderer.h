@@ -21,6 +21,7 @@
 #include "Camera.h"
 #include "Shader.h"
 #include "TextManager.h"
+#include "AnimationManager.h"
 #include "Sprite.h"
 #include "Polygon.h"
 
@@ -33,6 +34,7 @@ public:
 	void draw(Sprite sprite);
 	void draw(TextManager text);
 	void draw(Polygon polygon);
+	void drawAnimation(AnimationManager anim);
 
 	Camera *cam;
 

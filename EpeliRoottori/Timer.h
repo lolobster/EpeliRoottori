@@ -2,8 +2,8 @@
 #ifndef TIMER_H
 #define TIMER_H
 
-#include "GLFW\glfw3.h"
 #include "GL\glew.h"
+#include "GLFW\glfw3.h"
 
 
 class Timer

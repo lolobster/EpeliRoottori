@@ -80,6 +80,7 @@
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="TextManager.cpp" />
     <ClCompile Include="TextureManager.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnimationManager.h" />
@@ -91,11 +92,15 @@
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="TextManager.h" />
     <ClInclude Include="TextureManager.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="VertexShader.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\data\FragmentShader.glfs" />
     <None Include="..\data\VertexShader.glvs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\data\anim_test.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

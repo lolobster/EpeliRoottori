@@ -25,8 +25,10 @@
 #include "TextManager.h"
 #include "Camera.h"
 #include "TextureManager.h"
+#include "AnimationManager.h"
 #include "Polygon.h"
 #include "Sprite.h"
+#include "Timer.h"
 
 // Ikkunan koko
 const GLuint WIDTH = 1200, HEIGHT = 800;
@@ -41,7 +43,7 @@ void TaskuTesti(GLFWwindow* Window, const GLuint width, const GLuint height);
 
 int main(void)
 {	
-
+	
 	glfwInit();				// Initialisoidaan GLFW
 
 	// GLFW perusasetukset
@@ -67,6 +69,9 @@ int main(void)
 	
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	
+	Timer time;
+	time.start();
 
 	LateTesti(window, WIDTH, HEIGHT);
 	//TaskuTesti(window, WIDTH, HEIGHT);
@@ -129,6 +134,9 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	dickbutt2.SetTexture("../data/Dickbutt.png");
 	dickbutt2.SetColor(glm::vec3(0.0, 1.0, 0.0));
 	dickbutt2.SetPosition(glm::vec2(width - dickbutt.GetBounds().x, (height - dickbutt.GetBounds().y) / 2));
+
+	AnimationManager anim;
+	anim.loadAnimation("../data/crystal_pink.png", "../data/anim_test.xml");
 
 	renderer2.cam->setPosition(glm::vec2(1, 1));
 	renderer3.cam->setPosition(glm::vec2(1.5, 1.5));
@@ -259,6 +267,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		renderer.draw(tex2);
 		renderer.draw(tex3);
 	
+		renderer.drawAnimation(anim);
 		/*
 		
 		p.drawPolygon(6, 1, 100, 0, vec2(300, 700), vec3(0.0f, 0.0f, 0.0f));
