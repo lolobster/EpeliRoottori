@@ -1,7 +1,6 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 #include "TextureManager.h"
-#include "AnimationManager.h"
 #include "Shader.h"
 #include <glm/glm.hpp>
 
@@ -11,10 +10,7 @@ public:
 	Sprite();
 	~Sprite();
 
-	AnimationManager* const GetAnimationManager();
-
 	void SetTexture(const char *filepath);
-	void SetAnimation(const char *filepath, const std::string& resourcePath);
 	void SetPosition(glm::vec2 p);
 	void SetScale(glm::vec2 s);
 	void SetColor(glm::vec3 c);
@@ -31,14 +27,8 @@ public:
 	glm::vec2 GetGlobalBounds();
 	GLuint GetTexture();
 
-
-	glm::vec2 GetAnimBounds();
-	glm::vec2 GetAnimGlobalBounds();
-	GLuint GetAnimID();
-
 private:
 	TextureManager tex;
-	AnimationManager anim;
 	GLuint spriteBuffer;
 	GLuint spriteElements;
 	GLuint texture = 0;

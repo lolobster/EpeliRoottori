@@ -17,15 +17,6 @@ void Sprite::SetTexture(const char *filepath)
 	tex.loadTextures(filepath);
 }
 
-void Sprite::SetAnimation(const char *filepath, const std::string& resourcePath)
-{
-	anim.loadAnimation(filepath, resourcePath);
-}
-
-AnimationManager* const Sprite::GetAnimationManager() {
-	return &anim;
-}
-
 void Sprite::SetPosition(glm::vec2 p)
 {
 	position = p;
@@ -94,20 +85,4 @@ glm::vec2 Sprite::GetGlobalBounds()
 GLuint Sprite::GetTexture()
 {
 	return tex.getID();
-}
-
-
-glm::vec2 Sprite::GetAnimBounds()
-{
-	return glm::vec2(anim.getFrameWidth(), anim.getFrameHeight());
-}
-
-glm::vec2 Sprite::GetAnimGlobalBounds()
-{
-	return glm::vec2(anim.getFrameWidth() * scale.x, anim.getFrameHeight() * scale.y);
-}
-
-GLuint Sprite::GetAnimID()
-{
-	return anim.getAnimationID();
 }

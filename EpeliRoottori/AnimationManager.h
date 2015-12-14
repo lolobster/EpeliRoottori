@@ -17,7 +17,6 @@ struct Frame
 {
 	float duration;
 	glm::vec4 texCoords;
-	GLuint index;
 };
 
 
@@ -41,10 +40,6 @@ public:
 
 		return frames[index];
 	}
-	Frame getCurrentFrame() // tälle joku päivityshässäkkä
-	{
-		return currentFrame;
-	}
 
 	int getFrameWidth() const
 	{
@@ -56,8 +51,6 @@ public:
 		return frameHeight;
 	}
 
-	
-
 	glm::vec4* getTexCoords(size_t index)
 	{
 		assert(index < frames.size());
@@ -65,21 +58,11 @@ public:
 		return &frames[index].texCoords;
 	}
 
-	GLuint getAnimationID(){ return animID; };
-
-
-	unsigned int GetWidth() {
-		return width;
-	}
-	unsigned int GetHeight() {
-		return height;
-	}
 private:
 	AnimationManager *anim;
 	std::vector<Frame> frames;
 	int frameWidth;
 	int frameHeight;
-	Frame currentFrame;
 
 	const char *filename;
 	GLuint animID;

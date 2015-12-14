@@ -1,5 +1,4 @@
 #include "Renderer.h"
-#include "AnimationManager.h"
 
 Renderer::Renderer(glm::vec2 s)
 {
@@ -19,76 +18,58 @@ Renderer::~Renderer()
 {
 }
 
-void Renderer::drawAnimation(Sprite anim)
+void Renderer::drawAnimation(AnimationManager anim)
 {
-	AnimationManager* manager = anim.GetAnimationManager();
-	Frame frame = manager->getCurrentFrame();
-
-	// TODO: hakekaa FRAME_KOKO! (32 tässä tapauksessa)
-	float sourceRight = frame.texCoords.x + 32;//anim.GetAnimBounds().x;
-	float sourceBottom = frame.texCoords.y + anim.GetAnimBounds().y;
-
-	float texture_width = manager->GetWidth();
-	float texture_height = manager->GetHeight();
-
-	glm::fvec2 topLeft;
-	topLeft.x = frame.texCoords.x / texture_width;
-	topLeft.y = frame.texCoords.y / texture_height;
-
-	glm::fvec2 topRight;
-	topRight.x = sourceRight / texture_width;
-	topRight.y = frame.texCoords.y / texture_height;
-
-	glm::fvec2 bottomLeft;
-	bottomLeft.x = topLeft.x;
-	bottomLeft.y = sourceBottom / texture_height;
-
-	glm::fvec2 bottomRight;
-	bottomRight.x = topRight.x;
-	bottomRight.y = bottomLeft.y;
-
-	GLfloat spriteData[] =
+	GLfloat vertices[] =
 	{
-		
-		// Paikat																									// Värit															// Tekstuurien koordinaatit
-		anim.GetPosition().x,								anim.GetPosition().y,											anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topLeft.x, topLeft.y,
-		anim.GetPosition().x + /*anim.GetAnimBounds().x*/32,		anim.GetPosition().y,				anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topRight.x, topRight.y,
-		anim.GetPosition().x,								anim.GetPosition().y + 32,									anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomLeft.x, bottomLeft.y,
-		anim.GetPosition().x + /*anim.GetAnimBounds().x*/32,		anim.GetPosition().y + 32,				anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomRight.x, bottomRight.y,
+		//Positions				//Colors			//Texture Coords
+		200.5f, 200.5f, 1.0f,	0.0f, 0.0f,			0.0f, 0.0f,
+		100.5f, 100.5f, 0.0f,	1.0f, 0.0f,			1.0f, 0.0f,
+		0.5f, 0.5f, 0.0f,		0.0f, 1.0f,			1.0f, 1.0f,
+		200.5f, 126.5f, 0.0f,	0.0f, 1.0f,			1.0f, 1.0f,
+		40.5f, 60.0f, 0.0f,		0.0f, 1.0f,			1.0f, 1.0f,
+		100.5f, 200.5f, 0.3f,	0.3f, 0.3f,			0.0f, 1.0f,
 	};
 
+
+
+
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(spriteData), spriteData, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW); // sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW);
+	//pos
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
+	//color
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(1);
+	//tex Coord
 	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(5 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(2);
+
+	//
 
 	GLuint elements[] =
 	{
 		0, 1, 2,
-		1, 2, 3
+		0, 2, 3,
 	};
 
-
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW); //sizeof(polygon.getIndices()), polygon.getIndices(), GL_STATIC_DRAW);
 
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, anim.GetAnimID());
+	//Lisää tekstuurit
 
+
+
+	//draw
 	shader.Use();
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-	glm::mat4 MVP = cam->getViewMatrix();
-	glUniformMatrix4fv(matrixID, 1, GL_FALSE, &MVP[0][0]);
+	glDrawArrays(GL_TRIANGLES, 0, 36);
 }
 
 void Renderer::draw(Polygon polygon)
 {
-
+	//DEBUG
 	if (timer < 0)
 	{
 		polygon.printData();
@@ -118,20 +99,18 @@ void Renderer::draw(Polygon polygon)
 	}
 	else
 		timer--;
+	//END OF DEBUG
 
 	GLfloat vertices[] =
 	{
-		//Positions				//Colors			//Texture Coords
-		//200.5f, 200.5f,		 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-		//100.5f, 100.5f,		 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-		//0.5f, 0.5f,			 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-		200.5f, 126.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-		40.5f, 60.0f,		 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-		100.5f, 200.5f,		0.3f, 0.3f, 0.3f, 0.0f, 1.0f,		
+		//Positions				//Colors			//Texture Coords	
+		450.0f, 350.0f,		 0.0f, 0.0f, 1.0f,			1.0f, 1.0f,
+		300.0f, 436.603f,	 0.0f, 0.0f, 1.0f,			1.0f, 1.0f,
+		300.0f, 263.397f,	 0.3f, 0.3f, 0.3f,			0.0f, 1.0f,
 	};
 
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
-	glBufferData(GL_ARRAY_BUFFER, polygon.getNumberOfElements() * sizeof(GLfloat), polygon.getData(), GL_STATIC_DRAW); // sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW); // sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW);
 	//pos
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
@@ -139,28 +118,30 @@ void Renderer::draw(Polygon polygon)
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(1);
 	//tex Coord
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(5 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(2);
-
+	//glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(5 * sizeof(GLfloat)));
+	//glEnableVertexAttribArray(2);
 	//
 
-	GLuint elements[] =
+
+
+
+
+	/*GLuint elements[] =
 	{
 		0, 1, 2,
 		0, 2, 3,
-	};
+	};*/
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW); //sizeof(polygon.getIndices()), polygon.getIndices(), GL_STATIC_DRAW);
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
+	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW); //sizeof(polygon.getIndices()), polygon.getIndices(), GL_STATIC_DRAW);
 
 	//Lisää tekstuurit
 
-	
-
 	//draw
-	shader.Use();
 
+	shader.Use();
 	glDrawArrays(GL_TRIANGLES, 0, 3 * polygon.getSize());
+
 	//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	//glDrawElements(GL_TRIANGLES, polygon.getSize() * 3, GL_UNSIGNED_INT, 0);
 	//glDrawArrays(GL_TRIANGLES, 0, 6s);

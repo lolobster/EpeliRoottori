@@ -98,7 +98,6 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	Renderer renderer2 = { glm::vec2(width * 2, height * 2) };
 	Renderer renderer3 = { glm::vec2(width * 4, height * 4) };
 
-	AnimationManager anima;
 	TextManager tex;
 	tex.LoadFont("..//data//arial.ttf");
 	tex.SetText("0");
@@ -136,9 +135,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	dickbutt2.SetColor(glm::vec3(0.0, 1.0, 0.0));
 	dickbutt2.SetPosition(glm::vec2(width - dickbutt.GetBounds().x, (height - dickbutt.GetBounds().y) / 2));
 
-	Sprite animation;
-	animation.SetAnimation("../data/crystal_pink.png", "../data/anim_test.xml");
-	animation.SetPosition(glm::vec2((width / 2) - (animation.GetAnimGlobalBounds().x / 2), 200));
+	AnimationManager anim;
+	anim.loadAnimation("../data/crystal_pink.png", "../data/anim_test.xml");
 
 	renderer2.cam->setPosition(glm::vec2(1, 1));
 	renderer3.cam->setPosition(glm::vec2(1.5, 1.5));
@@ -147,7 +145,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	int score1 = 0, score2 = 0;
 	glm::vec3 color = { 0.01, 0.01, 0.01 };
 
-	Polygon polygon(8, 200, 1, 0, 350, 350, 1.0f, 0.4f, 0.3f);
+	Polygon polygon(6, 200, 1, 0, 350, 350, 1.0f, 0.4f, 0.3f);
 
 	while (!glfwWindowShouldClose(Window))
 	{
@@ -248,19 +246,19 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		dickbutt.Move(dir2);
 		dickbutt2.Move(dir3);
 
-		//renderer3.draw(typhlosion);
-		//renderer3.draw(dickbutt);
-		//renderer3.draw(dickbutt2);
-		//renderer3.draw(tex);
-		//renderer3.draw(tex2);
-		//renderer3.draw(tex3);
+		renderer3.draw(typhlosion);
+		renderer3.draw(dickbutt);
+		renderer3.draw(dickbutt2);
+		renderer3.draw(tex);
+		renderer3.draw(tex2);
+		renderer3.draw(tex3);
 
-		//renderer2.draw(typhlosion);
-		//renderer2.draw(dickbutt);
-		//renderer2.draw(dickbutt2);
-		//renderer2.draw(tex);
-		//renderer2.draw(tex2);
-		//renderer2.draw(tex3);
+		renderer2.draw(typhlosion);
+		renderer2.draw(dickbutt);
+		renderer2.draw(dickbutt2);
+		renderer2.draw(tex);
+		renderer2.draw(tex2);
+		renderer2.draw(tex3);
 
 		renderer.draw(typhlosion);
 		renderer.draw(dickbutt);
@@ -268,11 +266,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		renderer.draw(tex);
 		renderer.draw(tex2);
 		renderer.draw(tex3);
-		renderer.draw(polygon);
 	
-		renderer.drawAnimation(animation);
-		animation.GetAnimationManager()->updateAnimation();
-		//anima.updateAnimation();
+		renderer.drawAnimation(anim);
 		/*
 		
 		p.drawPolygon(6, 1, 100, 0, vec2(300, 700), vec3(0.0f, 0.0f, 0.0f));
