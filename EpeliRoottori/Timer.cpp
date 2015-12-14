@@ -18,6 +18,11 @@ GLfloat Timer::getGlobalTime()
 	return static_cast<GLfloat>(glfwGetTime());
 }
 
+void Timer::setTimer()
+{
+	glfwSetTime(0.0);
+}
+
 GLfloat Timer::getLocalTime()
 {
 	localTime = 0.0f;

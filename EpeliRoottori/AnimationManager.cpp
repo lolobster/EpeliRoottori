@@ -111,15 +111,27 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 
 void AnimationManager::updateAnimation()
 {
-	if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size())
+	Timer timer;
+
+	std::cout << timer.getGlobalTime() << std::endl;
+
+	if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() > 0.1666)
 	{
 		currentFrame = frames[currentFrame.index + 1];
 		std::cout << currentFrame.index << std::endl;
+		timer.setTimer();
+	}
+
+	else if (currentFrame.index >= frames.size() && timer.getGlobalTime() > 0.1666)
+	{
+		currentFrame = frames[0];
+		timer.stop();
+		timer.start();
 	}
 
 	else
 	{
-		currentFrame = frames[0];
+		return;
 	}
 	//Timer timer;
 	//// Update only when timer is started and not paused.

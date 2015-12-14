@@ -15,6 +15,8 @@ public:
 	// Returns the Global time in ms.
 	static GLfloat getGlobalTime();
 
+	void setTimer();
+
 	// Returns the local time in ms.
 	GLfloat getLocalTime();
 
@@ -35,6 +37,7 @@ public:
 
 	// Returns whether the timer is paused or not.
 	bool isPaused();
+
 private:
 	GLfloat startTime;
 	GLfloat stopTime;
