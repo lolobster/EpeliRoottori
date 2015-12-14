@@ -39,6 +39,7 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 
 	frameWidth = 0;
 	frameHeight = 0;
+	currentFrame = 0;
 
 	// Loads the animation data.
 	rapidxml::xml_document<> document; // The animation data document.
@@ -87,7 +88,15 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 
 void AnimationManager::updateAnimation()
 {
+	if (currentFrame < frames.size())
+	{
+		currentFrame++;
+	}
 
+	else if (currentFrame = frames.size())
+	{
+		currentFrame = 0;
+	}
 	//Timer timer;
 	//// Update only when timer is started and not paused.
 	//if (!timer.isPaused() && timer.isStarted())

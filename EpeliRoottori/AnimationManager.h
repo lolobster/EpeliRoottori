@@ -58,11 +58,14 @@ public:
 		return &frames[index].texCoords;
 	}
 
+	GLuint getAnimationID(){ return animID; };
+
 private:
 	AnimationManager *anim;
 	std::vector<Frame> frames;
 	int frameWidth;
 	int frameHeight;
+	int currentFrame;
 
 	const char *filename;
 	GLuint animID;
