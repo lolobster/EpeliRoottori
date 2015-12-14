@@ -69,7 +69,7 @@ public:
 	GLuint getGLuintSize();
 
 private:
-	GLuint vao, vbo, ebo;
+	//GLuint vao, vbo, ebo;
 	
 	GLfloat x, y, theta, angle,
 		textCoordX, textCoordY,
@@ -83,3 +83,45 @@ private:
 };
 
 #endif
+
+
+
+/*
+GLfloat spriteData[] =
+{
+// Paikat																									// Värit															// Tekstuurien koordinaatit
+sprite.GetPosition().x, sprite.GetPosition().y,																sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z,		0.0f, 0.0f,
+sprite.GetPosition().x + sprite.GetGlobalBounds().x, sprite.GetPosition().y,								sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z,		1.0f, 0.0f,
+sprite.GetPosition().x + sprite.GetGlobalBounds().x, sprite.GetPosition().y + sprite.GetGlobalBounds().y,	sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z,		1.0f, 1.0f,
+sprite.GetPosition().x, srite.GetPosition().y + sprite.GetGlobalBounds().y,								sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z,		0.0f, 1.0f,
+};
+
+glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
+glBufferData(GL_ARRAY_BUFFER, sizeof(spriteData), spriteData, GL_STATIC_DRAW);
+glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)0);
+glEnableVertexAttribArray(0);
+glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
+glEnableVertexAttribArray(1);
+glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(5 * sizeof(GLfloat)));
+glEnableVertexAttribArray(2);
+
+GLuint elements[] =
+{
+0, 1, 2,
+0, 2, 3
+};
+
+glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
+glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
+
+glActiveTexture(GL_TEXTURE0);
+glBindTexture(GL_TEXTURE_2D, sprite.GetTexture());
+
+shader.Use();
+glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+glm::mat4 MVP = cam->getViewMatrix();
+glUniformMatrix4fv(matrixID, 1, GL_FALSE, &MVP[0][0]);
+
+
+*/

@@ -1,6 +1,7 @@
 #include "Polygon.h"
 #include <array>
 
+
 Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat posX, GLfloat posY, GLfloat cx, GLfloat cy, GLfloat cz) //glm::vec2 position, glm::vec3 color)
 {	
 	 data = new GLfloat[7 * sides];
@@ -11,20 +12,19 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 	 x = 0;
 	 y = 0;
 	 size = sides;
-	 theta = 2.0f * M_PI / int(sides);
+	
 	 counter = 0;
-
-	 for (int i = 0; i < sides * 3; i++)
-	 {
-
-	 }
 
 	 for (int i = 0; i < sides; i++)
 	 { 
-		 indices[i] = i;
+		 theta = 2.0f * M_PI * i / int(sides);
+		 x = radius * cosf(theta);
+		 y = radius * sinf(theta);
+
+		/* indices[i] = i;
 		 angle = i * sides;
 		 x = posX + (radius * sin(angle)) * scale;
-		 y = posY + (radius * cos(angle)) * scale;
+		 y = posY + (radius * cos(angle)) * scale;*/
 
 		 if (counter == 0)
 		 {
@@ -51,8 +51,8 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 			 counter = 0;
 		 }
 
-		 data[i * 7]	 = x;
-		 data[i * 7 + 1] = y;
+		 data[i * 7]	 = x + posX;
+		 data[i * 7 + 1] = y + posY;
 		 //data[i * 8 + 2] = 0;//position Z
 		 data[i * 7 + 2] = cx;
 		 data[i * 7 + 3] = cy;
@@ -399,21 +399,62 @@ void Polygon::drawPolygon(Shader *shader)
 
 }
 
-
 void Polygon::printData()
-{
+{	
+	int datatype = 0;
+	int elements = 0;
+	
 	std::cout << "------start------" << std::endl;
-	for (int i = 0; i < 8 * (sizeof((data)) / sizeof((data[0]))); i++)
+	for (int i = 0; i < size * 7 * (sizeof((data)) / sizeof((data[0]))); i++)
 	{
+		if (datatype > 6)
+		{
+			datatype = 0;
+		}
+
+		if (datatype == 0)
+		{
+			std::cout << "x: ";
+		}
+		else if (datatype == 1)
+		{
+			std::cout << "y: ";
+		}
+		if (datatype == 2)
+		{
+			std::cout << "cx: ";
+		}
+		if (datatype == 3)
+		{
+			std::cout << "cy: ";
+		}
+		if (datatype == 4)
+		{
+			std::cout << "cz: ";
+		}
+		if (datatype == 5)
+		{
+			std::cout << "textCoordX: ";
+		}
+		if (datatype == 6)
+		{
+			std::cout << "textCoordY: ";
+		}
 		std::cout << data[i] << std::endl;
+
+		datatype++;
+		elements++;
+		
 	}
 
-	std::cout << "--------indices--------" << std::endl;
+	std::cout << "number of elements: " << elements << std::endl;
 
-	for (int i = 0; i < size * (sizeof((data)) / sizeof((data[0]))); i++)
-	{
-		std::cout << indices[i] << std::endl;
-	}
+	//std::cout << "--------indices--------" << std::endl;
+
+	//for (int i = 0; i < size * (sizeof((data)) / sizeof((data[0]))); i++)
+	//{
+	//	std::cout << indices[i] << std::endl;
+	//}
 	std::cout << "-------end------" << std::endl;
 
 }
