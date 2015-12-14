@@ -34,11 +34,12 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 
 	animations.clear();
 	glBindTexture(GL_TEXTURE_2D, 0);
-	
+
 	//////////////////////////////////////////////////
 
 	frameWidth = 0;
 	frameHeight = 0;
+	currentFrame.index = 0;
 
 	// Loads the animation data.
 	rapidxml::xml_document<> document; // The animation data document.
@@ -63,18 +64,39 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 
 	int framesInARow = width / frameWidth; // Calculate the number of frames in one a row in the texture sheet.
 
+	unsigned int i = 0;
+
 	// Read the frames.
 	for (rapidxml::xml_node<>* i = root->first_node("frame"); i; i = i->next_sibling())
 	{
+
 		Frame frame;
 		frame.duration = static_cast<float>(atoi(i->first_attribute("duration")->value())); // Read the duration of frame.
 
-		// Calculate the texture coordinates of the frame.
+		// Onko animaatio x vai y suuntainen?
+
 		int index = atoi(i->first_attribute("id")->value());
-		frame.texCoords.x = static_cast<float>((index % framesInARow) * frameWidth);
-		frame.texCoords.y = static_cast<float>((index / framesInARow) * frameHeight);
-		frame.texCoords.z = static_cast<float>(frameWidth);
-		frame.texCoords.w = static_cast<float>(frameHeight);
+
+		int horizontal = atoi(root->first_attribute("horizontal")->value());
+		float texX = 0.0f;
+		float texY = 0.0f;
+
+		if (horizontal) {
+			texX = static_cast<float>((index / framesInARow) * frameHeight);
+			texY = static_cast<float>((index % framesInARow) * frameWidth);
+		} else {
+			texX = static_cast<float>((index % framesInARow) * frameWidth);
+			texY = static_cast<float>((index / framesInARow) * frameHeight);
+		}
+
+
+		// Calculate the texture coordinates of the frame.
+		frame.texCoords.x = texX;
+		frame.texCoords.y = texY;
+		frame.texCoords.z = 0.0f;
+		frame.texCoords.w = 0.0f;
+		frame.index = index;
+		index++;
 
 		frames.push_back(frame);
 	}
@@ -83,11 +105,22 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 	content.clear();
 	buffer.clear();
 	document.clear();
+
+	currentFrame = frames[0];
 }
 
 void AnimationManager::updateAnimation()
 {
+	if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size())
+	{
+		currentFrame = frames[currentFrame.index + 1];
+		std::cout << currentFrame.index << std::endl;
+	}
 
+	else
+	{
+		currentFrame = frames[0];
+	}
 	//Timer timer;
 	//// Update only when timer is started and not paused.
 	//if (!timer.isPaused() && timer.isStarted())

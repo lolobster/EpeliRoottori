@@ -1,4 +1,4 @@
-<animation path="data/crystal_pink.png" width="256" height="32" loopable="1">
+<animation path="data/crystal_pink.png" width="256" height="32" loopable="1" horizontal="1">
   <frame duration="50" id="0" />
   <frame duration="50" id="1" />
   <frame duration="50" id="2" />
