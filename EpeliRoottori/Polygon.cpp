@@ -7,6 +7,7 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 	 data = new GLfloat[7 * sides];
 	 indices = new GLuint[sides];
 
+	 numberOfElements = 0;
 	 textCoordX = 0;
 	 textCoordY = 0;
 	 x = 0;
@@ -65,6 +66,9 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 		 {
 			 counter = 0;
 		 }		 
+
+		 numberOfElements += 7;
+
 	 }
 	 //printData();
 
@@ -490,6 +494,11 @@ GLfloat Polygon::getColorZ()
 	return colorZ;
 }
 
+int Polygon::getSize()
+{
+	return size;
+}
+
 GLuint* Polygon::getIndices()
 {
 	return indices;
@@ -500,7 +509,7 @@ GLfloat* Polygon::getData()
 	return data;
 }
 
-int Polygon::getSize()
+GLuint Polygon::getNumberOfElements()
 {
-	return size;
+	return numberOfElements;
 }
