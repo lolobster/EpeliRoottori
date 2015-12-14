@@ -18,16 +18,16 @@ Renderer::~Renderer()
 {
 }
 
-void Renderer::drawAnimation(AnimationManager anim)
+void Renderer::drawAnimation(Sprite anim)
 {
-	Sprite sprite;
+
 	GLfloat spriteData[] =
 	{
 		// Paikat																									// Värit															// Tekstuurien koordinaatit
-		sprite.GetPosition().x, sprite.GetPosition().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 0.0f,
-		sprite.GetPosition().x + sprite.GetGlobalBounds().x, sprite.GetPosition().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 0.0f,
-		sprite.GetPosition().x + sprite.GetGlobalBounds().x, sprite.GetPosition().y + sprite.GetGlobalBounds().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 1.0f,
-		sprite.GetPosition().x, sprite.GetPosition().y + sprite.GetGlobalBounds().y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 1.0f,
+		anim.GetPosition().x, anim.GetPosition().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 0.0f, 0.0f,
+		anim.GetPosition().x + anim.GetAnimGlobalBounds().x, anim.GetPosition().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 1.0f, 0.0f,
+		anim.GetPosition().x + anim.GetAnimGlobalBounds().x, anim.GetPosition().y + anim.GetAnimGlobalBounds().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 1.0f, 1.0f,
+		anim.GetPosition().x, anim.GetPosition().y + anim.GetAnimGlobalBounds().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 0.0f, 1.0f,
 	};
 
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
@@ -49,7 +49,7 @@ void Renderer::drawAnimation(AnimationManager anim)
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, anim.getAnimationID());
+	glBindTexture(GL_TEXTURE_2D, anim.GetAnimID());
 
 	shader.Use();
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

@@ -34,7 +34,7 @@ public:
 	void draw(Sprite sprite);
 	void draw(TextManager text);
 	void draw(Polygon polygon);
-	void drawAnimation(AnimationManager anim);
+	void drawAnimation(Sprite anim);
 
 	Camera *cam;
 

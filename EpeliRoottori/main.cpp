@@ -98,6 +98,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	Renderer renderer2 = { glm::vec2(width * 2, height * 2) };
 	Renderer renderer3 = { glm::vec2(width * 4, height * 4) };
 
+	AnimationManager anima;
 	TextManager tex;
 	tex.LoadFont("..//data//arial.ttf");
 	tex.SetText("0");
@@ -135,8 +136,9 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	dickbutt2.SetColor(glm::vec3(0.0, 1.0, 0.0));
 	dickbutt2.SetPosition(glm::vec2(width - dickbutt.GetBounds().x, (height - dickbutt.GetBounds().y) / 2));
 
-	AnimationManager anim;
-	anim.loadAnimation("../data/crystal_pink.png", "../data/anim_test.xml");
+	Sprite animation;
+	animation.SetAnimation("../data/crystal_pink.png", "../data/anim_test.xml");
+	animation.SetPosition(glm::vec2(width / 2, 200));
 
 	renderer2.cam->setPosition(glm::vec2(1, 1));
 	renderer3.cam->setPosition(glm::vec2(1.5, 1.5));
@@ -268,8 +270,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		renderer.draw(tex3);
 		renderer.draw(polygon);
 	
-		renderer.drawAnimation(anim);
-		anim.updateAnimation();
+		renderer.drawAnimation(animation);
+		anima.updateAnimation();
 		/*
 		
 		p.drawPolygon(6, 1, 100, 0, vec2(300, 700), vec3(0.0f, 0.0f, 0.0f));

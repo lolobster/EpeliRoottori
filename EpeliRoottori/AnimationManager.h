@@ -40,6 +40,10 @@ public:
 
 		return frames[index];
 	}
+	GLuint getCurrentFrame() // tälle joku päivityshässäkkä
+	{
+		return currentFrame;
+	}
 
 	int getFrameWidth() const
 	{
@@ -50,6 +54,8 @@ public:
 	{
 		return frameHeight;
 	}
+
+	
 
 	glm::vec4* getTexCoords(size_t index)
 	{

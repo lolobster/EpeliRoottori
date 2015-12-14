@@ -95,7 +95,7 @@ void AnimationManager::updateAnimation()
 
 	else if (currentFrame = frames.size())
 	{
-		currentFrame = 0;
+		currentFrame = 1;
 	}
 	//Timer timer;
 	//// Update only when timer is started and not paused.
