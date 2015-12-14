@@ -138,7 +138,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 	Sprite animation;
 	animation.SetAnimation("../data/crystal_pink.png", "../data/anim_test.xml");
-	animation.SetPosition(glm::vec2(width / 2, 200));
+	animation.SetPosition(glm::vec2((width / 2) - (animation.GetAnimGlobalBounds().x / 2), 200));
 
 	renderer2.cam->setPosition(glm::vec2(1, 1));
 	renderer3.cam->setPosition(glm::vec2(1.5, 1.5));
@@ -271,7 +271,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		renderer.draw(polygon);
 	
 		renderer.drawAnimation(animation);
-		anima.updateAnimation();
+		animation.GetAnimationManager()->updateAnimation();
+		//anima.updateAnimation();
 		/*
 		
 		p.drawPolygon(6, 1, 100, 0, vec2(300, 700), vec3(0.0f, 0.0f, 0.0f));

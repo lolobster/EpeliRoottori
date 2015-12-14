@@ -1,4 +1,5 @@
 #include "Renderer.h"
+#include "AnimationManager.h"
 
 Renderer::Renderer(glm::vec2 s)
 {
@@ -20,14 +21,40 @@ Renderer::~Renderer()
 
 void Renderer::drawAnimation(Sprite anim)
 {
+	AnimationManager* manager = anim.GetAnimationManager();
+	Frame frame = manager->getCurrentFrame();
+
+	// TODO: hakekaa FRAME_KOKO! (32 tässä tapauksessa)
+	float sourceRight = frame.texCoords.x + 32;//anim.GetAnimBounds().x;
+	float sourceBottom = frame.texCoords.y + anim.GetAnimBounds().y;
+
+	float texture_width = manager->GetWidth();
+	float texture_height = manager->GetHeight();
+
+	glm::fvec2 topLeft;
+	topLeft.x = frame.texCoords.x / texture_width;
+	topLeft.y = frame.texCoords.y / texture_height;
+
+	glm::fvec2 topRight;
+	topRight.x = sourceRight / texture_width;
+	topRight.y = frame.texCoords.y / texture_height;
+
+	glm::fvec2 bottomLeft;
+	bottomLeft.x = topLeft.x;
+	bottomLeft.y = sourceBottom / texture_height;
+
+	glm::fvec2 bottomRight;
+	bottomRight.x = topRight.x;
+	bottomRight.y = bottomLeft.y;
 
 	GLfloat spriteData[] =
 	{
+		
 		// Paikat																									// Värit															// Tekstuurien koordinaatit
-		anim.GetPosition().x, anim.GetPosition().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 0.0f, 0.0f,
-		anim.GetPosition().x + anim.GetAnimGlobalBounds().x, anim.GetPosition().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 1.0f, 0.0f,
-		anim.GetPosition().x + anim.GetAnimGlobalBounds().x, anim.GetPosition().y + anim.GetAnimGlobalBounds().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 1.0f, 1.0f,
-		anim.GetPosition().x, anim.GetPosition().y + anim.GetAnimGlobalBounds().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 0.0f, 1.0f,
+		anim.GetPosition().x,								anim.GetPosition().y,											anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topLeft.x, topLeft.y,
+		anim.GetPosition().x + /*anim.GetAnimBounds().x*/32,		anim.GetPosition().y,				anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topRight.x, topRight.y,
+		anim.GetPosition().x,								anim.GetPosition().y + 32,									anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomLeft.x, bottomLeft.y,
+		anim.GetPosition().x + /*anim.GetAnimBounds().x*/32,		anim.GetPosition().y + 32,				anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomRight.x, bottomRight.y,
 	};
 
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
@@ -42,8 +69,9 @@ void Renderer::drawAnimation(Sprite anim)
 	GLuint elements[] =
 	{
 		0, 1, 2,
-		0, 2, 3
+		1, 2, 3
 	};
+
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);

@@ -11,6 +11,8 @@ public:
 	Sprite();
 	~Sprite();
 
+	AnimationManager* const GetAnimationManager();
+
 	void SetTexture(const char *filepath);
 	void SetAnimation(const char *filepath, const std::string& resourcePath);
 	void SetPosition(glm::vec2 p);

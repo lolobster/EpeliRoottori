@@ -22,6 +22,10 @@ void Sprite::SetAnimation(const char *filepath, const std::string& resourcePath)
 	anim.loadAnimation(filepath, resourcePath);
 }
 
+AnimationManager* const Sprite::GetAnimationManager() {
+	return &anim;
+}
+
 void Sprite::SetPosition(glm::vec2 p)
 {
 	position = p;
@@ -100,7 +104,7 @@ glm::vec2 Sprite::GetAnimBounds()
 
 glm::vec2 Sprite::GetAnimGlobalBounds()
 {
-	return glm::vec2(anim.getFrameWidth() * scale.x, anim.getFrameHeight()*scale.y);
+	return glm::vec2(anim.getFrameWidth() * scale.x, anim.getFrameHeight() * scale.y);
 }
 
 GLuint Sprite::GetAnimID()
