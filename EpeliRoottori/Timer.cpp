@@ -89,3 +89,8 @@ bool Timer::isPaused()
 {
 	return paused && started;
 }
+
+void Timer::setTimer()
+{
+	glfwSetTime(0);
+}
