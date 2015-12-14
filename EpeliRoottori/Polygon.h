@@ -60,7 +60,7 @@ public:
 	GLfloat getColorX();
 	GLfloat getColorY();
 	GLfloat getColorZ();
-
+	GLuint getNumberOfElements();
 
 
 	GLfloat* getData();
@@ -69,7 +69,7 @@ public:
 	GLuint getGLuintSize();
 
 private:
-	GLuint vao, vbo, ebo;
+	GLuint vao, vbo, ebo, numberOfElements;
 	
 	GLfloat x, y, theta, angle,
 		textCoordX, textCoordY,
@@ -77,6 +77,7 @@ private:
 
 	GLfloat *data;
 	GLuint *indices;
+
 
 	int size;
 	int counter;

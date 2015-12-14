@@ -63,28 +63,30 @@ void Renderer::draw(Polygon polygon)
 
 	if (timer < 0)
 	{
-		GLfloat* purkka = new GLfloat[polygon.getSize() * 8];
-		purkka = polygon.getData();
-		for (int i = 0; i < polygon.getSize() * 7; i++)
-		{
-			std::cout << "  purkka element: " << i << "  " << purkka[i] << std::endl;
-		}
+		polygon.printData();
 
-		//GLuint* indices = new GLuint[polygon.getSize()];
-		//for (GLuint i = 0; i < polygon.getGLuintSize(); i++)
+		//GLfloat* purkka = new GLfloat[polygon.getSize() * 8];
+		//purkka = polygon.getData();
+		//for (int i = 0; i < polygon.getSize() * 7; i++)
 		//{
-		//	std::cout << "indices element: " << i << " " << indices[i] << std::endl;
-		//	indices[i] = i;
+		//	std::cout << "  purkka element: " << i << "  " << purkka[i] << std::endl;
 		//}
 
-		GLuint* pikkupurkka = new GLuint[polygon.getSize()];
-		pikkupurkka = polygon.getIndices();
-		for (int i = 0; i < polygon.getSize(); i++)
-		{
-			std::cout << "pikkupurkka element: " << i << " " << pikkupurkka[i] << std::endl;
-		}
+		////GLuint* indices = new GLuint[polygon.getSize()];
+		////for (GLuint i = 0; i < polygon.getGLuintSize(); i++)
+		////{
+		////	std::cout << "indices element: " << i << " " << indices[i] << std::endl;
+		////	indices[i] = i;
+		////}
 
-		timer = 10000000;
+		//GLuint* pikkupurkka = new GLuint[polygon.getSize()];
+		//pikkupurkka = polygon.getIndices();
+		//for (int i = 0; i < polygon.getSize(); i++)
+		//{
+		//	std::cout << "pikkupurkka element: " << i << " " << pikkupurkka[i] << std::endl;
+		//}
+
+		timer = 90000000;
 	}
 	else
 		timer--;
@@ -92,19 +94,16 @@ void Renderer::draw(Polygon polygon)
 	GLfloat vertices[] =
 	{
 		//Positions				//Colors			//Texture Coords
-		200.5f, 200.5f,		 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-		100.5f, 100.5f,		 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-		0.5f, 0.5f,			 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+		//200.5f, 200.5f,		 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+		//100.5f, 100.5f,		 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+		//0.5f, 0.5f,			 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
 		200.5f, 126.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
 		40.5f, 60.0f,		 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
 		100.5f, 200.5f,		0.3f, 0.3f, 0.3f, 0.0f, 1.0f,		
 	};
 
-
-
-
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW); // sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, polygon.getNumberOfElements() * sizeof(GLfloat), polygon.getData(), GL_STATIC_DRAW); // sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW);
 	//pos
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
