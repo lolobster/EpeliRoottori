@@ -1,7 +1,6 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 #include "TextureManager.h"
-#include "AnimationManager.h"
 #include "Shader.h"
 #include <glm/glm.hpp>
 
@@ -28,12 +27,7 @@ public:
 	glm::vec2 GetGlobalBounds();
 	GLuint GetTexture();
 
-	glm::vec2 GetAnimBounds();
-	glm::vec2 GetAnimGlobalBounds();
-	GLuint GetAnimID();
-
 private:
-	AnimationManager anim;
 	TextureManager tex;
 	GLuint spriteBuffer;
 	GLuint spriteElements;

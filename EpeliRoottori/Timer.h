@@ -35,10 +35,6 @@ public:
 
 	// Returns whether the timer is paused or not.
 	bool isPaused();
-
-	//
-	void setTimer();
-
 private:
 	GLfloat startTime;
 	GLfloat stopTime;

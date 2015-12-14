@@ -20,15 +20,19 @@ Renderer::~Renderer()
 
 void Renderer::drawAnimation(AnimationManager anim)
 {
-
-	GLfloat spriteData[] =
+	GLfloat vertices[] =
 	{
-		// Paikat																									// Värit															// Tekstuurien koordinaatit
-		anim.GetPosition().x, anim.GetPosition().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 0.0f, 0.0f,
-		anim.GetPosition().x + anim.GetAnimGlobalBounds().x, anim.GetPosition().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 1.0f, 0.0f,
-		anim.GetPosition().x + anim.GetAnimGlobalBounds().x, anim.GetPosition().y + anim.GetAnimGlobalBounds().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 1.0f, 1.0f,
-		anim.GetPosition().x, anim.GetPosition().y + anim.GetAnimGlobalBounds().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, 0.0f, 1.0f,
+		//Positions				//Colors			//Texture Coords
+		200.5f, 200.5f, 1.0f,	0.0f, 0.0f,			0.0f, 0.0f,
+		100.5f, 100.5f, 0.0f,	1.0f, 0.0f,			1.0f, 0.0f,
+		0.5f, 0.5f, 0.0f,		0.0f, 1.0f,			1.0f, 1.0f,
+		200.5f, 126.5f, 0.0f,	0.0f, 1.0f,			1.0f, 1.0f,
+		40.5f, 60.0f, 0.0f,		0.0f, 1.0f,			1.0f, 1.0f,
+		100.5f, 200.5f, 0.3f,	0.3f, 0.3f,			0.0f, 1.0f,
 	};
+
+
+
 
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW); // sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW);
@@ -47,7 +51,7 @@ void Renderer::drawAnimation(AnimationManager anim)
 	GLuint elements[] =
 	{
 		0, 1, 2,
-		0, 2, 3
+		0, 2, 3,
 	};
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
