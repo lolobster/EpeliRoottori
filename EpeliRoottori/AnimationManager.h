@@ -80,6 +80,7 @@ private:
 	int frameWidth;
 	int frameHeight;
 	Frame currentFrame;
+	bool loopable;
 
 	const char *filename;
 	GLuint animID;

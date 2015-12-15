@@ -40,6 +40,7 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 	frameWidth = 0;
 	frameHeight = 0;
 	currentFrame.index = 0;
+	loopable = false;
 
 	// Loads the animation data.
 	rapidxml::xml_document<> document; // The animation data document.
@@ -88,7 +89,12 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 			texX = static_cast<float>((index % framesInARow) * frameWidth);
 			texY = static_cast<float>((index / framesInARow) * frameHeight);
 		}
-
+		
+		int loop = atoi(root->first_attribute("loopable")->value());
+		if (loop == 1)
+		{
+			loopable = true;
+		}
 
 		// Calculate the texture coordinates of the frame.
 		frame.texCoords.x = texX;
@@ -113,9 +119,9 @@ void AnimationManager::updateAnimation()
 {
 	Timer timer;
 
-	std::cout << timer.getGlobalTime() << std::endl;
+	//std::cout << timer.getGlobalTime() << std::endl;
 
-	if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() >= 0.1666)
+	if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() >= currentFrame.duration)
 	{
 		currentFrame = frames[currentFrame.index + 1];
 		std::cout << currentFrame.index << std::endl;
@@ -123,10 +129,10 @@ void AnimationManager::updateAnimation()
 	}
 
 	 //// Jostain syystä ei ota koppia kun framet on käyty läpi
-	else if (currentFrame.index >= frames.size() && timer.getGlobalTime() >= 0.1666)
+	else if (currentFrame.index >= frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
 	{
 		currentFrame = frames[0];
-		timer.setTimer();
+		timer.start();
 	}
 
 	else
