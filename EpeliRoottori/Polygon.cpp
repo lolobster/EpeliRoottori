@@ -7,7 +7,7 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 	 indices = new GLuint[3 * sides];
 
 
-
+	 numberOfIndices = 0;
 	 numberOfElements = 0;
 	 textCoordX = 0;
 	 textCoordY = 0;
@@ -21,30 +21,29 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 	 { 
 		 int _y = i;
 
-		 if (i != 0 && i != sides)
+		 if (i != 0 && i < sides -1)
 		 {
 			 indices[i * 3] = indices[0];
 			 indices[i * 3 + 1] = indices[i * 3 -1];
-			 indices[i * 3 + 2] = i + 2;		
-		 }
+			 indices[i * 3 + 2] = i + 2;	
+			 numberOfIndices += 3;
+		 }		
 		 else if (i == 0)
 		 {
 			 indices[0] = 0;
 			 indices[1] = 1;
 			 indices[2] = 2;
+			 numberOfIndices += 3;
 		 }
 		 else
 		 {
 			 indices[i * 3] = indices[0];
 			 indices[i * 3 + 1] = indices[i * 3 - 1];
 			 indices[i * 3 + 2] = 1;
+			 numberOfIndices += 3;
 		 }
-
-	
-
-
-
 		 
+
 
 
 		 theta = (i * 2.0f * M_PI / sides);
@@ -442,7 +441,7 @@ void Polygon::printData()
 	int element = 0;
 	int counter = 1;
 	std::cout << "------start------" << std::endl;
-	for (int i = 0; i < 7 + size *  7 * (sizeof((data)) / sizeof((data[0]))); i++)
+	for (int i = 0; i < 7 + size * 7 * (sizeof((data)) / sizeof((data[0]))); i++)
 	{
 		if (element > 6)
 		{
@@ -550,3 +549,7 @@ GLuint Polygon::getNumberOfElements()
 	return numberOfElements;
 }
 
+GLuint Polygon::getNumberOfIndices()
+{
+	return numberOfIndices;
+}

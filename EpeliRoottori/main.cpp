@@ -148,7 +148,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	int score1 = 0, score2 = 0;
 	glm::vec3 color = { 0.01, 0.01, 0.01 };
 
-	Polygon polygon(8, 200, 1, 0, 350, 350, 1.0f, 0.4f, 0.3f);
+	Polygon polygon(4, 200, 1, 0, 350, 350, 1.0f, 0.4f, 0.3f);
 
 	while (!glfwWindowShouldClose(Window))
 	{

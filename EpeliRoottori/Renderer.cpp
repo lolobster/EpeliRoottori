@@ -101,16 +101,13 @@ void Renderer::draw(Polygon polygon)
 	else
 		timer--;
 
-	GLfloat vertices[] =
-	{
-		//Positions				//Colors			//Texture Coords
-		//200.5f, 200.5f,		 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-		//100.5f, 100.5f,		 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-		//0.5f, 0.5f,			 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-		200.5f, 126.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-		40.5f, 60.0f,		 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-		100.5f, 200.5f,		0.3f, 0.3f, 0.3f, 0.0f, 1.0f,		
-	};
+	//GLfloat vertices[] =
+	//{
+	//	//Positions				//Colors			//Texture Coords
+	//	200.5f, 126.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+	//	40.5f, 60.0f,		 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+	//	100.5f, 200.5f,		0.3f, 0.3f, 0.3f, 0.0f, 1.0f,		
+	//};
 
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
 	glBufferData(GL_ARRAY_BUFFER, polygon.getNumberOfElements() * sizeof(GLfloat), polygon.getData(), GL_STATIC_DRAW); // sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW);
@@ -126,14 +123,8 @@ void Renderer::draw(Polygon polygon)
 
 	//
 
-	//GLuint elements[] =
-	//{
-	//	0, 1, 2,
-	//	0, 2, 3,
-	//};
-
-	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
-	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW); //sizeof(polygon.getIndices()), polygon.getIndices(), GL_STATIC_DRAW);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, polygon.getNumberOfIndices() * sizeof(GLuint), polygon.getIndices() , GL_STATIC_DRAW); //sizeof(polygon.getIndices()), polygon.getIndices(), GL_STATIC_DRAW);
 
 	//Lis‰‰ tekstuurit
 
@@ -142,9 +133,9 @@ void Renderer::draw(Polygon polygon)
 	//draw
 	shader.Use();
 
-	glDrawArrays(GL_TRIANGLES, 0, 36);//3 * polygon.getSize());
+	//glDrawArrays(GL_TRIANGLES, 0, 36);//3 * polygon.getSize());
 	//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-	//glDrawElements(GL_TRIANGLES, polygon.getSize() * 3, GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, polygon.getNumberOfIndices(), GL_UNSIGNED_INT, 0);
 	//glDrawArrays(GL_TRIANGLES, 0, 6s);
 }
 
