@@ -3,8 +3,10 @@
 
 Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat posX, GLfloat posY, GLfloat cx, GLfloat cy, GLfloat cz) //glm::vec2 position, glm::vec3 color)
 {	
-	 data = new GLfloat[7 * sides];
-	 indices = new GLuint[sides];
+	 data = new GLfloat[7 * sides + 7];
+	 indices = new GLuint[3 * sides];
+
+
 
 	 numberOfElements = 0;
 	 textCoordX = 0;
@@ -12,15 +14,42 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 	 x = 0;
 	 y = 0;
 	 size = sides;
-	 theta = 2.0f * M_PI / int(sides);
+	 //theta = 2.0f * M_PI / int(sides);
 	 counter = 0;
 
-	 for (int i = 0; i < sides; i++)
+	 for (int i = 0; i < sides + 1; i++)
 	 { 
-		 indices[i] = i;
-		 angle = i * sides;
-		 x = posX + (radius * sin(angle)) * scale;
-		 y = posY + (radius * cos(angle)) * scale;
+		 int _y = i;
+
+		 if (i != 0 && i != sides)
+		 {
+			 indices[i * 3] = indices[0];
+			 indices[i * 3 + 1] = indices[i * 3 -1];
+			 indices[i * 3 + 2] = i + 2;		
+		 }
+		 else if (i == 0)
+		 {
+			 indices[0] = 0;
+			 indices[1] = 1;
+			 indices[2] = 2;
+		 }
+		 else
+		 {
+			 indices[i * 3] = indices[0];
+			 indices[i * 3 + 1] = indices[i * 3 - 1];
+			 indices[i * 3 + 2] = 1;
+		 }
+
+	
+
+
+
+		 
+
+
+		 theta = (i * 2.0f * M_PI / sides);
+		 x = posX + (radius * sin(theta)) * scale;
+		 y = posY + (radius * cos(theta)) * scale;
 
 		 if (counter == 0)
 		 {
@@ -47,8 +76,18 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 			 counter = 0;
 		 }
 
-		 data[i * 7]	 = x;
-		 data[i * 7 + 1] = y;
+
+		 if (i != 0)
+		 {
+			 data[i * 7] = x;
+			 data[i * 7 + 1] = y;
+		 }
+		 else
+		 {
+			 data[i * 7] = posX;
+			 data[i * 7 + 1] = posY;
+		 }
+
 		 //data[i * 8 + 2] = 0;//position Z
 		 data[i * 7 + 2] = cx;
 		 data[i * 7 + 3] = cy;
@@ -398,20 +437,63 @@ void Polygon::drawPolygon(Shader *shader)
 
 }
 
-
 void Polygon::printData()
 {
+	int element = 0;
+	int counter = 1;
 	std::cout << "------start------" << std::endl;
-	for (int i = 0; i < 8 * (sizeof((data)) / sizeof((data[0]))); i++)
+	for (int i = 0; i < 7 + size *  7 * (sizeof((data)) / sizeof((data[0]))); i++)
 	{
-		std::cout << data[i] << std::endl;
+		if (element > 6)
+		{
+			element = 0;
+		}
+
+		if (element == 0)
+		{
+			std::cout << "Position X : " << data[i] << std::endl;
+		}
+		else if (element == 1)
+		{
+			std::cout << "Position Y : " << data[i] << std::endl;
+		}
+		else if (element == 2)
+		{
+			std::cout << "Color X : " << data[i] << std::endl;
+		}
+		else if (element == 3)
+		{
+			std::cout << "Color Y : " << data[i] << std::endl;
+		}
+		else if (element == 4)
+		{
+			std::cout << "Color Z : " << data[i] << std::endl;
+		}
+		else if (element == 5)
+		{
+			std::cout << "TexCoord X: "<< data[i] << std::endl;
+		}
+		else if (element == 6)
+		{
+			std::cout << "TextCoord Y: "<<data[i] << std::endl;
+		}
+		element++;
+		
 	}
 
 	std::cout << "--------indices--------" << std::endl;
 
-	for (int i = 0; i < size * (sizeof((data)) / sizeof((data[0]))); i++)
+	for (int i = 0; i < 3 * size * (sizeof((data)) / sizeof((data[0]))); i++)
 	{
-		std::cout << indices[i] << std::endl;
+		std::cout << indices[i] << ", ";
+
+		if (counter == 3)
+		{
+			std::cout << std::endl;
+			counter = 0;
+		}
+
+		counter++;
 	}
 	std::cout << "-------end------" << std::endl;
 
@@ -467,3 +549,4 @@ GLuint Polygon::getNumberOfElements()
 {
 	return numberOfElements;
 }
+

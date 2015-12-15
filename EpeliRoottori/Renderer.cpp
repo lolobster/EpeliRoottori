@@ -92,28 +92,6 @@ void Renderer::draw(Polygon polygon)
 	if (timer < 0)
 	{
 		polygon.printData();
-
-		//GLfloat* purkka = new GLfloat[polygon.getSize() * 8];
-		//purkka = polygon.getData();
-		//for (int i = 0; i < polygon.getSize() * 7; i++)
-		//{
-		//	std::cout << "  purkka element: " << i << "  " << purkka[i] << std::endl;
-		//}
-
-		////GLuint* indices = new GLuint[polygon.getSize()];
-		////for (GLuint i = 0; i < polygon.getGLuintSize(); i++)
-		////{
-		////	std::cout << "indices element: " << i << " " << indices[i] << std::endl;
-		////	indices[i] = i;
-		////}
-
-		//GLuint* pikkupurkka = new GLuint[polygon.getSize()];
-		//pikkupurkka = polygon.getIndices();
-		//for (int i = 0; i < polygon.getSize(); i++)
-		//{
-		//	std::cout << "pikkupurkka element: " << i << " " << pikkupurkka[i] << std::endl;
-		//}
-
 		timer = 90000000;
 	}
 	else
@@ -144,14 +122,14 @@ void Renderer::draw(Polygon polygon)
 
 	//
 
-	GLuint elements[] =
-	{
-		0, 1, 2,
-		0, 2, 3,
-	};
+	//GLuint elements[] =
+	//{
+	//	0, 1, 2,
+	//	0, 2, 3,
+	//};
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW); //sizeof(polygon.getIndices()), polygon.getIndices(), GL_STATIC_DRAW);
+	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
+	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW); //sizeof(polygon.getIndices()), polygon.getIndices(), GL_STATIC_DRAW);
 
 	//Lisää tekstuurit
 
@@ -160,7 +138,7 @@ void Renderer::draw(Polygon polygon)
 	//draw
 	shader.Use();
 
-	glDrawArrays(GL_TRIANGLES, 0, 3 * polygon.getSize());
+	glDrawArrays(GL_TRIANGLES, 0, 36);//3 * polygon.getSize());
 	//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	//glDrawElements(GL_TRIANGLES, polygon.getSize() * 3, GL_UNSIGNED_INT, 0);
 	//glDrawArrays(GL_TRIANGLES, 0, 6s);
