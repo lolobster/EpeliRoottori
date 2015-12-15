@@ -48,7 +48,7 @@ public:
 
 	int getFrameWidth() const
 	{
-		return frameWidth;
+		return frameWidth / getNumberOfFrames();
 	}
 
 	int getFrameHeight() const

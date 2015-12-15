@@ -24,12 +24,16 @@ void Renderer::drawAnimation(Sprite anim)
 	AnimationManager* manager = anim.GetAnimationManager();
 	Frame frame = manager->getCurrentFrame();
 
-	// TODO: hakekaa FRAME_KOKO! (32 tässä tapauksessa)
-	float sourceRight = frame.texCoords.x + 32;//anim.GetAnimBounds().x;
-	float sourceBottom = frame.texCoords.y + anim.GetAnimBounds().y;
-
 	float texture_width = manager->GetWidth();
 	float texture_height = manager->GetHeight();
+
+	int numberOfFrames = manager->getNumberOfFrames();
+
+	// TODO: hakekaa FRAME_KOKO! (32 tässä tapauksessa)
+	float sourceRight = frame.texCoords.x + manager->getFrameWidth();//anim.GetAnimBounds().x;
+	float sourceBottom = frame.texCoords.y + manager->getFrameHeight();
+
+
 
 	glm::fvec2 topLeft;
 	topLeft.x = frame.texCoords.x / texture_width;
@@ -52,9 +56,9 @@ void Renderer::drawAnimation(Sprite anim)
 		
 		// Paikat																									// Värit															// Tekstuurien koordinaatit
 		anim.GetPosition().x,								anim.GetPosition().y,											anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topLeft.x, topLeft.y,
-		anim.GetPosition().x + /*anim.GetAnimBounds().x*/32,		anim.GetPosition().y,				anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topRight.x, topRight.y,
-		anim.GetPosition().x,								anim.GetPosition().y + 32,									anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomLeft.x, bottomLeft.y,
-		anim.GetPosition().x + /*anim.GetAnimBounds().x*/32,		anim.GetPosition().y + 32,				anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomRight.x, bottomRight.y,
+		anim.GetPosition().x + manager->getFrameWidth() * anim.GetScale().x, anim.GetPosition().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topRight.x, topRight.y,
+		anim.GetPosition().x, anim.GetPosition().y + manager->getFrameHeight()  * anim.GetScale().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomLeft.x, bottomLeft.y,
+		anim.GetPosition().x + manager->getFrameWidth()  * anim.GetScale().x, anim.GetPosition().y + manager->getFrameHeight() * anim.GetScale().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomRight.x, bottomRight.y,
 	};
 
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
@@ -229,11 +233,10 @@ void Renderer::draw(TextManager text)
 			GLfloat textData[] = // Yksittäisen kirjaimen data
 			{
 				// Paikat																																		// Värit													// Tekstuurien koordinaatit
-
-				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y, text.GetColor().x, text.GetColor().y, text.GetColor().z, 0.0f, 0.0f,
-				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y, text.GetColor().x, text.GetColor().y, text.GetColor().z, 1.0f, 0.0f,
 				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY, text.GetColor().x, text.GetColor().y, text.GetColor().z, 0.0f, 1.0f,
 				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY, text.GetColor().x, text.GetColor().y, text.GetColor().z, 1.0f, 1.0f,
+				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y, text.GetColor().x, text.GetColor().y, text.GetColor().z, 0.0f, 0.0f,
+				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y, text.GetColor().x, text.GetColor().y, text.GetColor().z, 1.0f, 0.0f,
 			};
 
 
