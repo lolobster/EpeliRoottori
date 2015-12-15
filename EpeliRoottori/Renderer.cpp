@@ -33,7 +33,8 @@ void Renderer::drawAnimation(Sprite anim)
 	float sourceRight = frame.texCoords.x + manager->getFrameWidth();//anim.GetAnimBounds().x;
 	float sourceBottom = frame.texCoords.y + manager->getFrameHeight();
 
-
+	std::cout << manager->getFrameWidth();
+	std::cout << manager->getFrameHeight();
 
 	glm::fvec2 topLeft;
 	topLeft.x = frame.texCoords.x / texture_width;
@@ -171,20 +172,21 @@ void Renderer::draw(Sprite sprite)
 		float texture_width = manager->GetWidth();
 		float texture_height = manager->GetHeight();
 
+		std::cout << manager->getFrameWidth() << ", ";
+		std::cout << manager->getFrameHeight();
+
 		float sourceRight = frame.texCoords.x + manager->getFrameWidth();
 		float sourceBottom = frame.texCoords.y + manager->getFrameHeight();
 
 		glm::fvec2 topLeft = { frame.texCoords.x / texture_width, frame.texCoords.y / texture_height };
-		glm::fvec2 topRight = { topRight.x = sourceRight / texture_width, topRight.y = frame.texCoords.y / texture_height };
-		glm::fvec2 bottomLeft = { bottomLeft.x = topLeft.x, bottomLeft.y = sourceBottom / texture_height };
-		glm::fvec2 bottomRight = { bottomRight.x = topRight.x, bottomRight.y = bottomLeft.y };
+		glm::fvec2 topRight = { sourceRight / texture_width, frame.texCoords.y / texture_height };
+		glm::fvec2 bottomLeft = { topLeft.x, sourceBottom / texture_height };
+		glm::fvec2 bottomRight = { topRight.x, bottomLeft.y };
 
 		glm::vec2 pos1 = sprite.GetPosition() + glm::rotate(glm::vec2(-manager->getFrameWidth() * sprite.GetScale().x / 2.0f, -manager->getFrameHeight() * sprite.GetScale().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f);
 		glm::vec2 pos2 = sprite.GetPosition() + glm::rotate(glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, -manager->getFrameHeight() * sprite.GetScale().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f);
 		glm::vec2 pos3 = sprite.GetPosition() + glm::rotate(glm::vec2(-manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f);
 		glm::vec2 pos4 = sprite.GetPosition() + glm::rotate(glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f);
-
-		manager->getFrameHeight() * sprite.GetScale().y;
 
 		GLfloat spriteData[] =
 		{
