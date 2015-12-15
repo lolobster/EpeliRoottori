@@ -107,7 +107,7 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 		frames.push_back(frame);
 	}
 	// index now has the total amount of frames
-	rows = index / framesInARow;
+	rows = (index + 1) / framesInARow;
 	columns = framesInARow;
 	
 	// Clear data.
@@ -123,25 +123,21 @@ void AnimationManager::updateAnimation()
 	Timer timer;
 
 	//std::cout << timer.getGlobalTime() << std::endl;
-	if (rows < 1)
+	if (rows > 1)
 	{
-		for (int i = 0; i < rows; i++)
-		{
-			for (int i = 0; i < framesInARow; i++)
+
+			if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() > currentFrame.duration)
 			{
-				if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() > currentFrame.duration)
-				{
-					currentFrame = frames[currentFrame.index + 1];
-					std::cout << currentFrame.index << std::endl;
-					timer.setTimer();
-				}
+				currentFrame = frames[currentFrame.index + 1];
+				std::cout << currentFrame.index << std::endl;
+				timer.setTimer();
 			}
-			if (currentFrame.index = frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
+
+			else if (currentFrame.index = frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
 			{
 				currentFrame = frames[0];
 				timer.start();
-			}
-		}
+			}	
 	}
 
 	else
