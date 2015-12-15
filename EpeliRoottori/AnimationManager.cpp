@@ -129,7 +129,7 @@ void AnimationManager::updateAnimation()
 	}
 
 	 //// Jostain syystä ei ota koppia kun framet on käyty läpi
-	else if (currentFrame.index >= frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
+	else if (currentFrame.index = frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
 	{
 		currentFrame = frames[0];
 		timer.start();
