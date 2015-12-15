@@ -94,6 +94,9 @@
     <None Include="..\data\VertexShader.glvs">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\data\FragmentShaderOnlyColors.glfs">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\data\anim_test.xml">

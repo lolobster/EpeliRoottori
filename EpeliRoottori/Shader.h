@@ -50,7 +50,7 @@ private:
 	GLuint ProgramID;
 	GLuint MatrixID;
 	GLuint VertexShaderID;
-	GLuint FragmentShaderID;
+	GLuint FragmentShaderID, FragmentShaderID2;
 
 };
 

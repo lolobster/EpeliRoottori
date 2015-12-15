@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\data\FragmentShader.glfs" />
+    <None Include="..\data\FragmentShaderOnlyColors.glfs" />
     <None Include="..\data\VertexShader.glvs" />
   </ItemGroup>
   <ItemGroup>

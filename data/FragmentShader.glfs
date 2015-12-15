@@ -12,5 +12,5 @@ uniform sampler2D myTextureSampler2;
 
 void main()
 {
-color = mix(texture(myTextureSampler, texCoord), texture(myTextureSampler2, texCoord), 0.5) + vec4(vertexColor, 1.0f);
+color = mix(texture(myTextureSampler, texCoord), texture(myTextureSampler2, texCoord), 0.5) * vec4(vertexColor, 1.0f);
 }
