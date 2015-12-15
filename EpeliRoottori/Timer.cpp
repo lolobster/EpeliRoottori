@@ -1,5 +1,9 @@
 #include "Timer.h"
 
+// lodePNG
+#include "lodepng.h"
+
+
 
 
 Timer::Timer()

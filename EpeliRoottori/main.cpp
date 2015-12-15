@@ -137,7 +137,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	dickbutt2.SetPosition(glm::vec2(width - dickbutt.GetBounds().x, (height - dickbutt.GetBounds().y) / 2));
 
 	Sprite animation;
-	animation.SetAnimation("../data/crystal_pink.png", "../data/anim_test.xml");
+	animation.SetAnimation("../data/gems.png", "../data/anim_test.xml");
 	animation.SetPosition(glm::vec2((width / 2), 250));
 	animation.SetScale(glm::vec2(2,2));
 

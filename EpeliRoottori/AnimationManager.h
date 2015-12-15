@@ -6,12 +6,12 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
 
-// lodePNG
-#include "lodepng.h"
-
 #include <GLFW\glfw3.h>
 
 #include <glm\glm.hpp>
+
+// lodePNG
+#include "lodepng.h"
 
 struct Frame
 {
@@ -48,12 +48,12 @@ public:
 
 	int getFrameWidth() const
 	{
-		return anim->frameWidth / columns;
+		return frameWidth / getNumberOfFrames();
 	}
 
 	int getFrameHeight() const
 	{
-		return frameHeight / rows;
+		return frameHeight;
 	}
 
 	
@@ -79,6 +79,7 @@ private:
 	std::vector<Frame> frames;
 	int frameWidth;
 	int frameHeight;
+	int framesInARow;
 	Frame currentFrame;
 	bool loopable;
 

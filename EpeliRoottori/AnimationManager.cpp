@@ -59,20 +59,13 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 	rapidxml::xml_node<>* root = document.first_node(); // Get the root node of xml document.
 
 	// Read frame width and height and load the texture sheet.
-	frameWidth = atoi(root->first_attribute("width")->value());
-	frameHeight = atoi(root->first_attribute("height")->value());
+	frameWidth = atoi(root->first_attribute("frameWidth")->value());
+	frameHeight = atoi(root->first_attribute("frameHeight")->value());
 	//anim(animID, frameWidth, frameHeight);
 
-	rows = GetWidth() / frameWidth;
-	std::cout << "Rows: " << rows << std::endl;
+	framesInARow = width / frameWidth; // Calculate the number of frames in one a row in the texture sheet.
 
-	columns;
-	std::cout << "Columns: " << columns << std::endl;
-
-	int framesInARow = width / frameWidth; // Calculate the number of frames in one a row in the texture sheet.
-	anim->getFrameHeight();
-	anim->getFrameWidth();
-	unsigned int i = 0;
+	int index;
 
 	// Read the frames.
 	for (rapidxml::xml_node<>* i = root->first_node("frame"); i; i = i->next_sibling())
@@ -83,7 +76,7 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 
 		// Onko animaatio x vai y suuntainen?
 
-		int index = atoi(i->first_attribute("id")->value());
+		index = atoi(i->first_attribute("id")->value());
 
 		int horizontal = atoi(root->first_attribute("horizontal")->value());
 		float texX = 0.0f;
@@ -92,12 +85,14 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 		if (horizontal) {
 			texX = static_cast<float>((index / framesInARow) * frameHeight);
 			texY = static_cast<float>((index % framesInARow) * frameWidth);
-		} else {
+		}
+		else {
 			texX = static_cast<float>((index % framesInARow) * frameWidth);
 			texY = static_cast<float>((index / framesInARow) * frameHeight);
 		}
 		
 		int loop = atoi(root->first_attribute("loopable")->value());
+		
 		if (loop == 1)
 		{
 			loopable = true;
@@ -113,6 +108,7 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 
 		frames.push_back(frame);
 	}
+	rows = index / framesInARow;
 
 	// Clear data.
 	content.clear();
@@ -127,11 +123,31 @@ void AnimationManager::updateAnimation()
 	Timer timer;
 
 	//std::cout << timer.getGlobalTime() << std::endl;
+	if (rows < 1)
+	{
+		for (int i = 0; i < rows; i++)
+		{
+			for (int i = 0; i < framesInARow; i++)
+			{
+				if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() > currentFrame.duration)
+				{
+					currentFrame = frames[currentFrame.index + 1];
+					std::cout << currentFrame.index << std::endl;
+					timer.setTimer();
+				}
+			}
+			if (currentFrame.index = frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
+			{
+				currentFrame = frames[0];
+				timer.start();
+			}
+		}
+	}
 
 	if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() >= currentFrame.duration)
 	{
 		currentFrame = frames[currentFrame.index + 1];
-		//std::cout << currentFrame.index << std::endl;
+		std::cout << currentFrame.index << std::endl;
 		timer.setTimer();
 	}
 
