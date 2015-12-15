@@ -128,7 +128,8 @@ void Renderer::draw(Polygon polygon)
 
 	//Lis‰‰ tekstuurit
 
-	
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, polygon.GetTexture());
 
 	//draw
 	shader.Use();

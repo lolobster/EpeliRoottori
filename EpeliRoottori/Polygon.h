@@ -44,6 +44,7 @@ public:
 	
 	//Polygon(int sides);
 	Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat x, GLfloat y, GLfloat cx, GLfloat cy, GLfloat cz);
+	Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat x, GLfloat y, GLfloat cx, GLfloat cy, GLfloat cz, const char* texturePath);
 	~Polygon();
 
 	void drawSquare(glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color, std::string textureName, Shader *shader);
@@ -67,6 +68,7 @@ public:
 	GLuint* getIndices();
 	int getSize();
 	GLuint getGLuintSize();
+	GLuint GetTexture();
 
 private:
 	GLuint vao, vbo, ebo, numberOfElements, numberOfIndices;
@@ -78,6 +80,7 @@ private:
 	GLfloat *data;
 	GLuint *indices;
 
+	TextureManager tex;
 
 	int size;
 	int counter;

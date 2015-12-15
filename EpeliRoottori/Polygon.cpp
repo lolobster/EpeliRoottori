@@ -1,6 +1,89 @@
 #include "Polygon.h"
 #include <array>
 
+Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat posX, GLfloat posY, GLfloat cx, GLfloat cy, GLfloat cz, const char* filePath) //glm::vec2 position, glm::vec3 color)
+{
+	//texture lataus
+	tex.loadTextures(filePath);
+
+	//varataan tilaa taulukoille
+	data = new GLfloat[7 * sides + 7];
+	indices = new GLuint[3 * sides];
+
+	//alustetaan arvoja
+	numberOfIndices = 0;
+	numberOfElements = 0;
+	textCoordX = 0;
+	textCoordY = 0;
+	x = 0;
+	y = 0;
+	size = sides;
+	//theta = 2.0f * M_PI / int(sides);
+	counter = 0;
+
+	//t‰ytet‰‰n data vertex atribuuteilla, indices oikeilla koordinaateilla
+	for (int i = 0; i < sides + 1; i++)
+	{
+		theta = (i * 2.0f * M_PI / sides);
+
+		if (i != 0)
+		{
+			textCoordX = cos(theta) / 2 + 0.5f;
+			textCoordY = sin(theta) / 2 + 0.5f;
+		}
+
+		if (i != 0 && i < sides - 1)
+		{
+			indices[i * 3] = indices[0];
+			indices[i * 3 + 1] = indices[i * 3 - 1];
+			indices[i * 3 + 2] = i + 2;
+			numberOfIndices += 3;
+		}
+		else if (i == 0)
+		{
+			indices[0] = 0;
+			indices[1] = 1;
+			indices[2] = 2;
+			numberOfIndices += 3;
+		}
+		else
+		{
+			indices[i * 3] = indices[0];
+			indices[i * 3 + 1] = indices[i * 3 - 1];
+			indices[i * 3 + 2] = 1;
+			numberOfIndices += 3;
+		}
+
+		x = posX + (radius * sin(theta)) * scale;
+		y = posY + (radius * cos(theta)) * scale;
+
+		if (i != 0)
+		{
+			data[i * 7] = x;
+			data[i * 7 + 1] = y;
+		}
+		else
+		{
+			data[i * 7] = posX;
+			data[i * 7 + 1] = posY;
+		}
+
+		data[i * 7 + 2] = cx;
+		data[i * 7 + 3] = cy;
+		data[i * 7 + 4] = cz;
+		data[i * 7 + 5] = textCoordX;
+		data[i * 7 + 6] = textCoordY;
+
+		counter++;
+		if (counter > 3)
+		{
+			counter = 0;
+		}
+
+		numberOfElements += 7;
+	}
+}
+
 Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat posX, GLfloat posY, GLfloat cx, GLfloat cy, GLfloat cz) //glm::vec2 position, glm::vec3 color)
 {	
 	 data = new GLfloat[7 * sides + 7];
@@ -19,7 +102,9 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 
 	 for (int i = 0; i < sides + 1; i++)
 	 { 
-		 int _y = i;
+		 theta = (i * 2.0f * M_PI / sides);
+		 textCoordX = cos(theta) / 2 + 0.5f;
+		 textCoordY = sin(theta) / 2 + 0.5f;
 
 		 if (i != 0 && i < sides -1)
 		 {
@@ -42,39 +127,10 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 			 indices[i * 3 + 2] = 1;
 			 numberOfIndices += 3;
 		 }
+
 		 
-
-
-
-		 theta = (i * 2.0f * M_PI / sides);
 		 x = posX + (radius * sin(theta)) * scale;
 		 y = posY + (radius * cos(theta)) * scale;
-
-		 if (counter == 0)
-		 {
-			 textCoordX = 0;
-			 textCoordY = 0;
-		 }
-		 else if (counter == 1)
-		 {
-			 textCoordX = 0;
-			 textCoordY = 1;
-		 }
-		 else if (counter == 2)
-		 {
-			 textCoordX = 1;
-			 textCoordY = 1;
-		 }
-		 else if (counter == 3)
-		 {
-			 textCoordX = 1;
-			 textCoordY = 0;
-		 }
-		 else
-		 {
-			 counter = 0;
-		 }
-
 
 		 if (i != 0)
 		 {
@@ -109,8 +165,8 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 
 Polygon::~Polygon()
 {
-	//delete[] data;
-	//delete[] indices;
+//	delete[] data;
+//	delete[] indices;
 }
 
 void Polygon::update()
@@ -552,4 +608,9 @@ GLuint Polygon::getNumberOfElements()
 GLuint Polygon::getNumberOfIndices()
 {
 	return numberOfIndices;
+}
+
+GLuint Polygon::GetTexture()
+{
+	return tex.getID();
 }
