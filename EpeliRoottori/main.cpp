@@ -138,6 +138,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 	Sprite animation;
 	animation.SetAnimation("../data/gems.png", "../data/anim_test.xml");
+	//animation.SetAnimation("../data/gems.png", glm::vec2(32,32));
 	animation.SetPosition(glm::vec2((width / 2), 250));
 	animation.SetScale(glm::vec2(2,2));
 

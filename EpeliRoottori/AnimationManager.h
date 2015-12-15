@@ -28,6 +28,8 @@ public:
 	~AnimationManager();
 	
 	void loadAnimation(const char *filename, const std::string& resourcePath);
+	void loadAnimation(const char *filename, glm::vec2 frameSize);
+
 	void updateAnimation();
 
 	size_t getNumberOfFrames() const

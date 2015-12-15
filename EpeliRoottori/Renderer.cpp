@@ -172,9 +172,6 @@ void Renderer::draw(Sprite sprite)
 		float texture_width = manager->GetWidth();
 		float texture_height = manager->GetHeight();
 
-		std::cout << manager->getFrameWidth() << ", ";
-		std::cout << manager->getFrameHeight();
-
 		float sourceRight = frame.texCoords.x + manager->getFrameWidth();
 		float sourceBottom = frame.texCoords.y + manager->getFrameHeight();
 

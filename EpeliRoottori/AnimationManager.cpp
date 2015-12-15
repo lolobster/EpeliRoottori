@@ -80,7 +80,7 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 		float texX = 0.0f;
 		float texY = 0.0f;
 
-		if (horizontal) {
+		if (horizontal == false) {
 			texX = static_cast<float>((index / framesInARow) * frameHeight);
 			texY = static_cast<float>((index % framesInARow) * frameWidth);
 		}
@@ -118,6 +118,60 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 	currentFrame = frames[0];
 }
 
+void AnimationManager::loadAnimation(const char *filename, glm::vec2 frameSize)
+{
+	lodepng::load_file(anim_png, filename);
+	unsigned error = lodepng::decode(animations, width, height, anim_png);
+	if (error) // lataus ei onnistu --> virheilmotus
+	{
+		std::cout << "PNG load failed " << error << ": " << lodepng_error_text(error) << std::endl;
+	}
+
+	glGenTextures(1, &animID);
+	glBindTexture(GL_TEXTURE_2D, animID); //everything we're about to do is about this texture
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, &animations[0]);
+	glGenerateMipmap(GL_TEXTURE_2D);
+
+	animations.clear();
+	glBindTexture(GL_TEXTURE_2D, 0);
+
+	frameWidth = frameSize.x;
+	frameHeight = frameSize.y;
+	framesInARow = width / frameWidth;
+	currentFrame.index = 0;
+	loopable = true;
+
+	for (int i = 0; i < width / frameWidth * height / frameHeight; i++)
+	{
+		Frame frame;
+		frame.duration = 0.5;
+
+		float texX = 0.0f;
+		float texY = 0.0f;
+
+		texX = static_cast<float>((index % framesInARow) * frameWidth);
+		texY = static_cast<float>((index / framesInARow) * frameHeight);
+
+		frame.texCoords.x = texX;
+		frame.texCoords.y = texY;
+		frame.texCoords.z = 0.0f;
+		frame.texCoords.w = 0.0f;
+		frame.index = index;
+		index++;
+
+		frames.push_back(frame);
+	}
+	rows = (index + 1) / framesInARow;
+	columns = framesInARow;
+
+	currentFrame = frames[0];
+}
+
 void AnimationManager::updateAnimation()
 {
 	Timer timer;
@@ -125,19 +179,18 @@ void AnimationManager::updateAnimation()
 	//std::cout << timer.getGlobalTime() << std::endl;
 	if (rows > 1)
 	{
+		if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() > currentFrame.duration)
+		{
+			currentFrame = frames[currentFrame.index + 1];
+			std::cout << currentFrame.index << std::endl;
+			timer.setTimer();
+		}
 
-			if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() > currentFrame.duration)
-			{
-				currentFrame = frames[currentFrame.index + 1];
-				std::cout << currentFrame.index << std::endl;
-				timer.setTimer();
-			}
-
-			else if (currentFrame.index = frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
-			{
-				currentFrame = frames[0];
-				timer.start();
-			}	
+		else if (currentFrame.index = frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
+		{
+			currentFrame = frames[0];
+			timer.start();
+		}	
 	}
 
 	else

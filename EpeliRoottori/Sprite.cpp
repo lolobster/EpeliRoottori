@@ -23,6 +23,12 @@ void Sprite::SetAnimation(const char *filepath, const std::string& resourcePath)
 	animated = true;
 }
 
+void Sprite::SetAnimation(const char *filepath, glm::vec2 frameSize)
+{
+	anim.loadAnimation(filepath, frameSize);
+	animated = true;
+}
+
 AnimationManager* const Sprite::GetAnimationManager() {
 	return &anim;
 }
