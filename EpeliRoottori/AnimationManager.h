@@ -48,12 +48,12 @@ public:
 
 	int getFrameWidth() const
 	{
-		return frameWidth / getNumberOfFrames();
+		return anim->frameWidth / columns;
 	}
 
 	int getFrameHeight() const
 	{
-		return frameHeight;
+		return frameHeight / rows;
 	}
 
 	
@@ -86,6 +86,8 @@ private:
 	GLuint animID;
 	unsigned int width = 0;
 	unsigned int height = 0;
+	unsigned int rows = 0;
+	unsigned int columns = 0;
 
 	std::vector<unsigned char> anim_png;
 	std::vector<unsigned char> animations;

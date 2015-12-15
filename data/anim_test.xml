@@ -1,4 +1,4 @@
-<animation path="data/crystal_pink.png" width="256" height="32" loopable="1" horizontal="1">
+<animation path="data/gems.png" width="256" height="96" loopable="1" horizontal="1">
   <frame duration="0.5" id="0" />
   <frame duration="0.5" id="1" />
   <frame duration="0.5" id="2" />
@@ -7,4 +7,20 @@
   <frame duration="0.5" id="5" />
   <frame duration="0.5" id="6" />
   <frame duration="0.5" id="7" />
+  <frame duration="0.5" id="8" />
+  <frame duration="0.5" id="9" />
+  <frame duration="0.5" id="10" />
+  <frame duration="0.5" id="11" />
+  <frame duration="0.5" id="12" />
+  <frame duration="0.5" id="13" />
+  <frame duration="0.5" id="14" />
+  <frame duration="0.5" id="15" />
+  <frame duration="0.5" id="16" />
+  <frame duration="0.5" id="17" />
+  <frame duration="0.5" id="18" />
+  <frame duration="0.5" id="19" />
+  <frame duration="0.5" id="20" />
+  <frame duration="0.5" id="21" />
+  <frame duration="0.5" id="22" />
+  <frame duration="0.5" id="23" />
 </animation>

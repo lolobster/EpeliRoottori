@@ -63,8 +63,15 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 	frameHeight = atoi(root->first_attribute("height")->value());
 	//anim(animID, frameWidth, frameHeight);
 
-	int framesInARow = width / frameWidth; // Calculate the number of frames in one a row in the texture sheet.
+	rows = GetWidth() / frameWidth;
+	std::cout << "Rows: " << rows << std::endl;
 
+	columns;
+	std::cout << "Columns: " << columns << std::endl;
+
+	int framesInARow = width / frameWidth; // Calculate the number of frames in one a row in the texture sheet.
+	anim->getFrameHeight();
+	anim->getFrameWidth();
 	unsigned int i = 0;
 
 	// Read the frames.
@@ -124,7 +131,7 @@ void AnimationManager::updateAnimation()
 	if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() >= currentFrame.duration)
 	{
 		currentFrame = frames[currentFrame.index + 1];
-		std::cout << currentFrame.index << std::endl;
+		//std::cout << currentFrame.index << std::endl;
 		timer.setTimer();
 	}
 
