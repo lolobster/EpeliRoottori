@@ -161,16 +161,16 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		{
 			typhlosion.SetPosition(glm::vec2((width - typhlosion.GetBounds().x) / 2, (height - typhlosion.GetBounds().y) / 2));
 			dir.x = -2.0;
-			score2++;
-			tex2.SetText(std::to_string(score2));
-			tex2.SetPosition(glm::vec2(width - tex2.GetGlobalBounds().x, 0));
+			score1++;
+			tex.SetText(std::to_string(score1));
 		}
 		if (typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x < 0)
 		{
 			typhlosion.SetPosition(glm::vec2((width - typhlosion.GetBounds().x) / 2, (height - typhlosion.GetBounds().y) / 2));
 			dir.x = 2.0;
-			score1++;
-			tex.SetText(std::to_string(score1));
+			score2++;
+			tex2.SetText(std::to_string(score2));
+			tex2.SetPosition(glm::vec2(width - tex2.GetGlobalBounds().x, 0));
 		}
 
 		// Typhlosion kimpoaa katosta ja lattiasta
@@ -244,6 +244,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		tex3.SetColor(tex3.GetColor() + color);
 
+		typhlosion.Rotate(1);
 		typhlosion.Move(dir);
 		dickbutt.Move(dir2);
 		dickbutt2.Move(dir3);
