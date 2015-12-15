@@ -61,11 +61,9 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 	// Read frame width and height and load the texture sheet.
 	frameWidth = atoi(root->first_attribute("frameWidth")->value());
 	frameHeight = atoi(root->first_attribute("frameHeight")->value());
-	//anim(animID, frameWidth, frameHeight);
 
 	framesInARow = width / frameWidth; // Calculate the number of frames in one a row in the texture sheet.
 
-	int index;
 
 	// Read the frames.
 	for (rapidxml::xml_node<>* i = root->first_node("frame"); i; i = i->next_sibling())
@@ -108,8 +106,10 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 
 		frames.push_back(frame);
 	}
+	// index now has the total amount of frames
 	rows = index / framesInARow;
-
+	columns = framesInARow;
+	
 	// Clear data.
 	content.clear();
 	buffer.clear();
@@ -144,53 +144,27 @@ void AnimationManager::updateAnimation()
 		}
 	}
 
-	if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() >= currentFrame.duration)
-	{
-		currentFrame = frames[currentFrame.index + 1];
-		std::cout << currentFrame.index << std::endl;
-		timer.setTimer();
-	}
-
-	 //// Jostain syystä ei ota koppia kun framet on käyty läpi
-	else if (currentFrame.index = frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
-	{
-		currentFrame = frames[0];
-		timer.start();
-	}
-
 	else
 	{
-		return;
+		if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() >= currentFrame.duration)
+		{
+			currentFrame = frames[currentFrame.index + 1];
+			std::cout << currentFrame.index << std::endl;
+			timer.setTimer();
+		}
+
+		//// Jostain syystä ei ota koppia kun framet on käyty läpi
+		else if (currentFrame.index = frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
+		{
+			currentFrame = frames[0];
+			timer.start();
+		}
+
+		else
+		{
+			return;
+		}
 	}
-	//Timer timer;
-	//// Update only when timer is started and not paused.
-	//if (!timer.isPaused() && timer.isStarted())
-	//{
-	//	// Compare local time to the duration of current frame.
-	//	if (timer.getLocalTime() > anim->getFrame(currentFrame).duration)
-	//	{
-	//		if (currentFrame < loopStartFrame)
-	//		{
-	//			currentFrame = loopStartFrame;
-	//		}
-
-	//		// Advance current frame and check if we have reached the end of the animation.
-	//		if (++currentFrame >= loopEndFrame || currentFrame >= anim->getNumberOfFrames())
-	//		{
-	//			stop(); // Stop the animation.
-
-	//			// Continue if the animation is set to loop.
-	//			if (loop)
-	//			{
-	//				start(); // Restarts the timer.
-	//			}
-	//		}
-	//		else
-	//		{
-	//			start(); // Restarts the timer.
-	//		}
-	//	}
-	//}
 }
 
 AnimationManager::~AnimationManager()

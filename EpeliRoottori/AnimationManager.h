@@ -56,7 +56,15 @@ public:
 		return frameHeight;
 	}
 
-	
+	int getColumn() const
+	{
+		return currentFrame.index % columns;
+	}
+
+	int getRow() const
+	{
+		return currentFrame.index / columns;
+	}
 
 	glm::vec4* getTexCoords(size_t index)
 	{
@@ -84,6 +92,7 @@ private:
 	bool loopable;
 
 	const char *filename;
+	int index;
 	GLuint animID;
 	unsigned int width = 0;
 	unsigned int height = 0;
