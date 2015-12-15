@@ -53,9 +53,9 @@ void Renderer::drawAnimation(Sprite anim)
 
 	GLfloat spriteData[] =
 	{
-		
+
 		// Paikat																									// Värit															// Tekstuurien koordinaatit
-		anim.GetPosition().x,								anim.GetPosition().y,											anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topLeft.x, topLeft.y,
+		anim.GetPosition().x, anim.GetPosition().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topLeft.x, topLeft.y,
 		anim.GetPosition().x + manager->getFrameWidth() * anim.GetScale().x, anim.GetPosition().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topRight.x, topRight.y,
 		anim.GetPosition().x, anim.GetPosition().y + manager->getFrameHeight()  * anim.GetScale().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomLeft.x, bottomLeft.y,
 		anim.GetPosition().x + manager->getFrameWidth()  * anim.GetScale().x, anim.GetPosition().y + manager->getFrameHeight() * anim.GetScale().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomRight.x, bottomRight.y,
@@ -150,22 +150,72 @@ void Renderer::draw(Polygon polygon)
 
 void Renderer::draw(Sprite sprite)
 {
-	glm::vec2 pos1 = sprite.GetPosition() + glm::rotate(glm::vec2(-sprite.GetGlobalBounds().x / 2.0f, -sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
-	glm::vec2 pos2 = sprite.GetPosition() + glm::rotate(glm::vec2(sprite.GetGlobalBounds().x / 2.0f, -sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
-	glm::vec2 pos3 = sprite.GetPosition() + glm::rotate(glm::vec2(-sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
-	glm::vec2 pos4 = sprite.GetPosition() + glm::rotate(glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
-
-	GLfloat spriteData[] =
+	if (sprite.GetIfAnimated() == false)
 	{
-		// Paikat		// Värit														// Tekstuurien koordinaatit
-		pos1.x, pos1.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 1.0f,
-		pos2.x, pos2.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 1.0f,
-		pos3.x, pos3.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 0.0f,
-		pos4.x, pos4.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 0.0f,
-	};
+		glm::vec2 pos1 = sprite.GetPosition() + glm::rotate(glm::vec2(-sprite.GetGlobalBounds().x / 2.0f, -sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
+		glm::vec2 pos2 = sprite.GetPosition() + glm::rotate(glm::vec2(sprite.GetGlobalBounds().x / 2.0f, -sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
+		glm::vec2 pos3 = sprite.GetPosition() + glm::rotate(glm::vec2(-sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
+		glm::vec2 pos4 = sprite.GetPosition() + glm::rotate(glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
 
-	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(spriteData), spriteData, GL_STATIC_DRAW);
+		GLfloat spriteData[] =
+		{
+			// Paikat		// Värit														// Tekstuurien koordinaatit
+			pos1.x, pos1.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 1.0f,
+			pos2.x, pos2.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 1.0f,
+			pos3.x, pos3.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 0.0f,
+			pos4.x, pos4.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 0.0f,
+		};
+
+		glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(spriteData), spriteData, GL_STATIC_DRAW);
+	}
+	else
+	{
+		AnimationManager* manager = sprite.GetAnimationManager();
+		Frame frame = manager->getCurrentFrame();
+
+		float texture_width = manager->GetWidth();
+		float texture_height = manager->GetHeight();
+
+		float sourceRight = frame.texCoords.x + manager->getFrameWidth();
+		float sourceBottom = frame.texCoords.y + manager->getFrameHeight();
+
+		glm::fvec2 topLeft;
+		topLeft.x = frame.texCoords.x / texture_width;
+		topLeft.y = frame.texCoords.y / texture_height;
+
+		glm::fvec2 topRight;
+		topRight.x = sourceRight / texture_width;
+		topRight.y = frame.texCoords.y / texture_height;
+
+		glm::fvec2 bottomLeft;
+		bottomLeft.x = topLeft.x;
+		bottomLeft.y = sourceBottom / texture_height;
+
+		glm::fvec2 bottomRight;
+		bottomRight.x = topRight.x;
+		bottomRight.y = bottomLeft.y;
+
+		glm::vec2 pos1 = sprite.GetPosition() + glm::rotate(glm::vec2(-manager->getFrameWidth() * sprite.GetScale().x / 2.0f, -manager->getFrameHeight() * sprite.GetScale().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f);
+		glm::vec2 pos2 = sprite.GetPosition() + glm::rotate(glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, -manager->getFrameHeight() * sprite.GetScale().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f);
+		glm::vec2 pos3 = sprite.GetPosition() + glm::rotate(glm::vec2(-manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f);
+		glm::vec2 pos4 = sprite.GetPosition() + glm::rotate(glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f);
+
+		manager->getFrameHeight() * sprite.GetScale().y;
+
+		GLfloat spriteData[] =
+		{
+			// Paikat																									// Värit															// Tekstuurien koordinaatit
+			pos1.x, pos1.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, topLeft.x, topLeft.y,
+			pos2.x, pos2.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, topRight.x, topRight.y,
+			pos3.x, pos3.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, bottomLeft.x, bottomLeft.y,
+			pos4.x, pos4.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, bottomRight.x, bottomRight.y,
+		};
+
+		glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(spriteData), spriteData, GL_STATIC_DRAW);
+	}
+
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
@@ -183,14 +233,25 @@ void Renderer::draw(Sprite sprite)
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
 	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, sprite.GetTexture());
+	if (sprite.GetIfAnimated() == false)
+	{
+		glBindTexture(GL_TEXTURE_2D, sprite.GetTexture());
+	}
+	else
+	{
+		glBindTexture(GL_TEXTURE_2D, sprite.GetAnimID());
+	}
 
 	shader.Use();
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 	glm::mat4 MVP = cam->getViewMatrix();
 	glUniformMatrix4fv(matrixID, 1, GL_FALSE, &MVP[0][0]);
+
 }
+
+	
+	
 
 void Renderer::draw(TextManager text)
 {

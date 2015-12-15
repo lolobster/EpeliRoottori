@@ -30,13 +30,14 @@ public:
 	glm::vec2 GetBounds();
 	glm::vec2 GetGlobalBounds();
 	GLuint GetTexture();
-
+	bool GetIfAnimated();
 
 	glm::vec2 GetAnimBounds();
 	glm::vec2 GetAnimGlobalBounds();
 	GLuint GetAnimID();
 
 private:
+	bool animated = false;
 	TextureManager tex;
 	AnimationManager anim;
 	GLuint spriteBuffer;

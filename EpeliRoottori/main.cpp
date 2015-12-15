@@ -272,7 +272,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		renderer.draw(tex3);
 		renderer.draw(polygon);
 	
-		renderer.drawAnimation(animation);
+		renderer.draw(animation);
 		animation.GetAnimationManager()->updateAnimation();
 		//anima.updateAnimation();
 		/*

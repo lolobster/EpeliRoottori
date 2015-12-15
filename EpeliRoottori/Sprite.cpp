@@ -20,6 +20,7 @@ void Sprite::SetTexture(const char *filepath)
 void Sprite::SetAnimation(const char *filepath, const std::string& resourcePath)
 {
 	anim.loadAnimation(filepath, resourcePath);
+	animated = true;
 }
 
 AnimationManager* const Sprite::GetAnimationManager() {
@@ -110,4 +111,9 @@ glm::vec2 Sprite::GetAnimGlobalBounds()
 GLuint Sprite::GetAnimID()
 {
 	return anim.getAnimationID();
+}
+
+bool Sprite::GetIfAnimated()
+{
+	return animated;
 }
