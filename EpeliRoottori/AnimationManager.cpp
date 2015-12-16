@@ -80,13 +80,13 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 		float texX = 0.0f;
 		float texY = 0.0f;
 
-		if (horizontal == false) {
-			texX = static_cast<float>((index / framesInARow) * frameHeight);
-			texY = static_cast<float>((index % framesInARow) * frameWidth);
-		}
-		else {
+		if (horizontal) {
 			texX = static_cast<float>((index % framesInARow) * frameWidth);
 			texY = static_cast<float>((index / framesInARow) * frameHeight);
+		}
+		else {
+			texX = static_cast<float>((index / framesInARow) * frameHeight);
+			texY = static_cast<float>((index % framesInARow) * frameWidth);
 		}
 		
 		int loop = atoi(root->first_attribute("loopable")->value());

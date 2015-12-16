@@ -15,6 +15,7 @@ Sprite::~Sprite()
 void Sprite::SetTexture(const char *filepath)
 {
 	tex.loadTextures(filepath);
+	animated = false;
 }
 
 void Sprite::SetAnimation(const char *filepath, const std::string& resourcePath)
@@ -90,28 +91,31 @@ float Sprite::GetRotation()
 
 glm::vec2 Sprite::GetBounds()
 {
-	return glm::vec2(tex.getWidth(), tex.getHeight());
+	if (animated)
+	{
+		return glm::vec2(anim.getFrameWidth(), anim.getFrameHeight());
+	}
+	else
+	{
+		return glm::vec2(tex.getWidth(), tex.getHeight());
+	}
 }
 
 glm::vec2 Sprite::GetGlobalBounds()
 {
-	return glm::vec2(tex.getWidth() * scale.x, tex.getHeight() * scale.y);
+	if (animated)
+	{
+		return glm::vec2(anim.getFrameWidth() * scale.x, anim.getFrameHeight() * scale.y);
+	}
+	else
+	{
+		return glm::vec2(tex.getWidth() * scale.x, tex.getHeight() * scale.y);
+	}
 }
 
 GLuint Sprite::GetTexture()
 {
 	return tex.getID();
-}
-
-
-glm::vec2 Sprite::GetAnimBounds()
-{
-	return glm::vec2(anim.getFrameWidth(), anim.getFrameHeight());
-}
-
-glm::vec2 Sprite::GetAnimGlobalBounds()
-{
-	return glm::vec2(anim.getFrameWidth() * scale.x, anim.getFrameHeight() * scale.y);
 }
 
 GLuint Sprite::GetAnimID()

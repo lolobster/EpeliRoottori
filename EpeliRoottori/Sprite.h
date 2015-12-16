@@ -33,8 +33,6 @@ public:
 	GLuint GetTexture();
 	bool GetIfAnimated();
 
-	glm::vec2 GetAnimBounds();
-	glm::vec2 GetAnimGlobalBounds();
 	GLuint GetAnimID();
 
 private:

@@ -122,7 +122,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	tex3.SetColor(glm::vec3(0.0, 0.0, 0.0));
 
 	Sprite typhlosion;
-	typhlosion.SetTexture("../data/Typhlosion.png");
+	typhlosion.SetAnimation("../data/Typhlosion2.png", glm::vec2(234, 250));
 	typhlosion.SetPosition(glm::vec2((width - typhlosion.GetBounds().x) / 2, (height - typhlosion.GetBounds().y) / 2));
 	typhlosion.SetScale(glm::vec2(0.5, 0.5));
 
@@ -275,6 +275,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	
 		renderer.draw(animation);
 		animation.GetAnimationManager()->updateAnimation();
+		typhlosion.GetAnimationManager()->updateAnimation();
 		//anima.updateAnimation();
 		/*
 		
