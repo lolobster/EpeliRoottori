@@ -22,7 +22,6 @@
 #include "Camera.h"
 #include "Shader.h"
 #include "TextManager.h"
-#include "AnimationManager.h"
 #include "Sprite.h"
 #include "Polygon.h"
 

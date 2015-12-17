@@ -4,7 +4,7 @@
 Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat posX, GLfloat posY, GLfloat cx, GLfloat cy, GLfloat cz, const char* filePath) //glm::vec2 position, glm::vec3 color)
 {
 	//texture lataus
-	tex.loadTextures(filePath);
+	tex.LoadTextures(filePath);
 
 	//varataan tilaa taulukoille
 	data = new GLfloat[7 * sides + 7];
@@ -309,7 +309,7 @@ GLuint Polygon::getNumberOfIndices()
 
 GLuint Polygon::GetTexture()
 {
-	return tex.getID();
+	return tex.GetID();
 }
 
 void Polygon::DemoEffect(GLfloat degree)

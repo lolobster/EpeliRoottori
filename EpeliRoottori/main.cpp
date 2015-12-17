@@ -71,7 +71,7 @@ int main(void)
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	
 	Timer time;
-	time.start();
+	time.Start();
 
 	LateTesti(window, WIDTH, HEIGHT);
 	//TaskuTesti(window, WIDTH, HEIGHT);
@@ -142,8 +142,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	animation.SetPosition(glm::vec2((width / 2), 250));
 	animation.SetScale(glm::vec2(2,2));
 
-	renderer2.cam->setPosition(glm::vec2(1, 1));
-	renderer3.cam->setPosition(glm::vec2(1.5, 1.5));
+	renderer2.camera->SetPosition(glm::vec2(1, 1));
+	renderer3.camera->SetPosition(glm::vec2(1.5, 1.5));
 
 	glm::vec2 dir = { 2.0, 2.0 }, dir2 = { 0.0, 1.0 }, dir3 = { 0.0, -1.0 };
 	int score1 = 0, score2 = 0;
@@ -268,21 +268,21 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		//renderer2.draw(tex);
 		//renderer2.draw(tex2);
 		//renderer2.draw(tex3);
-		renderer.draw(polygon);
-		renderer.draw(polygon2);
+		renderer.Draw(polygon);
+		renderer.Draw(polygon2);
 
-		renderer.draw(typhlosion);
-		renderer.draw(dickbutt);
-		renderer.draw(dickbutt2);
-		renderer.draw(tex);
-		renderer.draw(tex2);
-		renderer.draw(tex3);
+		renderer.Draw(typhlosion);
+		renderer.Draw(dickbutt);
+		renderer.Draw(dickbutt2);
+		renderer.Draw(tex);
+		renderer.Draw(tex2);
+		renderer.Draw(tex3);
 		
 	
 
-		renderer.draw(animation);
-		animation.GetAnimationManager()->updateAnimation();
-		typhlosion.GetAnimationManager()->updateAnimation();
+		renderer.Draw(animation);
+		animation.GetAnimationManager()->UpdateAnimation();
+		typhlosion.GetAnimationManager()->UpdateAnimation();
 		//anima.updateAnimation();
 		/*
 		
