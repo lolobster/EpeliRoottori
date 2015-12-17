@@ -32,19 +32,19 @@ public:
 	void FramebufferSizeCallback(GLFWwindow* window, int width, int height);
 	GLuint LoadShaderFromFile(const std::string filepath, GLenum ShaderType);
 	void Use();
-	Shader &setActive();
+	Shader &SetActive();
 	GLuint GetShaderProgram();	
 
 	//utility stuff
-	void setFloat(const GLchar *name, GLfloat value, GLboolean useShader = false);
-	void setInteger(const GLchar *name, GLfloat value, GLboolean usehader = false);
-	void setVec2f(const GLchar *name, GLfloat x, GLfloat y,GLboolean useShader = false);
-	void setVec2f(const GLchar *name, const glm::vec2 &value, GLboolean useShader = false);
-	void setVec3f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z, GLboolean useShader = false);
-	void setVec3f(const GLchar *name, const glm::vec3 &value, GLboolean useShader = false);
-	void setVec4f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z, GLfloat w, GLboolean useShader = false);
-	void setVec4f(const GLchar *name, const glm::vec4 &value, GLboolean useShader = false);
-	void setMatrix4(const GLchar *name, const glm::mat4 &matrix, GLboolean useShader = false);
+	void SetFloat(const GLchar *name, GLfloat value, GLboolean useShader = false);
+	void SetInteger(const GLchar *name, GLfloat value, GLboolean usehader = false);
+	void SetVec2f(const GLchar *name, GLfloat x, GLfloat y,GLboolean useShader = false);
+	void SetVec2f(const GLchar *name, const glm::vec2 &value, GLboolean useShader = false);
+	void SetVec3f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z, GLboolean useShader = false);
+	void SetVec3f(const GLchar *name, const glm::vec3 &value, GLboolean useShader = false);
+	void SetVec4f(const GLchar *name, GLfloat x, GLfloat y, GLfloat z, GLfloat w, GLboolean useShader = false);
+	void SetVec4f(const GLchar *name, const glm::vec4 &value, GLboolean useShader = false);
+	void SetMatrix4(const GLchar *name, const glm::mat4 &matrix, GLboolean useShader = false);
 
 private:
 	GLuint ProgramID;

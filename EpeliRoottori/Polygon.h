@@ -48,27 +48,27 @@ public:
 	Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat x, GLfloat y, GLfloat cx, GLfloat cy, GLfloat cz, const char* texturePath);
 	~Polygon();
 
-	void update();
-	void drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color, Shader *shader);
-	void printData();
+	void Update();
+	void DrawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color, Shader *shader);
+	void PrintData();
 	void Rotate(GLfloat degree);
 	void DemoEffect(GLfloat degree);
 	void Translate(glm::vec2 value);
 
-	GLfloat getX();
-	GLfloat getY();
-	GLfloat getTextCoordX();
-	GLfloat getTextCoordY();
-	GLfloat getColorX();
-	GLfloat getColorY();
-	GLfloat getColorZ();
-	GLuint getNumberOfElements();
-	GLuint getNumberOfIndices();
+	GLfloat GetX();
+	GLfloat GetY();
+	GLfloat GetTextCoordX();
+	GLfloat GetTextCoordY();
+	GLfloat GetColorX();
+	GLfloat GetColorY();
+	GLfloat GetColorZ();
+	GLuint GetNumberOfElements();
+	GLuint GetNumberOfIndices();
 
-	GLfloat* getData();
-	GLuint* getIndices();
-	int getSize();
-	GLuint getGLuintSize();
+	GLfloat* GetData();
+	GLuint* GetIndices();
+	int GetSize();
+	GLuint GetGLuintSize();
 	GLuint GetTexture();
 
 private:

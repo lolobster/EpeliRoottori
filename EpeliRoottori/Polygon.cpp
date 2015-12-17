@@ -184,12 +184,12 @@ Polygon::~Polygon()
 //	delete[] indices;
 }
 
-void Polygon::update()
+void Polygon::Update()
 {
 
 }
 
-void Polygon::printData()
+void Polygon::PrintData()
 {
 	int element = 0;
 	int counter = 1;
@@ -251,58 +251,58 @@ void Polygon::printData()
 
 }
 
-GLfloat Polygon::getX()
+GLfloat Polygon::GetX()
 {
 	return x;
 }
-GLfloat Polygon::getY()
+GLfloat Polygon::GetY()
 {
 	return y;
 }
 
-GLfloat Polygon::getTextCoordX()
+GLfloat Polygon::GetTextCoordX()
 {
 	return textCoordX;
 }
-GLfloat Polygon::getTextCoordY()
+GLfloat Polygon::GetTextCoordY()
 {
 	return textCoordY;
 }
 
-GLfloat Polygon::getColorX()
+GLfloat Polygon::GetColorX()
 {
 	return colorX;
 }
-GLfloat Polygon::getColorY()
+GLfloat Polygon::GetColorY()
 {
 	return colorY;
 }
-GLfloat Polygon::getColorZ()
+GLfloat Polygon::GetColorZ()
 {
 	return colorZ;
 }
 
-int Polygon::getSize()
+int Polygon::GetSize()
 {
 	return size;
 }
 
-GLuint* Polygon::getIndices()
+GLuint* Polygon::GetIndices()
 {
 	return indices;
 }
 
-GLfloat* Polygon::getData()
+GLfloat* Polygon::GetData()
 {
 	return data;
 }
 
-GLuint Polygon::getNumberOfElements()
+GLuint Polygon::GetNumberOfElements()
 {
 	return numberOfElements;
 }
 
-GLuint Polygon::getNumberOfIndices()
+GLuint Polygon::GetNumberOfIndices()
 {
 	return numberOfIndices;
 }

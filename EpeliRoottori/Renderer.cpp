@@ -30,7 +30,7 @@ void Renderer::Draw(Polygon polygon)
 	//	timer--;
 
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
-	glBufferData(GL_ARRAY_BUFFER, polygon.getNumberOfElements() * sizeof(GLfloat), polygon.getData(), GL_STATIC_DRAW); // sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, polygon.GetNumberOfElements() * sizeof(GLfloat), polygon.GetData(), GL_STATIC_DRAW); // sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW);
 	//pos
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
@@ -44,7 +44,7 @@ void Renderer::Draw(Polygon polygon)
 	//
 
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, polygon.getNumberOfIndices() * sizeof(GLuint), polygon.getIndices() , GL_STATIC_DRAW); //sizeof(polygon.getIndices()), polygon.getIndices(), GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, polygon.GetNumberOfIndices() * sizeof(GLuint), polygon.GetIndices() , GL_STATIC_DRAW); //sizeof(polygon.getIndices()), polygon.getIndices(), GL_STATIC_DRAW);
 
 	//Lis‰‰ tekstuurit
 
@@ -56,7 +56,7 @@ void Renderer::Draw(Polygon polygon)
 
 	//glDrawArrays(GL_TRIANGLES, 0, 36);//3 * polygon.getSize());
 	//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-	glDrawElements(GL_TRIANGLES, polygon.getNumberOfIndices(), GL_UNSIGNED_INT, 0);
+	glDrawElements(GL_TRIANGLES, polygon.GetNumberOfIndices(), GL_UNSIGNED_INT, 0);
 	//glDrawArrays(GL_TRIANGLES, 0, 6s);
 }
 
