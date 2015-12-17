@@ -91,6 +91,7 @@
   <ItemGroup>
     <ClInclude Include="AnimationManager.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Includes.h" />
     <ClInclude Include="lodepng.h" />
     <ClInclude Include="Polygon.h" />
     <ClInclude Include="Renderer.h" />

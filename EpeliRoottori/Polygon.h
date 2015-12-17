@@ -1,33 +1,9 @@
 #ifndef POLYGON_H
 #define POLYGON_H
 
-#define _USE_MATH_DEFINES
-#define GLM_FORCE_RADIANS
-#include <cstdio>
-#include <cstdlib>
-#include <iostream>
-#include <vector>
-
-// GLEW
-#define GLEW_STATIC
-#include <GL/glew.h>
-
-// GLFW
-#include <GLFW/glfw3.h>
-
-// GLM
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtx/transform.hpp>
-
-//omia
-#include <iostream>
-#include <math.h>
-
+#include "Includes.h"
 #include "Shader.h"
 #include "TextureManager.h"
-
-
 
 struct vertex{
 	glm::vec3 position;

@@ -1,14 +1,7 @@
 #ifndef TEXTUREMANAGER_H
 #define TEXTUREMANAGER_H
 
-// GLEW
-#define GLEW_STATIC
-#include <GL/glew.h>
-
-// lodePNG
-#include "lodepng.h"
-
-#include <iostream>
+#include "Includes.h"
 
 class TextureManager
 {

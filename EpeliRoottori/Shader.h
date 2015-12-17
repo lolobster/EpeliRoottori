@@ -1,24 +1,7 @@
 #ifndef SHADER_H
 #define SHADER_H
 
-#define GLM_FORCE_RADIANS
-#include <cstdio>
-#include <cstdlib>
-#include <iostream>
-
-// GLEW
-#define GLEW_STATIC
-#include <GL/glew.h>
-
-// GLFW
-#include <GLFW/glfw3.h>
-
-// GLM
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtx/transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
+#include "Includes.h"
 
 class Shader
 {

@@ -1,27 +1,7 @@
 #ifndef ANIMATIONMANAGER_H
 #define ANIMATIONMANAGER_H
 
-// GLEW
-#define GLEW_STATIC
-#include <GL/glew.h>
-
-//GLFW
-#include <GLFW\glfw3.h>
-
-//GLM
-#include <glm\glm.hpp>
-
-// lodePNG
-#include "lodepng.h"
-
-// RapidXML
-#include "RapidXML\rapidxml.hpp"
-
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-
+#include "Includes.h"
 #include "Timer.h"
 
 struct Frame

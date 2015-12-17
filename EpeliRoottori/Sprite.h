@@ -1,6 +1,8 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
+#include "Includes.h"
+
 #include "TextureManager.h"
 #include "AnimationManager.h"
 

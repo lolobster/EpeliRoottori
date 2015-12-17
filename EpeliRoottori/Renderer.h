@@ -1,24 +1,7 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#define GLM_FORCE_RADIANS
-#include <cstdio>
-#include <cstdlib>
-#include <iostream>
-
-// GLEW
-#define GLEW_STATIC
-#include <GL/glew.h>
-
-// GLFW
-#include <GLFW/glfw3.h>
-
-// GLM
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtx/transform.hpp>
-#include <glm\gtx\rotate_vector.hpp>
-
+#include "Includes.h"
 #include "Camera.h"
 #include "Shader.h"
 #include "TextManager.h"

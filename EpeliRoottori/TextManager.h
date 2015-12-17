@@ -1,19 +1,7 @@
 #ifndef TEXTMANAGER_H
 #define TEXTMANAGER_H
 
-// GLEW
-#include <GL/glew.h>
-
-// GLM
-#include <glm/glm.hpp>
-
-//FREETYPE
-#include <ft2build.h>
-#include FT_FREETYPE_H
-
-#include <iostream>
-#include <fstream>
-#include <vector>
+#include "Includes.h"
 
 class TextManager
 {

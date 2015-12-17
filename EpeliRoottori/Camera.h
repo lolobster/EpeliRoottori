@@ -1,15 +1,7 @@
 #ifndef CAMERA_H
 #define CAMERA_H
-#define GLEW_STATIC
 
-// GLM transformaatioita varten
-#include "glm\glm.hpp"
-#include <glm/gtx/transform.hpp>
-#include <glm/gtx/matrix_transform_2d.hpp>
-#include <GL\glew.h>
-
-// GLFW
-#include <GLFW/glfw3.h>
+#include "Includes.h"
 
 class Camera
 {
