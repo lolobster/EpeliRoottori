@@ -34,7 +34,8 @@
 #ifndef __FT2BUILD_H__
 #define __FT2BUILD_H__
 
-#include <freetype/config/ftheader.h>
+#include <freetype-2.6.1\include\freetype\config\ftheader.h>
+//#include <freetype/config/ftheader.h>
 
 #endif /* __FT2BUILD_H__ */
 

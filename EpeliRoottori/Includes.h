@@ -13,7 +13,7 @@
 
 // GLEW
 #define GLEW_STATIC
-#include <GL/glew.h>
+#include <GL\glew.h>
 
 // GLFW
 #include <GLFW/glfw3.h>
@@ -33,5 +33,6 @@
 #include "RapidXML\rapidxml.hpp"
 
 //FREETYPE
-#include <ft2build.h>
+//#include <ft2build.h>
+#include <freetype-2.6.1\include\ft2build.h>
 #include FT_FREETYPE_H

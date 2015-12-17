@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "EpeliRoottori", "EpeliRoott
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo", "Demo\Demo.vcxproj", "{EB973FDB-3B46-4594-8EA5-1564A2A31A7F}"
 EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "ModelingProject1", "ModelingProject1\ModelingProject1.modelproj", "{188E1216-ACBE-4487-B5FD-FF35E6A7FA49}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,16 +37,6 @@ Global
 		{EB973FDB-3B46-4594-8EA5-1564A2A31A7F}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{EB973FDB-3B46-4594-8EA5-1564A2A31A7F}.Release|Win32.ActiveCfg = Release|Win32
 		{EB973FDB-3B46-4594-8EA5-1564A2A31A7F}.Release|Win32.Build.0 = Release|Win32
-		{188E1216-ACBE-4487-B5FD-FF35E6A7FA49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{188E1216-ACBE-4487-B5FD-FF35E6A7FA49}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{188E1216-ACBE-4487-B5FD-FF35E6A7FA49}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{188E1216-ACBE-4487-B5FD-FF35E6A7FA49}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{188E1216-ACBE-4487-B5FD-FF35E6A7FA49}.Debug|Win32.ActiveCfg = Debug|Any CPU
-		{188E1216-ACBE-4487-B5FD-FF35E6A7FA49}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{188E1216-ACBE-4487-B5FD-FF35E6A7FA49}.Release|Any CPU.Build.0 = Release|Any CPU
-		{188E1216-ACBE-4487-B5FD-FF35E6A7FA49}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{188E1216-ACBE-4487-B5FD-FF35E6A7FA49}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{188E1216-ACBE-4487-B5FD-FF35E6A7FA49}.Release|Win32.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
