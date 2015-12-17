@@ -248,7 +248,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		polygon2.Rotate(1);
 		polygon.DemoEffect(1);
-
+		//polygon2.Translate(glm::vec2(1, 0));
 
 		typhlosion.Rotate(1);
 		typhlosion.Move(dir);

@@ -410,20 +410,11 @@ void Polygon::Rotate(GLfloat degree)
 	//}
 }
 
-
-/*
-//Position
-x = posX + (radius * sin(theta)) * scale;
-y = posY + (radius * cos(theta)) * scale;
-
-if (i != 0)
+void Polygon::Translate(glm::vec2 value)
 {
-data[i * 7] = x;
-data[i * 7 + 1] = y;
+	for (int i = 0; i < sides + 1; i++)
+	{
+		data[i * 7] += value.x;
+		data[i * 7 + 1] += value.y;
+	}
 }
-else
-{
-data[i * 7] = posX;
-data[i * 7 + 1] = posY;
-}
-*/
