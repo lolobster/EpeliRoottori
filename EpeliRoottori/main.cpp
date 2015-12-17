@@ -149,7 +149,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	int score1 = 0, score2 = 0;
 	glm::vec3 color = { 0.01, 0.01, 0.01 };
 
-	Polygon polygon(4, 200, 1, 0, 350, 350, 1.0f, 0.4f, 0.3f);
+	Polygon polygon(300, 200, 1, 0, 350, 350, 1.0f, 0.4f, 0.3f, "../data/planet.png");
+	Polygon polygon2(4, 100, 1, 0, 850, 350, 1.0f, 0.4f, 0.3f, "../data/Dickbutt.png");
 
 	while (!glfwWindowShouldClose(Window))
 	{
@@ -243,8 +244,11 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		{
 			color = glm::vec3(-0.01, -0.01, -0.01);
 		}
-
 		tex3.SetColor(tex3.GetColor() + color);
+
+		polygon2.Rotate(1);
+		polygon.DemoEffect(1);
+
 
 		typhlosion.Rotate(1);
 		typhlosion.Move(dir);
@@ -264,6 +268,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		//renderer2.draw(tex);
 		//renderer2.draw(tex2);
 		//renderer2.draw(tex3);
+		renderer.draw(polygon);
+		renderer.draw(polygon2);
 
 		renderer.draw(typhlosion);
 		renderer.draw(dickbutt);
@@ -271,7 +277,7 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		renderer.draw(tex);
 		renderer.draw(tex2);
 		renderer.draw(tex3);
-		renderer.draw(polygon);
+		
 	
 
 		renderer.draw(animation);

@@ -97,6 +97,12 @@
     <None Include="..\data\FragmentShaderOnlyColors.glfs">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="ClassDiagram.cd">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="IncludeFileDependencies1.dgml">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\data\anim_test.xml">

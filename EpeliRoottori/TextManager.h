@@ -1,6 +1,5 @@
 #ifndef TEXTMANAGER_H
 #define TEXTMANAGER_H
-#include "lodepng.h"
 #include <GL/glew.h>
 #include "Shader.h"
 

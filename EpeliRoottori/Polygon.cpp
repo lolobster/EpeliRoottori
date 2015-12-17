@@ -10,7 +10,12 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 	data = new GLfloat[7 * sides + 7];
 	indices = new GLuint[3 * sides];
 
+	GLfloat _rotation = rotation * M_PI/180;
+	angle = _rotation;
 	//alustetaan arvoja
+	this->scale = scale;
+	this->sides = sides;
+	this->radius = radius;
 	numberOfIndices = 0;
 	numberOfElements = 0;
 	textCoordX = 0;
@@ -24,14 +29,23 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 	//t‰ytet‰‰n data vertex atribuuteilla, indices oikeilla koordinaateilla
 	for (int i = 0; i < sides + 1; i++)
 	{
-		theta = (i * 2.0f * M_PI / sides);
+		theta = (i * 2.0f * M_PI / sides) +  (M_PI)/4 + _rotation;
+		
 
+		//Textuurit
 		if (i != 0)
 		{
-			textCoordX = cos(theta) / 2 + 0.5f;
-			textCoordY = sin(theta) / 2 + 0.5f;
+			textCoordX = cos(theta + ((3 * M_PI) / 2) + _rotation) / 2 + 0.5f;
+			textCoordY = sin(theta + ((3 * M_PI) / 2) + _rotation)  / 2 + 0.5f;
 		}
+		else
+		{
+			textCoordX = 0.5;
+			textCoordY = 0.5;
+		}
+		//End of Textuurit
 
+		//Indices
 		if (i != 0 && i < sides - 1)
 		{
 			indices[i * 3] = indices[0];
@@ -53,7 +67,8 @@ Polygon::Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat
 			indices[i * 3 + 2] = 1;
 			numberOfIndices += 3;
 		}
-
+		//End of indices
+		//Position
 		x = posX + (radius * sin(theta)) * scale;
 		y = posY + (radius * cos(theta)) * scale;
 
@@ -171,324 +186,6 @@ Polygon::~Polygon()
 
 void Polygon::update()
 {
-
-}
-
-void Polygon::drawSquare(glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color, std::string textureName, Shader *shader)
-{
-	/*this->shader.Use();
-	glm::mat4 model;
-	model = glm::translate(model, glm::vec3(position, 0.0f));
-
-	model = glm::translate(model, glm::vec3(0.5f* size.x, 0.5f * size.y, 0.0f));
-	model = glm::rotate(model, rotate, glm::vec3(0.0f, 0.0f, 1.0f));
-	model = glm::translate(model, glm::vec3(-0.5f * size.x, -0.5f * size.y, 0.0f));
-
-
-	model = glm::scale(model, glm::vec3(size, 1.0f));
-*/
-	shader->Use();
-
-	//glBindTexture(GL_TEXTURE_2D, m_worldmap.TexName());
-
-	//// Right
-	//glBegin(GL_QUADS);
-	//glNormal3d(1, 0, 0);
-	//glTexCoord2f(0, 1);
-	//glVertex3dv(c);
-	//glTexCoord2f(0, 0);
-	//glVertex3dv(b);
-	//glTexCoord2f(1, 0);
-	//glVertex3dv(f);
-	//glTexCoord2f(1, 1);
-	//glVertex3dv(g);
-	//glEnd();
-
-	glDisable(GL_TEXTURE_2D);
-
-
-}
-
-/*
-void Polygon::drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color, Shader *shader)
-{
-	//tuohon GL_DRAW  juttuun	
-	GLfloat theta = 2.0f * M_PI / int(sides);
-	float tangentialFactor = tanf(theta);
-	float radialFactor = cosf(theta);
-	float x = radius * scale;
-	float y = rotation;
-
-
-	glBegin(GL_POLYGON);
-	for (int i = 0; i < sides; i++)
-	{
-		glVertex2f(x + position.x, y + position.y);
-
-		float ix = -y;
-		float iy = x;
-
-		x += ix * tangentialFactor;
-		y += iy * tangentialFactor;
-
-		x *= radialFactor;
-		y *= radialFactor;
-
-		GLfloat _x = x + position.x;
-		GLfloat _y = y + position.y;
-
-
-		//glTexCoord2f(x + position.x, y + position.y);
-
-		//vertices.push_back(_x);
-		//vertices.push_back(_y);
-
-		//vertices.push_back(color.x);
-		//vertices.push_back(color.y);
-		//vertices.push_back(color.z);
-
-
-		//glVertexAttrib3f(1, color.x, color.y, color.z);		
-		//glColor3f(color.x, color.y, color.z);
-	}
-	glEnd();
-
-
-
-	//loppu
-
-
-	////std::vector<GLfloat> vertices;
-	////std::vector<int> indices;
-
-	//GLfloat *vertices = new GLfloat[sides * 3];
-	//GLfloat *textureVerices = new GLfloat[sides * 2];
-	//int *indices = new int[sides + 1];
-
-	//angle = rotation;
-	//xCenter = 0.0;
-	//yCenter = 0.0;
-	//GLfloat x = 0.0 + position.x;
-	//GLfloat y = 0.0 + position.y;
-
-	//GLfloat theta = 2.0f * M_PI / int(sides);
-
-	//for (int i = 0; i < sides; i++)
-	//{
-	//	x = xCenter + radius * cos(angle);
-	//	y = yCenter + radius * sin(angle);
-	//	angle += theta;
-
-	//	indices[i] = i;
-
-	//	vertices[i * 3] = x;			//x
-	//	vertices[(i * 3) + 1] = y;		//y
-	//	vertices[(i * 3) + 2] = 0.0f;	//z
-	//	//vertices.insert(0, x);
-	//	//vertices.push_back(y);
-
-
-
-	//}
-
-
-	//
-
-	//std::vector<GLfloat> pos;
-	//std::vector<GLfloat>color;
-	//std::vector<GLfloat>tex;
-
-	//std::vector<GLfloat> handler;
-
-	////GLfloat vertices[sides];
-	////GLuint indices[];
-
-	////glClear(GL_COLOR_BUFFER_BIT);
-	////glColor3i(color.x, color.y, color.z);
-
-	////glGenBuffers(1, &vbo);
-	////glBindBuffer(GL_ARRAY_BUFFER, vao);
-	////glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATUC_DRAW);
-
-	////glDisable(GL_TEXTURE_2D);
-
-	////glBegin(GL_POLYGON);
-	//for (int i = 0; i < sides; i++)
-	//{
-	//	glVertex2f(x + position.x, y + position.y);
-
-	//	float ix = -y;
-	//	float iy = x;
-
-	//	x += ix * tangentialFactor;
-	//	y += iy * tangentialFactor;
-
-	//	x *= radialFactor;
-	//	y *= radialFactor;
-
-	//	GLfloat _x = x + position.x;
-	//	GLfloat _y = y + position.y;
-	//	
-	//	vertices.push_back(_x);
-	//	vertices.push_back(_y);
-
-	//	vertices.push_back(color.x);
-	//	vertices.push_back(color.y);
-	//	vertices.push_back(color.z);
-
-	//	
-	//	//glVertexAttrib3f(1, color.x, color.y, color.z);		
-	//	//glColor3f(color.x, color.y, color.z);
-	//}
-	////glEnd();
-
-	//glGenVertexArrays(1, &vao);
-	//glGenBuffers(1, &vbo);
-	//glGenBuffers(1, &ebo);
-
-	//glBindVertexArray(vao);
-
-	//glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-	//glVertexAttribPointer(0, sides, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (GLvoid*)0 );
-
-	//glBindBuffer(GL_ARRAY_BUFFER, 0);
-	//glBindVertexArray(0);
-
-
-	//shader->Use();
-	//glBindVertexArray(vao);
-	//glDrawElements(GL_TRIANGLES, sides, GL_UNSIGNED_INT, 0);
-	//glBindVertexArray(0);
-
-
-
-}
-*/
-
-void Polygon::drawPolygon(Shader *shader)
-{
-
-	GLuint MatrixID = glGetUniformLocation(shader->GetShaderProgram(), "MVP");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//GLuint tex = 0;
-	//glGenTextures(1, &tex);
-	//glBindTexture(GL_TEXTURE_2D, tex);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-
-	//TextureManager texManager;
-
-	//texManager.loadTextures("../data/Dickbutt.png", tex);
-
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-
-	
-
-
-	//for (int iz = 0; iz < sides; iz++)
-	//{
-	//	indices[iz] = iz;
-	//}
-
-	//glGenVertexArrays(1, &vao);
-	//glBindVertexArray(vao);
-
-	//glGenBuffers(1, &vbo);
-	//
-	//glBindVertexArray(vao);
-	//glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(data), data, GL_STATIC_DRAW);
-
-	//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	//glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-	////position
-	//glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)0);
-	//glEnableVertexAttribArray(0);
-
-	////color
-	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
-	//glEnableVertexAttribArray(1);
-	//
-	////Textures
-	//glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
-	//glEnableVertexAttribArray(2);
-
-	//glBindBuffer(GL_ARRAY_BUFFER, 0);
-	//glBindVertexArray(0);
-
-	//shader->Use();
-	//glBindVertexArray(vao);
-	//glDrawElements(GL_TRIANGLES, sides, GL_UNSIGNED_INT, 0);
-	//glBindVertexArray(0);
-
-
-	//glBegin(GL_POLYGON);
-	//for (int i = 0; i < sides; i++)
-	//{
-	//	glVertexAttrib3f(1, color.x, color.y, color.z);
-
-	//	glVertex2f(x + position.x, y + position.y);
-
-	//	float ix = -y;
-	//	float iy = x;
-
-	//	x += ix * tangentialFactor;
-	//	y += iy * tangentialFactor;
-
-	//	x *= radialFactor;
-	//	y *= radialFactor;
-
-	//	GLfloat _x = x + position.x;
-	//	GLfloat _y = y + position.y;
-
-	//	
-	//	
-	//	//vertices.push_back(_x);
-	//	//vertices.push_back(_y);
-
-	//	//vertices.push_back(color.x);
-	//	//vertices.push_back(color.y);
-	//	//vertices.push_back(color.z);
-
-
-	//		
-	//	//glColor3f(color.x, color.y, color.z);
-	//}
-	//glEnd();
-
-
-	//glActiveTexture(GL_TEXTURE0);
-	//glBindTexture(GL_TEXTURE_2D, 1);
-	//glUniform1i(glGetUniformLocation(s.GetShaderProgram(), "myTextureSampler3"), 0);
 
 }
 
@@ -614,3 +311,119 @@ GLuint Polygon::GetTexture()
 {
 	return tex.getID();
 }
+
+void Polygon::DemoEffect(GLfloat degree)
+{
+	GLfloat _rotation = 0;
+	_rotation = (degree * M_PI / 180);  //radiaaneiksi
+	angle += _rotation;
+	GLfloat _x = 0;
+	GLfloat _y = 0;
+	//t‰ytet‰‰n data vertex atribuuteilla, indices oikeilla koordinaateilla
+	for (int i = 0; i < sides + 1; i++)
+	{
+		//Tekstuurit
+		theta = (angle * i * 2.0f * M_PI / sides) + (M_PI) / 4 + _rotation;	
+
+		if (i != 0)
+		{
+			textCoordX = cos(theta + ((3 * M_PI) / 2) + _rotation) / 2 + 0.5f;
+			textCoordY = sin(theta + ((3 * M_PI) / 2) + _rotation) / 2 + 0.5f;
+		}
+		else
+		{
+			textCoordX = 0.5;
+			textCoordY = 0.5;
+		}
+		//Tekstuurit End
+
+		//Position
+		_x = x + (radius * sin(theta)) * scale;
+		_y = y + (radius * cos(theta)) * scale;
+		_x += _rotation;
+		_y += _rotation;
+
+
+		if (i != 0)
+		{
+			data[i * 7] = _x;
+			data[i * 7 + 1] = _y;
+		}
+		else
+		{
+			data[i * 7] = this->x;
+			data[i * 7 + 1] = this->y;
+		}
+		//Position End
+	}
+}
+
+void Polygon::Rotate(GLfloat degree)
+{
+	
+
+	GLfloat _rotation = 0;
+	_rotation = (degree * M_PI / 180);  //radiaaneiksi
+	angle += _rotation;
+	//GLfloat _x = 0;
+	//GLfloat _y = 0;
+	////t‰ytet‰‰n data vertex atribuuteilla, indices oikeilla koordinaateilla
+	//for (int i = 0; i < sides + 1; i++)
+	//{
+	//	//Tekstuurit
+	//	theta = (angle * i * 2.0f * M_PI / sides) + (M_PI) / 4 + _rotation;
+
+	//	if (i != 0)
+	//	{
+	//		textCoordX = cos(theta + ((3 * M_PI) / 2) + _rotation) / 2 + 0.5f;
+	//		textCoordY = sin(theta + ((3 * M_PI) / 2) + _rotation) / 2 + 0.5f;
+	//	}
+	//	else
+	//	{
+	//		textCoordX = 0.5;
+	//		textCoordY = 0.5;
+	//	}
+		//Tekstuurit End
+
+		//Position
+		//_x = x + (radius * sin(theta)) * scale;
+		//_y = y + (radius * cos(theta)) * scale;
+		//_x += _rotation;
+		//_y += _rotation;
+
+		
+	//glTranslatef(-radius / 2, -radius / 2, 0);
+		//glRotatef(_rotation, x, y, 0.0f);
+		//glTranslatef(+radius / 2, +radius / 2, 0);
+
+		//if (i != 0)
+		//{
+		//	data[i * 7] = _x;
+		//	data[i * 7 + 1] = _y;
+		//}
+		//else
+		//{
+		//	data[i * 7] = this->x;
+		//	data[i * 7 + 1] = this->y;
+		//}
+		//Position End
+	//}
+}
+
+
+/*
+//Position
+x = posX + (radius * sin(theta)) * scale;
+y = posY + (radius * cos(theta)) * scale;
+
+if (i != 0)
+{
+data[i * 7] = x;
+data[i * 7 + 1] = y;
+}
+else
+{
+data[i * 7] = posX;
+data[i * 7 + 1] = posY;
+}
+*/

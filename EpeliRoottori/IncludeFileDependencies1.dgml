@@ -1,0 +1,1552 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@1 @117)" Category="CodeSchema_ProjectItem" Bounds="19.9999982728212,326.771750535818,117.941333410412,25.998000077079" FilePath="$(VsSolution)\epeliroottori\vertexshader.h" Label="vertexshader.h" />
+    <Node Id="(@3 @266)" Category="CodeSchema_ProjectItem" Bounds="21.44,490.988000462474,89.3880000770791,25.998000077079" FilePath="$(VsSolution)\demo\main.cpp" Label="main.cpp" />
+    <Node Id="(@3)" Category="CodeSchema_PoundIncludeFile" Bounds="-7.105427357601E-15,450.988000462474,132.268000077079,85.998000077079" FilePath="$(VsSolution)\demo\demo.vcxproj" Group="Expanded" Label="demo.vcxproj" Language="{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}" />
+    <Node Id="@10" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\iosfwd" Label="iosfwd" />
+    <Node Id="@100" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\intrin.h" Label="intrin.h" />
+    <Node Id="@102" Category="CodeSchema_ProjectItem" Bounds="1111.46836161511,152.873570178676,94.0713334104123,25.998000077079" FilePath="$(VsSolution)\epeliroottori\polygon.h" Label="polygon.h" />
+    <Node Id="@104" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\crtwrn.h" Label="crtwrn.h" />
+    <Node Id="@106" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xlocinfo.h" Label="xlocinfo.h" />
+    <Node Id="@108" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\stdio.h" Label="stdio.h" />
+    <Node Id="@110" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\errno.h" Label="errno.h" />
+    <Node Id="@112" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\setjmp.h" Label="setjmp.h" />
+    <Node Id="@114" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\wchar.h" Label="wchar.h" />
+    <Node Id="@116" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\freetype-2.6.1\include\freetype\config\ftheader.h" Label="ftheader.h" />
+    <Node Id="@119" Category="CodeSchema_ProjectItem" Bounds="1115.55663391328,208.871670255755,85.8946667437458,25.998000077079" FilePath="$(VsSolution)\epeliroottori\shader.h" Label="shader.h" />
+    <Node Id="@12" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xlocale" Label="xlocale" />
+    <Node Id="@121" Category="CodeSchema_ProjectItem" Bounds="959.559617718622,-0.0381831529117687,134.401333410412,25.998000077079" FilePath="$(VsSolution)\epeliroottori\texturemanager.h" Label="texturemanager.h" UseManualLocation="True" />
+    <Node Id="@123" Category="CodeSchema_ProjectItem" Bounds="256.313649679565,214.168669729088,150.284666743746,25.998000077079" FilePath="$(VsSolution)\epeliroottori\animationmanager.h" Label="animationmanager.h" UseManualLocation="True" />
+    <Node Id="@125" Category="CodeSchema_ProjectItem" Bounds="727.843191937372,274.03953457255,117.161333410412,25.998000077079" FilePath="$(VsSolution)\epeliroottori\textmanager.h" Label="textmanager.h" UseManualLocation="True" />
+    <Node Id="@127" Category="CodeSchema_ProjectItem" Bounds="103.430001578892,201.212241462156,78.148000077079,25.998000077079" FilePath="$(VsSolution)\epeliroottori\timer.h" Label="timer.h" />
+    <Node Id="@129" Category="CodeSchema_ProjectItem" Bounds="523.796450869843,-19.9486726556414,95.5946667437456,25.998000077079" FilePath="$(VsSolution)\epeliroottori\renderer.h" Label="renderer.h" UseManualLocation="True" />
+    <Node Id="@131" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\armintr.h" Label="armintr.h" />
+    <Node Id="@133" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\inttypes.h" Label="inttypes.h" />
+    <Node Id="@135" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\vadefs.h" Label="vadefs.h" />
+    <Node Id="@137" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\crtdefs.h" Label="crtdefs.h" />
+    <Node Id="@139" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\yvals.h" Label="yvals.h" />
+    <Node Id="@14" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\tuple" Label="tuple" />
+    <Node Id="@141" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\codeanalysis\sourceannotations.h" Label="sourceannotations.h" />
+    <Node Id="@143" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\limits.h" Label="limits.h" />
+    <Node Id="@145" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\float.h" Label="float.h" />
+    <Node Id="@147" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\stdint.h" Label="stdint.h" />
+    <Node Id="@149" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\assert.h" Label="assert.h" />
+    <Node Id="@151" Category="CodeSchema_ProjectItem" FilePath="$(ProgramFiles)\windows kits\8.1\include\um\gl\glu.h" Label="glu.h" />
+    <Node Id="@153" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\gl\glew.h" Label="glew.h" />
+    <Node Id="@155" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\mm3dnow.h" Label="mm3dnow.h" />
+    <Node Id="@157" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\setjmpex.h" Label="setjmpex.h" />
+    <Node Id="@159" Category="CodeSchema_ProjectItem" FilePath="$(ProgramFiles)\windows kits\8.1\include\shared\winapifamily.h" Label="winapifamily.h" />
+    <Node Id="@16" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xiosbase" Label="xiosbase" />
+    <Node Id="@161" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\cmath" Label="cmath" />
+    <Node Id="@163" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec1.inl" Label="type_vec1.inl" />
+    <Node Id="@165" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec2.inl" Label="type_vec2.inl" />
+    <Node Id="@167" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec4_sse2.inl" Label="type_vec4_sse2.inl" />
+    <Node Id="@169" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat2x2.inl" Label="type_mat2x2.inl" />
+    <Node Id="@171" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat3x2.inl" Label="type_mat3x2.inl" />
+    <Node Id="@173" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat4x2.inl" Label="type_mat4x2.inl" />
+    <Node Id="@175" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec4_avx2.inl" Label="type_vec4_avx2.inl" />
+    <Node Id="@177" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec3.inl" Label="type_vec3.inl" />
+    <Node Id="@179" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat2x3.inl" Label="type_mat2x3.inl" />
+    <Node Id="@18" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\cstddef" Label="cstddef" />
+    <Node Id="@181" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat3x3.inl" Label="type_mat3x3.inl" />
+    <Node Id="@183" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat4x3.inl" Label="type_mat4x3.inl" />
+    <Node Id="@185" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec4.inl" Label="type_vec4.inl" />
+    <Node Id="@187" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat2x4.inl" Label="type_mat2x4.inl" />
+    <Node Id="@189" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat3x4.inl" Label="type_mat3x4.inl" />
+    <Node Id="@191" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat4x4.inl" Label="type_mat4x4.inl" />
+    <Node Id="@193" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_geometric.inl" Label="func_geometric.inl" />
+    <Node Id="@195" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_trigonometric.inl" Label="func_trigonometric.inl" />
+    <Node Id="@197" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtx\matrix_transform_2d.inl" Label="matrix_transform_2d.inl" />
+    <Node Id="@199" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\wtime.inl" Label="wtime.inl" />
+    <Node Id="@2" Category="CodeSchema_PoundIncludeFile" Bounds="-2.68085295829223E-06,-96.0363832299909,1394.13463667122,472.07210436228" FilePath="$(VsSolution)\epeliroottori\epeliroottori.vcxproj" Group="Expanded" Label="epeliroottori.vcxproj" Language="{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}" />
+    <Node Id="@20" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xstddef" Label="xstddef" />
+    <Node Id="@201" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_half.inl" Label="type_half.inl" />
+    <Node Id="@203" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\swprintf.inl" Label="swprintf.inl" />
+    <Node Id="@205" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_packing.inl" Label="func_packing.inl" />
+    <Node Id="@207" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_exponential.inl" Label="func_exponential.inl" />
+    <Node Id="@209" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_vector_relational.inl" Label="func_vector_relational.inl" />
+    <Node Id="@211" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtx\transform.inl" Label="transform.inl" />
+    <Node Id="@213" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtc\matrix_transform.inl" Label="matrix_transform.inl" />
+    <Node Id="@215" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtc\quaternion.inl" Label="quaternion.inl" />
+    <Node Id="@217" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_common.inl" Label="func_common.inl" />
+    <Node Id="@219" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_integer.inl" Label="func_integer.inl" />
+    <Node Id="@22" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\streambuf" Label="streambuf" />
+    <Node Id="@221" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtx\rotate_vector.inl" Label="rotate_vector.inl" />
+    <Node Id="@223" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtc\type_ptr.inl" Label="type_ptr.inl" />
+    <Node Id="@225" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtc\constants.inl" Label="constants.inl" />
+    <Node Id="@227" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_matrix.inl" Label="func_matrix.inl" />
+    <Node Id="@229" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec4_avx.inl" Label="type_vec4_avx.inl" />
+    <Node Id="@231" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\fstream" Label="fstream" />
+    <Node Id="@233" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\istream" Label="istream" />
+    <Node Id="@235" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\iostream" Label="iostream" />
+    <Node Id="@237" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\ostream" Label="ostream" />
+    <Node Id="@239" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\sstream" Label="sstream" />
+    <Node Id="@24" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\cstring" Label="cstring" />
+    <Node Id="@241" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\algorithm" Label="algorithm" />
+    <Node Id="@243" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xlocnum" Label="xlocnum" />
+    <Node Id="@245" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\exception" Label="exception" />
+    <Node Id="@247" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xtr1common" Label="xtr1common" />
+    <Node Id="@249" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xlocinfo" Label="xlocinfo" />
+    <Node Id="@251" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\typeinfo" Label="typeinfo" />
+    <Node Id="@253" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\cstdio" Label="cstdio" />
+    <Node Id="@255" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\cerrno" Label="cerrno" />
+    <Node Id="@257" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xrefwrap" Label="xrefwrap" />
+    <Node Id="@259" Category="CodeSchema_ProjectItem" Bounds="749.608331097528,98.1445150413,101.791333410412,25.998000077079" FilePath="$(VsSolution)\epeliroottori\camera.cpp" Label="camera.cpp" />
+    <Node Id="@26" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xstring" Label="xstring" />
+    <Node Id="@261" Category="CodeSchema_ProjectItem" Bounds="976.997433066929,-56.0362832299908,92.8180000770788,25.998000077079" FilePath="$(VsSolution)\epeliroottori\sprite.cpp" Label="sprite.cpp" UseManualLocation="True" />
+    <Node Id="@263" Category="CodeSchema_ProjectItem" Bounds="473.785013022984,217.599041737235,107.438000077079,25.998000077079" FilePath="$(VsSolution)\epeliroottori\lodepng.cpp" Label="lodepng.cpp" UseManualLocation="True" />
+    <Node Id="@265" Category="CodeSchema_ProjectItem" Bounds="776.063293662632,42.1464149642211,89.388000077079,25.998000077079" FilePath="$(VsSolution)\epeliroottori\main.cpp" Label="main.cpp" UseManualLocation="True" />
+    <Node Id="@268" Category="CodeSchema_ProjectItem" Bounds="1099.03836161511,96.8754701015972,106.931333410412,25.998000077079" FilePath="$(VsSolution)\epeliroottori\polygon.cpp" Label="polygon.cpp" />
+    <Node Id="@270" Category="CodeSchema_ProjectItem" Bounds="1109.73643615938,303.984104642962,98.7546667437457,25.998000077079" FilePath="$(VsSolution)\epeliroottori\shader.cpp" Label="shader.cpp" UseManualLocation="True" />
+    <Node Id="@272" Category="CodeSchema_ProjectItem" Bounds="1226.87333333333,40,147.261333410412,25.998000077079" FilePath="$(VsSolution)\epeliroottori\texturemanager.cpp" Label="texturemanager.cpp" />
+    <Node Id="@274" Category="CodeSchema_ProjectItem" Bounds="45.532450137655,129.777467640452,163.144666743746,25.998000077079" FilePath="$(VsSolution)\epeliroottori\animationmanager.cpp" Label="animationmanager.cpp" UseManualLocation="True" />
+    <Node Id="@276" Category="CodeSchema_ProjectItem" Bounds="718.615492962763,330.037642482706,130.021333410412,25.998000077079" FilePath="$(VsSolution)\epeliroottori\textmanager.cpp" Label="textmanager.cpp" UseManualLocation="True" />
+    <Node Id="@278" Category="CodeSchema_ProjectItem" Bounds="101.34923711356,257.210341539236,91.008000077079,25.998000077079" FilePath="$(VsSolution)\epeliroottori\timer.cpp" Label="timer.cpp" UseManualLocation="True" />
+    <Node Id="@28" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\string" Label="string" />
+    <Node Id="@280" Category="CodeSchema_ProjectItem" Bounds="282.276664430862,33.2181391878118,108.454666743746,25.998000077079" FilePath="$(VsSolution)\epeliroottori\renderer.cpp" Label="renderer.cpp" />
+    <Node Id="@282" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec1.hpp" Label="type_vec1.hpp" />
+    <Node Id="@284" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\vec2.hpp" Label="vec2.hpp" />
+    <Node Id="@286" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec2.hpp" Label="type_vec2.hpp" />
+    <Node Id="@288" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\mat2x2.hpp" Label="mat2x2.hpp" />
+    <Node Id="@290" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat2x2.hpp" Label="type_mat2x2.hpp" />
+    <Node Id="@292" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\mat3x2.hpp" Label="mat3x2.hpp" />
+    <Node Id="@294" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat3x2.hpp" Label="type_mat3x2.hpp" />
+    <Node Id="@296" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\mat4x2.hpp" Label="mat4x2.hpp" />
+    <Node Id="@298" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat4x2.hpp" Label="type_mat4x2.hpp" />
+    <Node Id="@30" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xdebug" Label="xdebug" />
+    <Node Id="@300" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\vec3.hpp" Label="vec3.hpp" />
+    <Node Id="@302" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec3.hpp" Label="type_vec3.hpp" />
+    <Node Id="@304" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\mat2x3.hpp" Label="mat2x3.hpp" />
+    <Node Id="@306" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat2x3.hpp" Label="type_mat2x3.hpp" />
+    <Node Id="@308" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\mat3x3.hpp" Label="mat3x3.hpp" />
+    <Node Id="@310" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat3x3.hpp" Label="type_mat3x3.hpp" />
+    <Node Id="@312" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\mat4x3.hpp" Label="mat4x3.hpp" />
+    <Node Id="@314" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat4x3.hpp" Label="type_mat4x3.hpp" />
+    <Node Id="@316" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\vec4.hpp" Label="vec4.hpp" />
+    <Node Id="@318" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec4.hpp" Label="type_vec4.hpp" />
+    <Node Id="@32" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xatomic0.h" Label="xatomic0.h" />
+    <Node Id="@320" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\mat2x4.hpp" Label="mat2x4.hpp" />
+    <Node Id="@322" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat2x4.hpp" Label="type_mat2x4.hpp" />
+    <Node Id="@324" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\mat3x4.hpp" Label="mat3x4.hpp" />
+    <Node Id="@326" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat3x4.hpp" Label="type_mat3x4.hpp" />
+    <Node Id="@328" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\mat4x4.hpp" Label="mat4x4.hpp" />
+    <Node Id="@330" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat4x4.hpp" Label="type_mat4x4.hpp" />
+    <Node Id="@332" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_vec.hpp" Label="type_vec.hpp" />
+    <Node Id="@334" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\geometric.hpp" Label="geometric.hpp" />
+    <Node Id="@336" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_geometric.hpp" Label="func_geometric.hpp" />
+    <Node Id="@338" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\trigonometric.hpp" Label="trigonometric.hpp" />
+    <Node Id="@34" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glfw\glfw3.h" Label="glfw3.h" />
+    <Node Id="@340" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_trigonometric.hpp" Label="func_trigonometric.hpp" />
+    <Node Id="@342" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\_swizzle_func.hpp" Label="_swizzle_func.hpp" />
+    <Node Id="@344" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtx\matrix_transform_2d.hpp" Label="matrix_transform_2d.hpp" />
+    <Node Id="@346" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\fwd.hpp" Label="fwd.hpp" />
+    <Node Id="@348" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\_swizzle.hpp" Label="_swizzle.hpp" />
+    <Node Id="@350" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\_vectorize.hpp" Label="_vectorize.hpp" />
+    <Node Id="@352" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_half.hpp" Label="type_half.hpp" />
+    <Node Id="@354" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\packing.hpp" Label="packing.hpp" />
+    <Node Id="@356" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_packing.hpp" Label="func_packing.hpp" />
+    <Node Id="@358" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\exponential.hpp" Label="exponential.hpp" />
+    <Node Id="@36" Category="CodeSchema_ProjectItem" Bounds="752.038331097528,154.142615322062,88.9313334104123,25.998000077079" FilePath="$(VsSolution)\epeliroottori\camera.h" Label="camera.h" />
+    <Node Id="@360" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_exponential.hpp" Label="func_exponential.hpp" />
+    <Node Id="@362" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\vector_relational.hpp" Label="vector_relational.hpp" />
+    <Node Id="@364" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_vector_relational.hpp" Label="func_vector_relational.hpp" />
+    <Node Id="@366" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\rapidxml\rapidxml.hpp" Label="rapidxml.hpp" />
+    <Node Id="@368" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\glm.hpp" Label="glm.hpp" />
+    <Node Id="@370" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtx\transform.hpp" Label="transform.hpp" />
+    <Node Id="@372" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtc\matrix_transform.hpp" Label="matrix_transform.hpp" />
+    <Node Id="@374" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtc\quaternion.hpp" Label="quaternion.hpp" />
+    <Node Id="@376" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\precision.hpp" Label="precision.hpp" />
+    <Node Id="@378" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\common.hpp" Label="common.hpp" />
+    <Node Id="@38" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\stdlib.h" Label="stdlib.h" />
+    <Node Id="@380" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_common.hpp" Label="func_common.hpp" />
+    <Node Id="@382" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\setup.hpp" Label="setup.hpp" />
+    <Node Id="@384" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\integer.hpp" Label="integer.hpp" />
+    <Node Id="@386" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_integer.hpp" Label="func_integer.hpp" />
+    <Node Id="@388" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtx\rotate_vector.hpp" Label="rotate_vector.hpp" />
+    <Node Id="@390" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtc\type_ptr.hpp" Label="type_ptr.hpp" />
+    <Node Id="@392" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\_fixes.hpp" Label="_fixes.hpp" />
+    <Node Id="@394" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\gtc\constants.hpp" Label="constants.hpp" />
+    <Node Id="@396" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_mat.hpp" Label="type_mat.hpp" />
+    <Node Id="@398" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_float.hpp" Label="type_float.hpp" />
+    <Node Id="@40" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xatomic.h" Label="xatomic.h" />
+    <Node Id="@400" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\type_int.hpp" Label="type_int.hpp" />
+    <Node Id="@402" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\matrix.hpp" Label="matrix.hpp" />
+    <Node Id="@404" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\glm\detail\func_matrix.hpp" Label="func_matrix.hpp" />
+    <Node Id="@406" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\cwchar" Label="cwchar" />
+    <Node Id="@408" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\system_error" Label="system_error" />
+    <Node Id="@410" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\iterator" Label="iterator" />
+    <Node Id="@412" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\vector" Label="vector" />
+    <Node Id="@414" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\ios" Label="ios" />
+    <Node Id="@416" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\type_traits" Label="type_traits" />
+    <Node Id="@418" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\climits" Label="climits" />
+    <Node Id="@42" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\malloc.h" Label="malloc.h" />
+    <Node Id="@420" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\limits" Label="limits" />
+    <Node Id="@422" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\cfloat" Label="cfloat" />
+    <Node Id="@424" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xfacet" Label="xfacet" />
+    <Node Id="@426" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\cstdint" Label="cstdint" />
+    <Node Id="@428" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\stdexcept" Label="stdexcept" />
+    <Node Id="@430" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\cassert" Label="cassert" />
+    <Node Id="@432" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\initializer_list" Label="initializer_list" />
+    <Node Id="@434" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\new" Label="new" />
+    <Node Id="@436" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\array" Label="array" />
+    <Node Id="@438" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xmemory" Label="xmemory" />
+    <Node Id="@44" Category="CodeSchema_ProjectItem" FilePath="$(VsSolution)\3rdparty\include\freetype-2.6.1\include\ft2build.h" Label="ft2build.h" />
+    <Node Id="@440" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xutility" Label="xutility" />
+    <Node Id="@442" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\utility" Label="utility" />
+    <Node Id="@46" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\locale.h" Label="locale.h" />
+    <Node Id="@48" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\ctype.h" Label="ctype.h" />
+    <Node Id="@50" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\share.h" Label="share.h" />
+    <Node Id="@52" Category="CodeSchema_ProjectItem" Bounds="824.185855918492,-53.9870374512453,79.9580000770791,25.998000077079" FilePath="$(VsSolution)\epeliroottori\sprite.h" Label="sprite.h" UseManualLocation="True" />
+    <Node Id="@54" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\stddef.h" Label="stddef.h" />
+    <Node Id="@56" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\crtdbg.h" Label="crtdbg.h" />
+    <Node Id="@58" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\string.h" Label="string.h" />
+    <Node Id="@6" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xmemory0" Label="xmemory0" />
+    <Node Id="@60" Category="CodeSchema_ProjectItem" Bounds="574.89324813911,304.470489303566,94.5780000770791,25.998000077079" FilePath="$(VsSolution)\epeliroottori\lodepng.h" Label="lodepng.h" UseManualLocation="True" />
+    <Node Id="@62" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\eh.h" Label="eh.h" />
+    <Node Id="@64" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xtgmath.h" Label="xtgmath.h" />
+    <Node Id="@66" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\ymath.h" Label="ymath.h" />
+    <Node Id="@68" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\math.h" Label="math.h" />
+    <Node Id="@70" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\use_ansi.h" Label="use_ansi.h" />
+    <Node Id="@72" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xkeycheck.h" Label="xkeycheck.h" />
+    <Node Id="@74" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\concurrencysal.h" Label="concurrencysal.h" />
+    <Node Id="@76" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\sal.h" Label="sal.h" />
+    <Node Id="@78" Category="CodeSchema_ProjectItem" FilePath="$(ProgramFiles)\windows kits\8.1\include\um\gl\gl.h" Label="gl.h" />
+    <Node Id="@8" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\cstdlib" Label="cstdlib" />
+    <Node Id="@80" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\ammintrin.h" Label="ammintrin.h" />
+    <Node Id="@82" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\emmintrin.h" Label="emmintrin.h" />
+    <Node Id="@84" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\immintrin.h" Label="immintrin.h" />
+    <Node Id="@86" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\nmmintrin.h" Label="nmmintrin.h" />
+    <Node Id="@88" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\pmmintrin.h" Label="pmmintrin.h" />
+    <Node Id="@90" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\smmintrin.h" Label="smmintrin.h" />
+    <Node Id="@92" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\tmmintrin.h" Label="tmmintrin.h" />
+    <Node Id="@94" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\wmmintrin.h" Label="wmmintrin.h" />
+    <Node Id="@96" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\xmmintrin.h" Label="xmmintrin.h" />
+    <Node Id="@98" Category="CodeSchema_ProjectItem" FilePath="$(VsInstallDir)\vc\include\mmintrin.h" Label="mmintrin.h" />
+    <Node Id="C/C++ Standard Library Indirectly Included" Category="CodeSchema_PoundIncludeGroup" Group="Collapsed" Label="Indirectly Included" />
+    <Node Id="G2" Category="CodeSchema_PoundIncludeGroup" Group="Collapsed" Label="C/C++ Standard Library" />
+    <Node Id="G4" Category="CodeSchema_PoundIncludeGroup" Group="Collapsed" Label="Windows SDK" />
+    <Node Id="OthersGroup" Category="CodeSchema_PoundIncludeGroup" Group="Collapsed" Label="Others" />
+    <Node Id="PoundIncludeGraphExternalsGroup" Category="Externals" Bounds="653.572333371873,414.804856522272,86.99,25" Group="Collapsed" Label="Externals" />
+    <Node Id="Windows SDK Indirectly Included" Category="CodeSchema_PoundIncludeGroup" Group="Collapsed" Label="Indirectly Included" />
+  </Nodes>
+  <Links>
+    <Link Source="(@3)" Target="(@3 @266)" Category="Contains" />
+    <Link Source="@10" Target="@20" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@10" Target="@24" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@10" Target="@253" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@10" Target="@406" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@10" Target="@56" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@100" Target="@112" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@100" Target="@131" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@100" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@100" Target="@155" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@100" Target="@54" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@100" Target="@80" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@100" Target="@84" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@119" Category="PoundInclude" Bounds="1158.50399126298,178.871570255755,2.28890692142159E-05,21.0001000000054" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@121" Category="PoundInclude" Bounds="1037.62683105469,33.9524002075195,93.3485107421875,118.921165466309" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@153" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@235" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@253" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@34" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@368" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@370" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@372" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@412" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@68" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@102" Target="@8" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@104" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@106" Target="@114" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@106" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@106" Target="@46" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@106" Target="@48" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@108" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@108" Target="@203" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@110" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@112" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@112" Target="@157" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@114" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@114" Target="@199" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@114" Target="@203" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@119" Target="@153" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@119" Target="@235" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@119" Target="@253" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@119" Target="@34" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@119" Target="@368" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@119" Target="@370" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@119" Target="@372" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@119" Target="@390" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@119" Target="@8" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@12" Target="@24" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@12" Target="@249" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@12" Target="@251" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@12" Target="@30" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@12" Target="@418" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@12" Target="@424" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@12" Target="@428" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@121" Target="@153" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@121" Target="@60" Category="PoundInclude" Bounds="653.444702148438,25.9598159790039,360.438110351563,274.139457702637" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@123" Target="@153" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@123" Target="@34" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@123" Target="@368" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@123" Target="@60" Category="PoundInclude" Bounds="373.306209646699,240.166671242153,198.430885176909,61.6341641918876" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@125" Target="@119" Category="PoundInclude" Bounds="844.993313263709,230.945333507468,261.698264282111,45.8350526540005" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@125" Target="@153" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@125" Target="@231" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@125" Target="@235" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@125" Target="@412" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@125" Target="@44" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@125" Target="@60" Category="PoundInclude" Bounds="678.320633191036,297.870581837548,49.6405461367157,9.19748821084806" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@127" Target="@153" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@127" Target="@34" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@102" Category="PoundInclude" Bounds="601.233764648438,6.04932641983032,501.490356445313,147.37726354599" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@119" Category="PoundInclude" Bounds="606.529968261719,6.04932641983032,513.087097167969,199.303761959076" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@123" Category="PoundInclude" Bounds="351.233498579229,6.04932638589059,207.027006257162,201.836677397499" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@125" Category="PoundInclude" Bounds="581.092720675272,6.04932638589059,190.522168433879,260.723579020415" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@153" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@235" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@253" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@34" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@36" Category="PoundInclude" Bounds="588.387314779534,6.0493263858906,184.206133677069,142.584372140887" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@368" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@370" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@372" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@388" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@52" Category="PoundInclude" Bounds="619.391113889451,-35.2967283801843,195.855040378553,22.7862075087409" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@129" Target="@8" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@133" Target="@147" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@137" Target="@135" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@137" Target="@159" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@137" Target="@76" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@139" Target="@104" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@139" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@139" Target="@70" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@139" Target="@72" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@14" Target="@416" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@14" Target="@434" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@14" Target="@440" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@143" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@145" Target="@104" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@145" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@147" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@149" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@151" Target="@159" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@151" Target="@78" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@153" Target="@133" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@153" Target="@147" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@153" Target="@151" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@153" Target="@54" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@155" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@155" Target="@96" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@155" Target="@98" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@157" Target="@112" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@16" Target="@12" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@16" Target="@408" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@16" Target="@50" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@161" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@161" Target="@64" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@161" Target="@68" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@18" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@18" Target="@54" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@185" Target="@167" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@185" Target="@175" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@185" Target="@229" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@193" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@193" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@193" Target="@360" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@193" Target="@380" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@193" Target="@398" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@195" Target="@161" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@195" Target="@350" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@195" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@197" Target="@338" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@2" Target="(@1 @117)" Category="Contains" />
+    <Link Source="@2" Target="@102" Category="Contains" />
+    <Link Source="@2" Target="@119" Category="Contains" />
+    <Link Source="@2" Target="@121" Category="Contains" />
+    <Link Source="@2" Target="@123" Category="Contains" />
+    <Link Source="@2" Target="@125" Category="Contains" />
+    <Link Source="@2" Target="@127" Category="Contains" />
+    <Link Source="@2" Target="@129" Category="Contains" />
+    <Link Source="@2" Target="@259" Category="Contains" />
+    <Link Source="@2" Target="@261" Category="Contains" />
+    <Link Source="@2" Target="@263" Category="Contains" />
+    <Link Source="@2" Target="@265" Category="Contains" />
+    <Link Source="@2" Target="@268" Category="Contains" />
+    <Link Source="@2" Target="@270" Category="Contains" />
+    <Link Source="@2" Target="@272" Category="Contains" />
+    <Link Source="@2" Target="@274" Category="Contains" />
+    <Link Source="@2" Target="@276" Category="Contains" />
+    <Link Source="@2" Target="@278" Category="Contains" />
+    <Link Source="@2" Target="@280" Category="Contains" />
+    <Link Source="@2" Target="@36" Category="Contains" />
+    <Link Source="@2" Target="@52" Category="Contains" />
+    <Link Source="@2" Target="@60" Category="Contains" />
+    <Link Source="@20" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@20" Target="@247" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@20" Target="@38" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@20" Target="@432" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@203" Target="@135" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@205" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@205" Target="@352" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@205" Target="@380" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@207" Target="@161" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@207" Target="@350" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@207" Target="@364" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@207" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@207" Target="@430" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@209" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@213" Target="@334" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@213" Target="@338" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@213" Target="@402" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@215" Target="@334" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@215" Target="@338" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@215" Target="@358" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@215" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@217" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@217" Target="@302" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@217" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@217" Target="@350" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@217" Target="@364" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@217" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@219" Target="@100" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@219" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@219" Target="@302" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@219" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@219" Target="@350" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@219" Target="@400" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@219" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@22" Target="@16" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@223" Target="@24" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@225" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@227" Target="@334" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@227" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@231" Target="@233" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@233" Target="@237" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@235" Target="@233" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@237" Target="@414" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@239" Target="@28" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@24" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@24" Target="@58" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@241" Target="@438" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@243" Target="@161" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@243" Target="@22" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@243" Target="@253" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@243" Target="@418" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@243" Target="@8" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@245" Target="@20" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@245" Target="@42" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@245" Target="@58" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@245" Target="@62" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@247" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@249" Target="@106" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@249" Target="@20" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@249" Target="@8" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@251" Target="@20" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@251" Target="@245" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@251" Target="@58" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@253" Target="@108" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@253" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@255" Target="@110" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@255" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@259" Target="@36" Category="PoundInclude" Bounds="798.07377461079,124.142516579067,1.50169156359334,21.0229658279674" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@26" Target="@6" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@261" Target="@52" Category="PoundInclude" Bounds="913.143110863152,-42.4400558909811,63.8543222037775,0.821727346882071" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@263" Target="@108" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@263" Target="@231" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@263" Target="@38" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@263" Target="@60" Category="PoundInclude" Bounds="541.67118307479,243.597045387661,59.7124089948283,54.7887549946976" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@102" Category="PoundInclude" Bounds="860.407638349404,68.1444162983051,249.893908390182,81.9254146114861" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@119" Category="PoundInclude" Bounds="847.090251166785,68.1444162983051,277.01048775928,136.743445766048" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@121" Category="PoundInclude" Bounds="865.451293739711,27.7653394801171,89.0130349103689,18.2277898179907" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@123" Category="PoundInclude" Bounds="376.921008017451,68.1444162983051,406.861839439726,143.039250179877" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@125" Category="PoundInclude" Bounds="800.101867675781,68.144416809082,58.86328125,198.404502868652" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@127" Category="PoundInclude" Bounds="190.340260761875,65.6183408873576,585.760703499106,137.374203712097" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@129" Category="PoundInclude" Bounds="627.546971349246,6.9946570047006,148.720735806303,37.0633217670529" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@153" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@161" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@235" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@253" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@34" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@36" Category="PoundInclude" Bounds="835.422546386719,68.144416809082,23.5426025390625,82.3734970092773" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@368" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@370" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@372" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@390" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@52" Category="PoundInclude" Bounds="826.626789470481,-19.7864611225964,27.9648250229209,61.9328773438225" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@265" Target="@8" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@268" Target="@102" Category="PoundInclude" Bounds="1153.89682557815,122.873470178676,2.25557521040696,21.0513210606249" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@268" Target="@436" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@270" Target="@119" Category="PoundInclude" Bounds="1158.64501011438,243.869485362292,0.385417848850466,60.1146192806701" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@270" Target="@231" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@272" Target="@119" Category="PoundInclude" Bounds="1187.6015625,65.9980010986328,103.231079101563,136.633407592773" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@272" Target="@121" Category="PoundInclude" Bounds="1102.8662026005,24.0921887514572,124.103960641531,18.151641410019" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@272" Target="@129" Category="PoundInclude" Bounds="628.354736328125,-1.83164584636688,598.5185546875,49.6658133268356" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@272" Target="@235" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@274" Target="@123" Category="PoundInclude" Bounds="158.581543462755,155.775466408168,133.079130186789,54.9578755326511" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@274" Target="@127" Category="PoundInclude" Bounds="129.906986032948,155.775466408168,7.89825160023517,36.6388689497436" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@274" Target="@231" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@274" Target="@235" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@274" Target="@239" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@274" Target="@28" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@274" Target="@366" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@276" Target="@125" Category="PoundInclude" Bounds="784.275597487138,309.02630192961,1.04973807449346,21.0113191256009" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@278" Target="@127" Category="PoundInclude" Bounds="144.210511822661,236.183212144793,1.63312450361423,21.0271078850267" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@278" Target="@60" Category="PoundInclude" Bounds="192.357237190639,274.733611021722,373.580168905899,37.1436659877222" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@28" Target="@410" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@280" Target="@123" Category="PoundInclude" Bounds="332.069605419217,59.2161402362934,4.07175732640718,145.956031015416" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@280" Target="@129" Category="PoundInclude" Bounds="389.896930068289,5.82145764117042,125.226239113906,28.320584873018" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@282" Target="@163" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@282" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@282" Target="@332" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@282" Target="@342" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@282" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@282" Target="@348" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@284" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@286" Target="@165" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@286" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@286" Target="@332" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@286" Target="@342" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@286" Target="@348" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@288" Target="@290" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@290" Target="@169" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@290" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@290" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@290" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@290" Target="@396" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@290" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@292" Target="@294" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@294" Target="@171" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@294" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@294" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@294" Target="@302" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@294" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@294" Target="@396" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@294" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@296" Target="@298" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@298" Target="@173" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@298" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@298" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@298" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@298" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@298" Target="@396" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@298" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@30" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@30" Target="@438" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@30" Target="@56" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@300" Target="@302" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@302" Target="@177" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@302" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@302" Target="@332" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@302" Target="@342" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@302" Target="@348" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@304" Target="@306" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@306" Target="@179" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@306" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@306" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@306" Target="@302" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@306" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@306" Target="@396" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@306" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@308" Target="@310" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@310" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@310" Target="@181" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@310" Target="@302" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@310" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@310" Target="@396" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@310" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@312" Target="@314" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@314" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@314" Target="@183" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@314" Target="@302" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@314" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@314" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@314" Target="@396" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@314" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@316" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@318" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@318" Target="@185" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@318" Target="@332" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@318" Target="@342" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@318" Target="@348" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@318" Target="@382" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@32" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@320" Target="@322" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@322" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@322" Target="@187" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@322" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@322" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@322" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@322" Target="@396" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@322" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@324" Target="@326" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@326" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@326" Target="@189" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@326" Target="@302" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@326" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@326" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@326" Target="@396" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@326" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@328" Target="@330" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@330" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@330" Target="@191" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@330" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@330" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@330" Target="@396" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@330" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@332" Target="@376" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@332" Target="@400" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@334" Target="@336" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@336" Target="@193" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@336" Target="@302" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@338" Target="@340" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@34" Target="@151" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@34" Target="@54" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@34" Target="@78" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@340" Target="@195" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@340" Target="@376" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@340" Target="@382" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@344" Target="@197" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@344" Target="@284" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@344" Target="@308" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@346" Target="@332" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@346" Target="@396" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@346" Target="@398" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@346" Target="@400" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@350" Target="@282" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@350" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@350" Target="@302" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@350" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@352" Target="@201" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@352" Target="@382" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@354" Target="@356" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@356" Target="@205" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@356" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@356" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@358" Target="@360" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@36" Target="@153" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@36" Target="@34" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@36" Target="@344" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@36" Target="@368" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@36" Target="@370" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@360" Target="@161" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@360" Target="@207" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@360" Target="@282" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@360" Target="@286" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@360" Target="@302" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@360" Target="@318" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@362" Target="@364" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@364" Target="@209" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@364" Target="@376" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@364" Target="@382" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@366" Target="@245" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@366" Target="@430" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@366" Target="@434" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@366" Target="@8" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@161" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@284" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@288" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@292" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@296" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@300" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@304" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@308" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@312" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@316" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@320" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@324" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@328" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@334" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@338" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@346" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@354" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@358" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@362" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@378" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@384" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@392" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@402" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@418" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@422" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@368" Target="@430" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@370" Target="@211" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@370" Target="@368" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@370" Target="@372" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@372" Target="@213" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@372" Target="@284" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@372" Target="@300" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@372" Target="@316" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@372" Target="@328" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@372" Target="@394" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@374" Target="@215" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@374" Target="@300" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@374" Target="@308" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@374" Target="@316" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@374" Target="@328" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@374" Target="@394" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@378" Target="@380" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@38" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@38" Target="@143" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@380" Target="@217" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@380" Target="@376" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@380" Target="@382" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@380" Target="@392" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@380" Target="@400" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@382" Target="@100" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@382" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@382" Target="@430" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@382" Target="@82" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@382" Target="@84" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@382" Target="@88" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@382" Target="@90" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@384" Target="@386" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@386" Target="@219" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@386" Target="@364" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@386" Target="@376" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@386" Target="@380" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@386" Target="@382" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@388" Target="@221" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@388" Target="@368" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@388" Target="@370" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@223" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@24" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@284" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@288" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@292" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@296" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@300" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@304" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@308" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@312" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@316" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@320" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@324" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@328" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@390" Target="@374" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@392" Target="@161" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@394" Target="@225" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@394" Target="@382" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@396" Target="@376" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@398" Target="@382" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@40" Target="@100" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@40" Target="@32" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@40" Target="@38" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@40" Target="@440" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@40" Target="@54" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@40" Target="@58" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@400" Target="@382" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@400" Target="@416" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@400" Target="@426" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@402" Target="@404" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@227" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@284" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@288" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@292" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@296" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@300" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@304" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@308" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@312" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@316" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@320" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@324" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@328" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@376" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@382" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@404" Target="@396" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@406" Target="@114" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@406" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@408" Target="@255" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@408" Target="@428" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@408" Target="@8" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@410" Target="@233" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@410" Target="@440" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@412" Target="@428" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@412" Target="@438" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@414" Target="@243" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@416" Target="@20" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@416" Target="@257" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@418" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@418" Target="@143" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@42" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@420" Target="@161" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@420" Target="@20" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@420" Target="@406" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@420" Target="@418" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@420" Target="@422" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@420" Target="@66" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@422" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@422" Target="@145" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@424" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@426" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@426" Target="@147" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@428" Target="@245" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@428" Target="@26" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@430" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@430" Target="@149" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@432" Target="@18" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@434" Target="@245" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@436" Target="@14" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@436" Target="@241" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@436" Target="@410" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@438" Target="@6" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@44" Target="@116" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@440" Target="@418" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@440" Target="@442" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@440" Target="@8" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@442" Target="@10" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@442" Target="@20" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@442" Target="@416" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@46" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@48" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@52" Target="@119" Category="PoundInclude" Bounds="878.720638199926,-27.9890380245098,258.514741635764,230.865856634176" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@52" Target="@121" Category="PoundInclude" Bounds="902.446071588769,-28.2864032824789,76.5946979672942,25.4139755923034" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@52" Target="@123" Category="PoundInclude" Bounds="365.318300110935,-27.9890380245098,473.023191724682,238.111055498009" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@52" Target="@368" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@54" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@56" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@58" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@6" Target="@100" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@6" Target="@32" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@6" Target="@40" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@6" Target="@420" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@6" Target="@434" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@6" Target="@440" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@6" Target="@8" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@60" Target="@28" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@60" Target="@412" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@60" Target="@58" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@62" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@64" Target="@247" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@66" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@68" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@76" Target="@141" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@76" Target="@74" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@78" Target="@159" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@8" Target="@139" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@8" Target="@38" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@82" Target="@96" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@84" Target="@94" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@86" Target="@90" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@88" Target="@82" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@90" Target="@92" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@92" Target="@88" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@94" Target="@86" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@96" Target="@42" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@96" Target="@98" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="@98" Target="@137" Category="PoundInclude" NativeProvider_CodeItemIds="Microsoft.VisualStudio.Progression.SmallList`1[System.Int64]" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@10" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@104" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@106" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@110" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@112" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@114" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@12" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@131" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@135" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@137" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@139" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@14" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@141" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@143" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@145" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@149" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@155" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@157" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@16" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@199" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@20" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@203" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@22" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@233" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@237" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@241" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@243" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@247" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@249" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@251" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@255" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@257" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@26" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@30" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@32" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@40" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@406" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@408" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@410" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@414" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@42" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@424" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@428" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@432" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@438" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@440" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@442" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@46" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@48" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@50" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@56" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@6" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@62" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@64" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@66" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@70" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@72" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@74" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@76" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@80" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@86" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@92" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@94" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@96" Category="Contains" />
+    <Link Source="C/C++ Standard Library Indirectly Included" Target="@98" Category="Contains" />
+    <Link Source="G2" Target="@100" Category="Contains" />
+    <Link Source="G2" Target="@108" Category="Contains" />
+    <Link Source="G2" Target="@133" Category="Contains" />
+    <Link Source="G2" Target="@147" Category="Contains" />
+    <Link Source="G2" Target="@161" Category="Contains" />
+    <Link Source="G2" Target="@18" Category="Contains" />
+    <Link Source="G2" Target="@231" Category="Contains" />
+    <Link Source="G2" Target="@235" Category="Contains" />
+    <Link Source="G2" Target="@239" Category="Contains" />
+    <Link Source="G2" Target="@24" Category="Contains" />
+    <Link Source="G2" Target="@245" Category="Contains" />
+    <Link Source="G2" Target="@253" Category="Contains" />
+    <Link Source="G2" Target="@28" Category="Contains" />
+    <Link Source="G2" Target="@38" Category="Contains" />
+    <Link Source="G2" Target="@412" Category="Contains" />
+    <Link Source="G2" Target="@416" Category="Contains" />
+    <Link Source="G2" Target="@418" Category="Contains" />
+    <Link Source="G2" Target="@420" Category="Contains" />
+    <Link Source="G2" Target="@422" Category="Contains" />
+    <Link Source="G2" Target="@426" Category="Contains" />
+    <Link Source="G2" Target="@430" Category="Contains" />
+    <Link Source="G2" Target="@434" Category="Contains" />
+    <Link Source="G2" Target="@436" Category="Contains" />
+    <Link Source="G2" Target="@54" Category="Contains" />
+    <Link Source="G2" Target="@58" Category="Contains" />
+    <Link Source="G2" Target="@68" Category="Contains" />
+    <Link Source="G2" Target="@8" Category="Contains" />
+    <Link Source="G2" Target="@82" Category="Contains" />
+    <Link Source="G2" Target="@84" Category="Contains" />
+    <Link Source="G2" Target="@88" Category="Contains" />
+    <Link Source="G2" Target="@90" Category="Contains" />
+    <Link Source="G2" Target="C/C++ Standard Library Indirectly Included" Category="Contains" />
+    <Link Source="G4" Target="@151" Category="Contains" />
+    <Link Source="G4" Target="@78" Category="Contains" />
+    <Link Source="G4" Target="Windows SDK Indirectly Included" Category="Contains" />
+    <Link Source="OthersGroup" Target="@116" Category="Contains" />
+    <Link Source="OthersGroup" Target="@153" Category="Contains" />
+    <Link Source="OthersGroup" Target="@163" Category="Contains" />
+    <Link Source="OthersGroup" Target="@165" Category="Contains" />
+    <Link Source="OthersGroup" Target="@167" Category="Contains" />
+    <Link Source="OthersGroup" Target="@169" Category="Contains" />
+    <Link Source="OthersGroup" Target="@171" Category="Contains" />
+    <Link Source="OthersGroup" Target="@173" Category="Contains" />
+    <Link Source="OthersGroup" Target="@175" Category="Contains" />
+    <Link Source="OthersGroup" Target="@177" Category="Contains" />
+    <Link Source="OthersGroup" Target="@179" Category="Contains" />
+    <Link Source="OthersGroup" Target="@181" Category="Contains" />
+    <Link Source="OthersGroup" Target="@183" Category="Contains" />
+    <Link Source="OthersGroup" Target="@185" Category="Contains" />
+    <Link Source="OthersGroup" Target="@187" Category="Contains" />
+    <Link Source="OthersGroup" Target="@189" Category="Contains" />
+    <Link Source="OthersGroup" Target="@191" Category="Contains" />
+    <Link Source="OthersGroup" Target="@193" Category="Contains" />
+    <Link Source="OthersGroup" Target="@195" Category="Contains" />
+    <Link Source="OthersGroup" Target="@197" Category="Contains" />
+    <Link Source="OthersGroup" Target="@201" Category="Contains" />
+    <Link Source="OthersGroup" Target="@205" Category="Contains" />
+    <Link Source="OthersGroup" Target="@207" Category="Contains" />
+    <Link Source="OthersGroup" Target="@209" Category="Contains" />
+    <Link Source="OthersGroup" Target="@211" Category="Contains" />
+    <Link Source="OthersGroup" Target="@213" Category="Contains" />
+    <Link Source="OthersGroup" Target="@215" Category="Contains" />
+    <Link Source="OthersGroup" Target="@217" Category="Contains" />
+    <Link Source="OthersGroup" Target="@219" Category="Contains" />
+    <Link Source="OthersGroup" Target="@221" Category="Contains" />
+    <Link Source="OthersGroup" Target="@223" Category="Contains" />
+    <Link Source="OthersGroup" Target="@225" Category="Contains" />
+    <Link Source="OthersGroup" Target="@227" Category="Contains" />
+    <Link Source="OthersGroup" Target="@229" Category="Contains" />
+    <Link Source="OthersGroup" Target="@282" Category="Contains" />
+    <Link Source="OthersGroup" Target="@284" Category="Contains" />
+    <Link Source="OthersGroup" Target="@286" Category="Contains" />
+    <Link Source="OthersGroup" Target="@288" Category="Contains" />
+    <Link Source="OthersGroup" Target="@290" Category="Contains" />
+    <Link Source="OthersGroup" Target="@292" Category="Contains" />
+    <Link Source="OthersGroup" Target="@294" Category="Contains" />
+    <Link Source="OthersGroup" Target="@296" Category="Contains" />
+    <Link Source="OthersGroup" Target="@298" Category="Contains" />
+    <Link Source="OthersGroup" Target="@300" Category="Contains" />
+    <Link Source="OthersGroup" Target="@302" Category="Contains" />
+    <Link Source="OthersGroup" Target="@304" Category="Contains" />
+    <Link Source="OthersGroup" Target="@306" Category="Contains" />
+    <Link Source="OthersGroup" Target="@308" Category="Contains" />
+    <Link Source="OthersGroup" Target="@310" Category="Contains" />
+    <Link Source="OthersGroup" Target="@312" Category="Contains" />
+    <Link Source="OthersGroup" Target="@314" Category="Contains" />
+    <Link Source="OthersGroup" Target="@316" Category="Contains" />
+    <Link Source="OthersGroup" Target="@318" Category="Contains" />
+    <Link Source="OthersGroup" Target="@320" Category="Contains" />
+    <Link Source="OthersGroup" Target="@322" Category="Contains" />
+    <Link Source="OthersGroup" Target="@324" Category="Contains" />
+    <Link Source="OthersGroup" Target="@326" Category="Contains" />
+    <Link Source="OthersGroup" Target="@328" Category="Contains" />
+    <Link Source="OthersGroup" Target="@330" Category="Contains" />
+    <Link Source="OthersGroup" Target="@332" Category="Contains" />
+    <Link Source="OthersGroup" Target="@334" Category="Contains" />
+    <Link Source="OthersGroup" Target="@336" Category="Contains" />
+    <Link Source="OthersGroup" Target="@338" Category="Contains" />
+    <Link Source="OthersGroup" Target="@34" Category="Contains" />
+    <Link Source="OthersGroup" Target="@340" Category="Contains" />
+    <Link Source="OthersGroup" Target="@342" Category="Contains" />
+    <Link Source="OthersGroup" Target="@344" Category="Contains" />
+    <Link Source="OthersGroup" Target="@346" Category="Contains" />
+    <Link Source="OthersGroup" Target="@348" Category="Contains" />
+    <Link Source="OthersGroup" Target="@350" Category="Contains" />
+    <Link Source="OthersGroup" Target="@352" Category="Contains" />
+    <Link Source="OthersGroup" Target="@354" Category="Contains" />
+    <Link Source="OthersGroup" Target="@356" Category="Contains" />
+    <Link Source="OthersGroup" Target="@358" Category="Contains" />
+    <Link Source="OthersGroup" Target="@360" Category="Contains" />
+    <Link Source="OthersGroup" Target="@362" Category="Contains" />
+    <Link Source="OthersGroup" Target="@364" Category="Contains" />
+    <Link Source="OthersGroup" Target="@366" Category="Contains" />
+    <Link Source="OthersGroup" Target="@368" Category="Contains" />
+    <Link Source="OthersGroup" Target="@370" Category="Contains" />
+    <Link Source="OthersGroup" Target="@372" Category="Contains" />
+    <Link Source="OthersGroup" Target="@374" Category="Contains" />
+    <Link Source="OthersGroup" Target="@376" Category="Contains" />
+    <Link Source="OthersGroup" Target="@378" Category="Contains" />
+    <Link Source="OthersGroup" Target="@380" Category="Contains" />
+    <Link Source="OthersGroup" Target="@382" Category="Contains" />
+    <Link Source="OthersGroup" Target="@384" Category="Contains" />
+    <Link Source="OthersGroup" Target="@386" Category="Contains" />
+    <Link Source="OthersGroup" Target="@388" Category="Contains" />
+    <Link Source="OthersGroup" Target="@390" Category="Contains" />
+    <Link Source="OthersGroup" Target="@392" Category="Contains" />
+    <Link Source="OthersGroup" Target="@394" Category="Contains" />
+    <Link Source="OthersGroup" Target="@396" Category="Contains" />
+    <Link Source="OthersGroup" Target="@398" Category="Contains" />
+    <Link Source="OthersGroup" Target="@400" Category="Contains" />
+    <Link Source="OthersGroup" Target="@402" Category="Contains" />
+    <Link Source="OthersGroup" Target="@404" Category="Contains" />
+    <Link Source="OthersGroup" Target="@44" Category="Contains" />
+    <Link Source="PoundIncludeGraphExternalsGroup" Target="G2" Category="Contains" />
+    <Link Source="PoundIncludeGraphExternalsGroup" Target="G4" Category="Contains" />
+    <Link Source="PoundIncludeGraphExternalsGroup" Target="OthersGroup" Category="Contains" />
+    <Link Source="Windows SDK Indirectly Included" Target="@159" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_PoundIncludeFile" Label="C++ Project File" BasedOn="File" Background="#FFEFEFEF" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="C++ Project File" />
+    <Category Id="CodeSchema_PoundIncludeGroup" Label="#include Group" BasedOn="Group" Background="#FFEFEFEF" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="#include Group" />
+    <Category Id="CodeSchema_ProjectItem" Label="Project Item" BasedOn="File" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Type" Icon="File" NavigationActionLabel="Project Items" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="Externals" Label="Externals" CanBeDataDriven="True" IsProviderRoot="False" NavigationActionLabel="Externals" />
+    <Category Id="File" Label="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="File" NavigationActionLabel="Files" />
+    <Category Id="Group" Label="Group" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" IsProviderRoot="False" NavigationActionLabel="Groups" />
+    <Category Id="PoundInclude" Label="#include" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="#include By" OutgoingActionLabel="#include" />
+  </Categories>
+  <Properties>
+    <Property Id="Background" Label="Background" Description="The background color" DataType="System.Windows.Media.Brush" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="FilePath" Label="File Path" Description="File Path" DataType="System.String" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsProviderRoot" Label="IsProviderRoot" Description="IsProviderRoot" DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Language" Label="Language" Description="Language" DataType="System.String" />
+    <Property Id="NativeProvider_CodeItemIds" Label="NodeIds" Description="NodeIds" DataType="Microsoft.VisualStudio.Progression.SmallList`1[[System.Int64, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="File" Label="File" ValueType="Uri" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(VsSolutionUri)/EpeliRoottori/EpeliRoottori.vcxproj" />
+    <Alias n="2" Id="(@1)" />
+    <Alias n="3" Uri="Assembly=$(VsSolutionUri)/Demo/Demo.vcxproj" />
+    <Alias n="4" Uri="Assembly=" />
+    <Alias n="5" Uri="File=$(VsInstallDirUri)/vc/include/xmemory0" />
+    <Alias n="6" Id="(@4 @5)" />
+    <Alias n="7" Uri="File=$(VsInstallDirUri)/vc/include/cstdlib" />
+    <Alias n="8" Id="(@4 @7)" />
+    <Alias n="9" Uri="File=$(VsInstallDirUri)/vc/include/iosfwd" />
+    <Alias n="10" Id="(@4 @9)" />
+    <Alias n="11" Uri="File=$(VsInstallDirUri)/vc/include/xlocale" />
+    <Alias n="12" Id="(@4 @11)" />
+    <Alias n="13" Uri="File=$(VsInstallDirUri)/vc/include/tuple" />
+    <Alias n="14" Id="(@4 @13)" />
+    <Alias n="15" Uri="File=$(VsInstallDirUri)/vc/include/xiosbase" />
+    <Alias n="16" Id="(@4 @15)" />
+    <Alias n="17" Uri="File=$(VsInstallDirUri)/vc/include/cstddef" />
+    <Alias n="18" Id="(@4 @17)" />
+    <Alias n="19" Uri="File=$(VsInstallDirUri)/vc/include/xstddef" />
+    <Alias n="20" Id="(@4 @19)" />
+    <Alias n="21" Uri="File=$(VsInstallDirUri)/vc/include/streambuf" />
+    <Alias n="22" Id="(@4 @21)" />
+    <Alias n="23" Uri="File=$(VsInstallDirUri)/vc/include/cstring" />
+    <Alias n="24" Id="(@4 @23)" />
+    <Alias n="25" Uri="File=$(VsInstallDirUri)/vc/include/xstring" />
+    <Alias n="26" Id="(@4 @25)" />
+    <Alias n="27" Uri="File=$(VsInstallDirUri)/vc/include/string" />
+    <Alias n="28" Id="(@4 @27)" />
+    <Alias n="29" Uri="File=$(VsInstallDirUri)/vc/include/xdebug" />
+    <Alias n="30" Id="(@4 @29)" />
+    <Alias n="31" Uri="File=$(VsInstallDirUri)/vc/include/xatomic0.h" />
+    <Alias n="32" Id="(@4 @31)" />
+    <Alias n="33" Uri="File=$(VsSolutionUri)/3rdparty/include/glfw/glfw3.h" />
+    <Alias n="34" Id="(@4 @33)" />
+    <Alias n="35" Uri="File=$(VsSolutionUri)/EpeliRoottori/Camera.h" />
+    <Alias n="36" Id="(@1 @35)" />
+    <Alias n="37" Uri="File=$(VsInstallDirUri)/vc/include/stdlib.h" />
+    <Alias n="38" Id="(@4 @37)" />
+    <Alias n="39" Uri="File=$(VsInstallDirUri)/vc/include/xatomic.h" />
+    <Alias n="40" Id="(@4 @39)" />
+    <Alias n="41" Uri="File=$(VsInstallDirUri)/vc/include/malloc.h" />
+    <Alias n="42" Id="(@4 @41)" />
+    <Alias n="43" Uri="File=$(VsSolutionUri)/3rdparty/include/freetype-2.6.1/include/ft2build.h" />
+    <Alias n="44" Id="(@4 @43)" />
+    <Alias n="45" Uri="File=$(VsInstallDirUri)/vc/include/locale.h" />
+    <Alias n="46" Id="(@4 @45)" />
+    <Alias n="47" Uri="File=$(VsInstallDirUri)/vc/include/ctype.h" />
+    <Alias n="48" Id="(@4 @47)" />
+    <Alias n="49" Uri="File=$(VsInstallDirUri)/vc/include/share.h" />
+    <Alias n="50" Id="(@4 @49)" />
+    <Alias n="51" Uri="File=$(VsSolutionUri)/EpeliRoottori/Sprite.h" />
+    <Alias n="52" Id="(@1 @51)" />
+    <Alias n="53" Uri="File=$(VsInstallDirUri)/vc/include/stddef.h" />
+    <Alias n="54" Id="(@4 @53)" />
+    <Alias n="55" Uri="File=$(VsInstallDirUri)/vc/include/crtdbg.h" />
+    <Alias n="56" Id="(@4 @55)" />
+    <Alias n="57" Uri="File=$(VsInstallDirUri)/vc/include/string.h" />
+    <Alias n="58" Id="(@4 @57)" />
+    <Alias n="59" Uri="File=$(VsSolutionUri)/epeliroottori/lodepng.h" />
+    <Alias n="60" Id="(@1 @59)" />
+    <Alias n="61" Uri="File=$(VsInstallDirUri)/vc/include/eh.h" />
+    <Alias n="62" Id="(@4 @61)" />
+    <Alias n="63" Uri="File=$(VsInstallDirUri)/vc/include/xtgmath.h" />
+    <Alias n="64" Id="(@4 @63)" />
+    <Alias n="65" Uri="File=$(VsInstallDirUri)/vc/include/ymath.h" />
+    <Alias n="66" Id="(@4 @65)" />
+    <Alias n="67" Uri="File=$(VsInstallDirUri)/vc/include/math.h" />
+    <Alias n="68" Id="(@4 @67)" />
+    <Alias n="69" Uri="File=$(VsInstallDirUri)/vc/include/use_ansi.h" />
+    <Alias n="70" Id="(@4 @69)" />
+    <Alias n="71" Uri="File=$(VsInstallDirUri)/vc/include/xkeycheck.h" />
+    <Alias n="72" Id="(@4 @71)" />
+    <Alias n="73" Uri="File=$(VsInstallDirUri)/vc/include/concurrencysal.h" />
+    <Alias n="74" Id="(@4 @73)" />
+    <Alias n="75" Uri="File=$(VsInstallDirUri)/vc/include/sal.h" />
+    <Alias n="76" Id="(@4 @75)" />
+    <Alias n="77" Uri="File=$(ProgramFilesUri)/windows kits/8.1/include/um/gl/gl.h" />
+    <Alias n="78" Id="(@4 @77)" />
+    <Alias n="79" Uri="File=$(VsInstallDirUri)/vc/include/ammintrin.h" />
+    <Alias n="80" Id="(@4 @79)" />
+    <Alias n="81" Uri="File=$(VsInstallDirUri)/vc/include/emmintrin.h" />
+    <Alias n="82" Id="(@4 @81)" />
+    <Alias n="83" Uri="File=$(VsInstallDirUri)/vc/include/immintrin.h" />
+    <Alias n="84" Id="(@4 @83)" />
+    <Alias n="85" Uri="File=$(VsInstallDirUri)/vc/include/nmmintrin.h" />
+    <Alias n="86" Id="(@4 @85)" />
+    <Alias n="87" Uri="File=$(VsInstallDirUri)/vc/include/pmmintrin.h" />
+    <Alias n="88" Id="(@4 @87)" />
+    <Alias n="89" Uri="File=$(VsInstallDirUri)/vc/include/smmintrin.h" />
+    <Alias n="90" Id="(@4 @89)" />
+    <Alias n="91" Uri="File=$(VsInstallDirUri)/vc/include/tmmintrin.h" />
+    <Alias n="92" Id="(@4 @91)" />
+    <Alias n="93" Uri="File=$(VsInstallDirUri)/vc/include/wmmintrin.h" />
+    <Alias n="94" Id="(@4 @93)" />
+    <Alias n="95" Uri="File=$(VsInstallDirUri)/vc/include/xmmintrin.h" />
+    <Alias n="96" Id="(@4 @95)" />
+    <Alias n="97" Uri="File=$(VsInstallDirUri)/vc/include/mmintrin.h" />
+    <Alias n="98" Id="(@4 @97)" />
+    <Alias n="99" Uri="File=$(VsInstallDirUri)/vc/include/intrin.h" />
+    <Alias n="100" Id="(@4 @99)" />
+    <Alias n="101" Uri="File=$(VsSolutionUri)/EpeliRoottori/Polygon.h" />
+    <Alias n="102" Id="(@1 @101)" />
+    <Alias n="103" Uri="File=$(VsInstallDirUri)/vc/include/crtwrn.h" />
+    <Alias n="104" Id="(@4 @103)" />
+    <Alias n="105" Uri="File=$(VsInstallDirUri)/vc/include/xlocinfo.h" />
+    <Alias n="106" Id="(@4 @105)" />
+    <Alias n="107" Uri="File=$(VsInstallDirUri)/vc/include/stdio.h" />
+    <Alias n="108" Id="(@4 @107)" />
+    <Alias n="109" Uri="File=$(VsInstallDirUri)/vc/include/errno.h" />
+    <Alias n="110" Id="(@4 @109)" />
+    <Alias n="111" Uri="File=$(VsInstallDirUri)/vc/include/setjmp.h" />
+    <Alias n="112" Id="(@4 @111)" />
+    <Alias n="113" Uri="File=$(VsInstallDirUri)/vc/include/wchar.h" />
+    <Alias n="114" Id="(@4 @113)" />
+    <Alias n="115" Uri="File=$(VsSolutionUri)/3rdparty/include/freetype-2.6.1/include/freetype/config/ftheader.h" />
+    <Alias n="116" Id="(@4 @115)" />
+    <Alias n="117" Uri="File=$(VsSolutionUri)/EpeliRoottori/VertexShader.h" />
+    <Alias n="118" Uri="File=$(VsSolutionUri)/EpeliRoottori/Shader.h" />
+    <Alias n="119" Id="(@1 @118)" />
+    <Alias n="120" Uri="File=$(VsSolutionUri)/EpeliRoottori/TextureManager.h" />
+    <Alias n="121" Id="(@1 @120)" />
+    <Alias n="122" Uri="File=$(VsSolutionUri)/EpeliRoottori/AnimationManager.h" />
+    <Alias n="123" Id="(@1 @122)" />
+    <Alias n="124" Uri="File=$(VsSolutionUri)/EpeliRoottori/TextManager.h" />
+    <Alias n="125" Id="(@1 @124)" />
+    <Alias n="126" Uri="File=$(VsSolutionUri)/EpeliRoottori/Timer.h" />
+    <Alias n="127" Id="(@1 @126)" />
+    <Alias n="128" Uri="File=$(VsSolutionUri)/EpeliRoottori/Renderer.h" />
+    <Alias n="129" Id="(@1 @128)" />
+    <Alias n="130" Uri="File=$(VsInstallDirUri)/vc/include/armintr.h" />
+    <Alias n="131" Id="(@4 @130)" />
+    <Alias n="132" Uri="File=$(VsInstallDirUri)/vc/include/inttypes.h" />
+    <Alias n="133" Id="(@4 @132)" />
+    <Alias n="134" Uri="File=$(VsInstallDirUri)/vc/include/vadefs.h" />
+    <Alias n="135" Id="(@4 @134)" />
+    <Alias n="136" Uri="File=$(VsInstallDirUri)/vc/include/crtdefs.h" />
+    <Alias n="137" Id="(@4 @136)" />
+    <Alias n="138" Uri="File=$(VsInstallDirUri)/vc/include/yvals.h" />
+    <Alias n="139" Id="(@4 @138)" />
+    <Alias n="140" Uri="File=$(VsInstallDirUri)/vc/include/codeanalysis/sourceannotations.h" />
+    <Alias n="141" Id="(@4 @140)" />
+    <Alias n="142" Uri="File=$(VsInstallDirUri)/vc/include/limits.h" />
+    <Alias n="143" Id="(@4 @142)" />
+    <Alias n="144" Uri="File=$(VsInstallDirUri)/vc/include/float.h" />
+    <Alias n="145" Id="(@4 @144)" />
+    <Alias n="146" Uri="File=$(VsInstallDirUri)/vc/include/stdint.h" />
+    <Alias n="147" Id="(@4 @146)" />
+    <Alias n="148" Uri="File=$(VsInstallDirUri)/vc/include/assert.h" />
+    <Alias n="149" Id="(@4 @148)" />
+    <Alias n="150" Uri="File=$(ProgramFilesUri)/windows kits/8.1/include/um/gl/glu.h" />
+    <Alias n="151" Id="(@4 @150)" />
+    <Alias n="152" Uri="File=$(VsSolutionUri)/3rdparty/include/gl/glew.h" />
+    <Alias n="153" Id="(@4 @152)" />
+    <Alias n="154" Uri="File=$(VsInstallDirUri)/vc/include/mm3dnow.h" />
+    <Alias n="155" Id="(@4 @154)" />
+    <Alias n="156" Uri="File=$(VsInstallDirUri)/vc/include/setjmpex.h" />
+    <Alias n="157" Id="(@4 @156)" />
+    <Alias n="158" Uri="File=$(ProgramFilesUri)/windows kits/8.1/include/shared/winapifamily.h" />
+    <Alias n="159" Id="(@4 @158)" />
+    <Alias n="160" Uri="File=$(VsInstallDirUri)/vc/include/cmath" />
+    <Alias n="161" Id="(@4 @160)" />
+    <Alias n="162" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec1.inl" />
+    <Alias n="163" Id="(@4 @162)" />
+    <Alias n="164" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec2.inl" />
+    <Alias n="165" Id="(@4 @164)" />
+    <Alias n="166" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec4_sse2.inl" />
+    <Alias n="167" Id="(@4 @166)" />
+    <Alias n="168" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat2x2.inl" />
+    <Alias n="169" Id="(@4 @168)" />
+    <Alias n="170" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat3x2.inl" />
+    <Alias n="171" Id="(@4 @170)" />
+    <Alias n="172" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat4x2.inl" />
+    <Alias n="173" Id="(@4 @172)" />
+    <Alias n="174" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec4_avx2.inl" />
+    <Alias n="175" Id="(@4 @174)" />
+    <Alias n="176" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec3.inl" />
+    <Alias n="177" Id="(@4 @176)" />
+    <Alias n="178" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat2x3.inl" />
+    <Alias n="179" Id="(@4 @178)" />
+    <Alias n="180" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat3x3.inl" />
+    <Alias n="181" Id="(@4 @180)" />
+    <Alias n="182" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat4x3.inl" />
+    <Alias n="183" Id="(@4 @182)" />
+    <Alias n="184" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec4.inl" />
+    <Alias n="185" Id="(@4 @184)" />
+    <Alias n="186" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat2x4.inl" />
+    <Alias n="187" Id="(@4 @186)" />
+    <Alias n="188" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat3x4.inl" />
+    <Alias n="189" Id="(@4 @188)" />
+    <Alias n="190" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat4x4.inl" />
+    <Alias n="191" Id="(@4 @190)" />
+    <Alias n="192" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_geometric.inl" />
+    <Alias n="193" Id="(@4 @192)" />
+    <Alias n="194" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_trigonometric.inl" />
+    <Alias n="195" Id="(@4 @194)" />
+    <Alias n="196" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtx/matrix_transform_2d.inl" />
+    <Alias n="197" Id="(@4 @196)" />
+    <Alias n="198" Uri="File=$(VsInstallDirUri)/vc/include/wtime.inl" />
+    <Alias n="199" Id="(@4 @198)" />
+    <Alias n="200" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_half.inl" />
+    <Alias n="201" Id="(@4 @200)" />
+    <Alias n="202" Uri="File=$(VsInstallDirUri)/vc/include/swprintf.inl" />
+    <Alias n="203" Id="(@4 @202)" />
+    <Alias n="204" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_packing.inl" />
+    <Alias n="205" Id="(@4 @204)" />
+    <Alias n="206" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_exponential.inl" />
+    <Alias n="207" Id="(@4 @206)" />
+    <Alias n="208" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_vector_relational.inl" />
+    <Alias n="209" Id="(@4 @208)" />
+    <Alias n="210" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtx/transform.inl" />
+    <Alias n="211" Id="(@4 @210)" />
+    <Alias n="212" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtc/matrix_transform.inl" />
+    <Alias n="213" Id="(@4 @212)" />
+    <Alias n="214" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtc/quaternion.inl" />
+    <Alias n="215" Id="(@4 @214)" />
+    <Alias n="216" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_common.inl" />
+    <Alias n="217" Id="(@4 @216)" />
+    <Alias n="218" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_integer.inl" />
+    <Alias n="219" Id="(@4 @218)" />
+    <Alias n="220" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtx/rotate_vector.inl" />
+    <Alias n="221" Id="(@4 @220)" />
+    <Alias n="222" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtc/type_ptr.inl" />
+    <Alias n="223" Id="(@4 @222)" />
+    <Alias n="224" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtc/constants.inl" />
+    <Alias n="225" Id="(@4 @224)" />
+    <Alias n="226" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_matrix.inl" />
+    <Alias n="227" Id="(@4 @226)" />
+    <Alias n="228" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec4_avx.inl" />
+    <Alias n="229" Id="(@4 @228)" />
+    <Alias n="230" Uri="File=$(VsInstallDirUri)/vc/include/fstream" />
+    <Alias n="231" Id="(@4 @230)" />
+    <Alias n="232" Uri="File=$(VsInstallDirUri)/vc/include/istream" />
+    <Alias n="233" Id="(@4 @232)" />
+    <Alias n="234" Uri="File=$(VsInstallDirUri)/vc/include/iostream" />
+    <Alias n="235" Id="(@4 @234)" />
+    <Alias n="236" Uri="File=$(VsInstallDirUri)/vc/include/ostream" />
+    <Alias n="237" Id="(@4 @236)" />
+    <Alias n="238" Uri="File=$(VsInstallDirUri)/vc/include/sstream" />
+    <Alias n="239" Id="(@4 @238)" />
+    <Alias n="240" Uri="File=$(VsInstallDirUri)/vc/include/algorithm" />
+    <Alias n="241" Id="(@4 @240)" />
+    <Alias n="242" Uri="File=$(VsInstallDirUri)/vc/include/xlocnum" />
+    <Alias n="243" Id="(@4 @242)" />
+    <Alias n="244" Uri="File=$(VsInstallDirUri)/vc/include/exception" />
+    <Alias n="245" Id="(@4 @244)" />
+    <Alias n="246" Uri="File=$(VsInstallDirUri)/vc/include/xtr1common" />
+    <Alias n="247" Id="(@4 @246)" />
+    <Alias n="248" Uri="File=$(VsInstallDirUri)/vc/include/xlocinfo" />
+    <Alias n="249" Id="(@4 @248)" />
+    <Alias n="250" Uri="File=$(VsInstallDirUri)/vc/include/typeinfo" />
+    <Alias n="251" Id="(@4 @250)" />
+    <Alias n="252" Uri="File=$(VsInstallDirUri)/vc/include/cstdio" />
+    <Alias n="253" Id="(@4 @252)" />
+    <Alias n="254" Uri="File=$(VsInstallDirUri)/vc/include/cerrno" />
+    <Alias n="255" Id="(@4 @254)" />
+    <Alias n="256" Uri="File=$(VsInstallDirUri)/vc/include/xrefwrap" />
+    <Alias n="257" Id="(@4 @256)" />
+    <Alias n="258" Uri="File=$(VsSolutionUri)/EpeliRoottori/Camera.cpp" />
+    <Alias n="259" Id="(@1 @258)" />
+    <Alias n="260" Uri="File=$(VsSolutionUri)/EpeliRoottori/Sprite.cpp" />
+    <Alias n="261" Id="(@1 @260)" />
+    <Alias n="262" Uri="File=$(VsSolutionUri)/epeliroottori/lodepng.cpp" />
+    <Alias n="263" Id="(@1 @262)" />
+    <Alias n="264" Uri="File=$(VsSolutionUri)/EpeliRoottori/main.cpp" />
+    <Alias n="265" Id="(@1 @264)" />
+    <Alias n="266" Uri="File=$(VsSolutionUri)/Demo/Main.cpp" />
+    <Alias n="267" Uri="File=$(VsSolutionUri)/EpeliRoottori/Polygon.cpp" />
+    <Alias n="268" Id="(@1 @267)" />
+    <Alias n="269" Uri="File=$(VsSolutionUri)/EpeliRoottori/Shader.cpp" />
+    <Alias n="270" Id="(@1 @269)" />
+    <Alias n="271" Uri="File=$(VsSolutionUri)/EpeliRoottori/TextureManager.cpp" />
+    <Alias n="272" Id="(@1 @271)" />
+    <Alias n="273" Uri="File=$(VsSolutionUri)/EpeliRoottori/AnimationManager.cpp" />
+    <Alias n="274" Id="(@1 @273)" />
+    <Alias n="275" Uri="File=$(VsSolutionUri)/EpeliRoottori/TextManager.cpp" />
+    <Alias n="276" Id="(@1 @275)" />
+    <Alias n="277" Uri="File=$(VsSolutionUri)/EpeliRoottori/Timer.cpp" />
+    <Alias n="278" Id="(@1 @277)" />
+    <Alias n="279" Uri="File=$(VsSolutionUri)/EpeliRoottori/Renderer.cpp" />
+    <Alias n="280" Id="(@1 @279)" />
+    <Alias n="281" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec1.hpp" />
+    <Alias n="282" Id="(@4 @281)" />
+    <Alias n="283" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/vec2.hpp" />
+    <Alias n="284" Id="(@4 @283)" />
+    <Alias n="285" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec2.hpp" />
+    <Alias n="286" Id="(@4 @285)" />
+    <Alias n="287" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/mat2x2.hpp" />
+    <Alias n="288" Id="(@4 @287)" />
+    <Alias n="289" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat2x2.hpp" />
+    <Alias n="290" Id="(@4 @289)" />
+    <Alias n="291" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/mat3x2.hpp" />
+    <Alias n="292" Id="(@4 @291)" />
+    <Alias n="293" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat3x2.hpp" />
+    <Alias n="294" Id="(@4 @293)" />
+    <Alias n="295" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/mat4x2.hpp" />
+    <Alias n="296" Id="(@4 @295)" />
+    <Alias n="297" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat4x2.hpp" />
+    <Alias n="298" Id="(@4 @297)" />
+    <Alias n="299" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/vec3.hpp" />
+    <Alias n="300" Id="(@4 @299)" />
+    <Alias n="301" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec3.hpp" />
+    <Alias n="302" Id="(@4 @301)" />
+    <Alias n="303" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/mat2x3.hpp" />
+    <Alias n="304" Id="(@4 @303)" />
+    <Alias n="305" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat2x3.hpp" />
+    <Alias n="306" Id="(@4 @305)" />
+    <Alias n="307" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/mat3x3.hpp" />
+    <Alias n="308" Id="(@4 @307)" />
+    <Alias n="309" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat3x3.hpp" />
+    <Alias n="310" Id="(@4 @309)" />
+    <Alias n="311" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/mat4x3.hpp" />
+    <Alias n="312" Id="(@4 @311)" />
+    <Alias n="313" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat4x3.hpp" />
+    <Alias n="314" Id="(@4 @313)" />
+    <Alias n="315" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/vec4.hpp" />
+    <Alias n="316" Id="(@4 @315)" />
+    <Alias n="317" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec4.hpp" />
+    <Alias n="318" Id="(@4 @317)" />
+    <Alias n="319" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/mat2x4.hpp" />
+    <Alias n="320" Id="(@4 @319)" />
+    <Alias n="321" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat2x4.hpp" />
+    <Alias n="322" Id="(@4 @321)" />
+    <Alias n="323" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/mat3x4.hpp" />
+    <Alias n="324" Id="(@4 @323)" />
+    <Alias n="325" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat3x4.hpp" />
+    <Alias n="326" Id="(@4 @325)" />
+    <Alias n="327" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/mat4x4.hpp" />
+    <Alias n="328" Id="(@4 @327)" />
+    <Alias n="329" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat4x4.hpp" />
+    <Alias n="330" Id="(@4 @329)" />
+    <Alias n="331" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_vec.hpp" />
+    <Alias n="332" Id="(@4 @331)" />
+    <Alias n="333" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/geometric.hpp" />
+    <Alias n="334" Id="(@4 @333)" />
+    <Alias n="335" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_geometric.hpp" />
+    <Alias n="336" Id="(@4 @335)" />
+    <Alias n="337" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/trigonometric.hpp" />
+    <Alias n="338" Id="(@4 @337)" />
+    <Alias n="339" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_trigonometric.hpp" />
+    <Alias n="340" Id="(@4 @339)" />
+    <Alias n="341" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/_swizzle_func.hpp" />
+    <Alias n="342" Id="(@4 @341)" />
+    <Alias n="343" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtx/matrix_transform_2d.hpp" />
+    <Alias n="344" Id="(@4 @343)" />
+    <Alias n="345" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/fwd.hpp" />
+    <Alias n="346" Id="(@4 @345)" />
+    <Alias n="347" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/_swizzle.hpp" />
+    <Alias n="348" Id="(@4 @347)" />
+    <Alias n="349" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/_vectorize.hpp" />
+    <Alias n="350" Id="(@4 @349)" />
+    <Alias n="351" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_half.hpp" />
+    <Alias n="352" Id="(@4 @351)" />
+    <Alias n="353" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/packing.hpp" />
+    <Alias n="354" Id="(@4 @353)" />
+    <Alias n="355" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_packing.hpp" />
+    <Alias n="356" Id="(@4 @355)" />
+    <Alias n="357" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/exponential.hpp" />
+    <Alias n="358" Id="(@4 @357)" />
+    <Alias n="359" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_exponential.hpp" />
+    <Alias n="360" Id="(@4 @359)" />
+    <Alias n="361" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/vector_relational.hpp" />
+    <Alias n="362" Id="(@4 @361)" />
+    <Alias n="363" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_vector_relational.hpp" />
+    <Alias n="364" Id="(@4 @363)" />
+    <Alias n="365" Uri="File=$(VsSolutionUri)/3rdparty/include/rapidxml/rapidxml.hpp" />
+    <Alias n="366" Id="(@4 @365)" />
+    <Alias n="367" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/glm.hpp" />
+    <Alias n="368" Id="(@4 @367)" />
+    <Alias n="369" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtx/transform.hpp" />
+    <Alias n="370" Id="(@4 @369)" />
+    <Alias n="371" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtc/matrix_transform.hpp" />
+    <Alias n="372" Id="(@4 @371)" />
+    <Alias n="373" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtc/quaternion.hpp" />
+    <Alias n="374" Id="(@4 @373)" />
+    <Alias n="375" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/precision.hpp" />
+    <Alias n="376" Id="(@4 @375)" />
+    <Alias n="377" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/common.hpp" />
+    <Alias n="378" Id="(@4 @377)" />
+    <Alias n="379" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_common.hpp" />
+    <Alias n="380" Id="(@4 @379)" />
+    <Alias n="381" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/setup.hpp" />
+    <Alias n="382" Id="(@4 @381)" />
+    <Alias n="383" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/integer.hpp" />
+    <Alias n="384" Id="(@4 @383)" />
+    <Alias n="385" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_integer.hpp" />
+    <Alias n="386" Id="(@4 @385)" />
+    <Alias n="387" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtx/rotate_vector.hpp" />
+    <Alias n="388" Id="(@4 @387)" />
+    <Alias n="389" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtc/type_ptr.hpp" />
+    <Alias n="390" Id="(@4 @389)" />
+    <Alias n="391" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/_fixes.hpp" />
+    <Alias n="392" Id="(@4 @391)" />
+    <Alias n="393" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/gtc/constants.hpp" />
+    <Alias n="394" Id="(@4 @393)" />
+    <Alias n="395" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_mat.hpp" />
+    <Alias n="396" Id="(@4 @395)" />
+    <Alias n="397" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_float.hpp" />
+    <Alias n="398" Id="(@4 @397)" />
+    <Alias n="399" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/type_int.hpp" />
+    <Alias n="400" Id="(@4 @399)" />
+    <Alias n="401" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/matrix.hpp" />
+    <Alias n="402" Id="(@4 @401)" />
+    <Alias n="403" Uri="File=$(VsSolutionUri)/3rdparty/include/glm/detail/func_matrix.hpp" />
+    <Alias n="404" Id="(@4 @403)" />
+    <Alias n="405" Uri="File=$(VsInstallDirUri)/vc/include/cwchar" />
+    <Alias n="406" Id="(@4 @405)" />
+    <Alias n="407" Uri="File=$(VsInstallDirUri)/vc/include/system_error" />
+    <Alias n="408" Id="(@4 @407)" />
+    <Alias n="409" Uri="File=$(VsInstallDirUri)/vc/include/iterator" />
+    <Alias n="410" Id="(@4 @409)" />
+    <Alias n="411" Uri="File=$(VsInstallDirUri)/vc/include/vector" />
+    <Alias n="412" Id="(@4 @411)" />
+    <Alias n="413" Uri="File=$(VsInstallDirUri)/vc/include/ios" />
+    <Alias n="414" Id="(@4 @413)" />
+    <Alias n="415" Uri="File=$(VsInstallDirUri)/vc/include/type_traits" />
+    <Alias n="416" Id="(@4 @415)" />
+    <Alias n="417" Uri="File=$(VsInstallDirUri)/vc/include/climits" />
+    <Alias n="418" Id="(@4 @417)" />
+    <Alias n="419" Uri="File=$(VsInstallDirUri)/vc/include/limits" />
+    <Alias n="420" Id="(@4 @419)" />
+    <Alias n="421" Uri="File=$(VsInstallDirUri)/vc/include/cfloat" />
+    <Alias n="422" Id="(@4 @421)" />
+    <Alias n="423" Uri="File=$(VsInstallDirUri)/vc/include/xfacet" />
+    <Alias n="424" Id="(@4 @423)" />
+    <Alias n="425" Uri="File=$(VsInstallDirUri)/vc/include/cstdint" />
+    <Alias n="426" Id="(@4 @425)" />
+    <Alias n="427" Uri="File=$(VsInstallDirUri)/vc/include/stdexcept" />
+    <Alias n="428" Id="(@4 @427)" />
+    <Alias n="429" Uri="File=$(VsInstallDirUri)/vc/include/cassert" />
+    <Alias n="430" Id="(@4 @429)" />
+    <Alias n="431" Uri="File=$(VsInstallDirUri)/vc/include/initializer_list" />
+    <Alias n="432" Id="(@4 @431)" />
+    <Alias n="433" Uri="File=$(VsInstallDirUri)/vc/include/new" />
+    <Alias n="434" Id="(@4 @433)" />
+    <Alias n="435" Uri="File=$(VsInstallDirUri)/vc/include/array" />
+    <Alias n="436" Id="(@4 @435)" />
+    <Alias n="437" Uri="File=$(VsInstallDirUri)/vc/include/xmemory" />
+    <Alias n="438" Id="(@4 @437)" />
+    <Alias n="439" Uri="File=$(VsInstallDirUri)/vc/include/xutility" />
+    <Alias n="440" Id="(@4 @439)" />
+    <Alias n="441" Uri="File=$(VsInstallDirUri)/vc/include/utility" />
+    <Alias n="442" Id="(@4 @441)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="C++ Project File" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_PoundIncludeFile')" />
+      <Setter Property="Background" Value="#FFEFEFEF" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externals" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FFA08080" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Source File" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_ProjectItem')" />
+      <Setter Property="Background" Value="#FFC0C0C0" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="#include Group" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_PoundIncludeGroup')" />
+      <Setter Property="Background" Value="#FFEFEFEF" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="ProgramFiles" Value="C:\Program Files (x86)" />
+    <Path Id="ProgramFilesUri" Value="file:///C:/Program Files (x86)" />
+    <Path Id="VsInstallDir" Value="C:\Program Files (x86)\Microsoft Visual Studio 12.0" />
+    <Path Id="VsInstallDirUri" Value="file:///C:/Program Files (x86)/Microsoft Visual Studio 12.0" />
+    <Path Id="VsSolution" Value="C:\Users\aleksiluo1\Desktop\EpeliRoottori" />
+    <Path Id="VsSolutionUri" Value="file:///C:/Users/aleksiluo1/Desktop/EpeliRoottori" />
+  </Paths>
+</DirectedGraph>

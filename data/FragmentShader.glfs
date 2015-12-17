@@ -1,10 +1,10 @@
-#version 330 core
+#version 120
 #define EPS 0.001
 
-in vec3 vertexColor;
-in vec2 texCoord;
+varying vec3 vertexColor;
+varying vec2 texCoord;
 
-out vec4 color; // Output data
+//out vec4 color; // Output data
 //uniform vec4 ourColor;
 
 uniform sampler2D myTextureSampler; // Texture data
@@ -12,5 +12,5 @@ uniform sampler2D myTextureSampler2;
 
 void main()
 {
-color = mix(texture(myTextureSampler, texCoord), texture(myTextureSampler2, texCoord), 0.5) * vec4(vertexColor, 1.0f);
+gl_FragColor = mix(texture2D(myTextureSampler, texCoord), texture2D(myTextureSampler2, texCoord), 0.5) + vec4(vertexColor, 1.0f);
 }

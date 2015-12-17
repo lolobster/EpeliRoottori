@@ -1,12 +1,12 @@
-#version 330 core
+#version 120 
 
-layout(location = 0) in vec3 position;
-layout(location = 1) in vec3 color;
-layout(location = 2) in vec2 coord;
+attribute vec3 position;
+attribute vec3 color;
+attribute vec2 coord;
 
 
-out vec3 vertexColor;
-out vec2 texCoord;
+varying vec3 vertexColor;
+varying vec2 texCoord;
 
 uniform mat4 MVP;
 

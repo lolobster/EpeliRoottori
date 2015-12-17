@@ -28,6 +28,7 @@
 #include "TextureManager.h"
 
 
+
 struct vertex{
 	glm::vec3 position;
 	glm::vec3 normal;
@@ -47,12 +48,12 @@ public:
 	Polygon(int sides, float radius, float scale, GLfloat rotation, GLfloat x, GLfloat y, GLfloat cx, GLfloat cy, GLfloat cz, const char* texturePath);
 	~Polygon();
 
-	void drawSquare(glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color, std::string textureName, Shader *shader);
 	void update();
 	void drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color, Shader *shader);
-	void drawPolygon(Shader *shader);
-	//void drawPolygon(int sides, float radius, float scale, GLfloat rotation, glm::vec2 position, glm::vec3 color);
 	void printData();
+	void Rotate(GLfloat degree);
+	void DemoEffect(GLfloat degree);
+	void Translate(glm::vec2 value);
 
 	GLfloat getX();
 	GLfloat getY();
@@ -73,7 +74,7 @@ public:
 private:
 	GLuint vao, vbo, ebo, numberOfElements, numberOfIndices;
 	
-	GLfloat x, y, theta, angle,
+	GLfloat x, y, theta, angle, radius, scale,
 		textCoordX, textCoordY,
 		colorX, colorY, colorZ;
 
@@ -82,7 +83,7 @@ private:
 
 	TextureManager tex;
 
-	int size;
+	int size, sides;
 	int counter;
 };
 

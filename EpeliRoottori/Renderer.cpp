@@ -21,22 +21,14 @@ Renderer::~Renderer()
 
 void Renderer::draw(Polygon polygon)
 {
-
-	if (timer < 0)
-	{
-		polygon.printData();
-		timer = 90000000;
-	}
-	else
-		timer--;
-
-	//GLfloat vertices[] =
+	//Debug
+	//if (timer < 0)
 	//{
-	//	//Positions				//Colors			//Texture Coords
-	//	200.5f, 126.5f,		0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-	//	40.5f, 60.0f,		 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-	//	100.5f, 200.5f,		0.3f, 0.3f, 0.3f, 0.0f, 1.0f,		
-	//};
+	//	polygon.printData();
+	//	timer = 90000000;
+	//}
+	//else
+	//	timer--;
 
 	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
 	glBufferData(GL_ARRAY_BUFFER, polygon.getNumberOfElements() * sizeof(GLfloat), polygon.getData(), GL_STATIC_DRAW); // sizeof(polygon.getData()), polygon.getData(), GL_STATIC_DRAW);

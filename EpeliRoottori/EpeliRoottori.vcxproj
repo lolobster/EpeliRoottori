@@ -46,12 +46,16 @@
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)\3rdparty\include; $(SolutionDir)\3rdparty\include\freetype-2.6.1\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>GLM_FORCE_PURE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BrowseInformation>true</BrowseInformation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)\3rdparty\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -101,6 +105,8 @@
     <None Include="..\data\FragmentShader.glfs" />
     <None Include="..\data\FragmentShaderOnlyColors.glfs" />
     <None Include="..\data\VertexShader.glvs" />
+    <None Include="ClassDiagram.cd" />
+    <None Include="IncludeFileDependencies1.dgml" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="..\data\anim_test.xml" />

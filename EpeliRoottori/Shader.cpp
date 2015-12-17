@@ -28,7 +28,6 @@ bool Shader::Init()
 		return false;
 	}
 
-
 	//Vertex shaderin kiinnitys ohjelmaan
 	glAttachShader(ProgramID, VertexShaderID);
 
@@ -37,7 +36,7 @@ bool Shader::Init()
 
 	//tarkastetaan errorit
 	if (FragmentShaderID == NULL)
-	{
+	{ 
 		std::cout << "error while loading FragmentShader" << FragmentShaderID << "\n on line " << __LINE__ << std::endl;
 		glDeleteShader(VertexShaderID);
 		glDeleteProgram(ProgramID);

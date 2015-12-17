@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="AnimationManager" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAQABmgFKAAEQAQCBACIBQCAAgUAAgCQAABUABAAA=</HashCode>
+      <FileName>AnimationManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Camera" Collapsed="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAADQAAAIAAQIEIAAACCAAAAAAiiCAAAAJQAAE=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Polygon" Collapsed="true">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEQQIYCAIAKAEAAAKACAAAAFAgAAAGAgBFwiGBEACA=</HashCode>
+      <FileName>Polygon.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Renderer" Collapsed="true">
+    <Position X="8.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQgRBAAAAAAAAAAAEIAIAAABAAAAAAAAQCBAEAEAAA=</HashCode>
+      <FileName>Renderer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shader" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAggAAAAAIAAAAABAAIEAAAAEAAlAAAIDgADAAAAAAQ=</HashCode>
+      <FileName>Shader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sprite" Collapsed="true">
+    <Position X="3" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAgACAKiAAgAAAIIAIAACECAAAgiQIQgBAgBkAAI=</HashCode>
+      <FileName>Sprite.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextManager" Collapsed="true">
+    <Position X="4.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAFAAAKiIBgAZAINAICACUAQAAgiIIAgAAgBAIAw=</HashCode>
+      <FileName>TextManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TextureManager" Collapsed="true">
+    <Position X="6.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAABABEAAAASARAAAAAAABAAAQAAgAAAAAACAAgA=</HashCode>
+      <FileName>TextureManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Timer" Collapsed="true">
+    <Position X="8.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAgAAggA0AAAAAgABAAAAAEAEAEYAA=</HashCode>
+      <FileName>Timer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lodepng::State" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="uivector" Collapsed="true">
+    <Position X="2.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAQAAAAAAQAAAAAAA=</HashCode>
+      <FileName>lodepng.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ucvector" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAAAAAAAAQAAAAAAQAAAAAAA=</HashCode>
+      <FileName>lodepng.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="HuffmanTree" Collapsed="true">
+    <Position X="2.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAEAAAAAAAAAICAAAAAAAAACAA=</HashCode>
+      <FileName>lodepng.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BPMNode" Collapsed="true">
+    <Position X="2.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAABAgA=</HashCode>
+      <FileName>lodepng.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="BPMLists" Collapsed="true">
+    <Position X="2.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAKAAABAAAABAAAAAAAsAAIAAAA=</HashCode>
+      <FileName>lodepng.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Hash" Collapsed="true">
+    <Position X="2.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAgAAAAAAAAIAAAAAAIAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>lodepng.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ColorTree" Collapsed="true">
+    <Position X="2.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>lodepng.cpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LodePNGDecompressSettings" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAgAABAAAAAA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LodePNGCompressSettings" Collapsed="true">
+    <Position X="0.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAIAAAACAAAAAAoAAAACAAAACIAAEAAAAAAA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LodePNGColorMode" Collapsed="true">
+    <Position X="2.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAIAAIAAAAAAEQABAIAAAAAAIAAAA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LodePNGTime" Collapsed="true">
+    <Position X="0.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAkAAAAAAAAAAAAAgAAAAAAAAQAAAAAAAAiAAAAAAA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LodePNGInfo" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABQgAQAEAAgAAAEAQAAEQQwEAAAACAAQECAAAAEkA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LodePNGDecoderSettings" Collapsed="true">
+    <Position X="0.5" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAEAAAAAAAAAAAAAAAAAAAABAAgAQAAAAAAA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LodePNGColorProfile" Collapsed="true">
+    <Position X="0.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAgAAAEBIAAEAAAAAAAAABAIAAAQAAAAAAA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LodePNGEncoderSettings" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAAQAAAAAAAAAAAAAACAAIIAQgAAAAAA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="LodePNGState" Collapsed="true">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAIEAAAAAAAAAAAQAAAAAAQAAAQA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Frame" Collapsed="true">
+    <Position X="6.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAABAAA=</HashCode>
+      <FileName>AnimationManager.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="vertex" Collapsed="true">
+    <Position X="8.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAIAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Polygon.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="LodePNGColorType" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAEAIBAAAAAAAAAACAAAAAAAIAA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="LodePNGFilterStrategy" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAARAAAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAA=</HashCode>
+      <FileName>lodepng.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
