@@ -1,4 +1,4 @@
-<animation path="data/gems.png" frameWidth="32" frameHeight="32" loopable="1" horizontal="1">
+<animation frameWidth="32" frameHeight="32" loopable="1" horizontal="1">
   <frame duration="250" id="0" />
   <frame duration="250" id="1" />
   <frame duration="250" id="2" />

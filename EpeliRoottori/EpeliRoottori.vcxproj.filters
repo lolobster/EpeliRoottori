@@ -108,7 +108,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\data\anim_test.xml">
+    <Xml Include="..\data\animations\anim_gems.xml">
       <Filter>Resource Files</Filter>
     </Xml>
   </ItemGroup>

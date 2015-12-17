@@ -110,7 +110,7 @@
     <None Include="IncludeFileDependencies1.dgml" />
   </ItemGroup>
   <ItemGroup>
-    <Xml Include="..\data\anim_test.xml" />
+    <Xml Include="..\data\animations\anim_gems.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

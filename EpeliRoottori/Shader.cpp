@@ -17,7 +17,7 @@ bool Shader::Init()
 	ProgramID = glCreateProgram();
 
 	//ladataan vertex Shader
-	VertexShaderID = LoadShaderFromFile("../data/VertexShader.glvs", GL_VERTEX_SHADER);
+	VertexShaderID = LoadShaderFromFile("../data/shaders/VertexShader.glvs", GL_VERTEX_SHADER);
 
 	//tarkastetaan errorit
 	if (VertexShaderID == NULL)
@@ -32,7 +32,7 @@ bool Shader::Init()
 	glAttachShader(ProgramID, VertexShaderID);
 
 	//ladataan Fragment Shader
-	FragmentShaderID = LoadShaderFromFile("../data/FragmentShader.glfs", GL_FRAGMENT_SHADER);
+	FragmentShaderID = LoadShaderFromFile("../data/shaders/FragmentShader.glfs", GL_FRAGMENT_SHADER);
 
 	//tarkastetaan errorit
 	if (FragmentShaderID == NULL)

@@ -100,14 +100,14 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 	AnimationManager anima;
 	TextManager tex;
-	tex.LoadFont("..//data//arial.ttf");
+	tex.LoadFont("..//data/fonts/arial.ttf");
 	tex.SetText("0");
 	tex.SetCharacterSize(30);
 	tex.SetPosition(glm::vec2(10, 0));
 	tex.SetColor(glm::vec3(0.0, 0.0, 1.0));
 
 	TextManager tex2;
-	tex2.LoadFont("..//data//arial.ttf");
+	tex2.LoadFont("..//data/fonts/arial.ttf");
 	tex2.SetText("0");
 	tex2.SetCharacterSize(30);
 	tex2.SetPosition(glm::vec2(width - tex2.GetGlobalBounds().x, 0));
@@ -115,29 +115,29 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 
 	TextManager tex3;
-	tex3.LoadFont("..//data//Arctik5.ttf");
+	tex3.LoadFont("..//data/fonts/Arctik5.ttf");
 	tex3.SetText("Pong");
 	tex3.SetCharacterSize(30);
 	tex3.SetPosition(glm::vec2(width / 2.5, 0));
 	tex3.SetColor(glm::vec3(0.0, 0.0, 0.0));
 
 	Sprite typhlosion;
-	typhlosion.SetAnimation("../data/Typhlosion2.png", glm::vec2(234, 250), 0.2);
+	typhlosion.SetAnimation("../data/animations/Typhlosion2.png", glm::vec2(234, 250), 0.2);
 	typhlosion.SetPosition(glm::vec2((width - typhlosion.GetBounds().x) / 2, (height - typhlosion.GetBounds().y) / 2));
 	typhlosion.SetScale(glm::vec2(0.5, 0.5));
 
-	Sprite dickbutt;
-	dickbutt.SetTexture("../data/Dickbutt.png");
-	dickbutt.SetColor(glm::vec3(0.0, 0.0, 1.0));
-	dickbutt.SetPosition(glm::vec2(0, (height - dickbutt.GetBounds().y) / 2));
+	Sprite kisse;
+	kisse.SetTexture("../data/textures/kisse.png");
+	kisse.SetColor(glm::vec3(0.0, 0.0, 1.0));
+	kisse.SetPosition(glm::vec2(0, (height - kisse.GetBounds().y) / 2));
 
-	Sprite dickbutt2;
-	dickbutt2.SetTexture("../data/Dickbutt.png");
-	dickbutt2.SetColor(glm::vec3(0.0, 1.0, 0.0));
-	dickbutt2.SetPosition(glm::vec2(width - dickbutt.GetBounds().x, (height - dickbutt.GetBounds().y) / 2));
+	Sprite kisse2;
+	kisse2.SetTexture("../data/textures/kisse.png");
+	kisse2.SetColor(glm::vec3(0.0, 1.0, 0.0));
+	kisse2.SetPosition(glm::vec2(width - kisse.GetBounds().x, (height - kisse.GetBounds().y) / 2));
 
 	Sprite animation;
-	animation.SetAnimation("../data/gems.png", "../data/anim_test.xml");
+	animation.SetAnimation("../data/animations/gems.png", "../data/animations/anim_gems.xml");
 	//animation.SetAnimation("../data/gems.png", glm::vec2(32,32));
 	animation.SetPosition(glm::vec2((width / 2), 250));
 	animation.SetScale(glm::vec2(2,2));
@@ -149,8 +149,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	int score1 = 0, score2 = 0;
 	glm::vec3 color = { 0.01, 0.01, 0.01 };
 
-	Polygon polygon(300, 200, 1, 0, 350, 350, 1.0f, 0.4f, 0.3f, "../data/planet.png");
-	Polygon polygon2(4, 100, 1, 0, 850, 350, 1.0f, 0.4f, 0.3f, "../data/Dickbutt.png");
+	Polygon polygon(300, 200, 1, 0, 350, 350, 1.0f, 0.4f, 0.3f, "../data/textures/planet.png");
+	Polygon polygon2(4, 100, 1, 0, 850, 350, 1.0f, 0.4f, 0.3f, "../data/textures/kisse.png");
 
 	while (!glfwWindowShouldClose(Window))
 	{
@@ -186,52 +186,52 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 			dir.y = 2.0;
 		}
 
-		// Typhlosion törmää dickbuttien sivuihin
-		// Dickbutt1
-		if (dickbutt.GetPosition().y + dickbutt.GetGlobalBounds().y > typhlosion.GetPosition().y && dickbutt.GetPosition().y + dickbutt.GetGlobalBounds().y - 5 < typhlosion.GetPosition().y && dickbutt.GetPosition().x < typhlosion.GetPosition().x && dickbutt.GetPosition().x + dickbutt.GetGlobalBounds().x > typhlosion.GetPosition().x || dickbutt.GetPosition().y + dickbutt.GetGlobalBounds().y > typhlosion.GetPosition().y && dickbutt.GetPosition().y + dickbutt.GetGlobalBounds().y - 5 < typhlosion.GetPosition().y && dickbutt.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && dickbutt.GetPosition().x + dickbutt.GetGlobalBounds().x > typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x)
+		// Typhlosion törmää kisseien sivuihin
+		// kisse1
+		if (kisse.GetPosition().y + kisse.GetGlobalBounds().y > typhlosion.GetPosition().y && kisse.GetPosition().y + kisse.GetGlobalBounds().y - 5 < typhlosion.GetPosition().y && kisse.GetPosition().x < typhlosion.GetPosition().x && kisse.GetPosition().x + kisse.GetGlobalBounds().x > typhlosion.GetPosition().x || kisse.GetPosition().y + kisse.GetGlobalBounds().y > typhlosion.GetPosition().y && kisse.GetPosition().y + kisse.GetGlobalBounds().y - 5 < typhlosion.GetPosition().y && kisse.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && kisse.GetPosition().x + kisse.GetGlobalBounds().x > typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x)
 		{
 			dir.y = 2.0;
 		}
-		else if (dickbutt.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt.GetPosition().y + 5 > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt.GetPosition().x < typhlosion.GetPosition().x && dickbutt.GetPosition().x + dickbutt.GetGlobalBounds().x > typhlosion.GetPosition().x || dickbutt.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt.GetPosition().y + 5 > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && dickbutt.GetPosition().x + dickbutt.GetGlobalBounds().x > typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x)
+		else if (kisse.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && kisse.GetPosition().y + 5 > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && kisse.GetPosition().x < typhlosion.GetPosition().x && kisse.GetPosition().x + kisse.GetGlobalBounds().x > typhlosion.GetPosition().x || kisse.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && kisse.GetPosition().y + 5 > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && kisse.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && kisse.GetPosition().x + kisse.GetGlobalBounds().x > typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x)
 		{
 			dir.y = -2.0;
 		}
-		else if (dickbutt.GetPosition().x + dickbutt.GetGlobalBounds().x > typhlosion.GetPosition().x && dickbutt.GetPosition().y < typhlosion.GetPosition().y && dickbutt.GetPosition().y + dickbutt.GetGlobalBounds().y > typhlosion.GetPosition().y || dickbutt.GetPosition().x + dickbutt.GetGlobalBounds().x > typhlosion.GetPosition().x && dickbutt.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt.GetPosition().y + dickbutt.GetGlobalBounds().y > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y)
+		else if (kisse.GetPosition().x + kisse.GetGlobalBounds().x > typhlosion.GetPosition().x && kisse.GetPosition().y < typhlosion.GetPosition().y && kisse.GetPosition().y + kisse.GetGlobalBounds().y > typhlosion.GetPosition().y || kisse.GetPosition().x + kisse.GetGlobalBounds().x > typhlosion.GetPosition().x && kisse.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && kisse.GetPosition().y + kisse.GetGlobalBounds().y > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y)
 		{
 			dir.x = 2.0;
 		}
 
-		// Typhlosion törmää dickbuttien sivuihin
-		// Dickbutt2
-		if (dickbutt2.GetPosition().y + dickbutt2.GetGlobalBounds().y > typhlosion.GetPosition().y && dickbutt2.GetPosition().y + dickbutt2.GetGlobalBounds().y - 5 < typhlosion.GetPosition().y && dickbutt2.GetPosition().x < typhlosion.GetPosition().x && dickbutt2.GetPosition().x + dickbutt2.GetGlobalBounds().x > typhlosion.GetPosition().x || dickbutt2.GetPosition().y + dickbutt2.GetGlobalBounds().y > typhlosion.GetPosition().y && dickbutt2.GetPosition().y + dickbutt2.GetGlobalBounds().y - 5 < typhlosion.GetPosition().y && dickbutt2.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && dickbutt2.GetPosition().x + dickbutt2.GetGlobalBounds().x > typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x)
+		// Typhlosion törmää kisseien sivuihin
+		// kisse2
+		if (kisse2.GetPosition().y + kisse2.GetGlobalBounds().y > typhlosion.GetPosition().y && kisse2.GetPosition().y + kisse2.GetGlobalBounds().y - 5 < typhlosion.GetPosition().y && kisse2.GetPosition().x < typhlosion.GetPosition().x && kisse2.GetPosition().x + kisse2.GetGlobalBounds().x > typhlosion.GetPosition().x || kisse2.GetPosition().y + kisse2.GetGlobalBounds().y > typhlosion.GetPosition().y && kisse2.GetPosition().y + kisse2.GetGlobalBounds().y - 5 < typhlosion.GetPosition().y && kisse2.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && kisse2.GetPosition().x + kisse2.GetGlobalBounds().x > typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x)
 		{
 			dir.y = 2.0;
 		}
-		else if (dickbutt2.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt2.GetPosition().y + 5 > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt2.GetPosition().x < typhlosion.GetPosition().x && dickbutt2.GetPosition().x + dickbutt2.GetGlobalBounds().x > typhlosion.GetPosition().x || dickbutt2.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt2.GetPosition().y + 5 > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt2.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && dickbutt2.GetPosition().x + dickbutt2.GetGlobalBounds().x > typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x)
+		else if (kisse2.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && kisse2.GetPosition().y + 5 > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && kisse2.GetPosition().x < typhlosion.GetPosition().x && kisse2.GetPosition().x + kisse2.GetGlobalBounds().x > typhlosion.GetPosition().x || kisse2.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && kisse2.GetPosition().y + 5 > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && kisse2.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && kisse2.GetPosition().x + kisse2.GetGlobalBounds().x > typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x)
 		{
 			dir.y = -2.0;
 		}
-		else if (dickbutt2.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && dickbutt2.GetPosition().y < typhlosion.GetPosition().y && dickbutt2.GetPosition().y + dickbutt2.GetGlobalBounds().y > typhlosion.GetPosition().y || dickbutt2.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && dickbutt2.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && dickbutt2.GetPosition().y + dickbutt2.GetGlobalBounds().y > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y)
+		else if (kisse2.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && kisse2.GetPosition().y < typhlosion.GetPosition().y && kisse2.GetPosition().y + kisse2.GetGlobalBounds().y > typhlosion.GetPosition().y || kisse2.GetPosition().x < typhlosion.GetPosition().x + typhlosion.GetGlobalBounds().x && kisse2.GetPosition().y < typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y && kisse2.GetPosition().y + kisse2.GetGlobalBounds().y > typhlosion.GetPosition().y + typhlosion.GetGlobalBounds().y)
 		{
 			dir.x = -2.0;
 		}
 
-		// Dickbutt1 liikkumiset
-		if (dickbutt.GetPosition().y < 0)
+		// kisse1 liikkumiset
+		if (kisse.GetPosition().y < 0)
 		{
 			dir2 = { 0.0, 1.0 };
 		}
-		if (dickbutt.GetPosition().y + dickbutt.GetGlobalBounds().y > height)
+		if (kisse.GetPosition().y + kisse.GetGlobalBounds().y > height)
 		{
 			dir2 = { 0.0, -1.0 };
 		}
 
-		// Dickbutt2 liikkumiset
-		if (dickbutt2.GetPosition().y < 0)
+		// kisse2 liikkumiset
+		if (kisse2.GetPosition().y < 0)
 		{
 			dir3 = { 0.0, 1.0 };
 		}
-		if (dickbutt2.GetPosition().y + dickbutt2.GetGlobalBounds().y > height)
+		if (kisse2.GetPosition().y + kisse2.GetGlobalBounds().y > height)
 		{
 			dir3 = { 0.0, -1.0 };
 		}
@@ -252,19 +252,19 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 
 		typhlosion.Rotate(1);
 		typhlosion.Move(dir);
-		dickbutt.Move(dir2);
-		dickbutt2.Move(dir3);
+		kisse.Move(dir2);
+		kisse2.Move(dir3);
 
 		//renderer3.draw(typhlosion);
-		//renderer3.draw(dickbutt);
-		//renderer3.draw(dickbutt2);
+		//renderer3.draw(kisse);
+		//renderer3.draw(kisse2);
 		//renderer3.draw(tex);
 		//renderer3.draw(tex2);
 		//renderer3.draw(tex3);
 
 		//renderer2.draw(typhlosion);
-		//renderer2.draw(dickbutt);
-		//renderer2.draw(dickbutt2);
+		//renderer2.draw(kisse);
+		//renderer2.draw(kisse2);
 		//renderer2.draw(tex);
 		//renderer2.draw(tex2);
 		//renderer2.draw(tex3);
@@ -272,8 +272,8 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		renderer.Draw(polygon2);
 
 		renderer.Draw(typhlosion);
-		renderer.Draw(dickbutt);
-		renderer.Draw(dickbutt2);
+		renderer.Draw(kisse);
+		renderer.Draw(kisse2);
 		renderer.Draw(tex);
 		renderer.Draw(tex2);
 		renderer.Draw(tex3);
