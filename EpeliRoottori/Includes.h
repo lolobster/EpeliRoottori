@@ -1,6 +1,10 @@
 #define GLM_FORCE_RADIANS
 #define _USE_MATH_DEFINES
 
+// GLEW
+#define GLEW_STATIC
+#include <GL\glew.h>
+
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
@@ -11,9 +15,7 @@
 #include <string>
 #include <math.h>
 
-// GLEW
-#define GLEW_STATIC
-#include <GL\glew.h>
+
 
 // GLFW
 #include <GLFW/glfw3.h>
