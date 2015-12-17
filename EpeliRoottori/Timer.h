@@ -1,41 +1,26 @@
 #ifndef TIMER_H
 #define TIMER_H
 
+// GLEW
 #include "GL\glew.h"
-#include "GLFW\glfw3.h"
 
+// GLFW
+#include "GLFW\glfw3.h"
 
 class Timer
 {
 public:
 	Timer();
-	~Timer(){};
+	~Timer();
 
-	// Returns the Global time in ms.
-	static GLfloat getGlobalTime();
-
-	void setTimer();
-
-	// Returns the local time in ms.
-	GLfloat getLocalTime();
-
-	// Start the timer.
-	GLfloat start();
-
-	// Pause the timer and continue from pause.
-	GLfloat pause();
-
-	// Stop the timer.
-	GLfloat stop();
-
-	// Timer update.
-	void update();
-
-	// Returns whether the timer is started or not.
-	bool isStarted();
-
-	// Returns whether the timer is paused or not.
-	bool isPaused();
+	static GLfloat GetGlobalTime(); // Palauttaa globaalin ajan millisekunneissa
+	void SetTimer();
+	GLfloat GetLocalTime(); // Palauttaa paikallisen ajan millisekunneissa
+	GLfloat Start(); // Aloittaa ajan laskemisen
+	GLfloat Pause(); // Pys‰ytt‰‰ ja jatkaa ajan laskemista
+	GLfloat Stop(); // Pys‰ytt‰‰ ajastimen
+	bool IsStarted(); // Palauttaa arvon, joka kertoo onko ajastin k‰ynniss‰ vai ei
+	bool IsPaused(); // Palauttaa arvon, joka kertoo onko ajastin pys‰ytetty vai ei
 
 private:
 	GLfloat startTime;

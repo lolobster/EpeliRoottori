@@ -1,8 +1,4 @@
-#include <iostream>
 #include "TextureManager.h"
-#include "Renderer.h"
-#include "Shader.h"
-
 
 TextureManager::TextureManager()
 {
@@ -15,7 +11,7 @@ TextureManager::~TextureManager()
 
 }
 
-void TextureManager::loadTextures(const char *filename)
+void TextureManager::LoadTextures(const char *filename)
 {
 	lodepng::load_file(texture_png, filename);
 	unsigned error = lodepng::decode(textures, width, height, texture_png);
@@ -25,7 +21,7 @@ void TextureManager::loadTextures(const char *filename)
 	}
 
 	glGenTextures(1, &id);
-	glBindTexture(GL_TEXTURE_2D, id); //everything we're about to do is about this texture
+	glBindTexture(GL_TEXTURE_2D, id);
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -38,17 +34,17 @@ void TextureManager::loadTextures(const char *filename)
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-GLuint TextureManager::getID()
+GLuint TextureManager::GetID()
 {
 	return id;
 }
 
-unsigned TextureManager::getWidth()
+unsigned TextureManager::GetWidth()
 {
 	return width;
 }
 
-unsigned TextureManager::getHeight()
+unsigned TextureManager::GetHeight()
 {
 	return height;
 }

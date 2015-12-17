@@ -15,47 +15,28 @@ class Camera
 {
 public:
 	Camera(glm::vec2 s);
+	~Camera();
 	
 	void initialize();
-	
-	glm::mat4 getViewMatrix(){
-		MVP = M * V * P;
-		return MVP; };
 
-	void setPosition(glm::vec2 distance);
-	
-	void setScale(GLfloat camScale);
-	//GLfloat getScale()const{ return camRotate; }
-
-	void setRotation(GLfloat angle);
-	//mat4 getRotation(){ return MVP; }
-	
+	void SetPosition(glm::vec2 distance);
+	void SetScale(GLfloat camScale);
+	void SetRotation(GLfloat angle);
 	void SetSize(glm::vec2 s);
 
-
-	~Camera();
+	glm::mat4 GetViewMatrix();
 
 private:
-	glm::vec3 camPos;
-	//vec3 camTarget = vec3(0.0f, 0.0f, 0.0f);
-	//vec3 camDirection = normalize(camPos - camTarget);
+	glm::vec3 camPos, camRight, camUp, camFront;
 
-	//vec3 up = vec3(0.0f, 1.0f, 0.0f);
-	glm::vec3 camRight;
-	glm::vec3 camUp;
-	glm::vec3 camFront;
+	GLfloat camX = 1.0f, camY = 1.0f, camZ = 1.0f;
 
-	GLfloat camX = 1.0f;
-	GLfloat camY = 1.0f;
-	GLfloat camZ = 1.0f;
+	glm::mat4 M; // translaatio
+	glm::mat4 V; // projektio
+	glm::mat4 P; // kohde
+	glm::mat4 MVP; // näkymä
 
-	glm::mat4 M; // translation
-	glm::mat4 V; // projection
-	glm::mat4 P; // target
-	glm::mat4 MVP; // view
-
-	GLfloat camRotate;
-	GLfloat camScale;
+	GLfloat camRotate, camScale;
 	
 	glm::vec2 size;
 };

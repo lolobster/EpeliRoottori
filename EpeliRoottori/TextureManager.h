@@ -8,24 +8,22 @@
 // lodePNG
 #include "lodepng.h"
 
+#include <iostream>
+
 class TextureManager
 {
 public:
 	TextureManager();
-
-	void setTexture();
-	// void deleteTexture();	// tarvihteeko jos destruktorissa voi vapauttaa textuurit?
-	void loadTextures(const char *filename);
-	GLuint getID();
-	unsigned getWidth();
-	unsigned getHeight();
-
 	~TextureManager();
+
+	void LoadTextures(const char *filename);
+	GLuint GetID();
+	unsigned GetWidth();
+	unsigned GetHeight();
 
 private:
 	const char *filename;
-	std::vector<unsigned char> texture_png;
-	std::vector<unsigned char> textures;
+	std::vector<unsigned char> texture_png, textures;
 	unsigned int width = 0, height = 0;
 	GLuint id = 0;
 

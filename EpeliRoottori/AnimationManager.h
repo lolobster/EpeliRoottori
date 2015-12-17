@@ -1,4 +1,3 @@
-#pragma once
 #ifndef ANIMATIONMANAGER_H
 #define ANIMATIONMANAGER_H
 
@@ -6,12 +5,22 @@
 #define GLEW_STATIC
 #include <GL/glew.h>
 
+//GLFW
 #include <GLFW\glfw3.h>
 
+//GLM
 #include <glm\glm.hpp>
 
 // lodePNG
 #include "lodepng.h"
+
+// RapidXML
+#include "RapidXML\rapidxml.hpp"
+
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <string>
 
 #include "Timer.h"
 
@@ -29,10 +38,9 @@ public:
 	AnimationManager();
 	~AnimationManager();
 	
-	void loadAnimation(const char *filename, const std::string& resourcePath);
-	void loadAnimation(const char *filename, glm::vec2 frameSize, float frameDuration);
-
-	void updateAnimation();
+	void LoadAnimation(const char *filename, const std::string& resourcePath);
+	void LoadAnimation(const char *filename, glm::vec2 frameSize, float frameDuration);
+	void UpdateAnimation();
 
 	size_t getNumberOfFrames() const
 	{
@@ -45,7 +53,7 @@ public:
 
 		return frames[index];
 	}
-	Frame getCurrentFrame() // tälle joku päivityshässäkkä
+	Frame getCurrentFrame()
 	{
 		return currentFrame;
 	}
@@ -87,27 +95,19 @@ public:
 		return height;
 	}
 private:
+	Frame currentFrame;
 	Timer timer;
 	AnimationManager *anim;
 	std::vector<Frame> frames;
-	int frameWidth;
-	int frameHeight;
-	int framesInARow;
-	Frame currentFrame;
-	bool loopable;
-
-	const char *filename;
-	int index;
 	GLuint animID;
-	unsigned int width = 0;
-	unsigned int height = 0;
-	unsigned int rows = 0;
-	unsigned int columns = 0;
 
+	unsigned int width = 0, height = 0, rows = 0, columns = 0;
+	int frameWidth, frameHeight, framesInARow, index;
+	bool loopable;
+	const char *filename;
 	float timeElapsed = 0;
 
-	std::vector<unsigned char> anim_png;
-	std::vector<unsigned char> animations;
+	std::vector<unsigned char> anim_png, animations;
 };
 
 #endif

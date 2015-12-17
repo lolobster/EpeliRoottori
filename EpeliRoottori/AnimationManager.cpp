@@ -1,19 +1,18 @@
 #include "AnimationManager.h"
 
-#include "RapidXML\rapidxml.hpp"
-
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
 
 AnimationManager::AnimationManager()
 {
-	timer.start();
+	timer.Start();
 }
 
+AnimationManager::~AnimationManager()
+{
+	frames.clear();
+	delete anim;
+}
 
-void AnimationManager::loadAnimation(const char *filename, const std::string& resourcePath)
+void AnimationManager::LoadAnimation(const char *filename, const std::string& resourcePath) // Lataa animaation kuvatiedoston ja xml tiedoston avulla
 {
 	lodepng::load_file(anim_png, filename);
 	unsigned error = lodepng::decode(animations, width, height, anim_png);
@@ -23,7 +22,7 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 	}
 
 	glGenTextures(1, &animID);
-	glBindTexture(GL_TEXTURE_2D, animID); //everything we're about to do is about this texture
+	glBindTexture(GL_TEXTURE_2D, animID);
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -42,49 +41,47 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 	currentFrame.index = 0;
 	loopable = false;
 
-	// Loads the animation data.
-	rapidxml::xml_document<> document; // The animation data document.
+	// Lataa animaatiodatan
+	rapidxml::xml_document<> document; // Animaatiodata dokumentti
 
-	// Open the file, read the data to the buffer, close the file, create a string from the data and parse it.
+	// Lukee tiedoston, asettaa datan ja sulkee tiedoston
 	std::ifstream file(resourcePath);
 	std::stringstream buffer;
-
 	buffer << file.rdbuf();
-
 	file.close();
 
 	std::string content(buffer.str());
 	document.parse<0>(&content[0]);
 
-	rapidxml::xml_node<>* root = document.first_node(); // Get the root node of xml document.
+	rapidxml::xml_node<>* root = document.first_node();
 
-	// Read frame width and height and load the texture sheet.
+	// Luetaan framejen koko
 	frameWidth = atoi(root->first_attribute("frameWidth")->value());
 	frameHeight = atoi(root->first_attribute("frameHeight")->value());
 
-	framesInARow = width / frameWidth; // Calculate the number of frames in one a row in the texture sheet.
+	// Lasketaan framejen m‰‰r‰ rivi‰ kohden
+	framesInARow = width / frameWidth;
 
 
-	// Read the frames.
+	// Lukee framet
 	for (rapidxml::xml_node<>* i = root->first_node("frame"); i; i = i->next_sibling())
 	{
-
 		Frame frame;
-		frame.duration = static_cast<float>(atoi(i->first_attribute("duration")->value())) / 1000; // Read the duration of frame.
-
-		// Onko animaatio x vai y suuntainen?
-
+		frame.duration = static_cast<float>(atoi(i->first_attribute("duration")->value())) / 1000;
 		index = atoi(i->first_attribute("id")->value());
 
+		// Onko animaatio x vai y suuntainen?
 		int horizontal = atoi(root->first_attribute("horizontal")->value());
 		float texX = 0.0f;
 		float texY = 0.0f;
 
-		if (horizontal) {
+		if (horizontal)
+		{
 			texX = static_cast<float>((index % framesInARow) * frameWidth);
 			texY = static_cast<float>((index / framesInARow) * frameHeight);
 		}
-		else {
+		else
+		{
 			texX = static_cast<float>((index / framesInARow) * frameHeight);
 			texY = static_cast<float>((index % framesInARow) * frameWidth);
 		}
@@ -96,7 +93,7 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 			loopable = true;
 		}
 
-		// Calculate the texture coordinates of the frame.
+		// Laskee framen koordinaatit
 		frame.texCoords.x = texX;
 		frame.texCoords.y = texY;
 		frame.texCoords.z = 0.0f;
@@ -106,11 +103,11 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 
 		frames.push_back(frame);
 	}
-	// index now has the total amount of frames
+	// Indeksiss‰ on framejen m‰‰r‰
 	rows = (index + 1) / framesInARow;
 	columns = framesInARow;
 	
-	// Clear data.
+	// Tyhj‰t‰‰n data
 	content.clear();
 	buffer.clear();
 	document.clear();
@@ -118,7 +115,7 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 	currentFrame = frames[0];
 }
 
-void AnimationManager::loadAnimation(const char *filename, glm::vec2 frameSize, float frameDuration)
+void AnimationManager::LoadAnimation(const char *filename, glm::vec2 frameSize, float frameDuration) // Vaihtoehtoinen tapa ladata animaatio. K‰ytt‰‰ hyv‰kseen kuvatiedostoa, yhden framen kokoa. Toisin kuin xml latauksen kanssa, kaikki framet n‰kyv‰t aina yht‰ kauan
 {
 	lodepng::load_file(anim_png, filename);
 	unsigned error = lodepng::decode(animations, width, height, anim_png);
@@ -128,7 +125,7 @@ void AnimationManager::loadAnimation(const char *filename, glm::vec2 frameSize, 
 	}
 
 	glGenTextures(1, &animID);
-	glBindTexture(GL_TEXTURE_2D, animID); //everything we're about to do is about this texture
+	glBindTexture(GL_TEXTURE_2D, animID);
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
@@ -140,12 +137,14 @@ void AnimationManager::loadAnimation(const char *filename, glm::vec2 frameSize, 
 	animations.clear();
 	glBindTexture(GL_TEXTURE_2D, 0);
 
+	// Ottaa vastaan yhden framen koon ja laskee sen perusteella kuinka monta riviin mahtuu
 	frameWidth = frameSize.x;
 	frameHeight = frameSize.y;
 	framesInARow = width / frameWidth;
 	currentFrame.index = 0;
 	loopable = true;
 
+	// Asettaa framejen tiedot vektoriin
 	for (int i = 0; i < width / frameWidth * height / frameHeight; i++)
 	{
 		Frame frame;
@@ -172,9 +171,9 @@ void AnimationManager::loadAnimation(const char *filename, glm::vec2 frameSize, 
 	currentFrame = frames[0];
 }
 
-void AnimationManager::updateAnimation()
+void AnimationManager::UpdateAnimation() // Hoitaa animaation p‰ivitt‰misen, siirtyy seuraavaan frameen halutun ajan kuluttua
 {
-	if (timer.getGlobalTime() - timeElapsed > currentFrame.duration)
+	if (timer.GetGlobalTime() - timeElapsed > currentFrame.duration)
 	{
 		if (rows > 1)
 		{
@@ -182,37 +181,26 @@ void AnimationManager::updateAnimation()
 			{
 				currentFrame = frames[currentFrame.index + 1];
 			}
-
 			else if (currentFrame.index = frames.size() + 1 && loopable)
 			{
 				currentFrame = frames[0];
 			}
 		}
-
 		else
 		{
 			if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size())
 			{
 				currentFrame = frames[currentFrame.index + 1];
 			}
-
-			//// Jostain syyst‰ ei ota koppia kun framet on k‰yty l‰pi
 			else if (currentFrame.index = frames.size() + 1 && loopable)
 			{
 				currentFrame = frames[0];
 			}
-
 			else
 			{
 				return;
 			}
 		}
-		timeElapsed += timer.getGlobalTime() - timeElapsed;
+		timeElapsed += timer.GetGlobalTime() - timeElapsed;
 	}
-}
-
-AnimationManager::~AnimationManager()
-{
-	frames.clear();
-	delete anim;
 }

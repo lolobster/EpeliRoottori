@@ -32,12 +32,14 @@ class Renderer
 public:
 	Renderer(glm::vec2 s);
 	~Renderer();
-	void draw(Sprite sprite);
-	void draw(TextManager text);
-	void draw(Polygon polygon);
-	void doStuff(); // Pit‰‰ nimet‰ joksikin j‰rkev‰ksi
+	void Draw(Sprite sprite);
+	void Draw(TextManager text);
+	void Draw(Polygon polygon);
 
-	Camera *cam;
+	Camera *camera;
+
+protected:
+	void FinishDrawing();
 
 private:
 	GLuint matrixID;

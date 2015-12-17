@@ -1,17 +1,16 @@
 #include "Renderer.h"
 #include "AnimationManager.h"
 
-Renderer::Renderer(glm::vec2 s)
+Renderer::Renderer(glm::vec2 s) // Ottaa vastaan kameran koon, pääasiassa kannattaa pitää samana kuin ikkunan koko
 {
-	cam = new Camera{ s };
-
+	// Alustaa kameran ja varjostimet
+	camera = new Camera{ s };
 	shader.Init();
+	matrixID = glGetUniformLocation(shader.GetShaderProgram(), "MVP");
+	camera->initialize();
 	glGenBuffers(1, &spriteBuffer);
 	glGenBuffers(1, &spriteElements);
 	glGenTextures(1, &textID);
-
-	matrixID = glGetUniformLocation(shader.GetShaderProgram(), "MVP");
-	cam->initialize();
 }
 
 
@@ -19,7 +18,7 @@ Renderer::~Renderer()
 {
 }
 
-void Renderer::draw(Polygon polygon)
+void Renderer::Draw(Polygon polygon)
 {
 	//Debug
 	//if (timer < 0)
@@ -61,31 +60,11 @@ void Renderer::draw(Polygon polygon)
 	//glDrawArrays(GL_TRIANGLES, 0, 6s);
 }
 
-void Renderer::draw(Sprite sprite)
+void Renderer::Draw(Sprite sprite) // Spriten piirtäminen tapahtuu eri tavalla riippuen siitä onko sillä animaatio vai ei
 {
-	if (sprite.GetIfAnimated() == false)
+	if (sprite.GetIfAnimated()) 
 	{
-		glm::vec2 pos1 = sprite.GetPosition() + glm::rotate(glm::vec2(-sprite.GetGlobalBounds().x / 2.0f, -sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
-		glm::vec2 pos2 = sprite.GetPosition() + glm::rotate(glm::vec2(sprite.GetGlobalBounds().x / 2.0f, -sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
-		glm::vec2 pos3 = sprite.GetPosition() + glm::rotate(glm::vec2(-sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
-		glm::vec2 pos4 = sprite.GetPosition() + glm::rotate(glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
-
-		GLfloat spriteData[] =
-		{
-			// Paikat		// Värit														// Tekstuurien koordinaatit
-			pos1.x, pos1.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 1.0f,
-			pos2.x, pos2.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 1.0f,
-			pos3.x, pos3.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 0.0f,
-			pos4.x, pos4.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 0.0f,
-		};
-
-		glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
-		glBufferData(GL_ARRAY_BUFFER, sizeof(spriteData), spriteData, GL_STATIC_DRAW);
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, sprite.GetTexture());
-	}
-	else
-	{
+		// Lasketaan tekstuurikoordinaatit
 		AnimationManager* manager = sprite.GetAnimationManager();
 		Frame frame = manager->getCurrentFrame();
 
@@ -100,6 +79,7 @@ void Renderer::draw(Sprite sprite)
 		glm::fvec2 bottomLeft = { topLeft.x, sourceBottom / texture_height };
 		glm::fvec2 bottomRight = { topRight.x, bottomLeft.y };
 
+		// Lasketaan pisteiden paikat
 		glm::vec2 pos1 = sprite.GetPosition() + glm::rotate(glm::vec2(-manager->getFrameWidth() * sprite.GetScale().x / 2.0f, -manager->getFrameHeight() * sprite.GetScale().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f);
 		glm::vec2 pos2 = sprite.GetPosition() + glm::rotate(glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, -manager->getFrameHeight() * sprite.GetScale().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f);
 		glm::vec2 pos3 = sprite.GetPosition() + glm::rotate(glm::vec2(-manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(manager->getFrameWidth() * sprite.GetScale().x / 2.0f, manager->getFrameHeight() * sprite.GetScale().y / 2.0f);
@@ -107,7 +87,7 @@ void Renderer::draw(Sprite sprite)
 
 		GLfloat spriteData[] =
 		{
-			// Paikat																									// Värit															// Tekstuurien koordinaatit
+			// Paikat		// Värit													   // Tekstuurien koordinaatit
 			pos1.x, pos1.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, bottomLeft.x, bottomLeft.y,
 			pos2.x, pos2.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, bottomRight.x, bottomRight.y,
 			pos3.x, pos3.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, topLeft.x, topLeft.y,
@@ -119,19 +99,42 @@ void Renderer::draw(Sprite sprite)
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, sprite.GetAnimID());
 	}
+	else
+	{
+		// Lasketaan pisteiden paikat
+		glm::vec2 pos1 = sprite.GetPosition() + glm::rotate(glm::vec2(-sprite.GetGlobalBounds().x / 2.0f, -sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
+		glm::vec2 pos2 = sprite.GetPosition() + glm::rotate(glm::vec2(sprite.GetGlobalBounds().x / 2.0f, -sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
+		glm::vec2 pos3 = sprite.GetPosition() + glm::rotate(glm::vec2(-sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
+		glm::vec2 pos4 = sprite.GetPosition() + glm::rotate(glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f), glm::radians(sprite.GetRotation())) + glm::vec2(sprite.GetGlobalBounds().x / 2.0f, sprite.GetGlobalBounds().y / 2.0f);
 
-	doStuff();
+		GLfloat spriteData[] =
+		{
+			// Paikat		// Värit													   // Tekstuurien koordinaatit
+			pos1.x, pos1.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 1.0f,
+			pos2.x, pos2.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 1.0f,
+			pos3.x, pos3.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 0.0f, 0.0f,
+			pos4.x, pos4.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, 1.0f, 0.0f,
+		};
+
+		glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(spriteData), spriteData, GL_STATIC_DRAW);
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, sprite.GetTexture());
+	}
+
+	FinishDrawing();
 }
 
-void Renderer::draw(TextManager text)
+void Renderer::Draw(TextManager text)
 {
 	if (text.GetError() == false)
 	{
-		float penX = 0, penY = 0;
+		float penX = 0, penY = 0; // Kertovat kuinka paljon eteenpäin kirjainten pitää liikkua
 		FT_GlyphSlot slot = text.GetFace()->glyph;
 
-		for (int i = 0; i < text.GetText().size(); i++)
+		for (int i = 0; i < text.GetText().size(); i++) // Käy tekstin kirjain kirjaimelta läpi
 		{
+			// Tehdään ja asetetaan tekstuuri
 			FT_Load_Char(text.GetFace(), text.GetText()[i], FT_LOAD_RENDER);
 
 			GLubyte* expanded_data = new GLubyte[2 * slot->bitmap.width * slot->bitmap.rows];
@@ -153,7 +156,7 @@ void Renderer::draw(TextManager text)
 			glActiveTexture(GL_TEXTURE0);
 			delete[] expanded_data;
 
-
+			// Lasketaan kirjaimen paikka y-akselilla
 			penY = slot->metrics.vertBearingY / 32 - text.GetCharacterSize();
 
 			if (slot->metrics.height / 64 - slot->metrics.horiBearingY / 64 > 0)
@@ -163,30 +166,27 @@ void Renderer::draw(TextManager text)
 
 			GLfloat textData[] = // Yksittäisen kirjaimen data
 			{
-				// Paikat																																		// Värit													// Tekstuurien koordinaatit
-				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY, text.GetColor().x, text.GetColor().y, text.GetColor().z, 0.0f, 1.0f,
-				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY, text.GetColor().x, text.GetColor().y, text.GetColor().z, 1.0f, 1.0f,
-				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y, text.GetColor().x, text.GetColor().y, text.GetColor().z, 0.0f, 0.0f,
-				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y, text.GetColor().x, text.GetColor().y, text.GetColor().z, 1.0f, 0.0f,
+				// Paikat																																			// Värit												 // Tekstuurien koordinaatit
+				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY,																		text.GetColor().x, text.GetColor().y, text.GetColor().z, 0.0f, 1.0f,
+				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY,												text.GetColor().x, text.GetColor().y, text.GetColor().z, 1.0f, 1.0f,
+				text.GetPosition().x + penX * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y,								text.GetColor().x, text.GetColor().y, text.GetColor().z, 0.0f, 0.0f,
+				text.GetPosition().x + (penX + slot->bitmap.width) * text.GetScale().x, text.GetPosition().y + penY + slot->bitmap.rows * text.GetScale().y,		text.GetColor().x, text.GetColor().y, text.GetColor().z, 1.0f, 0.0f,
 			};
 
-
-
+			// Lasketaan kirjaimen x-koordinaatin muutos
 			penX += slot->advance.x >> 6;
 
 			glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
 			glBufferData(GL_ARRAY_BUFFER, sizeof(textData), textData, GL_STATIC_DRAW);
 
-			doStuff();
+			FinishDrawing();
 		}
 	}
-
-	glm::mat4 MVP = cam->getViewMatrix();
-	glUniformMatrix4fv(matrixID, 1, GL_FALSE, &MVP[0][0]);
 }
 
-void Renderer::doStuff()
+void Renderer::FinishDrawing()
 {
+	// Antaa datan varjostimille
 	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)0);
 	glEnableVertexAttribArray(0);
 	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
@@ -203,9 +203,11 @@ void Renderer::doStuff()
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
 
+	// Piirtäminen
 	shader.Use();
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
-	glm::mat4 MVP = cam->getViewMatrix();
+	// Kameran päivitys
+	glm::mat4 MVP = camera->GetViewMatrix();
 	glUniformMatrix4fv(matrixID, 1, GL_FALSE, &MVP[0][0]);
 }

@@ -1,11 +1,5 @@
 #include "Timer.h"
 
-// lodePNG
-#include "lodepng.h"
-
-
-
-
 Timer::Timer()
 {
 	startTime = 0.0f;
@@ -17,20 +11,24 @@ Timer::Timer()
 	paused = false;
 }
 
-GLfloat Timer::getGlobalTime()
+Timer::~Timer()
+{
+
+}
+
+GLfloat Timer::GetGlobalTime()
 {
 	return static_cast<GLfloat>(glfwGetTime());
 }
 
-void Timer::setTimer()
+void Timer::SetTimer()
 {
 	glfwSetTime(0.0);
 }
 
-GLfloat Timer::getLocalTime()
+GLfloat Timer::GetLocalTime()
 {
 	localTime = 0.0f;
-
 	if (started)
 	{
 		if (paused)
@@ -39,48 +37,48 @@ GLfloat Timer::getLocalTime()
 		}
 		else
 		{
-			localTime = getGlobalTime() - startTime;
+			localTime = GetGlobalTime() - startTime;
 		}
 	}
 	return localTime;
 }
 
-GLfloat Timer::start()
+GLfloat Timer::Start()
 {
 	started = true;
 	paused = false;
 
-	startTime = getGlobalTime();
+	startTime = GetGlobalTime();
 	pauseTime = 0.0f;
 	return startTime;
 }
 
-GLfloat Timer::stop()
+GLfloat Timer::Stop()
 {
 	started = false;
 	paused = false;
 
-	stopTime = getGlobalTime();
+	stopTime = GetGlobalTime();
 
 	startTime = 0.0f;
 	pauseTime = 0.0f;
 	return stopTime;
 }
 
-GLfloat Timer::pause()
+GLfloat Timer::Pause()
 {
-	if (started && paused) // Unpause.
+	if (started && paused) // Jatka
 	{
 		paused = false;
-		startTime = getGlobalTime() - pauseTime;
+		startTime = GetGlobalTime() - pauseTime;
 		pauseTime = 0.0f;
 		return startTime;
 	}
-	else if (started == true && paused == false) // Pause
+	else if (started == true && paused == false) // Pysäytä
 	{
 		paused = true;
 
-		pauseTime = getGlobalTime() - startTime;
+		pauseTime = GetGlobalTime() - startTime;
 		return pauseTime;
 	}
 	else
@@ -89,12 +87,12 @@ GLfloat Timer::pause()
 	}
 }
 
-bool Timer::isStarted()
+bool Timer::IsStarted()
 {
 	return started;
 }
 
-bool Timer::isPaused()
+bool Timer::IsPaused()
 {
 	return paused && started;
 }

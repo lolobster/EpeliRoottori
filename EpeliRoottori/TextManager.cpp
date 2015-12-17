@@ -74,7 +74,6 @@ void TextManager::Scale(glm::vec2 s)
 	scale *= s;
 }
 
-
 void TextManager::Rotate(float a)
 {
 	angle += a;
@@ -120,7 +119,7 @@ FT_Error TextManager::GetError()
 	return error;
 }
 
-glm::vec2 TextManager::GetBounds()
+glm::vec2 TextManager::GetBounds() // Palauttaa tekstin koon
 {
 	float penX = 0, penY = 0;
 	if (error == false)
@@ -130,12 +129,17 @@ glm::vec2 TextManager::GetBounds()
 		{
 			FT_Load_Char(face, text[i], FT_LOAD_RENDER);
 			penX += slot->advance.x >> 6;
+
+			if (slot->bitmap.rows > penY)
+			{
+				penY = slot->bitmap.rows;
+			}
 		}
 	}
 	return glm::vec2(penX, penY);
 }
 
-glm::vec2 TextManager::GetGlobalBounds()
+glm::vec2 TextManager::GetGlobalBounds() // Palauttaa tekstin koon kerrottuna skaalalla
 {
 	float penX = 0, penY = 0;
 	if (error == false)
@@ -145,6 +149,11 @@ glm::vec2 TextManager::GetGlobalBounds()
 		{
 			FT_Load_Char(face, text[i], FT_LOAD_RENDER);
 			penX += slot->advance.x >> 6;
+
+			if (slot->bitmap.rows > penY)
+			{
+				penY = slot->bitmap.rows;
+			}
 		}
 	}
 	return glm::vec2(penX * scale.x, penY * scale.y);
