@@ -126,9 +126,6 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 	typhlosion.SetPosition(glm::vec2((width - typhlosion.GetBounds().x) / 2, (height - typhlosion.GetBounds().y) / 2));
 	typhlosion.SetScale(glm::vec2(0.5, 0.5));
 
-	Sprite typhlosion2;
-	typhlosion2.SetAnimation("../data/Typhlosion2.png", glm::vec2(234, 250), 0.5);
-
 	Sprite dickbutt;
 	dickbutt.SetTexture("../data/Dickbutt.png");
 	dickbutt.SetColor(glm::vec3(0.0, 0.0, 1.0));
@@ -269,7 +266,6 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		//renderer2.draw(tex3);
 
 		renderer.draw(typhlosion);
-		renderer.draw(typhlosion2);
 		renderer.draw(dickbutt);
 		renderer.draw(dickbutt2);
 		renderer.draw(tex);
@@ -277,10 +273,10 @@ void LateTesti(GLFWwindow* Window, const GLuint width, const GLuint height)
 		renderer.draw(tex3);
 		renderer.draw(polygon);
 	
+
 		renderer.draw(animation);
 		animation.GetAnimationManager()->updateAnimation();
 		typhlosion.GetAnimationManager()->updateAnimation();
-		typhlosion2.GetAnimationManager()->updateAnimation();
 		//anima.updateAnimation();
 		/*
 		

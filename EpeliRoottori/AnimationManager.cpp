@@ -70,7 +70,7 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 	{
 
 		Frame frame;
-		frame.duration = static_cast<float>(atoi(i->first_attribute("duration")->value())); // Read the duration of frame.
+		frame.duration = static_cast<float>(atoi(i->first_attribute("duration")->value())) / 1000; // Read the duration of frame.
 
 		// Onko animaatio x vai y suuntainen?
 
@@ -174,16 +174,13 @@ void AnimationManager::loadAnimation(const char *filename, glm::vec2 frameSize, 
 
 void AnimationManager::updateAnimation()
 {
-	//std::cout << timer.getGlobalTime() << std::endl;
 	if (timer.getGlobalTime() - timeElapsed > currentFrame.duration)
 	{
-		std::cout << timer.getGlobalTime() << std::endl;
 		if (rows > 1)
 		{
 			if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size())
 			{
 				currentFrame = frames[currentFrame.index + 1];
-				//std::cout << currentFrame.index << std::endl;
 			}
 
 			else if (currentFrame.index = frames.size() + 1 && loopable)
@@ -197,7 +194,6 @@ void AnimationManager::updateAnimation()
 			if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size())
 			{
 				currentFrame = frames[currentFrame.index + 1];
-				//std::cout << currentFrame.index << std::endl;
 			}
 
 			//// Jostain syystä ei ota koppia kun framet on käyty läpi
