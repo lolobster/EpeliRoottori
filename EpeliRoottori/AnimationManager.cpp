@@ -1,5 +1,5 @@
 #include "AnimationManager.h"
-#include "Timer.h"
+
 #include "RapidXML\rapidxml.hpp"
 
 #include <iostream>
@@ -9,7 +9,7 @@
 
 AnimationManager::AnimationManager()
 {
-
+	timer.start();
 }
 
 
@@ -118,7 +118,7 @@ void AnimationManager::loadAnimation(const char *filename, const std::string& re
 	currentFrame = frames[0];
 }
 
-void AnimationManager::loadAnimation(const char *filename, glm::vec2 frameSize)
+void AnimationManager::loadAnimation(const char *filename, glm::vec2 frameSize, float frameDuration)
 {
 	lodepng::load_file(anim_png, filename);
 	unsigned error = lodepng::decode(animations, width, height, anim_png);
@@ -149,7 +149,7 @@ void AnimationManager::loadAnimation(const char *filename, glm::vec2 frameSize)
 	for (int i = 0; i < width / frameWidth * height / frameHeight; i++)
 	{
 		Frame frame;
-		frame.duration = 0.5;
+		frame.duration = frameDuration;
 
 		float texX = 0.0f;
 		float texY = 0.0f;
@@ -174,45 +174,44 @@ void AnimationManager::loadAnimation(const char *filename, glm::vec2 frameSize)
 
 void AnimationManager::updateAnimation()
 {
-	Timer timer;
-
 	//std::cout << timer.getGlobalTime() << std::endl;
-	if (rows > 1)
+	if (timer.getGlobalTime() - timeElapsed > currentFrame.duration)
 	{
-		if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() > currentFrame.duration)
+		std::cout << timer.getGlobalTime() << std::endl;
+		if (rows > 1)
 		{
-			currentFrame = frames[currentFrame.index + 1];
-			std::cout << currentFrame.index << std::endl;
-			timer.setTimer();
-		}
+			if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size())
+			{
+				currentFrame = frames[currentFrame.index + 1];
+				//std::cout << currentFrame.index << std::endl;
+			}
 
-		else if (currentFrame.index = frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
-		{
-			currentFrame = frames[0];
-			timer.start();
-		}	
-	}
-
-	else
-	{
-		if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size() && timer.getGlobalTime() >= currentFrame.duration)
-		{
-			currentFrame = frames[currentFrame.index + 1];
-			std::cout << currentFrame.index << std::endl;
-			timer.setTimer();
-		}
-
-		//// Jostain syystä ei ota koppia kun framet on käyty läpi
-		else if (currentFrame.index = frames.size() + 1 && loopable && timer.getGlobalTime() >= currentFrame.duration)
-		{
-			currentFrame = frames[0];
-			timer.start();
+			else if (currentFrame.index = frames.size() + 1 && loopable)
+			{
+				currentFrame = frames[0];
+			}
 		}
 
 		else
 		{
-			return;
+			if (currentFrame.index < frames.size() && currentFrame.index + 1 < frames.size())
+			{
+				currentFrame = frames[currentFrame.index + 1];
+				//std::cout << currentFrame.index << std::endl;
+			}
+
+			//// Jostain syystä ei ota koppia kun framet on käyty läpi
+			else if (currentFrame.index = frames.size() + 1 && loopable)
+			{
+				currentFrame = frames[0];
+			}
+
+			else
+			{
+				return;
+			}
 		}
+		timeElapsed += timer.getGlobalTime() - timeElapsed;
 	}
 }
 

@@ -19,78 +19,6 @@ Renderer::~Renderer()
 {
 }
 
-void Renderer::drawAnimation(Sprite anim)
-{
-	AnimationManager* manager = anim.GetAnimationManager();
-	Frame frame = manager->getCurrentFrame();
-
-	float texture_width = manager->GetWidth();
-	float texture_height = manager->GetHeight();
-
-	int numberOfFrames = manager->getNumberOfFrames();
-
-	// TODO: hakekaa FRAME_KOKO! (32 tässä tapauksessa)
-	float sourceRight = frame.texCoords.x + manager->getFrameWidth();//anim.GetAnimBounds().x;
-	float sourceBottom = frame.texCoords.y + manager->getFrameHeight();
-
-	std::cout << manager->getFrameWidth();
-	std::cout << manager->getFrameHeight();
-
-	glm::fvec2 topLeft;
-	topLeft.x = frame.texCoords.x / texture_width;
-	topLeft.y = frame.texCoords.y / texture_height;
-
-	glm::fvec2 topRight;
-	topRight.x = sourceRight / texture_width;
-	topRight.y = frame.texCoords.y / texture_height;
-
-	glm::fvec2 bottomLeft;
-	bottomLeft.x = topLeft.x;
-	bottomLeft.y = sourceBottom / texture_height;
-
-	glm::fvec2 bottomRight;
-	bottomRight.x = topRight.x;
-	bottomRight.y = bottomLeft.y;
-
-	GLfloat spriteData[] =
-	{
-
-		// Paikat																									// Värit															// Tekstuurien koordinaatit
-		anim.GetPosition().x, anim.GetPosition().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topLeft.x, topLeft.y,
-		anim.GetPosition().x + manager->getFrameWidth() * anim.GetScale().x, anim.GetPosition().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, topRight.x, topRight.y,
-		anim.GetPosition().x, anim.GetPosition().y + manager->getFrameHeight()  * anim.GetScale().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomLeft.x, bottomLeft.y,
-		anim.GetPosition().x + manager->getFrameWidth()  * anim.GetScale().x, anim.GetPosition().y + manager->getFrameHeight() * anim.GetScale().y, anim.GetColor().x, anim.GetColor().y, anim.GetColor().z, bottomRight.x, bottomRight.y,
-	};
-
-	glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(spriteData), spriteData, GL_STATIC_DRAW);
-	glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)0);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(2 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 7 * sizeof(GLfloat), (GLvoid*)(5 * sizeof(GLfloat)));
-	glEnableVertexAttribArray(2);
-
-	GLuint elements[] =
-	{
-		0, 1, 2,
-		1, 2, 3
-	};
-
-
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, spriteElements);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(elements), elements, GL_STATIC_DRAW);
-
-	glActiveTexture(GL_TEXTURE0);
-	glBindTexture(GL_TEXTURE_2D, anim.GetAnimID());
-
-	shader.Use();
-	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-
-	glm::mat4 MVP = cam->getViewMatrix();
-	glUniformMatrix4fv(matrixID, 1, GL_FALSE, &MVP[0][0]);
-}
-
 void Renderer::draw(Polygon polygon)
 {
 
@@ -188,10 +116,10 @@ void Renderer::draw(Sprite sprite)
 		GLfloat spriteData[] =
 		{
 			// Paikat																									// Värit															// Tekstuurien koordinaatit
-			pos1.x, pos1.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, topLeft.x, topLeft.y,
-			pos2.x, pos2.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, topRight.x, topRight.y,
-			pos3.x, pos3.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, bottomLeft.x, bottomLeft.y,
-			pos4.x, pos4.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, bottomRight.x, bottomRight.y,
+			pos1.x, pos1.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, bottomLeft.x, bottomLeft.y,
+			pos2.x, pos2.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, bottomRight.x, bottomRight.y,
+			pos3.x, pos3.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, topLeft.x, topLeft.y,
+			pos4.x, pos4.y, sprite.GetColor().x, sprite.GetColor().y, sprite.GetColor().z, topRight.x, topRight.y,
 		};
 
 		glBindBuffer(GL_ARRAY_BUFFER, spriteBuffer);

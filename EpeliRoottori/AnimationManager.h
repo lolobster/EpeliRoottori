@@ -13,6 +13,8 @@
 // lodePNG
 #include "lodepng.h"
 
+#include "Timer.h"
+
 struct Frame
 {
 	float duration;
@@ -28,7 +30,7 @@ public:
 	~AnimationManager();
 	
 	void loadAnimation(const char *filename, const std::string& resourcePath);
-	void loadAnimation(const char *filename, glm::vec2 frameSize);
+	void loadAnimation(const char *filename, glm::vec2 frameSize, float frameDuration);
 
 	void updateAnimation();
 
@@ -85,6 +87,7 @@ public:
 		return height;
 	}
 private:
+	Timer timer;
 	AnimationManager *anim;
 	std::vector<Frame> frames;
 	int frameWidth;
@@ -100,6 +103,8 @@ private:
 	unsigned int height = 0;
 	unsigned int rows = 0;
 	unsigned int columns = 0;
+
+	float timeElapsed = 0;
 
 	std::vector<unsigned char> anim_png;
 	std::vector<unsigned char> animations;

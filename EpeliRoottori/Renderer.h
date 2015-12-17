@@ -35,7 +35,6 @@ public:
 	void draw(Sprite sprite);
 	void draw(TextManager text);
 	void draw(Polygon polygon);
-	void drawAnimation(Sprite anim);
 	void doStuff(); // Pit‰‰ nimet‰ joksikin j‰rkev‰ksi
 
 	Camera *cam;

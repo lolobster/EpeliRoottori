@@ -24,13 +24,13 @@ void Sprite::SetAnimation(const char *filepath, const std::string& resourcePath)
 	animated = true;
 }
 
-void Sprite::SetAnimation(const char *filepath, glm::vec2 frameSize)
+void Sprite::SetAnimation(const char *filepath, glm::vec2 frameSize, float frameDuration)
 {
-	anim.loadAnimation(filepath, frameSize);
+	anim.loadAnimation(filepath, frameSize, frameDuration);
 	animated = true;
 }
 
-AnimationManager* const Sprite::GetAnimationManager() {
+AnimationManager* Sprite::GetAnimationManager() {
 	return &anim;
 }
 
