@@ -1,18 +1,21 @@
 
-#include "EpeliRoottori/AnimationManager.h"
-#include "EpeliRoottori/Camera.h"
-#include "EpeliRoottori/Polygon.h"
-#include "EpeliRoottori/Renderer.h"
-#include "EpeliRoottori/Shader.h"
-#include "EpeliRoottori/TextManager.h"
-#include "EpeliRoottori/TextureManager.h"
-#include "EpeliRoottori/Sprite.h"
+#define GLM_FORCE_PURE
+#include "../EpeliRoottori/AnimationManager.h"
+#include "../EpeliRoottori/Camera.h"
+#include "../EpeliRoottori/Polygon.h"
+#include "../EpeliRoottori/Renderer.h"
+#include "../EpeliRoottori/Shader.h"
+#include "../EpeliRoottori/TextManager.h"
+#include "../EpeliRoottori/TextureManager.h"
+#include "../EpeliRoottori/Sprite.h"
 
 // GLEW
 #define GLEW_STATIC
-#include <3rdparty\include\GL\glew.h>
-#include <3rdparty\include\GLFW\glfw3.h>
-#include <3rdparty\include\glm\glm.hpp>
+#include "../3rdparty/include/GL/glew.h"
+#include "../3rdparty/include/GLFW/glfw3.h"
+#include "../3rdparty/include/glm/glm.hpp"
+
+
 
 // Ikkunan koko
 const GLuint width = 1200, height = 800;

@@ -38,7 +38,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>$(ProjectDir)obj\$(Configuration)\</IntDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -61,16 +63,31 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\..\EpeliRoottori</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\3rdparty\include;$(SolutionDir)\3rdparty\include\freetype-2.6.1\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_MBCS;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>glew32s.lib;glfw3.lib;opengl32.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\Release;$(SolutionDir)\3rdparty\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="..\EpeliRoottori\Release\AnimationManager.obj" />
+    <Object Include="..\EpeliRoottori\Release\Camera.obj" />
+    <Object Include="..\EpeliRoottori\Release\lodepng.obj" />
+    <Object Include="..\EpeliRoottori\Release\Polygon.obj" />
+    <Object Include="..\EpeliRoottori\Release\Renderer.obj" />
+    <Object Include="..\EpeliRoottori\Release\Shader.obj" />
+    <Object Include="..\EpeliRoottori\Release\Sprite.obj" />
+    <Object Include="..\EpeliRoottori\Release\TextManager.obj" />
+    <Object Include="..\EpeliRoottori\Release\TextureManager.obj" />
+    <Object Include="..\EpeliRoottori\Release\Timer.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

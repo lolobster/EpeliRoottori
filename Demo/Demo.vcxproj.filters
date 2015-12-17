@@ -19,4 +19,36 @@
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Object Include="..\EpeliRoottori\Release\Camera.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\EpeliRoottori\Release\lodepng.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\EpeliRoottori\Release\Polygon.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\EpeliRoottori\Release\Renderer.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\EpeliRoottori\Release\Shader.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\EpeliRoottori\Release\Sprite.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\EpeliRoottori\Release\TextManager.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\EpeliRoottori\Release\TextureManager.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\EpeliRoottori\Release\Timer.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="..\EpeliRoottori\Release\AnimationManager.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+  </ItemGroup>
 </Project>
